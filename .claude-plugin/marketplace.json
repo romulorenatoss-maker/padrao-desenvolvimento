@@ -1,0 +1,9 @@
+{
+  "name": "romulo-dev-standard",
+  "owner": {"name": "Romulo Renato"},
+  "plugins": [{
+    "name": "romulo-dev-standard",
+    "source": "./",
+    "description": "Padrao Romulo para desenvolvimento, seguranca, documentacao e verificacao."
+  }]
+}
