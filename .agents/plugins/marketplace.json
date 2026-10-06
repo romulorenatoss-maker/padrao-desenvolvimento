@@ -1,0 +1,11 @@
+{
+  "name": "romulo-dev-standard",
+  "plugins": [{
+    "name": "romulo-dev-standard",
+    "source": {"path": "./"},
+    "interface": {
+      "displayName": "Romulo Dev Standard",
+      "shortDescription": "Padrao de desenvolvimento, seguranca, documentacao e verificacao."
+    }
+  }]
+}
