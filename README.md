@@ -1,37 +1,48 @@
 # Romulo Dev Standard
 
-Padrão central e portátil para desenvolvimento assistido por agentes.
+Padrao central e portatil para todos os projetos do Romulo.
 
 ## Objetivo
-Manter uma única fonte versionada para análise, construção, segurança, documentação, conversão de protótipo para real e verificação. Cada projeto mantém somente sua identidade, autorizações e exceções locais no AGENTS.md.
+Uma unica fonte versionada define arquitetura, analise, inicializacao, construcao, seguranca, documentacao, prototipo para real, verificacao e evolucao do metodo. Cada projeto mantem no AGENTS.md apenas identidade e peculiaridades locais.
 
-## Princípios
+## Arquitetura comum
+Todos os projetos seguem as mesmas responsabilidades conceituais:
+View/interface -> Action/entrada -> Controller -> Service -> Repository/contrato -> Banco.
+
+A stack pode representar essas responsabilidades de forma idiomatica, sem camadas vazias. Regra critica e autorizacao nao ficam apenas no frontend.
+
+## Principios
 - reconhecer antes de criar;
-- preservar a arquitetura real quando correta;
 - responsabilidade antes de pasta;
 - reutilizar antes de duplicar;
-- menor implementação que cumpra integralmente o pedido;
-- segurança no runtime;
-- documentação canônica junto da mudança;
-- evidência antes de declarar pronto;
-- ausência de evidência = NAO_VERIFICADO;
-- nunca transportar dados fictícios de protótipo para produção.
+- criar apenas o necessario para a capacidade real;
+- menor implementacao que cumpra integralmente o pedido;
+- seguranca no runtime;
+- documentacao canonica junto da mudanca;
+- evidencia antes de declarar pronto;
+- ausencia de evidencia = NAO_VERIFICADO;
+- dados ficticios de prototipo nunca vao para producao;
+- diretriz global e alterada no repositorio central, nunca copiada projeto a projeto.
 
 ## Skills
 - romulo-analisar
+- romulo-iniciar-projeto
+- romulo-auditar-projeto
 - romulo-construir
 - romulo-seguranca
 - romulo-documentacao
 - romulo-prototipo-real
 - romulo-verificar
-- romulo-auditar-projeto
+- romulo-evoluir-padrao
 
-Ponytail é um complemento externo obrigatório nas tarefas técnicas quando estiver instalado/disponível. Ele não substitui requisitos, segurança, documentação, testes ou autorização.
+Ponytail e complemento externo para simplificacao. Nao substitui requisito, seguranca, documentacao, teste ou autorizacao.
 
 ## Uso
-Use templates/AGENTS.md no projeto e templates/CLAUDE.md para Claude Code. As skills devem ser instaladas no mecanismo suportado pelo agente; não dependa de leitura remota do GitHub durante cada tarefa.
+Use templates/AGENTS.md no projeto e templates/CLAUDE.md para Claude Code. O AGENTS faz o bootstrap: detecta, orienta/instala o plugin quando possivel, valida as 9 skills e roteia a tarefa.
 
-## Regra de portabilidade
-O padrão não obriga outro sistema a copiar estrutura de pastas. Primeiro reconhece stack, responsabilidades e convenções; só propõe criação quando existir lacuna comprovada.
+Projeto vazio usa romulo-iniciar-projeto. Projeto existente usa romulo-auditar-projeto quando for necessaria analise ampla.
 
-Versão inicial: 1.0.0
+## Evolucao
+Mudanca comum a todos os projetos usa romulo-evoluir-padrao e e feita aqui, na fonte dona da regra. Projetos locais nao devem manter forks de diretrizes globais.
+
+Versao: 1.1.0
