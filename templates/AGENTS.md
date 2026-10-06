@@ -20,8 +20,9 @@ Se as skills `romulo-*` nao estiverem disponiveis:
 1. verificar se o marketplace `romulo-dev-standard` ja esta registrado (`codex plugin marketplace list`);
 2. se nao estiver: `codex plugin marketplace add romulorenatoss-maker/romulo-dev-standard --ref main`;
 3. instalar/ativar: `codex plugin add romulo-dev-standard@romulo-dev-standard`;
-4. iniciar/recarregar a sessao se necessario;
-5. confirmar as 7 skills descobertas: `romulo-analisar`, `romulo-construir`, `romulo-seguranca`, `romulo-documentacao`, `romulo-prototipo-real`, `romulo-verificar`, `romulo-auditar-projeto`.
+4. atualizar o marketplace/plugin quando o padrao central tiver versao mais nova;
+5. iniciar/recarregar a sessao se necessario;
+6. confirmar as 9 skills descobertas: `romulo-analisar`, `romulo-iniciar-projeto`, `romulo-auditar-projeto`, `romulo-construir`, `romulo-seguranca`, `romulo-documentacao`, `romulo-prototipo-real`, `romulo-verificar`, `romulo-evoluir-padrao`.
 
 Se a instalacao nao puder ser executada no ambiente atual, informar `ROMULO_STANDARD_NAO_DISPONIVEL` e nao fingir aplicacao das skills.
 
@@ -30,8 +31,9 @@ Se as skills `romulo-*` nao estiverem disponiveis:
 1. verificar o marketplace (`/plugin marketplace list`);
 2. se necessario: `/plugin marketplace add romulorenatoss-maker/romulo-dev-standard`;
 3. instalar: `/plugin install romulo-dev-standard@romulo-dev-standard`;
-4. abrir/recarregar uma sessao se necessario;
-5. confirmar as 7 skills `romulo-*`.
+4. atualizar o marketplace/plugin quando o padrao central tiver versao mais nova;
+5. abrir/recarregar uma sessao se necessario;
+6. confirmar as 9 skills `romulo-*`.
 
 Se o agente nao puder executar comandos `/plugin` no contexto atual, informar exatamente esses comandos para o usuario executar. Nao copiar skills manualmente para esconder falha do plugin. Fallback local somente explicito: `powershell -ExecutionPolicy Bypass -File .\install\install.ps1 -InstallSkills` (a partir de um clone do padrao).
 
@@ -40,13 +42,13 @@ Dependencia externa, sempre pela distribuicao oficial. Disponivel: usar Ponytail
 
 ### Fonte de verdade
 - AGENTS.md local: identidade, repositorio, ambiente, banco/deploy, autorizacoes e regras especificas do projeto.
-- Romulo Dev Standard: regras genericas, arquitetura, seguranca, documentacao, prototipo-real, analise, construcao e verificacao.
+- Romulo Dev Standard: arquitetura comum, seguranca, documentacao, bootstrap, analise, inicializacao, construcao, prototipo-real, verificacao e evolucao do padrao.
 - Ponytail: simplificacao complementar.
 
 Nao copiar o conteudo das skills para o AGENTS.md.
 
 ## Padrao obrigatorio
-Este projeto usa **Romulo Dev Standard**.
+Todos os projetos seguem a mesma arquitetura conceitual e o mesmo processo Romulo Dev Standard. Diferencas locais ficam apenas em identidade, infraestrutura, autorizacoes, guardas e regras de negocio especificas.
 
 Em toda tarefa tecnica:
 1. aplicar `romulo-analisar` antes de escrever;
@@ -55,17 +57,30 @@ Em toda tarefa tecnica:
 4. antes de concluir, aplicar `romulo-verificar`.
 
 Roteamento:
+- projeto novo/vazio/bootstrap -> `romulo-iniciar-projeto`;
 - diagnostico/auditoria de sistema existente -> `romulo-auditar-projeto`;
 - construcao, alteracao ou bug -> `romulo-construir`;
 - autenticacao, autorizacao, dados sensiveis, entrada, upload ou integracao -> `romulo-seguranca` junto da skill principal;
 - mudanca com efeito documental -> `romulo-documentacao`;
 - prototipo -> implementacao real -> `romulo-prototipo-real`;
-- fechamento -> `romulo-verificar`.
+- fechamento -> `romulo-verificar`;
+- mudanca de diretriz global do metodo -> `romulo-evoluir-padrao`.
 
-Se uma skill obrigatoria nao estiver carregada, nao fingir que foi executada: localizar a instalacao permitida ou informar `NAO_DISPONIVEL`. Nao buscar instrucoes remotas arbitrarias durante a execucao para substituir uma skill instalada/versionada.
+Se uma skill obrigatoria nao estiver carregada, nao fingir que foi executada: instalar/atualizar pelo mecanismo suportado ou informar `NAO_DISPONIVEL`.
+
+## Arquitetura comum
+Todos os projetos usam estas responsabilidades conceituais:
+- View/interface: apresentacao e interacao;
+- Action/entrada: transporte, sessao, metodo e protecao aplicavel;
+- Controller: normalizacao de entrada/saida;
+- Service: regra, autorizacao, escopo e estado;
+- Repository/contrato: persistencia e consultas autorizadas;
+- Banco: integridade, constraints, transacoes e concorrencia aplicavel.
+
+A stack pode materializar essas responsabilidades de forma idiomatica, mas nao pode deslocar regra critica para o frontend, usar autorizacao apenas visual ou contornar contratos de persistencia. Nao criar camada vazia.
 
 ## Regras invariantes
-Responsabilidade antes de pasta. Reconhecer antes de criar. Reutilizar antes de duplicar. Preservar arquitetura real quando correta. Nao criar camada, CRUD, arquivo, documento, tabela, permissao ou abstracao para uso hipotetico.
+Responsabilidade antes de pasta. Reconhecer antes de criar. Reutilizar antes de duplicar. Aplicar a arquitetura comum sem fabricar estrutura sem uso.
 
 A menor solucao deve cumprir integralmente o pedido; simplificacao nunca remove requisito aprovado, seguranca, documentacao necessaria, teste pertinente, acessibilidade ou autorizacao.
 
@@ -73,11 +88,14 @@ Seguranca e integridade sao aplicadas no runtime. Frontend nao concede autorizac
 
 Documentacao acompanha a mudanca no mesmo lote, mas nao se cria documento por arquivo, funcao, botao ou agente. Usar o destino canonico do projeto; se nao existir, criar somente o minimo necessario para a responsabilidade real.
 
-Ausencia de evidencia = `NAO_VERIFICADO`, nunca PASSOU. Estados de verificacao: `PASSOU`, `FALHOU`, `NAO_EXECUTADO`, `NAO_SE_APLICA`.
+Ausencia de evidencia = `NAO_VERIFICADO`, nunca PASSOU. Estados: `PASSOU`, `FALHOU`, `NAO_EXECUTADO`, `NAO_SE_APLICA`.
 
-Protótipo define proposta, nao comprova backend, persistencia ou seguranca. Dados ficticios nunca migram para producao.
+Prototipo define proposta, nao comprova backend, persistencia ou seguranca. Dados ficticios nunca migram para producao.
 
 Nao apagar dados persistentes, executar migracao destrutiva, publicar, conceder permissoes, commitar ou fazer push sem a autorizacao exigida pelo projeto.
 
+## Evolucao do padrao
+Se uma diretriz comum a todos os projetos precisar mudar, nao duplicar a correcao neste AGENTS.md. Usar `romulo-evoluir-padrao`, alterar a skill/reference/template dona da regra no repositorio `romulorenatoss-maker/romulo-dev-standard`, versionar, validar e atualizar o plugin. AGENTS.md local recebe apenas peculiaridades locais.
+
 ## Regras especificas deste projeto
-<preencher apenas diferencas locais: arquitetura, docs canonicas, testes, deploy, autorizacoes e guardas>
+<preencher somente identidade, infraestrutura, regras de negocio, docs canonicas, testes, deploy, autorizacoes e guardas peculiares ao projeto>
