@@ -23,6 +23,12 @@ Nao corrigir uma regra global copiando ou divergindo texto em AGENTS.md de proje
 9. confirmar que uma sessao nova descobre a versao e as skills esperadas;
 10. somente depois ajustar AGENTS locais quando houver peculiaridade ou migracao necessaria.
 
+## Fonte unica
+
+Ao mudar uma regra global: `romulo-evoluir-padrao` -> identificar a fonte dona -> alterar a skill/reference/template correta -> atualizar outros artefatos somente se forem consumidores daquela regra -> versionar -> validar -> publicar.
+
+Nao manter duas copias completas da mesma especificacao. `AGENTS.md` da raiz governa este repositorio; `templates/AGENTS.md` e o contrato distribuido aos projetos.
+
 ## Regra de propriedade
 
 - comportamento comum a todos os projetos -> skill/reference central;
