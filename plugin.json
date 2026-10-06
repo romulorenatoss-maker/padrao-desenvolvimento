@@ -1,6 +1,6 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "romulo-dev-standard",
-  "version": "1.0.0",
-  "description": "Padrao portatil de desenvolvimento: analise, construcao, seguranca, documentacao, prototipo para real e verificacao."
+  "version": "1.1.0",
+  "description": "Padrao unico para projetos Romulo: bootstrap, inicializacao, arquitetura, seguranca, documentacao, prototipo-real, verificacao e evolucao."
 }
