@@ -35,7 +35,7 @@ A stack pode representar essas responsabilidades de forma idiomatica, sem camada
 - romulo-verificar
 - romulo-evoluir-padrao
 
-Ponytail e complemento externo para simplificacao. Nao substitui requisito, seguranca, documentacao, teste ou autorizacao.
+Ponytail (`DietrichGebert/ponytail`) e complemento externo para simplificacao, instalado no bootstrap (ver INSTALL.md). Nao substitui requisito, seguranca, documentacao, teste ou autorizacao.
 
 ## Uso
 Use templates/AGENTS.md no projeto e templates/CLAUDE.md para Claude Code. O AGENTS faz o bootstrap: detecta, orienta/instala o plugin quando possivel, valida as 9 skills e roteia a tarefa.
@@ -45,4 +45,4 @@ Projeto vazio usa romulo-iniciar-projeto. Projeto existente usa romulo-auditar-p
 ## Evolucao
 Mudanca comum a todos os projetos usa romulo-evoluir-padrao e e feita aqui, na fonte dona da regra. Projetos locais nao devem manter forks de diretrizes globais.
 
-Versao: 1.2.0
+Versao: 1.3.0

@@ -8,7 +8,14 @@ codex plugin marketplace add romulorenatoss-maker/romulo-dev-standard --ref main
 codex plugin add romulo-dev-standard@romulo-dev-standard
 codex plugin list
 ```
-Abra nova sessao para descoberta das skills.
+Confirme `romulo-dev-standard@romulo-dev-standard` installed e enabled. Abra nova sessao para descoberta das skills.
+
+Ponytail:
+```
+codex plugin marketplace add DietrichGebert/ponytail
+codex plugin add ponytail@ponytail
+```
+Abra `/hooks`, revise e confie nos hooks do Ponytail, e inicie nova thread/sessao.
 
 Atualizar:
 ```
@@ -17,10 +24,18 @@ codex plugin add romulo-dev-standard@romulo-dev-standard
 ```
 
 ## Claude Code
-Numa sessao interativa:
+Numa sessao interativa, um comando por vez:
 ```
 /plugin marketplace add romulorenatoss-maker/romulo-dev-standard
+```
+```
 /plugin install romulo-dev-standard@romulo-dev-standard
+```
+```
+/plugin marketplace add DietrichGebert/ponytail
+```
+```
+/plugin install ponytail@ponytail
 ```
 Reinicie a sessao.
 
@@ -62,7 +77,10 @@ powershell -ExecutionPolicy Bypass -File .\install\install.ps1 -ProjectPath C:\c
 ```
 
 ## Ponytail
-Dependencia externa pela distribuicao oficial. Usar modo `full` quando disponivel. Indisponivel: `PONYTAIL_NAO_DISPONIVEL`.
+Dependencia externa: `DietrichGebert/ponytail` (comandos acima por plataforma). Modo `full` por padrao em toda tarefa tecnica. Indisponivel: `PONYTAIL_NAO_DISPONIVEL`.
+
+## Fluxo do agente
+O mesmo para Codex e Claude Code, definido em `templates/AGENTS.md` (secao Bootstrap): detectar plataforma, verificar padrao e Ponytail carregados, instalar automaticamente quando permitido, senao mostrar os comandos e parar, exigir nova sessao, confirmar as 9 skills.
 
 ## Evolucao do padrao
 Diretriz global nova/corrigida usa `romulo-evoluir-padrao`: editar a fonte central dona da regra, versionar, validar manifests/skills, publicar e atualizar consumidores. Nao copiar regra global em varios AGENTS.md.

@@ -8,42 +8,66 @@ AMBIENTE_PRODUCAO: <quando aplicavel>
 
 Antes de qualquer escrita, confirmar projeto, repositorio, branch e ambiente atingido. Divergencia bloqueia a operacao afetada. Segredos nunca entram em codigo, documentacao, prompt, log ou Git.
 
-## Bootstrap obrigatorio do padrao
-Repositorio oficial do padrao: https://github.com/romulorenatoss-maker/romulo-dev-standard
+## Bootstrap obrigatorio (Codex e Claude Code, mesmo fluxo)
+Padrao: https://github.com/romulorenatoss-maker/romulo-dev-standard
+Ponytail: https://github.com/DietrichGebert/ponytail
 
-Antes de qualquer tarefa tecnica, verificar se Romulo Dev Standard e Ponytail estao realmente disponiveis na sessao. Skill existente no GitHub ou no filesystem nao conta como instalada; conta somente a skill descoberta/carregada pelo agente.
+Antes de qualquer tarefa tecnica, nesta ordem:
+1. detectar a plataforma: Codex ou Claude Code;
+2. verificar se as 9 skills `romulo-*` estao carregadas na sessao;
+3. verificar se Ponytail esta carregado na sessao;
+4. faltando algo: instalar automaticamente com os comandos da plataforma (abaixo), cada comando separado;
+5. sem permissao para executar: mostrar somente os comandos da plataforma e PARAR;
+6. apos instalar/atualizar: pedir nova sessao/reload e PARAR ate ela abrir;
+7. continuar somente depois de confirmar nominalmente as skills carregadas.
 
-Se o padrao ja estiver carregado na versao adequada, NAO reinstalar. O bootstrap garante disponibilidade; nao repete instalacao a cada tarefa.
+Arquivo no GitHub ou no disco nao conta: vale somente skill descoberta/carregada pela sessao. Ja carregado na versao adequada: nao reinstalar. Procedimento documentado: nao perguntar como instalar.
 
 ### Codex
-Se as skills `romulo-*` nao estiverem disponiveis:
-1. verificar se o marketplace `romulo-dev-standard` ja esta registrado (`codex plugin marketplace list`);
-2. se nao estiver: `codex plugin marketplace add romulorenatoss-maker/romulo-dev-standard --ref main`;
-3. instalar/ativar: `codex plugin add romulo-dev-standard@romulo-dev-standard`;
-4. atualizar o marketplace/plugin quando o padrao central tiver versao mais nova;
-5. iniciar/recarregar a sessao se necessario;
-6. confirmar as 9 skills descobertas: `romulo-analisar`, `romulo-iniciar-projeto`, `romulo-auditar-projeto`, `romulo-construir`, `romulo-seguranca`, `romulo-documentacao`, `romulo-prototipo-real`, `romulo-verificar`, `romulo-evoluir-padrao`.
-
-Se a instalacao nao puder ser executada no ambiente atual, informar `ROMULO_STANDARD_NAO_DISPONIVEL` e nao fingir aplicacao das skills.
+Padrao:
+```
+codex plugin marketplace add romulorenatoss-maker/romulo-dev-standard --ref main
+codex plugin add romulo-dev-standard@romulo-dev-standard
+codex plugin list
+```
+Confirmar `romulo-dev-standard@romulo-dev-standard` installed e enabled. Versao mais nova:
+```
+codex plugin marketplace upgrade romulo-dev-standard
+codex plugin add romulo-dev-standard@romulo-dev-standard
+```
+Ponytail:
+```
+codex plugin marketplace add DietrichGebert/ponytail
+codex plugin add ponytail@ponytail
+```
+Depois: abrir `/hooks`, revisar e confiar nos hooks do Ponytail, iniciar nova thread/sessao.
 
 ### Claude Code
-Se as skills `romulo-*` nao estiverem disponiveis:
-1. verificar o marketplace (`/plugin marketplace list`);
-2. se necessario: `/plugin marketplace add romulorenatoss-maker/romulo-dev-standard`;
-3. instalar: `/plugin install romulo-dev-standard@romulo-dev-standard`;
-4. atualizar o marketplace/plugin quando o padrao central tiver versao mais nova;
-5. abrir/recarregar uma sessao se necessario;
-6. confirmar as 9 skills `romulo-*`.
+Um comando por vez:
+```
+/plugin marketplace add romulorenatoss-maker/romulo-dev-standard
+```
+```
+/plugin install romulo-dev-standard@romulo-dev-standard
+```
+```
+/plugin marketplace add DietrichGebert/ponytail
+```
+```
+/plugin install ponytail@ponytail
+```
+Versao mais nova: `/plugin marketplace update romulo-dev-standard`. Depois: reiniciar/recarregar a sessao.
 
-Se o agente nao puder executar comandos `/plugin` no contexto atual, informar exatamente esses comandos para o usuario executar. Nao copiar skills manualmente para esconder falha do plugin. Fallback local somente explicito: `powershell -ExecutionPolicy Bypass -File .\install\install.ps1 -InstallSkills` (a partir de um clone do padrao).
+### Confirmacao
+Skills obrigatorias: `romulo-analisar`, `romulo-iniciar-projeto`, `romulo-auditar-projeto`, `romulo-construir`, `romulo-seguranca`, `romulo-documentacao`, `romulo-prototipo-real`, `romulo-verificar`, `romulo-evoluir-padrao`.
+- qualquer uma faltando: `ROMULO_STANDARD_NAO_DISPONIVEL`; nao agir como se o padrao estivesse ativo;
+- Ponytail indisponivel: `PONYTAIL_NAO_DISPONIVEL`; nao fingir execucao.
 
-### Ponytail
-Dependencia externa, sempre pela distribuicao oficial. Disponivel: usar Ponytail `full`. Indisponivel: informar `PONYTAIL_NAO_DISPONIVEL`, nao fingir execucao e seguir somente se as regras locais permitirem.
+Bloqueio so de instalacao: mostrar os comandos primeiro, sem explicacao longa. Nao copiar skills manualmente para esconder falha do plugin.
 
 ### Fonte de verdade
-- AGENTS.md local: identidade, repositorio, ambiente, banco/deploy, autorizacoes e regras especificas do projeto.
-- Romulo Dev Standard: arquitetura comum, seguranca, documentacao, bootstrap, analise, inicializacao, construcao, prototipo-real, verificacao e evolucao do padrao.
-- Ponytail: simplificacao complementar.
+- AGENTS.md local: somente peculiaridades do projeto (identidade, repositorio, ambiente, banco/deploy, autorizacoes, regras de negocio).
+- Romulo Dev Standard: metodo comum. Ponytail: simplificacao complementar.
 
 Nao copiar o conteudo das skills para o AGENTS.md.
 
@@ -52,7 +76,7 @@ Todos os projetos seguem a mesma arquitetura conceitual e o mesmo processo Romul
 
 Em toda tarefa tecnica:
 1. aplicar `romulo-analisar` antes de escrever;
-2. aplicar Ponytail `full` quando instalado/disponivel;
+2. aplicar Ponytail `full` (padrao em toda tarefa tecnica);
 3. aplicar a skill Romulo correspondente ao tipo da operacao;
 4. antes de concluir, aplicar `romulo-verificar`.
 
@@ -65,6 +89,8 @@ Roteamento:
 - prototipo -> implementacao real -> `romulo-prototipo-real`;
 - fechamento -> `romulo-verificar`;
 - mudanca de diretriz global do metodo -> `romulo-evoluir-padrao`.
+
+Projeto vazio/sem estrutura funcional: `romulo-iniciar-projeto`, criando somente o necessario para a primeira capacidade real. Projeto existente: nao criar estrutura; `romulo-analisar` (ou `romulo-auditar-projeto` se amplo), preservar o que esta conforme e corrigir somente lacunas comprovadas.
 
 Se uma skill obrigatoria nao estiver carregada, nao fingir que foi executada: instalar/atualizar pelo mecanismo suportado ou informar `NAO_DISPONIVEL`.
 
@@ -95,7 +121,7 @@ Prototipo define proposta, nao comprova backend, persistencia ou seguranca. Dado
 Nao apagar dados persistentes, executar migracao destrutiva, publicar, conceder permissoes, commitar ou fazer push sem a autorizacao exigida pelo projeto.
 
 ## Evolucao do padrao
-Se uma diretriz comum a todos os projetos precisar mudar, nao duplicar a correcao neste AGENTS.md. Usar `romulo-evoluir-padrao`, alterar a skill/reference/template dona da regra no repositorio `romulorenatoss-maker/romulo-dev-standard`, versionar, validar e atualizar o plugin. AGENTS.md local recebe apenas peculiaridades locais.
+Se uma diretriz comum a todos os projetos precisar mudar, nao alterar varios AGENTS.md. Usar `romulo-evoluir-padrao`, alterar primeiro a skill/reference/template dona da regra em `romulorenatoss-maker/romulo-dev-standard`, versionar, validar, publicar e atualizar o plugin nos consumidores. AGENTS.md local recebe apenas peculiaridades locais.
 
 ## Regras especificas deste projeto
 <preencher somente identidade, infraestrutura, regras de negocio, docs canonicas, testes, deploy, autorizacoes e guardas peculiares ao projeto>
