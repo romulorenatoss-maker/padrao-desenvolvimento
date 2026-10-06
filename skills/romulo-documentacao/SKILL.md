@@ -16,3 +16,7 @@ Registre fatos comprovados e decisoes aprovadas. Nao marque como real o que e pr
 No fechamento deve ser possivel seguir, conforme aplicavel: artefato -> responsabilidade/identidade -> mapa ou documento dono -> consumidores pertinentes, e o inverso necessario para manutencao.
 
 Mudanca interna sem efeito no conhecimento canonico nao exige reescrita artificial; registre/verifique somente quando o instrumento local exigir evidencia de fechamento.
+
+Nao criar arquivo de memoria, resumo paralelo, documentacao de governanca ou pasta `agents/`. O Git preserva historico; a documentacao canonica preserva o estado necessario.
+
+Se o modulo ainda nao tem destino documental durante construcao autorizada, criar somente os documentos necessarios a capacidade que nasce; nunca arvore documental vazia.

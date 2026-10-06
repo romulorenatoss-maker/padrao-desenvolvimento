@@ -45,4 +45,4 @@ Projeto vazio usa romulo-iniciar-projeto. Projeto existente usa romulo-auditar-p
 ## Evolucao
 Mudanca comum a todos os projetos usa romulo-evoluir-padrao e e feita aqui, na fonte dona da regra. Projetos locais nao devem manter forks de diretrizes globais.
 
-Versao: 1.1.0
+Versao: 1.2.0

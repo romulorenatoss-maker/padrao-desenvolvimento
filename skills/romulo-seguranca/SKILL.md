@@ -16,3 +16,5 @@ Permissao nova nao implica concessao automatica. Mudanca destrutiva exige identi
 Teste proporcionalmente tanto o caminho permitido quanto a recusa relevante quando a garantia de acesso mudou.
 
 Nunca exponha segredos em resposta, commit, log ou documentacao.
+
+Reutilizar controles centrais por referencia; nao repetir politica generica em cada modulo. Campo do cliente nao comprova permissao, empresa, preco, credito, saldo ou MFA.

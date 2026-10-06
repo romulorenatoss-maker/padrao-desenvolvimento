@@ -18,3 +18,12 @@ Na versao real, sem cadastro real autorizado, mostre estado vazio. Nao invente f
 Mantenha como PENDENTE/NAO_VERIFICADO tudo que nao foi construido, testado ou publicado. Codigo local pronto nao significa producao ativa.
 
 Antes de marcar REAL, retire fontes ficticias da cadeia publicada, teste o backend pertinente e confirme a separacao de dados.
+
+## Complementos
+Quando o usuario pedir exemplo de interface no chat, apresentar prototipo visual interativo e responsivo do recorte (campos, abas, estados e interacoes), nao desenho em texto. Apos aprovacao, implementar fielmente; divergencia exige aprovacao previa.
+
+Campo so vem preenchido no real quando o valor foi efetivamente registrado e continua valido e autorizado; nunca selecionar opcao automaticamente. Verificar o cenario sem cadastro e confirmar que nenhum dado do prototipo foi gravado no banco oficial.
+
+Opcao ficticia encontrada no real exige rastrear e corrigir a origem; nao autoriza apagar cadastros legitimos ou historico.
+
+Nao apagar proposta aprovada pendente porque outra parte foi publicada.

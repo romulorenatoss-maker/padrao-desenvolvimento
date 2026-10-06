@@ -18,3 +18,12 @@ Classifique fatos como COMPROVADO, PARCIAL, NAO_DESCOBERTO ou NAO_SE_APLICA. Bus
 Nao crie plano em arquivo. Nao abra auditoria global para uma tarefa local. Nao transforme convencao deste padrao em estrutura obrigatoria quando o projeto possui equivalente correto.
 
 Quando Ponytail estiver instalado/disponivel, use-o em modo full para procurar complexidade desnecessaria, sem reduzir requisito, seguranca, documentacao ou teste.
+
+## Alcance e leitura
+Consultar, documentar, prototipar, construir, alterar banco, commitar, publicar e remover dados sao autorizacoes diferentes. Nao ampliar alcance por inferencia.
+
+Nunca usar banco, repositorio, deploy ou credencial de outro projeto por suposicao. Divergencia de identidade/ambiente bloqueia a operacao afetada.
+
+Perguntar somente por decisao de negocio ausente, conflito real ou operacao destrutiva que exija autorizacao. Nao perguntar onde salvar ou qual camada usar quando o padrao existente responde.
+
+Nao ler inventario, banco, modulos, testes ou docs inteiros por rotina; ampliar somente por dependencia encontrada. Nao repetir leitura, analise ou evidencia ainda valida. Nao transcrever arquivos, inventarios ou logs inteiros na conversa.
