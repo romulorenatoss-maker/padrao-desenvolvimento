@@ -1,57 +1,36 @@
 ---
 name: romulo-verificar
-description: Use obrigatoriamente antes de declarar concluida qualquer tarefa tecnica para confrontar o que foi pedido, o que mudou, documentacao, seguranca, consumidores e evidencias executadas.
+description: "Use antes de encerrar tarefa tecnica para verificar escopo, arquivos previstos/autorizados, comportamento, visual, documentacao, seguranca, consumidores e evidencias executadas."
 ---
 
 # Romulo Verificar
 
-Verifique proporcionalmente ao efeito real, nao por quantidade de arquivos.
+Verificar proporcionalmente ao efeito, nao a quantidade de arquivos. Confrontar alcance autorizado, pedido/decisao aprovada, diff, consumidores, contratos, seguranca e documentacao. Estados de verificacao: PASSOU, FALHOU, NAO_EXECUTADO ou NAO_SE_APLICA. Ausencia de evidencia nao e PASSOU; nao declarar ausencia universal de defeitos.
 
-Confronte:
-- alcance autorizado versus diff/artefatos alterados;
-- comportamento entregue versus pedido e decisao aprovada;
-- novos artefatos versus dono, consumidor e necessidade;
-- documentacao canonica versus versao entregue;
-- contratos compartilhados versus consumidores atingidos;
-- seguranca/integridade pertinentes;
-- testes realmente executados e seus resultados;
-- estado local, commit, push e deploy sem confundi-los.
+## Arquivos, nomes e autorizacoes
+Reconciliar cada arquivo criado/alterado/removido/renomeado no candidato e os novos arquivos nao rastreados pertinentes ao trabalho. Confrontar previsao da skill/reference e necessidade com o gate de `romulo-analisar`; sem previsao, exigir evidencia do 0393 especifico antes de criar, nao autorizacao retroativa presumida. Diretorio vazio ou artefato sem finalidade/consumidor falha.
 
-Use somente PASSOU, FALHOU, NAO_EXECUTADO ou NAO_SE_APLICA para verificacoes. Ausencia de teste nunca vira PASSOU.
+Confirmar sumario central consultado, fontes coerentes na mesma revisao e destinations canonicos. Bootstrap/migracao: AGENTS local minimo sem catalogo duplicado, ponte CLAUDE pertinente, nenhuma peculiaridade/guarda perdida, links de destino validos e autorizacao para alterar protegido. Nao afirmar que mudar o arquivo carregou o plugin/sessao.
 
-Se algo obrigatorio falhar, corrija a causa e repita a verificacao afetada. Nao esconda pendencia para produzir conclusao positiva.
+## Aceite por efeito
+- Docs: links/IDs/donos correspondem a fatos e consumidores.
+- Bug: cenario que falhava passa; dependencia compartilhada permanece valida.
+- Backend/acesso: efeito/contrato real e caminho permitido/recusa pertinentes.
+- Pagamento/saldo/estoque/repeticao: integridade, concorrencia, idempotencia e recuperacao quando a garantia mudou.
+- Migration/remocao: ensaio, integridade, preservacao/recuperacao e autorizacao.
+- Interface: proposta de `romulo-especificar` e revisao renderizada de `romulo-interface`, incluindo peculiaridades; comportamento da acao e fonte oficial conforme aplicabilidade.
+- Prototipo: fluxo local pertinente, sem fingir persistencia/seguranca real.
 
-Nao declare ausencia universal de defeitos. Informe limites da verificacao.
+Conferencia bidirecional: requisito sem entrega e elemento sem tarefa comprovada sao defeitos. Em mutacao, confirmar reabertura/reload e consumidores; botao local nao exige banco. Screenshot nao comprova persistencia, build nao comprova clique e imports nao comprovam fluxo.
 
-Quando o projeto possuir guardas, hooks, CI, fiscais documentais ou revisao independente, execute-os conforme o contrato local; esta skill nao os substitui.
+Testes reais em ambiente autorizado com dados controlados. Fixtures isoladas sao legitimas; nao fallback ficticio de producao. Novos testes, screenshots e saidas usam destinos previstos no catalogo; nao criar certificado, memoria ou plano paralelo. Executar comandos pertinentes descobertos no projeto, nunca alegar execucao sem resultado.
 
-## Verificacao por efeito
-- docs: vinculos resolvem e correspondem aos fatos;
-- texto/estilo: trecho/tela funciona;
-- backend: efeito/contrato alterado executa;
-- acesso/escopo: caminho permitido e recusa pertinente;
-- saldo/pagamento/estoque/repetivel: integridade e repeticao/concorrencia quando a garantia mudou;
-- migration/remocao: ensaio, integridade e recuperacao;
-- contrato compartilhado: consumidores atingidos validos;
-- bug: caso que falhava passa;
-- prototipo: fluxo local pertinente, sem fingir backend testado.
+Registrar no dono canonico: escopo/revisao/SHA testado, ambiente, cenario/rota, comando/passos, resultado/evidencia e limites. Remover segredos/dados sensiveis. Mudanca posterior invalida evidencia dependente. Amostra declarada nao comprova execucao de todos os consumidores.
 
-Nao executar bateria universal por rotina.
+## Retorno a construcao e publicacao
+Falha corrigivel no alcance retorna a `romulo-construir`, corrige causa e retesta; nao encerrar apenas como pendencia. Recurso externo ausente exige impedimento concreto, sem prometer execucao futura. Nao afrouxar teste, esconder requisito, apagar baseline ou aceitar screenshot novo sem aprovacao para passar.
 
-Pronto exige: alcance respeitado; codigo/docs reconciliados; nenhum artefato novo sem dono/consumidor; nenhum stub/fallback ficticio na cadeia real; fixtures de testes isoladas do runtime de producao; temporarios sem utilidade fora do versionamento; seguranca/integridade pertinentes; verificacao obrigatoria passou; nenhuma pendencia bloqueante escondida.
+Preservar guardas, hooks, CI e fiscal independente quando exigidos pelo contrato local. Candidato contem somente o lote autorizado; sem `--no-verify`, reset destrutivo, amend/force, perda de trabalho alheio ou permissao concedida por conveniencia. Commit, push confirmado, deploy e versao ativa sao distintos.
 
-## Publicacao e concorrencia
-Nao misturar, apagar ou reverter alteracao de outro executor. Candidato a commit contem somente o lote autorizado e sua documentacao. Nunca `--no-verify`, nunca desligar hook/protecao. Falha de publicacao nao autoriza reset destrutivo, amend/force ou perda de trabalho alheio. Migration real, concessao de permissao e operacao destrutiva mantem autorizacao propria.
-
-## Aceite de produto, interface e conexoes
-Consultar a proposta/revisao aprovada em `romulo-especificar`. Conferencia bidirecional: requisito sem entrega e elemento sem tarefa comprovada sao defeitos a corrigir. Efeito visual/interativo exige o roteiro renderizado de `romulo-interface`, inclusive peculiaridades e consumidores compartilhados.
-
-Para cada acao atingida, provar o efeito aplicavel: local, navegacao, consulta ou mutacao. Em persistencia, confirmar reabertura/reload e telas consumidoras; em efeito critico, testar recusa, validacao, repeticao, concorrencia e recuperacao quando a garantia exigir. Nao forcar banco em acao puramente local.
-
-Conferir a cadeia de usuario no navegador quando houver UI e as garantias de backend por teste pertinente. Screenshot nao comprova banco; build nao comprova botao; lista de imports nao comprova fluxo. Dados de teste controlados com integracao real no ambiente autorizado; nunca testar mutacao destrutiva em producao sem autorizacao especifica.
-
-Registre no destino canonico ja existente: revisao/SHA testado, ambiente, cenario/rota, comando ou passos, resultado observado, evidencia e limites. Remover segredos/dados sensiveis dos artefatos. Mudanca posterior invalida evidencia dependente. Nao criar certificado paralelo.
-
-Revisao estrutural desta distribuicao nao e teste comportamental do agente nem aceite de telas de projetos consumidores. Separar VALIDACAO_ESTRUTURAL, CENARIOS_DO_METODO, ACEITE_FUNCIONAL, ACEITE_VISUAL e ATIVACAO_NA_SESSAO; cada dimensao usa PASSOU/FALHOU/NAO_EXECUTADO/NAO_SE_APLICA com escopo claro.
-
-Falha obrigatoria corrigivel retorna a `romulo-construir` e e retestada; NAO_EXECUTADO nao pode ser convertido em PASSOU. Proibido afrouxar teste, remover requisito, apagar baseline, desligar controle ou atualizar screenshot esperado sem aprovacao para obter aceite. Ausencia de recurso externo deve ser comprovada e declarada, nao mascarada.
+## Validacao do proprio padrao
+Executar os comandos do README central. Separar VALIDACAO_ESTRUTURAL, CENARIOS_DO_METODO, ACEITE_FUNCIONAL, ACEITE_VISUAL e ATIVACAO_NA_SESSAO com estados e escopo claros. Teste de parser/links e exemplos em prosa nao sao teste comportamental de modelo. Gate descrito em Markdown nao e fiscal universal de escrita; hook/permissao/sandbox requer implementacao e ensaio no ambiente antes de afirmar bloqueio mecanico.

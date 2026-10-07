@@ -1,27 +1,18 @@
 ---
 name: romulo-documentacao
-description: Use quando uma alteracao muda comportamento, contrato, estrutura, responsabilidade, dado, acesso, dependencia ou conhecimento canonico e precisa reconciliar documentacao sem criar lixo documental.
+description: "Use quando mudar comportamento, estrutura, contrato, regra, dado, acesso ou conhecimento canonico; aplicar destinos existentes ou fallback central e reconciliar vinculos no mesmo lote sem notas paralelas."
 ---
 
 # Romulo Documentacao
 
-Documentacao explica responsabilidade, comportamento e vinculos; nao reescreve codigo em prosa.
+Documentacao explica responsabilidade, comportamento e vinculos; nao reescreve codigo em prosa. Consultar `romulo-analisar` e [destinos documentais](../../references/DOCUMENTACAO.md). A referencia define nomes/conteudo quando nao existe equivalente; nao perguntar ao usuario nomes que o padrao ja determina.
 
-Primeiro descubra os destinos canonicos ja adotados pelo projeto. Atualize o dono existente. Documento novo so nasce quando existe responsabilidade real sem destino adequado.
+Atualizar o dono existente. Documento novo somente por responsabilidade real sem destino adequado, no alcance autorizado e com previsao no gate. Nao criar documento por agente, arquivo, funcao, botao, campo, linha ou execucao. Sem arvore vazia, PLANO, FINAL, V2, backup documental, memoria ou certificado paralelo. Git preserva historico; o dono canonico preserva o estado util atual.
 
-Nao crie documento por agente, execucao, arquivo, funcao, botao, campo ou linha. Evite PLANO, FINAL, V2, backup documental e relatorios paralelos quando a informacao cabe no registro canonico.
+Registrar fatos comprovados e decisoes aprovadas, com fonte e revisao. Preservar IDs e distinguir previsto, simulado, construido, testado e publicado. No fechamento: artefato -> identidade/responsabilidade -> mapa/dono -> consumidores, e inverso pertinente. Mudanca interna sem efeito no conhecimento canonico nao exige narrativa artificial, salvo evidencia exigida por instrumento local.
 
-Registre fatos comprovados e decisoes aprovadas. Nao marque como real o que e previsto, simulado, local ou nao executado.
+Decisoes de `romulo-especificar` e referencia/peculiaridades de `romulo-interface` ficam no mapa/assunto local. Padrao geral permanece na skill central. Indicador de peculiaridade e projecao derivada usam a mesma fonte, sem listas manuais concorrentes.
 
-No fechamento deve ser possivel seguir, conforme aplicavel: artefato -> responsabilidade/identidade -> mapa ou documento dono -> consumidores pertinentes, e o inverso necessario para manutencao.
+Migrar texto de AGENTS/CLAUDE usa DE/PARA e preservacao descritos na referencia; a reducao do arquivo nao pode excluir protecao nem usar uma referencia ainda inexistente. Se a autorizacao de arquivo protegido faltar, nao mover/apagar seu conteudo. Consultar `romulo-iniciar-projeto` para bootstrap/ponte e `romulo-verificar` para fechamento.
 
-Mudanca interna sem efeito no conhecimento canonico nao exige reescrita artificial; registre/verifique somente quando o instrumento local exigir evidencia de fechamento.
-
-Nao criar arquivo de memoria, resumo paralelo, documentacao de governanca ou pasta `agents/`. O Git preserva historico; a documentacao canonica preserva o estado necessario.
-
-Se o modulo ainda nao tem destino documental durante construcao autorizada, criar somente os documentos necessarios a capacidade que nasce; nunca arvore documental vazia.
-
-## Proposta, visual e rastreabilidade
-Decisoes de `romulo-especificar`, referencia e peculiaridades de `romulo-interface` ficam nos mapas/assuntos canonicos do projeto, com revisao e fonte de aprovacao. Referenciar, nao copiar regras centrais para cada tela. Identificacao de peculiaridade na UI e eventual projecao usam a mesma fonte, sem listas manuais paralelas.
-
-Manter o vinculo pedido/decisao -> tela/aba/acao -> contrato/regra/dado -> consumidores -> evidencia. Registre somente fatos verificados e preserve diferenca entre proposto, construido, testado e publicado. Documentar um defeito nao o transforma em regra aprovada nem substitui corrigi-lo.
+Mudanca de diretriz GLOBAL segue `romulo-evoluir-padrao` na fonte central; regra financeira, tela, permissão, infraestrutura ou guarda peculiar continua no projeto. Regra de arquivo prevista em skill nao dispensa documentar a criacao quando o contrato exigir.

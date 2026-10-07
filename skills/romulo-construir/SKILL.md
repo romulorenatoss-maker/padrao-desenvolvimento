@@ -1,6 +1,6 @@
 ---
 name: romulo-construir
-description: Use para implementar funcionalidades, corrigir bugs ou alterar codigo dentro do Romulo Dev Standard, depois de romulo-analisar e antes de romulo-verificar.
+description: "Use para implementar funcionalidades, corrigir bugs ou alterar codigo dentro do Romulo Dev Standard, depois de romulo-analisar e antes de romulo-verificar."
 ---
 
 # Romulo Construir
@@ -52,3 +52,6 @@ Execute integracao real em ambiente autorizado com dados de teste controlados. N
 Construir -> executar -> observar -> corrigir a causa -> repetir verificacao e dependencias atingidas. Defeito tecnico corrigivel no alcance nao vira entrega encerrada apenas como pendencia. Se uma tentativa nao resolver, mudar diagnostico a partir das evidencias; nao repetir a mesma tentativa nem ampliar escopo silenciosamente.
 
 Parar a parte dependente somente diante de decisao de negocio ausente, autorizacao especifica, risco fora do alcance ou recurso externo indispensavel indisponivel. Informar impedimento concreto, tentativas e o que falta; nao prometer execucao futura nem inventar sucesso. Concluir exige o aceite pertinente de `romulo-verificar`.
+
+## Previsao de arquivos e estrutura
+Antes de qualquer arquivo novo, aplicar o gate de `romulo-analisar` e os [destinos e nomes](../../references/ARQUITETURA.md). Sem previsao expressa e necessidade comprovada, exigir `0393` especifico; nao executar gerador antes desse exame. Organizacao ampla usa `romulo-auditar-projeto`. Sem equivalente, usar o fallback autorizado, sem inventar arvore ou perguntar convencao que ja esta definida.

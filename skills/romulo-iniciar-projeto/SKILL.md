@@ -1,54 +1,31 @@
 ---
 name: romulo-iniciar-projeto
-description: Use obrigatoriamente quando um projeto novo ou vazio for iniciado sob o Romulo Dev Standard, para criar a base minima comum sem gerar arquivos, camadas ou documentacao sem uso.
+description: "Use em projeto novo ou na implantacao/migracao do bootstrap: AGENTS.md minimo ligado ao sumario central, CLAUDE.md apontando para AGENTS e apenas a estrutura necessaria, preservando contratos locais existentes."
 ---
 
 # Romulo Iniciar Projeto
 
-Todos os projetos novos seguem a mesma arquitetura conceitual Romulo Dev Standard.
+Fonte dona de criacao de AGENTS.md/CLAUDE.md e bootstrap do projeto. Padrao global/roteamento mora no [README central](../../README.md); instalacao/recarga em [INSTALL.md](../../INSTALL.md). Nao copiar catalogo de skills para cada projeto.
 
-Antes de criar arquivos:
-1. confirmar identidade do projeto, repositorio, branch, ambiente e stack autorizada;
-2. confirmar AGENTS.md local e CLAUDE.md quando aplicavel;
-3. confirmar Romulo Dev Standard e Ponytail realmente carregados;
-4. identificar a primeira capacidade real que sera construida;
-5. aplicar `romulo-especificar` para perguntas/proposta/aprovacao; havendo UI, `romulo-interface` para referencia visual;
-6. construir somente a estrutura necessaria para a capacidade aprovada com `romulo-construir`.
+## Antes de qualquer criacao
+Com `romulo-analisar`, identificar projeto/remote/branch/worktree/ambiente/stack, permissao de bootstrap e convencoes/arquivos existentes. Aplicar seu gate de criacao. Confirmar padrao e Ponytail realmente disponiveis antes de construcao de produto; a leitura das fontes de instalacao e verificacao permite resolver o bootstrap, nao fingir plugin ativo.
 
-## Arquitetura comum
+## AGENTS.md minimo
+Usar [templates/AGENTS.md](../../templates/AGENTS.md), nunca o AGENTS.md da raiz central. Se ausente e bootstrap autorizado, preencher identidade, repositorio, branch, ambiente, referencia publica do banco quando houver, deploy, sumario local, protecoes e ponte repositorio/ref/README. Nao gravar placeholders nem exemplos como fatos; omitir metadado opcional nao aplicavel. Dados obrigatorios nao descobertos impedem a escrita do contrato; perguntar so o que a investigacao nao resolve.
 
-As responsabilidades seguem este modelo conceitual:
-- View/interface: apresentacao e interacao;
-- Action/entrada: transporte, sessao, metodo e protecao aplicavel;
-- Controller: normalizacao de entrada e saida;
-- Service: regra de negocio, autorizacao, escopo e estado;
-- Repository/contrato: persistencia e consultas autorizadas;
-- Banco: integridade, constraints, transacoes e concorrencia pertinente.
+Nao colocar lista, contagem, comandos de instalacao ou regras globais no AGENTS local. O sumario central determina as skills necessarias a cada execucao. Protecao local curta fica explicita; detalhes de negocio/guardas/peculiaridades ficam em donos locais obrigatoriamente referenciados, nunca no padrao global.
 
-A stack pode materializar essas responsabilidades de formas diferentes, mas nao deve misturar regra critica no frontend, autorizacao apenas visual ou persistencia sem contrato.
+## CLAUDE.md ponte
+Quando Claude Code fizer parte do ambiente, procurar CLAUDE.md e equivalentes de escopo ja utilizados antes de criar. Ausente e bootstrap autorizado: criar na raiz o nome EXATO `CLAUDE.md` com o conteudo de [templates/CLAUDE.md](../../templates/CLAUDE.md): `@AGENTS.md` e quebra de linha. Nao criar `claud.md`, nao copiar AGENTS nem acumular regras duplicadas. Mesmo em versao que leia AGENTS nativamente, esta ponte explicita e o modelo portatil adotado quando CLAUDE e requerido no projeto.
 
-Nao criar camada vazia. Nao criar CRUD completo, dashboard, exportacao, configuracao ou abstracao para uso futuro.
+Se ja houver ponte correta, nao alterar. Se houver CLAUDE com regras proprias ou importacao equivalente, comparar, preservar e integrar somente com autorizacao aplicavel. Nao criar ponte concorrente sem necessidade. Evitar ciclos: CLAUDE -> AGENTS -> entrada central; AGENTS nao importa CLAUDE de volta. Confirmar leitura na sessao com mecanismo suportado; arquivo escrito nao significa automaticamente carregado.
 
-## Projeto vazio
+## Migracao de contrato existente
+Ler o contrato inteiro e as regras mais especificas. Apresentar o diff de migracao, mantendo identidade, guardas, IDs e peculiaridades. Aplicar [migracao documental](../../references/DOCUMENTACAO.md) com `romulo-documentacao`: mapear origem/destino, validar links e so entao remover narrativa redundante. Enquanto faltar destino ou autorizacao, manter o trecho original.
 
-Quando nao existir estrutura:
-- criar AGENTS.md a partir do template oficial, preenchendo somente identidade e particularidades;
-- criar CLAUDE.md com @AGENTS.md quando Claude Code for usado;
-- criar a menor estrutura de codigo necessaria para a primeira capacidade;
-- criar documentacao canonica minima somente quando a responsabilidade real nascer;
-- criar testes proporcionais ao risco/efeito da capacidade;
-- configurar segredos somente em runtime/ambiente seguro;
-- nao criar banco, migration, permissao ou deploy sem necessidade e autorizacao.
+AGENTS protegido por 0393 nao e substituido nem reduzido sem 0393 explicito para ESSA migracao. Citacao do codigo na instrucao nao e aprovacao. Nao usar curl/copia/checkout para sobrescrever arquivo protegido. Nao apagar alteracoes locais nem usar reset, clean, amend ou force para facilitar. Se autorizada apenas leitura/instalacao, parar antes da mudanca do contrato/produto.
 
-## Verificacao inicial
+## Primeira capacidade e estrutura ausente
+Projeto novo: identificar primeira capacidade, aplicar `romulo-especificar` para perguntas/proposta/aprovacao e `romulo-interface` para referencia visual quando houver UI. Construir com `romulo-construir`, usando [arquitetura e nomes](../../references/ARQUITETURA.md). Criar somente arquivos/pastas com uso imediato. Projeto existente desorganizado segue `romulo-auditar-projeto`, nao bootstrap destrutivo.
 
-Antes de concluir a inicializacao, confirmar:
-- projeto/branch corretos;
-- skills Romulo esperadas em `INSTALL.md` descobertas;
-- Ponytail disponivel ou estado explicitamente informado;
-- primeira capacidade com dono e consumidores;
-- ausencia de pastas/arquivos sem responsabilidade real;
-- seguranca e documentacao pertinentes;
-- romulo-verificar executado.
-
-A inicializacao nao autoriza commit, push, deploy, criacao de banco ou alteracao destrutiva sem autorizacao local.
+Pasta, modulo, migration, componente e documento nao nascem para uso futuro. Nao impor stack nem abrir camadas vazias. Testes e documentacao sao proporcionais ao efeito; segredos apenas em ambiente seguro. Verificar contratos locais, descoberta das skills pelo catalogo central, ponte, links e primeira capacidade com `romulo-verificar`. Bootstrap nao autoriza banco, concessao de permissao, commit/push ou deploy automaticamente.

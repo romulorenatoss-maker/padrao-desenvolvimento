@@ -1,47 +1,24 @@
+# Verificacao somente leitura. Nenhum parametro antigo autoriza copia ou sobrescrita.
 param(
-  [string]$ProjectPath = ".",
-  [switch]$InstallSkills,
-  [switch]$InitializeProject
+  [Parameter(ValueFromRemainingArguments = $true)]
+  [string[]]$LegacyArguments
 )
-
 $ErrorActionPreference = "Stop"
+if ($LegacyArguments.Count -gt 0) {
+  Write-Error "Flags legadas recusadas. Leia INSTALL.md; nenhum arquivo foi alterado."
+  exit 2
+}
 $Root = Split-Path -Parent $PSScriptRoot
-$Project = (Resolve-Path $ProjectPath).Path
-
-function Copy-Skills($target) {
-  New-Item -ItemType Directory -Force -Path $target | Out-Null
-  Get-ChildItem (Join-Path $Root "skills") -Directory | ForEach-Object {
-    $dest = Join-Path $target $_.Name
-    New-Item -ItemType Directory -Force -Path $dest | Out-Null
-    Copy-Item (Join-Path $_.FullName "SKILL.md") (Join-Path $dest "SKILL.md") -Force
-  }
+$Python = Get-Command python3 -ErrorAction SilentlyContinue
+if (-not $Python) { $Python = Get-Command python -ErrorAction SilentlyContinue }
+if (-not $Python) { Write-Error "Python 3.10+ necessario; nada instalado."; exit 2 }
+$Previous = $env:PYTHONDONTWRITEBYTECODE
+try {
+  $env:PYTHONDONTWRITEBYTECODE = "1"
+  & $Python.Source (Join-Path $Root "scripts/validate_standard.py")
+  $Result = $LASTEXITCODE
+} finally {
+  $env:PYTHONDONTWRITEBYTECODE = $Previous
 }
-
-if ($InstallSkills) {
-  Copy-Skills (Join-Path $HOME ".agents\skills")
-  Copy-Skills (Join-Path $HOME ".claude\skills")
-  Write-Host "Skills instaladas para Codex e Claude no perfil atual."
-}
-
-if ($InitializeProject) {
-  $agents = Join-Path $Project "AGENTS.md"
-  $claude = Join-Path $Project "CLAUDE.md"
-
-  if (Test-Path $agents) {
-    Write-Host "AGENTS.md existente: NAO ALTERADO. Integre manualmente para preservar regras locais."
-  } else {
-    Copy-Item (Join-Path $Root "templates\AGENTS.md") $agents
-    Write-Host "AGENTS.md criado a partir do template."
-  }
-
-  if (Test-Path $claude) {
-    Write-Host "CLAUDE.md existente: NAO ALTERADO."
-  } else {
-    Copy-Item (Join-Path $Root "templates\CLAUDE.md") $claude
-    Write-Host "CLAUDE.md criado apontando para AGENTS.md."
-  }
-}
-
-if (-not $InstallSkills -and -not $InitializeProject) {
-  Write-Host "Nada alterado. Use -InstallSkills e/ou -InitializeProject."
-}
+if ($Result -ne 0) { exit $Result }
+Write-Host "Pacote validado. Instalacao/migracao seguem INSTALL.md; nenhum arquivo de projeto foi copiado."

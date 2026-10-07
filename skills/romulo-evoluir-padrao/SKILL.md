@@ -1,41 +1,18 @@
 ---
 name: romulo-evoluir-padrao
-description: Use quando uma diretriz global, regra de arquitetura, seguranca, documentacao, bootstrap, verificacao ou comportamento comum a todos os projetos precisar ser criada, corrigida ou aprimorada.
+description: "Use quando mudar uma diretriz comum, arquitetura, seguranca, documentacao, bootstrap, estrutura, criacao de arquivos ou verificacao no repositorio central."
 ---
 
 # Romulo Evoluir Padrao
 
-Diretriz global pertence ao repositorio central:
-romulorenatoss-maker/romulo-dev-standard
+Diretriz global pertence a `romulorenatoss-maker/romulo-dev-standard`. Ler AGENTS da raiz e [README central](../../README.md). O README e a entrada/catalogo; templates sao distribuiveis; AGENTS da raiz governa so este repo.
 
-Nao corrigir uma regra global copiando ou divergindo texto em AGENTS.md de projetos individuais.
+Fluxo: provar alcance global -> localizar skill/reference/template dono -> alterar menor fonte necessaria -> reconciliar consumidores -> versionar todos os manifests e README -> validar -> publicar com autorizacao aplicavel -> atualizar/recarregar consumidores -> comprovar ativacao ou declarar pendente.
 
-## Fluxo
+Cada regra tem uma fonte dona. Referencias aprofundam e outras skills apontam; nao copiar especificacao completa nem adicionar skill redundante. Nao copiar lista/contagem/roteamento para AGENTS locais. Padrao de criacao de AGENTS/CLAUDE mora em `romulo-iniciar-projeto`; destinos/modulos em references/ARQUITETURA.md; documentos em references/DOCUMENTACAO.md; autorizacao de novos arquivos em `romulo-analisar`.
 
-1. provar que a mudanca e global e nao peculiaridade de um unico projeto;
-2. localizar a skill, reference, template ou manifesto dono da regra;
-3. alterar a menor fonte central necessaria;
-4. atualizar referencias e templates somente quando realmente afetados;
-5. incrementar a versao do padrao quando houver mudanca distribuivel;
-6. validar manifestos, nomes de skills e bootstrap;
-7. commit/push somente no repositorio central com autorizacao aplicavel;
-8. atualizar/recarregar o plugin nos ambientes consumidores;
-9. confirmar que uma sessao nova descobre a versao e as skills esperadas;
-10. somente depois ajustar AGENTS locais quando houver peculiaridade ou migracao necessaria.
+Gate de arquivos tambem se aplica aqui: preferir atualizar fontes existentes. Nova skill/reference/script somente quando determinado pela evolucao explicitamente solicitada e necessario a uma responsabilidade ausente, com nome, destino e consumidor declarados antes. Se fora da previsao, exigir 0393 especifico. Nao editar politica por iniciativa propria para legitimar arquivo que outra operacao desejava criar.
 
-## Fonte unica
+Validar manifestos, catalogo nominal, caminhos, links, templates, roteamento e cenarios negativos. Mudanca do modelo minimo exige atualizar o validador sem retirar verificacoes legitimas. Nao alegar execucao/ativacao de modelos ou plugins a partir de teste estrutural.
 
-Ao mudar uma regra global: `romulo-evoluir-padrao` -> identificar a fonte dona -> alterar a skill/reference/template correta -> atualizar outros artefatos somente se forem consumidores daquela regra -> versionar -> validar -> publicar.
-
-Nao manter duas copias completas da mesma especificacao. `AGENTS.md` da raiz governa este repositorio; `templates/AGENTS.md` e o contrato distribuido aos projetos.
-
-## Regra de propriedade
-
-- comportamento comum a todos os projetos -> skill/reference central;
-- identidade, repo, banco, deploy, autorizacao e guardas particulares -> AGENTS.md local;
-- simplificacao complementar -> Ponytail;
-- segredo/credencial -> nunca em skill, template ou Git.
-
-Nao duplicar uma regra global em varios AGENTS.md para contornar falha de distribuicao. Corrigir a distribuicao ou declarar o bloqueio.
-
-Se uma mudanca global quebrar compatibilidade, registrar a versao e exigir migracao explicita em vez de alterar silenciosamente projetos fixados em versao anterior.
+Mudanca de compatibilidade exige instrucao de migracao explicita. Consumidor nao e reescrito silenciosamente; guardas/dados/infraestrutura/regras de negocio locais ficam la. Migracao de AGENTS protegido requer sua autorizacao especifica e preservacao documental antes de remover texto. Segredos nunca entram em skill/template/Git.
