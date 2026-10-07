@@ -27,3 +27,10 @@ Nunca usar banco, repositorio, deploy ou credencial de outro projeto por suposic
 Perguntar somente por decisao de negocio ausente, conflito real ou operacao destrutiva que exija autorizacao. Nao perguntar onde salvar ou qual camada usar quando o padrao existente responde.
 
 Nao ler inventario, banco, modulos, testes ou docs inteiros por rotina; ampliar somente por dependencia encontrada. Nao repetir leitura, analise ou evidencia ainda valida. Nao transcrever arquivos, inventarios ou logs inteiros na conversa.
+
+## Consulta obrigatoria em toda criacao ou alteracao
+Antes de qualquer escrita, inclusive bug, CSS, botao, prototipo e conversao para real, consulte as fontes vigentes pertinentes; nao dependa so da memoria da conversa. Fonte ja lida na mesma revisao pode ser reutilizada; mudanca concorrente invalida a evidencia afetada.
+
+Capacidade, regra, fluxo ou interface atingida: aplicar `romulo-especificar` no modo proporcional (proposta completa ou correcao curta). Efeito visual/interativo, inclusive indireto em componente compartilhado: aplicar `romulo-interface`. Sem efeito de produto/UI, justificar brevemente NAO_SE_APLICA; nao inventar entrevista para alteracao documental interna.
+
+Apresente ao responsavel o que sera criado, alterado, reutilizado e preservado quando a mudanca for relevante. Aprovacao e utilidade dos elementos seguem a fonte dona `romulo-especificar`; nao construir por intuicao nem abrir auditoria global sem necessidade.

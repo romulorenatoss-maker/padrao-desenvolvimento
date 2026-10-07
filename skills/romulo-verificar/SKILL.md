@@ -38,7 +38,20 @@ Quando o projeto possuir guardas, hooks, CI, fiscais documentais ou revisao inde
 
 Nao executar bateria universal por rotina.
 
-Pronto exige: alcance respeitado; codigo/docs reconciliados; nenhum artefato novo sem dono/consumidor; stub, fixture, temporario ou codigo morto fora do versionamento; seguranca/integridade pertinentes; verificacao obrigatoria passou; nenhuma pendencia bloqueante escondida.
+Pronto exige: alcance respeitado; codigo/docs reconciliados; nenhum artefato novo sem dono/consumidor; nenhum stub/fallback ficticio na cadeia real; fixtures de testes isoladas do runtime de producao; temporarios sem utilidade fora do versionamento; seguranca/integridade pertinentes; verificacao obrigatoria passou; nenhuma pendencia bloqueante escondida.
 
 ## Publicacao e concorrencia
 Nao misturar, apagar ou reverter alteracao de outro executor. Candidato a commit contem somente o lote autorizado e sua documentacao. Nunca `--no-verify`, nunca desligar hook/protecao. Falha de publicacao nao autoriza reset destrutivo, amend/force ou perda de trabalho alheio. Migration real, concessao de permissao e operacao destrutiva mantem autorizacao propria.
+
+## Aceite de produto, interface e conexoes
+Consultar a proposta/revisao aprovada em `romulo-especificar`. Conferencia bidirecional: requisito sem entrega e elemento sem tarefa comprovada sao defeitos a corrigir. Efeito visual/interativo exige o roteiro renderizado de `romulo-interface`, inclusive peculiaridades e consumidores compartilhados.
+
+Para cada acao atingida, provar o efeito aplicavel: local, navegacao, consulta ou mutacao. Em persistencia, confirmar reabertura/reload e telas consumidoras; em efeito critico, testar recusa, validacao, repeticao, concorrencia e recuperacao quando a garantia exigir. Nao forcar banco em acao puramente local.
+
+Conferir a cadeia de usuario no navegador quando houver UI e as garantias de backend por teste pertinente. Screenshot nao comprova banco; build nao comprova botao; lista de imports nao comprova fluxo. Dados de teste controlados com integracao real no ambiente autorizado; nunca testar mutacao destrutiva em producao sem autorizacao especifica.
+
+Registre no destino canonico ja existente: revisao/SHA testado, ambiente, cenario/rota, comando ou passos, resultado observado, evidencia e limites. Remover segredos/dados sensiveis dos artefatos. Mudanca posterior invalida evidencia dependente. Nao criar certificado paralelo.
+
+Revisao estrutural desta distribuicao nao e teste comportamental do agente nem aceite de telas de projetos consumidores. Separar VALIDACAO_ESTRUTURAL, CENARIOS_DO_METODO, ACEITE_FUNCIONAL, ACEITE_VISUAL e ATIVACAO_NA_SESSAO; cada dimensao usa PASSOU/FALHOU/NAO_EXECUTADO/NAO_SE_APLICA com escopo claro.
+
+Falha obrigatoria corrigivel retorna a `romulo-construir` e e retestada; NAO_EXECUTADO nao pode ser convertido em PASSOU. Proibido afrouxar teste, remover requisito, apagar baseline, desligar controle ou atualizar screenshot esperado sem aprovacao para obter aceite. Ausencia de recurso externo deve ser comprovada e declarada, nao mascarada.

@@ -27,3 +27,8 @@ Campo so vem preenchido no real quando o valor foi efetivamente registrado e con
 Opcao ficticia encontrada no real exige rastrear e corrigir a origem; nao autoriza apagar cadastros legitimos ou historico.
 
 Nao apagar proposta aprovada pendente porque outra parte foi publicada.
+
+## Especificacao e visual na conversao
+Aplicar `romulo-especificar` para confrontar a revisao aprovada e as conexoes reais; nao reabrir decisoes ja respondidas. Aplicar `romulo-interface` para preservar referencia e peculiaridades. Prototipo aprovado nao autoriza novas telas, botoes ou regras durante a conversao.
+
+Falha tecnica corrigivel dentro do alcance segue o ciclo de `romulo-construir`; nao encerrar apenas marcando pendencia. Preservar os estados documentais de publicacao quando depender de autorizacao externa. Verificar a implementacao com `romulo-verificar` antes de declarar integracao real.

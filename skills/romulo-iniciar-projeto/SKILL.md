@@ -12,7 +12,8 @@ Antes de criar arquivos:
 2. confirmar AGENTS.md local e CLAUDE.md quando aplicavel;
 3. confirmar Romulo Dev Standard e Ponytail realmente carregados;
 4. identificar a primeira capacidade real que sera construida;
-5. criar somente a estrutura necessaria para essa capacidade.
+5. aplicar `romulo-especificar` para perguntas/proposta/aprovacao; havendo UI, `romulo-interface` para referencia visual;
+6. construir somente a estrutura necessaria para a capacidade aprovada com `romulo-construir`.
 
 ## Arquitetura comum
 
@@ -43,7 +44,7 @@ Quando nao existir estrutura:
 
 Antes de concluir a inicializacao, confirmar:
 - projeto/branch corretos;
-- 9 skills Romulo descobertas;
+- skills Romulo esperadas em `INSTALL.md` descobertas;
 - Ponytail disponivel ou estado explicitamente informado;
 - primeira capacidade com dono e consumidores;
 - ausencia de pastas/arquivos sem responsabilidade real;

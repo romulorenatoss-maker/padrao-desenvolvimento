@@ -1,55 +1,73 @@
-# Instalacao
+# Instalacao e atualizacao
 
-Repositorio privado: a conta/cliente precisa ter leitura em `romulorenatoss-maker/romulo-dev-standard`.
+Fonte central: `romulorenatoss-maker/romulo-dev-standard`. A conta usada pelo cliente precisa ter leitura nesse repositorio privado. Versao desta distribuicao: 1.4.0. Fonte dos comandos: documentacao oficial ao final; confira `--help` da versao instalada se um comando nao for reconhecido.
+
+## Antes de instalar
+Identificar superficie (terminal, IDE, desktop ou cloud), versao do cliente, marketplace cadastrado, escopo instalado e permissoes. Nao assumir que plugin instalado no computador aparece numa sessao cloud. Preservar configuracoes, trabalho pendente e autorizacoes do projeto. Nao duplicar instalacao manual e via plugin.
 
 ## Codex
-```
+No terminal com Codex CLI que disponibilize estes comandos; um por vez:
+```sh
 codex plugin marketplace add romulorenatoss-maker/romulo-dev-standard --ref main
 codex plugin add romulo-dev-standard@romulo-dev-standard
 codex plugin list
 ```
-Confirme `romulo-dev-standard@romulo-dev-standard` installed e enabled. Abra nova sessao para descoberta das skills.
-
-Ponytail:
+Ja instalado: atualizar o catalogo e a instalacao, sem recriar outro plugin:
+```sh
+codex plugin marketplace upgrade romulo-dev-standard
+codex plugin add romulo-dev-standard@romulo-dev-standard
+codex plugin list
 ```
+Se a superficie/versao nao oferecer `plugin add`, use seu gerenciador de plugins para atualizar a instalacao a partir desse marketplace; nao inventar comando substituto nem editar cache interno. `marketplace upgrade` sozinho nao prova a versao ativa na conversa.
+
+Depois, confirmar versao e descoberta nominal na sessao. Nao prometer hot reload universal no Codex: quando a sessao nao redescobrir, iniciar nova thread/sessao mantendo o contexto necessario na documentacao canonica. Nao usar geracao automatica/delegacao de codigo como parte desta instalacao.
+
+Ponytail, somente se ainda ausente:
+```sh
 codex plugin marketplace add DietrichGebert/ponytail
 codex plugin add ponytail@ponytail
 ```
-Abra `/hooks`, revise e confie nos hooks do Ponytail, e inicie nova thread/sessao.
-
-Atualizar:
-```
-codex plugin marketplace upgrade romulo-dev-standard
-codex plugin add romulo-dev-standard@romulo-dev-standard
-```
+Revisar/confiar nos hooks pelo mecanismo suportado (`/hooks` quando disponivel), sem conceder permissao ampla automaticamente. Confirmar `full`, nao `ultra`.
 
 ## Claude Code
-Numa sessao interativa, um comando por vez:
-```
+Instalacao inicial numa sessao interativa que suporte plugins, um comando por vez:
+```text
 /plugin marketplace add romulorenatoss-maker/romulo-dev-standard
 ```
-```
+```text
 /plugin install romulo-dev-standard@romulo-dev-standard
 ```
-```
+Ponytail, se ausente:
+```text
 /plugin marketplace add DietrichGebert/ponytail
 ```
-```
+```text
 /plugin install ponytail@ponytail
 ```
-Reinicie a sessao.
 
-Atualizar:
+Para atualizar o padrao JA instalado, no terminal (nao como slash command):
+```sh
+claude plugin marketplace update romulo-dev-standard
+claude plugin update romulo-dev-standard@romulo-dev-standard
+claude plugin list
 ```
-/plugin marketplace update romulo-dev-standard
+Confirmar o escopo efetivo; em versao que nao o detecte, usar `--scope` conforme o escopo encontrado. Na conversa existente do Claude Code compativel:
+```text
+/reload-plugins
 ```
-Reinicie a sessao.
+Nao precisa abrir outra conversa quando a recarga funcionar. Conferir a versao e as skills, inclusive `/romulo-dev-standard:romulo-especificar` e `/romulo-dev-standard:romulo-interface`. Se recarga nao estiver disponivel/falhar, usar a reinicializacao suportada. Nao usar `--force` sem revisar o motivo e a autorizacao pertinente.
 
-## Verificacao das 9 skills
-Uma sessao nova deve descobrir:
+Alternativa interativa de atualizacao: `/plugin` -> Installed -> selecionar o padrao -> Update now; aplicar recarga indicada pelo cliente. Atualizar apenas a listagem do marketplace nao basta para comprovar plugin atualizado.
+
+Sessao cloud/browser pode nao carregar plugins instalados localmente nem os habilitados pelo repositorio. Identificar essa limitacao em vez de repetir comandos locais nela. Nao alegar que recarregar instala num ambiente diferente.
+
+## Verificacao das 11 skills
+Esperadas na descoberta da sessao:
 - romulo-analisar
 - romulo-iniciar-projeto
 - romulo-auditar-projeto
+- romulo-especificar
+- romulo-interface
 - romulo-construir
 - romulo-seguranca
 - romulo-documentacao
@@ -57,30 +75,34 @@ Uma sessao nova deve descobrir:
 - romulo-verificar
 - romulo-evoluir-padrao
 
-Se alguma faltar: `ROMULO_STANDARD_NAO_DISPONIVEL`. Nao fingir aplicacao.
+Plugin instalado/habilitado, versao adequada, skill descoberta e skill lida/aplicada sao evidencias diferentes. Confirmar nomes/versao, nao apenas contagem; carregar conteudo conforme tarefa. Falta obrigatoria: `ROMULO_STANDARD_NAO_DISPONIVEL`; Ponytail ausente: `PONYTAIL_NAO_DISPONIVEL`. Nunca fingir aplicacao ou hook ativo.
 
-## Projeto vazio
-Depois do bootstrap, use `romulo-iniciar-projeto`. Ele cria apenas a base necessaria para a primeira capacidade real, seguindo a arquitetura comum.
+## Janela existente: leitura nao e instalacao
+A sessao pode ler arquivos acessiveis e usa-los como instrucoes, mas isso nao muda o plugin carregado. Somente com autorizacao explicita para leitura direta, indicar `DIRETRIZES_LIDAS_MANUALMENTE` e fonte/revisao; nao declarar plugin/hook ativo. Essa leitura permite analise/proposta, nao contorna exigencia local de bootstrap para construcao. Se faltar acesso ao repositorio privado, informar a limitacao; nao procurar copia publica por suposicao.
 
-## Projeto existente
-Use `romulo-auditar-projeto` para diagnostico amplo antes de migracao estrutural ou documental.
-
-## Fallback manual
-Somente com autorizacao explicita, a partir de clone deste repositorio:
+Texto para enviar na conversa atual depois da atualizacao/recarga:
+```text
+Leia o AGENTS.md vigente do projeto e confirme o Romulo Dev Standard 1.4.0 ou superior, as 11 skills e Ponytail full realmente disponiveis. Nao alegue instalacao por apenas ler arquivos. Antes de criar/alterar telas, abas, botoes, CSS ou funcoes, aplique romulo-analisar, romulo-especificar e romulo-interface conforme impacto; depois romulo-construir, romulo-seguranca e romulo-documentacao pertinentes, terminando com romulo-verificar. Para a padronizacao ampla, comece levantando telas/componentes/regras/peculiaridades existentes, faca apenas perguntas faltantes e apresente proposta de telas, acoes, conexoes e referencia visual para minha aprovacao. Nao crie elementos sem tarefa comprovada nem altere diferenca protegida. Defeito corrigivel no alcance deve ser corrigido e retestado, nao apenas marcado pendente. Preserve autorizacoes e trabalho alheio; nao altere AGENTS protegido, banco, permissoes ou deploy sem a autorizacao exigida.
 ```
+
+## Migracao de consumidores
+1.4.0 adiciona duas skills e fortalece o fluxo das existentes. Atualizar plugin e confirmar descoberta. Consumidor fixado em versao anterior pode exigir migracao autorizada de versao minima/lista/roteamento no AGENTS local; nao sobrescrever esse arquivo nem peculiaridades. `templates/CLAUDE.md` continua apontando a `@AGENTS.md`. Instalar esta distribuicao nao implementa design system nem padroniza telas automaticamente.
+
+## Fallback manual ja existente
+Somente com autorizacao explicita e clone validado deste repositorio, usar os instaladores em `install/`. Eles copiam skills para o perfil; nao comprovam descoberta pela sessao nem instalam Ponytail. Nao usar para esconder falha de plugin ou sobrescrever skills customizadas sem avaliar conflito.
+```powershell
 powershell -ExecutionPolicy Bypass -File .\install\install.ps1 -InstallSkills
 ```
-
-Inicializar somente AGENTS/CLAUDE quando ausentes:
-```
+Para criar AGENTS/CLAUDE apenas quando ausentes:
+```powershell
 powershell -ExecutionPolicy Bypass -File .\install\install.ps1 -ProjectPath C:\caminho\projeto -InitializeProject
 ```
 
-## Ponytail
-Dependencia externa: `DietrichGebert/ponytail` (comandos acima por plataforma). Modo `full` por padrao em toda tarefa tecnica. Indisponivel: `PONYTAIL_NAO_DISPONIVEL`.
+## Validacao da fonte
+Requer Python 3.10+. No clone central: `python3 scripts/validate_standard.py` e `python3 -m unittest discover -s tests -v` (Windows: `python` se apropriado). Esses comandos nao instalam plugins, nao acessam producao e nao testam interface de consumidor. Registrar ativacao no host separadamente.
 
-## Fluxo do agente
-O mesmo para Codex e Claude Code, definido em `templates/AGENTS.md` (secao Bootstrap): detectar plataforma, verificar padrao e Ponytail carregados, instalar automaticamente quando permitido, senao mostrar os comandos e parar, exigir nova sessao, confirmar as 9 skills.
-
-## Evolucao do padrao
-Diretriz global nova/corrigida usa `romulo-evoluir-padrao`: editar a fonte central dona da regra, versionar, validar manifests/skills, publicar e atualizar consumidores. Nao copiar regra global em varios AGENTS.md.
+## Referencias oficiais consultadas
+- OpenAI, pacote e marketplaces: https://developers.openai.com/plugins/build/plugins
+- Claude Code, instalacao e atualizacao: https://code.claude.com/docs/en/discover-plugins
+- Claude Code, comandos e recarga: https://code.claude.com/docs/en/plugins/cli-reference
+- Ponytail, fonte oficial: https://github.com/DietrichGebert/ponytail

@@ -23,3 +23,5 @@ Compare com os principios do Romulo Dev Standard e com as regras locais. Separe 
 Priorize risco e dependencia. Proponha a menor adequacao que preserve o que esta correto. Nao crie pastas vazias, wrappers, CRUDs ou documentos apenas para fazer o projeto parecer com outro.
 
 A auditoria nao autoriza automaticamente escrita, migracao, remocao, commit, push ou deploy.
+
+Auditoria de produto/acoes consulta `romulo-especificar`; de consistencia visual e peculiaridades consulta `romulo-interface`. Padronizacao ampla pedida exige inventario de telas/componentes e proposta de referencia antes da migracao. Isso nao transforma toda tarefa local em auditoria global.

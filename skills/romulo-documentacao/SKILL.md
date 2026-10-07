@@ -20,3 +20,8 @@ Mudanca interna sem efeito no conhecimento canonico nao exige reescrita artifici
 Nao criar arquivo de memoria, resumo paralelo, documentacao de governanca ou pasta `agents/`. O Git preserva historico; a documentacao canonica preserva o estado necessario.
 
 Se o modulo ainda nao tem destino documental durante construcao autorizada, criar somente os documentos necessarios a capacidade que nasce; nunca arvore documental vazia.
+
+## Proposta, visual e rastreabilidade
+Decisoes de `romulo-especificar`, referencia e peculiaridades de `romulo-interface` ficam nos mapas/assuntos canonicos do projeto, com revisao e fonte de aprovacao. Referenciar, nao copiar regras centrais para cada tela. Identificacao de peculiaridade na UI e eventual projecao usam a mesma fonte, sem listas manuais paralelas.
+
+Manter o vinculo pedido/decisao -> tela/aba/acao -> contrato/regra/dado -> consumidores -> evidencia. Registre somente fatos verificados e preserve diferenca entre proposto, construido, testado e publicado. Documentar um defeito nao o transforma em regra aprovada nem substitui corrigi-lo.

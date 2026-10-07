@@ -5,123 +5,50 @@ PROJETO: <nome>
 REPOSITORIO_OFICIAL: <owner/repo>
 BRANCH_OFICIAL: main
 AMBIENTE_PRODUCAO: <quando aplicavel>
+VERSAO_MINIMA_ROMULO_STANDARD: 1.4.0
 
 Antes de qualquer escrita, confirmar projeto, repositorio, branch e ambiente atingido. Divergencia bloqueia a operacao afetada. Segredos nunca entram em codigo, documentacao, prompt, log ou Git.
 
-## Bootstrap obrigatorio (Codex e Claude Code, mesmo fluxo)
+## Bootstrap obrigatorio
 Padrao: https://github.com/romulorenatoss-maker/romulo-dev-standard
 Ponytail: https://github.com/DietrichGebert/ponytail
 
-Antes de qualquer tarefa tecnica, nesta ordem:
-1. detectar a plataforma: Codex ou Claude Code;
-2. verificar se as 9 skills `romulo-*` estao carregadas na sessao;
-3. verificar se Ponytail esta carregado na sessao;
-4. faltando algo: instalar automaticamente com os comandos da plataforma (abaixo), cada comando separado;
-5. sem permissao para executar: mostrar somente os comandos da plataforma e PARAR;
-6. apos instalar/atualizar: pedir nova sessao/reload e PARAR ate ela abrir;
-7. continuar somente depois de confirmar nominalmente as skills carregadas.
+Antes de qualquer tarefa tecnica, detectar plataforma/superficie e confirmar plugin, versao minima, skills disponiveis na sessao e Ponytail. Instalacao, atualizacao e sessao aberta seguem o `INSTALL.md` da fonte central. Ja ativo na versao adequada: nao reinstalar. Arquivo no GitHub/disco nao prova descoberta pela sessao; leitura direta nao ativa plugin ou hooks.
 
-Arquivo no GitHub ou no disco nao conta: vale somente skill descoberta/carregada pela sessao. Ja carregado na versao adequada: nao reinstalar. Procedimento documentado: nao perguntar como instalar.
+Faltando: instalar/atualizar pelo mecanismo suportado quando autorizado, respeitando ambiente e escopo; sem permissao, mostrar os comandos pertinentes e o impedimento. Nao fingir carregamento. Claude Code compativel pode usar `/reload-plugins`; Codex deve confirmar redescoberta, usando nova thread/sessao quando necessaria. Nao inventar hot reload nem forcar a pessoa a perder a conversa se a superficie suporta recarga. Nao copiar skills para esconder falha.
 
-### Codex
-Padrao:
-```
-codex plugin marketplace add romulorenatoss-maker/romulo-dev-standard --ref main
-codex plugin add romulo-dev-standard@romulo-dev-standard
-codex plugin list
-```
-Confirmar `romulo-dev-standard@romulo-dev-standard` installed e enabled. Versao mais nova:
-```
-codex plugin marketplace upgrade romulo-dev-standard
-codex plugin add romulo-dev-standard@romulo-dev-standard
-```
-Ponytail:
-```
-codex plugin marketplace add DietrichGebert/ponytail
-codex plugin add ponytail@ponytail
-```
-Depois: abrir `/hooks`, revisar e confiar nos hooks do Ponytail, iniciar nova thread/sessao.
+Skills esperadas: `romulo-analisar`, `romulo-iniciar-projeto`, `romulo-auditar-projeto`, `romulo-especificar`, `romulo-interface`, `romulo-construir`, `romulo-seguranca`, `romulo-documentacao`, `romulo-prototipo-real`, `romulo-verificar`, `romulo-evoluir-padrao`.
+Qualquer obrigatoria ausente: `ROMULO_STANDARD_NAO_DISPONIVEL`; Ponytail ausente: `PONYTAIL_NAO_DISPONIVEL`. Informar nominalmente o que falta. Confirme descoberta das 11, mas carregue o conteudo integral somente das skills pertinentes a tarefa, evitando contexto inutil.
 
-### Claude Code
-Um comando por vez:
-```
-/plugin marketplace add romulorenatoss-maker/romulo-dev-standard
-```
-```
-/plugin install romulo-dev-standard@romulo-dev-standard
-```
-```
-/plugin marketplace add DietrichGebert/ponytail
-```
-```
-/plugin install ponytail@ponytail
-```
-Versao mais nova: `/plugin marketplace update romulo-dev-standard`. Depois: reiniciar/recarregar a sessao.
+## Roteamento obrigatorio em toda criacao/alteracao
+1. `romulo-analisar` antes de escrever: regras locais, fontes canonicas vigentes, codigo e consumidores pertinentes.
+2. Ponytail `full` como complemento, sem reduzir requisito, aprovacao, seguranca, documentacao ou teste. Nao ativar ultra por iniciativa propria.
+3. `romulo-especificar` quando houver capacidade, regra, fluxo ou interface: tarefa de cada elemento, perguntas faltantes e proposta aprovada; correcao fiel ao contrato usa caminho curto.
+4. `romulo-interface` em todo efeito visual/interativo, inclusive indireto em CSS/componente compartilhado: referencia aprovada, reutilizacao, peculiaridades e verificacao renderizada.
+5. Skill principal da operacao, com documentacao e seguranca pertinentes; `romulo-verificar` antes de concluir e devolver falhas corrigiveis a construcao.
 
-### Confirmacao
-Skills obrigatorias: `romulo-analisar`, `romulo-iniciar-projeto`, `romulo-auditar-projeto`, `romulo-construir`, `romulo-seguranca`, `romulo-documentacao`, `romulo-prototipo-real`, `romulo-verificar`, `romulo-evoluir-padrao`.
-- qualquer uma faltando: `ROMULO_STANDARD_NAO_DISPONIVEL`; nao agir como se o padrao estivesse ativo;
-- Ponytail indisponivel: `PONYTAIL_NAO_DISPONIVEL`; nao fingir execucao.
+Operacoes: projeto vazio -> `romulo-iniciar-projeto`; auditoria ampla -> `romulo-auditar-projeto`; construir/alterar/bug -> `romulo-construir`; acesso/entrada/dados sensiveis/integracao -> `romulo-seguranca`; efeito documental -> `romulo-documentacao`; prototipo -> real -> `romulo-prototipo-real`; diretriz global -> `romulo-evoluir-padrao`.
 
-Bloqueio so de instalacao: mostrar os comandos primeiro, sem explicacao longa. Nao copiar skills manualmente para esconder falha do plugin.
-
-### Fonte de verdade
-- AGENTS.md local: somente peculiaridades do projeto (identidade, repositorio, ambiente, banco/deploy, autorizacoes, regras de negocio).
-- Romulo Dev Standard: metodo comum. Ponytail: simplificacao complementar.
-
-Nao copiar o conteudo das skills para o AGENTS.md.
-
-## Padrao obrigatorio
-Todos os projetos seguem a mesma arquitetura conceitual e o mesmo processo Romulo Dev Standard. Diferencas locais ficam apenas em identidade, infraestrutura, autorizacoes, guardas e regras de negocio especificas.
-
-Em toda tarefa tecnica:
-1. aplicar `romulo-analisar` antes de escrever;
-2. aplicar Ponytail `full` (padrao em toda tarefa tecnica);
-3. aplicar a skill Romulo correspondente ao tipo da operacao;
-4. antes de concluir, aplicar `romulo-verificar`.
-
-Roteamento:
-- projeto novo/vazio/bootstrap -> `romulo-iniciar-projeto`;
-- diagnostico/auditoria de sistema existente -> `romulo-auditar-projeto`;
-- construcao, alteracao ou bug -> `romulo-construir`;
-- autenticacao, autorizacao, dados sensiveis, entrada, upload ou integracao -> `romulo-seguranca` junto da skill principal;
-- mudanca com efeito documental -> `romulo-documentacao`;
-- prototipo -> implementacao real -> `romulo-prototipo-real`;
-- fechamento -> `romulo-verificar`;
-- mudanca de diretriz global do metodo -> `romulo-evoluir-padrao`.
-
-Projeto vazio/sem estrutura funcional: `romulo-iniciar-projeto`, criando somente o necessario para a primeira capacidade real. Projeto existente: nao criar estrutura; `romulo-analisar` (ou `romulo-auditar-projeto` se amplo), preservar o que esta conforme e corrigir somente lacunas comprovadas.
-
-Se uma skill obrigatoria nao estiver carregada, nao fingir que foi executada: instalar/atualizar pelo mecanismo suportado ou informar `NAO_DISPONIVEL`.
+Essas chamadas nao dependem de o usuario mencionar a skill. Consulta ja valida na mesma revisao pode ser reutilizada; nova alteracao nas fontes invalida a evidencia afetada. Sem efeito de produto/interface: justificar NAO_SE_APLICA, sem entrevista desnecessaria. Nao reproduzir especificacoes completas aqui; as skills sao as fontes donas.
 
 ## Arquitetura comum
-Todos os projetos usam estas responsabilidades conceituais:
-- View/interface: apresentacao e interacao;
-- Action/entrada: transporte, sessao, metodo e protecao aplicavel;
-- Controller: normalizacao de entrada/saida;
-- Service: regra, autorizacao, escopo e estado;
-- Repository/contrato: persistencia e consultas autorizadas;
-- Banco: integridade, constraints, transacoes e concorrencia aplicavel.
+Responsabilidades conceituais: View/interface (apresentacao e interacao) -> Action/entrada (transporte, sessao, metodo, protecao) -> Controller (normalizacao) -> Service (regra, autorizacao, escopo, estado) -> Repository/contrato (persistencia/consulta autorizada) -> Banco (integridade, constraints, transacoes e concorrencia pertinente).
 
-A stack pode materializar essas responsabilidades de forma idiomatica, mas nao pode deslocar regra critica para o frontend, usar autorizacao apenas visual ou contornar contratos de persistencia. Nao criar camada vazia.
+A stack representa isso idiomaticamente. Nao criar camada vazia nem banco/API para acao puramente local. Regra critica nao fica somente no frontend; frontend nao concede autorizacao; backend revalida efeitos oficiais; banco protege invariantes pertinentes.
 
 ## Regras invariantes
-Responsabilidade antes de pasta. Reconhecer antes de criar. Reutilizar antes de duplicar. Aplicar a arquitetura comum sem fabricar estrutura sem uso.
+Responsabilidade antes de pasta. Reconhecer antes de criar. Reutilizar antes de duplicar. Menor solucao que cumpra integralmente o pedido. Nao fabricar botoes, abas, dashboard, CRUD ou configuracoes sem tarefa comprovada; utilidade e aprovacao seguem `romulo-especificar`.
 
-A menor solucao deve cumprir integralmente o pedido; simplificacao nunca remove requisito aprovado, seguranca, documentacao necessaria, teste pertinente, acessibilidade ou autorizacao.
+Referencia visual e peculiaridades seguem `romulo-interface`. Instalar o padrao nao altera CSS/componentes do projeto nem autoriza padronizacao em massa. Preservar o que esta correto e as diferencas aprovadas; nao impor arvore de outro projeto.
 
-Seguranca e integridade sao aplicadas no runtime. Frontend nao concede autorizacao. Backend revalida efeitos oficiais. Banco protege invariantes pertinentes.
+Documentacao acompanha a mudanca no mesmo lote no destino canonico, nao um arquivo por botao/funcao/agente. Nao criar arvore documental vazia. Ausencia de evidencia = NAO_VERIFICADO; verificacoes usam PASSOU, FALHOU, NAO_EXECUTADO e NAO_SE_APLICA.
 
-Documentacao acompanha a mudanca no mesmo lote, mas nao se cria documento por arquivo, funcao, botao ou agente. Usar o destino canonico do projeto; se nao existir, criar somente o minimo necessario para a responsabilidade real.
+Falha tecnica corrigivel no alcance exige correcao e novo teste; nao encerrar apenas com etiqueta pendente. Impedimento externo real deve ser declarado sem fingir conclusao. Prototipo nao comprova backend, persistencia ou seguranca; dados ficticios nunca migram para producao.
 
-Ausencia de evidencia = `NAO_VERIFICADO`, nunca PASSOU. Estados: `PASSOU`, `FALHOU`, `NAO_EXECUTADO`, `NAO_SE_APLICA`.
+Preservar trabalho alheio e autorizacoes locais. Nao apagar dados, migrar destrutivamente, conceder permissoes, commitar, fazer push ou deploy sem autorizacao aplicavel. Commit, push, deploy e versao ativa sao estados distintos. Nunca desligar guardas/hook/protecao para passar.
 
-Prototipo define proposta, nao comprova backend, persistencia ou seguranca. Dados ficticios nunca migram para producao.
+## Evolucao
+Regra global pertence a `romulorenatoss-maker/romulo-dev-standard`: `romulo-evoluir-padrao` -> fonte dona -> validar -> versionar -> publicar com autorizacao -> atualizar consumidores. Nao copiar regras para varios AGENTS.md. Identidade, infraestrutura, negocio, guardas e peculiaridades locais ficam no projeto. Migracao de versao e autorizacoes especificas nao podem ser contornadas pelo template.
 
-Nao apagar dados persistentes, executar migracao destrutiva, publicar, conceder permissoes, commitar ou fazer push sem a autorizacao exigida pelo projeto.
-
-## Evolucao do padrao
-Se uma diretriz comum a todos os projetos precisar mudar, nao alterar varios AGENTS.md. Usar `romulo-evoluir-padrao`, alterar primeiro a skill/reference/template dona da regra em `romulorenatoss-maker/romulo-dev-standard`, versionar, validar, publicar e atualizar o plugin nos consumidores. AGENTS.md local recebe apenas peculiaridades locais.
-
-## Regras especificas deste projeto
-<preencher somente identidade, infraestrutura, regras de negocio, docs canonicas, testes, deploy, autorizacoes e guardas peculiares ao projeto>
+## Particularidades locais
+<preencher somente identidade, infraestrutura, negocio, docs canonicas, testes, deploy, autorizacoes e guardas deste projeto>
