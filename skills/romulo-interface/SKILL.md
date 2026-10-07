@@ -74,3 +74,13 @@ Para o recorte e consumidores afetados:
 Mudanca compartilhada exige avaliar todos os consumidores atingidos e testar cobertura justificada; amostra nao autoriza afirmar que todos foram executados. Screenshot comparativo prova diferenca visual, nao utilidade nem integracao. Nao atualizar baseline so para passar; exigir correspondencia com a decisao aprovada.
 
 Falha corrigivel no alcance -> corrigir -> renderizar/testar de novo. Sem navegador, acesso ou referencia, informar impedimento e nao declarar aceite visual. A skill define o procedimento; nao e um fiscal automatico de pixels nem garantia de superioridade a outra ferramenta.
+
+## 6. Revisao com o responsavel, uma peca por vez
+
+Quando o responsavel revisa telas/modais/funcoes, conduzir em etapas previsiveis:
+1. Uma tela, modal ou funcao por vez. Antes de perguntar, abrir a tela no ambiente local/prototipo do projeto (copia do real), com a mudanca aplicada por cima da original, dados de exemplo criados pelo caminho real e o marcador de pendencia de publicacao do projeto. Tela nova aparece dentro da navegacao do sistema, nunca solta.
+2. Resposta curta: o que mudou em uma a tres linhas e uma unica pergunta "Esta bom assim?". Nao listar outras perguntas, pendencias ou proximas etapas; elas ficam guardadas ate a vez delas.
+3. Ajuste pedido: aplicar na mesma tela, recarregar e repetir a mesma pergunta. So avancar para a proxima peca depois do aceite explicito.
+4. Comentario sobre outra tela no meio da revisao: confirmar em uma linha que foi anotado, registrar no registro canonico de perguntas do projeto com numero estavel, as palavras do responsavel e a tela/modulo, e voltar a pergunta atual. Se o comentario altera a peca em revisao, ajustar agora.
+5. Quando chegar a vez do item da fila, abrir a tela e citar o pedido original ("Voce pediu: ...") antes da pergunta.
+6. Aceite registrado: marcar a pergunta como respondida, documentar a decisao no modulo/tela dono com `romulo-documentacao` e so depois construir, verificar e publicar. Aceite visual de prototipo nao comprova integracao real.

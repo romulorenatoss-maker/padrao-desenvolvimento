@@ -11,3 +11,6 @@ O modelo para projetos consumidores e templates/AGENTS.md, nunca este arquivo.
 Preservar uma fonte dona por regra, versionar mudancas distribuidas e executar
 as verificacoes centrais antes de publicar. Nao inserir peculiaridades de
 consumidores nem segredos. Preservar trabalho alheio e autorizacoes aplicaveis.
+Alterar qualquer skill, referencia, template, manifesto ou este AGENTS.md exige
+a palavra de autorizacao 0393 dita pelo responsavel para aquela alteracao;
+sem ela, preparar a mudanca e pedir a palavra antes de commit ou push.

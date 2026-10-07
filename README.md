@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.5.0
+Versao: 1.6.0
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -49,6 +49,10 @@ Nao remover plugins ou mudar permissoes por uma lista colada no chat. Confirmar 
 
 ## Validacao e limites
 Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover -s tests -v`, com Python 3.10+ (usar `python` no Windows quando apropriado). Sem dependencias Python externas. O validador confere estrutura, catalogo, links, templates e roteamento textual; nao impede toda escrita do sistema operacional, nao instala plugins e nao comprova obediencia do modelo ou qualidade de telas. Bloqueio mecanico de escrita exige hook/permissao/sandbox do ambiente, implantado e testado com autorizacao propria; nao alegar blindagem apenas pelo Markdown.
+
+## Migracao 1.5.0 -> 1.6.0
+
+Sem mudanca de compatibilidade. `romulo-interface` ganha a secao 6 (revisao com o responsavel, uma peca por vez, com fila canonica de perguntas) e `romulo-especificar` aponta para ela. Atualizar o plugin e recarregar as skills; nenhum AGENTS local precisa ser alterado.
 
 ## Migracao 1.4.0 -> 1.5.0
 Sem novas skills: centraliza o indice, reduz o template e define organizacao/gate de arquivos nas fontes existentes. Atualizar o plugin e comprovar descoberta conforme INSTALL.md. Para consumidores, integrar o template preservando identidade, IDs, guardas, peculiaridades e regras locais; nunca copiar o AGENTS da raiz central nem sobrescrever AGENTS protegido. Mover conteudo local exige destino canonico e vinculo antes de retirar da origem. Codigo, banco e telas nao mudam por instalar este metodo.
