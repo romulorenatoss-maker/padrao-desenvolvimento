@@ -13,7 +13,7 @@ A skill dona e `romulo-documentacao`. Descobrir destinos canonicos antes de cria
 | Cadeia funcional | `docs/modulos/<modulo>/cadeias/<capacidade>.md` | Entrada -> regra/autorizacao -> contrato/dado -> efeito/consumidores -> erros/testes. |
 | Dados/contrato/acesso | `dados/<entidade>.md`, `contratos/<contrato>.md`, `seguranca/<capacidade>.md` no modulo | Somente quando houver responsabilidade distinta; caso pequeno cabe no mapa da capacidade. |
 | Processo transversal local | `docs/architecture/processos/<processo>.md` | Guardas, autorizações ou procedimento ESPECIFICOS ao projeto; nao copiar diretrizes centrais. |
-| Historico de lote | `docs/changes/ALTERACOES.md` | Quando exigido pelo fechamento: escopo/revisao, alteracoes, fontes e evidencias, sem certificado paralelo. |
+| Historico de lote | `docs/changes/ALTERACOES.md` | Obrigatorio em toda entrega publicada, no mesmo commit: QUEM, COMMITS, FEZ, CONFERIU, FALTA e DESFAZER (`romulo-construir`); sem certificado paralelo; respeitar o limite local de entradas e preservar as antigas no Git. |
 | Inventario | `docs/architecture/INVENTARIO.jsonl` | Apenas quando instrumento local o exigir/consumir; nao criar cadastro manual universal por rotina. |
 
 Todos os subdiretorios sao relativos ao modulo real; criar somente com documento util. Projeto com convencao equivalente nao recebe copia desta arvore. Documento por responsabilidade, nao por arquivo, funcao, botao, elemento decorativo ou execucao.

@@ -33,6 +33,8 @@ Remocao autorizada reconcilia no mesmo lote os vinculos afetados: codigo, rota/m
 
 Limpeza dos registros de trabalho: registro de perguntas, andamento/fila, pendencias, mapas de construcao e marcas de "falta publicar" guardam so o que esta aberto. O lote que constroi e publica uma entrega retira, no mesmo commit, tudo o que ela concluiu nesses registros (pergunta respondida, linha do andamento, item da fila, pendencia, marca). Decisao fica no documento do modulo dono, nunca no registro. Nenhum lote fecha deixando registro de coisa ja entregue; o historico fica no Git.
 
+Historico de entregas: toda entrega publicada ganha, no mesmo commit, uma entrada no topo do historico de lote do projeto ([destinos documentais](../../references/DOCUMENTACAO.md)) com QUEM (qual IA ou pessoa), COMMITS, FEZ (o que do prototipo/pedido aprovado ficou construido no real), CONFERIU, FALTA e DESFAZER. E por ela que outra IA responde o que ja foi construido. Lote publicado sem essa entrada nao fecha.
+
 Nao abrir auditoria global nem refatorar modulo inteiro para corrigir defeito local conhecido.
 
 ## Entrada obrigatoria e construcao conectada
