@@ -5,7 +5,7 @@ description: "Use quando mudar comportamento, estrutura, contrato, regra, dado, 
 
 # Romulo Documentacao
 
-Documentacao explica responsabilidade, comportamento e vinculos; nao reescreve codigo em prosa. Consultar `romulo-analisar` e [destinos documentais](../../references/DOCUMENTACAO.md). A referencia define nomes/conteudo quando nao existe equivalente; nao perguntar ao usuario nomes que o padrao ja determina.
+Documentacao explica responsabilidade, comportamento e vinculos; nao reescreve codigo em prosa. Decisao respondida vive no documento do modulo dono; registro de perguntas e fila de trabalho guardam so o aberto (`romulo-construir`, limpeza dos registros de trabalho). Consultar `romulo-analisar` e [destinos documentais](../../references/DOCUMENTACAO.md). A referencia define nomes/conteudo quando nao existe equivalente; nao perguntar ao usuario nomes que o padrao ja determina.
 
 Atualizar o dono existente. Documento novo somente por responsabilidade real sem destino adequado, no alcance autorizado e com previsao no gate. Nao criar documento por agente, arquivo, funcao, botao, campo, linha ou execucao. Sem arvore vazia, PLANO, FINAL, V2, backup documental, memoria ou certificado paralelo. Git preserva historico; o dono canonico preserva o estado util atual.
 

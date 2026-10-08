@@ -31,6 +31,8 @@ Limpeza separa:
 
 Remocao autorizada reconcilia no mesmo lote os vinculos afetados: codigo, rota/menu, consumidores, contrato, permissao exclusiva, docs, inventario e testes. Historico fica no Git; nao criar copias `old`, `backup` ou `v2`.
 
+Limpeza dos registros de trabalho: registro de perguntas, andamento/fila, pendencias, mapas de construcao e marcas de "falta publicar" guardam so o que esta aberto. O lote que constroi e publica uma entrega retira, no mesmo commit, tudo o que ela concluiu nesses registros (pergunta respondida, linha do andamento, item da fila, pendencia, marca). Decisao fica no documento do modulo dono, nunca no registro. Nenhum lote fecha deixando registro de coisa ja entregue; o historico fica no Git.
+
 Nao abrir auditoria global nem refatorar modulo inteiro para corrigir defeito local conhecido.
 
 ## Entrada obrigatoria e construcao conectada

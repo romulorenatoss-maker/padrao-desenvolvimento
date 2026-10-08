@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.6.0
+Versao: 1.7.0
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -49,6 +49,10 @@ Nao remover plugins ou mudar permissoes por uma lista colada no chat. Confirmar 
 
 ## Validacao e limites
 Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover -s tests -v`, com Python 3.10+ (usar `python` no Windows quando apropriado). Sem dependencias Python externas. O validador confere estrutura, catalogo, links, templates e roteamento textual; nao impede toda escrita do sistema operacional, nao instala plugins e nao comprova obediencia do modelo ou qualidade de telas. Bloqueio mecanico de escrita exige hook/permissao/sandbox do ambiente, implantado e testado com autorizacao propria; nao alegar blindagem apenas pelo Markdown.
+
+## Migracao 1.6.0 -> 1.7.0
+
+Sem mudanca de compatibilidade. `romulo-construir` ganha a limpeza dos registros de trabalho (o que foi entregue sai de perguntas, andamento, fila, pendencias e mapas no mesmo lote); `romulo-interface` secao 6 item 6 deixa de "marcar como respondida": a pergunta sai do registro ao documentar a decisao e fica no andamento como "respondida, a construir" ate ser publicada; `romulo-documentacao` aponta para isso. Atualizar o plugin e recarregar as skills; projetos limpam seus registros na proxima entrega.
 
 ## Migracao 1.5.0 -> 1.6.0
 
