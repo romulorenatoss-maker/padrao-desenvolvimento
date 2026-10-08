@@ -32,3 +32,12 @@ Nao apagar proposta aprovada pendente porque outra parte foi publicada.
 Aplicar `romulo-especificar` para confrontar a revisao aprovada e as conexoes reais; nao reabrir decisoes ja respondidas. Aplicar `romulo-interface` para preservar referencia e peculiaridades. Prototipo aprovado nao autoriza novas telas, botoes ou regras durante a conversao.
 
 Falha tecnica corrigivel dentro do alcance segue o ciclo de `romulo-construir`; nao encerrar apenas marcando pendencia. Preservar os estados documentais de publicacao quando depender de autorizacao externa. Verificar a implementacao com `romulo-verificar` antes de declarar integracao real.
+
+## Fechamento da conversao: prototipo x real
+Ao publicar o real de uma tela, aba ou modal prototipado:
+1. Comparar prototipo x real item por item (abas, modais, botoes, campos, filtros, estados e acoes), com a tela renderizada dos dois lados quando possivel. Dado ficticio nao conta como diferenca.
+2. Item do prototipo que nao foi construido vira linha no andamento/fila do projeto como "diferenca prototipo x real a decidir", com o nome do item; nunca e descartado em silencio.
+3. Item construido diferente do aprovado: corrigir ou registrar a decisao do responsavel no documento da tela.
+4. O documento da tela/modulo passa a descrever so o real: retirar ponteiros ao prototipo (rota, arquivo, "abas aprovadas no prototipo", comparacoes). Fonte historica marcada como removida pode ficar como origem da decisao.
+5. Quando nao sobrar item do prototipo por construir ou decidir, apagar os arquivos do prototipo daquela tela e suas referencias no mesmo lote (`romulo-construir`, remocao autorizada e limpeza dos registros de trabalho).
+6. A entrada no historico de entregas diz o resultado da comparacao: sem diferenca, ou quais diferencas foram para o andamento.
