@@ -17,6 +17,8 @@ Antes de qualquer tarefa tecnica, ler o ponto de entrada oficial do padrao
 na revisao resolvida e aplicar seu sumario de diretrizes, skills e verificacoes
 pertinentes. Ler tambem a documentacao e as protecoes locais deste projeto.
 Confirmar identidade, branch, ambiente e autorizacao antes de escrever.
+Antes de escrever, comparar a versao instalada das skills com a do ponto de
+entrada; se diferente, avisar "achei uma versao diferente" e atualizar as skills.
 Sem a fonte obrigatoria, bloquear a escrita dependente; nunca fingir leitura.
 Criacao de arquivo segue o gate central; excecao nao prevista exige `0393`
 especifico do responsavel. Protecoes locais mais restritivas permanecem.

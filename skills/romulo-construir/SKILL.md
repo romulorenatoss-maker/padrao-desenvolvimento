@@ -59,3 +59,11 @@ Parar a parte dependente somente diante de decisao de negocio ausente, autorizac
 
 ## Previsao de arquivos e estrutura
 Antes de qualquer arquivo novo, aplicar o gate de `romulo-analisar` e os [destinos e nomes](../../references/ARQUITETURA.md). Sem previsao expressa e necessidade comprovada, exigir `0393` especifico; nao executar gerador antes desse exame. Organizacao ampla usa `romulo-auditar-projeto`. Sem equivalente, usar o fallback autorizado, sem inventar arvore ou perguntar convencao que ja esta definida.
+
+## Pasta compartilhada entre IAs
+Quando mais de uma IA (Claude, Codex ou outra) trabalha no mesmo projeto, todas usam a mesma pasta e o mesmo prototipo; o que vale e o estado atual aprovado pelo responsavel, independente de qual IA fez ou alterou por ultimo.
+1. A pasta fica sempre na branch oficial. Nela e proibido trocar de branch, criar worktree, usar stash, reset, checkout de arquivo, restore ou clean: esses comandos tiram dos arquivos o trabalho de outra IA.
+2. Antes de alterar um arquivo, reler como ele esta no disco naquele momento e alterar por cima. Nunca gravar uma copia inteira guardada antes (cache, scratch, versao do Git): isso apaga a alteracao feita depois por outra IA. A ultima alteracao feita sobre o estado atual e a que vale.
+3. Commit leva o estado atual dos arquivos do pedido, sem separar autoria; adicionar ao commit somente os caminhos do pedido, nunca `git add -A` da pasta inteira.
+4. Antes de atualizar a pasta a partir da branch oficial remota, commitar o pedido em andamento. Se houver alteracao sem commit que nao e do pedido, nao atualizar por cima: avisar o responsavel e esperar.
+5. Analisar o trabalho de outra IA e somente leitura, com relatorio ao responsavel (certo, errado, pela metade). Mexer, mover, juntar ou publicar esse trabalho so com ordem expressa do responsavel.

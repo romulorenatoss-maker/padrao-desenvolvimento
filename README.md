@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.9.0
+Versao: 1.10.0
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -9,7 +9,7 @@ Este README e o unico indice central de metodo e roteamento. O AGENTS.md de cada
 Em toda execucao tecnica, antes de escrever:
 1. Ler o AGENTS.md local e as protecoes locais pertinentes. Identificar repositorio, worktree, branch, ambiente e alcance autorizado.
 2. Resolver este indice no repositorio/ref oficial indicado pelo projeto; registrar versao e revisao obtidas. Fixar a mesma revisao para as leituras desta execucao, sem misturar arquivos de versoes diferentes. Ref `main` acompanha atualizacoes entre execucoes; pin explicito prevalece e exige migracao autorizada. Nao atualizar silenciosamente a politica no meio do lote.
-3. Conferir a distribuicao e as skills disponiveis pelo catalogo abaixo. Instalacao/atualizacao e recarga seguem [INSTALL.md](INSTALL.md). Ler arquivo nao comprova plugin ou hook ativo.
+3. Comparar a versao instalada das skills com a `Versao` deste README na ref oficial. Se forem diferentes, dizer ao responsavel "achei uma versao diferente do padrao (instalada X, oficial Y)", atualizar e recarregar as skills conforme [INSTALL.md](INSTALL.md) antes de escrever e seguir com a versao nova; vale para qualquer IA (Claude, Codex ou outra). So no inicio da execucao: no meio de um lote, terminar o lote antes de atualizar. Conferir a distribuicao e as skills disponiveis pelo catalogo abaixo. Instalacao/atualizacao e recarga seguem [INSTALL.md](INSTALL.md). Ler arquivo nao comprova plugin ou hook ativo.
 4. Aplicar `romulo-analisar` e Ponytail `full`; carregar integralmente somente as skills e referencias pertinentes ao efeito real; dependencias entre skills sao instrucoes de consulta, nao chamadas de programa automaticas.
 5. Ler o sumario/documentacao do projeto e seguir ate regras, contratos, codigo e consumidores atingidos. Padrao central explica COMO trabalhar; o projeto explica O QUE existe e suas regras de negocio.
 6. Aplicar o encaminhamento abaixo e terminar com `romulo-verificar`. Falha corrigivel volta a construcao, nao vira encerramento por etiqueta pendente.
@@ -49,6 +49,10 @@ Nao remover plugins ou mudar permissoes por uma lista colada no chat. Confirmar 
 
 ## Validacao e limites
 Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover -s tests -v`, com Python 3.10+ (usar `python` no Windows quando apropriado). Sem dependencias Python externas. O validador confere estrutura, catalogo, links, templates e roteamento textual; nao impede toda escrita do sistema operacional, nao instala plugins e nao comprova obediencia do modelo ou qualidade de telas. Bloqueio mecanico de escrita exige hook/permissao/sandbox do ambiente, implantado e testado com autorizacao propria; nao alegar blindagem apenas pelo Markdown.
+
+## Migracao 1.9.0 -> 1.10.0
+
+Sem mudanca de compatibilidade. O passo 3 da entrada manda toda IA comparar a versao instalada com a oficial no inicio e, se diferente, avisar e atualizar as skills antes de escrever. `romulo-construir` ganha a secao "Pasta compartilhada entre IAs": uma pasta na branch oficial, sem stash/reset/checkout/troca de branch, reler antes de gravar, vale o estado atual aprovado independente de quem fez, commit so do pedido e trabalho de outra IA so com ordem do responsavel. O template de AGENTS passa a pedir a conferencia de versao. Atualizar o plugin e recarregar as skills.
 
 ## Migracao 1.8.0 -> 1.9.0
 
