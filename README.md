@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.10.2
+Versao: 1.10.3
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -49,6 +49,10 @@ Nao remover plugins ou mudar permissoes por uma lista colada no chat. Confirmar 
 
 ## Validacao e limites
 Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover -s tests -v`, com Python 3.10+ (usar `python` no Windows quando apropriado). Sem dependencias Python externas. O validador confere estrutura, catalogo, links, templates e roteamento textual; nao impede toda escrita do sistema operacional, nao instala plugins e nao comprova obediencia do modelo ou qualidade de telas. Bloqueio mecanico de escrita exige hook/permissao/sandbox do ambiente, implantado e testado com autorizacao propria; nao alegar blindagem apenas pelo Markdown.
+
+## Migracao 1.10.2 -> 1.10.3
+
+Sem mudanca de compatibilidade. `romulo-prototipo-real` define o destino das fontes do prototipo: `docs/prototipo/<modulo>/fontes/` no mesmo caminho do real, so para guardar sem publicar, registrado no sumario do prototipo e apagado ao construir no real; prototipo com letra carregada pela pagina e alertas animados para ficar igual em todo aparelho. AGENTS local nao repete regra: so palavra de autorizacao e ponte para o padrao. Atualizar o plugin e recarregar as skills.
 
 ## Migracao 1.10.1 -> 1.10.2
 
