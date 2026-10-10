@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.10.3
+Versao: 1.10.4
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -9,7 +9,7 @@ Este README e o unico indice central de metodo e roteamento. O AGENTS.md de cada
 Em toda execucao tecnica, antes de escrever:
 1. Ler o AGENTS.md local e as protecoes locais pertinentes. Identificar repositorio, worktree, branch, ambiente e alcance autorizado.
 2. Resolver este indice no repositorio/ref oficial indicado pelo projeto; registrar versao e revisao obtidas. Fixar a mesma revisao para as leituras desta execucao, sem misturar arquivos de versoes diferentes. Ref `main` acompanha atualizacoes entre execucoes; pin explicito prevalece e exige migracao autorizada. Nao atualizar silenciosamente a politica no meio do lote.
-3. Comparar a versao instalada das skills com a `Versao` deste README na ref oficial. Se forem diferentes, dizer ao responsavel "achei uma versao diferente do padrao (instalada X, oficial Y)", atualizar e recarregar as skills conforme [INSTALL.md](INSTALL.md) antes de escrever e seguir com a versao nova; vale para qualquer IA (Claude, Codex ou outra). So no inicio da execucao: no meio de um lote, terminar o lote antes de atualizar. Conferir a distribuicao e as skills disponiveis pelo catalogo abaixo. Instalacao/atualizacao e recarga seguem [INSTALL.md](INSTALL.md). Ler arquivo nao comprova plugin ou hook ativo.
+3. Comparar a versao instalada das skills com a `Versao` deste README na ref oficial. Se forem diferentes, dizer ao responsavel "achei uma versao diferente do padrao (instalada X, oficial Y)", atualizar e recarregar as skills conforme [INSTALL.md](INSTALL.md) e so entao comecar a tarefa com a versao nova; vale para qualquer IA (Claude, Codex ou outra). Bloqueio: nenhuma tarefa comeca (nem analise que leve a escrita) com versao diferente da oficial. A propria IA atualiza por conta propria, sem pedir ao responsavel: atualiza o marketplace e o plugin em todos os escopos instalados (usuario e projeto) e confere com a listagem. Se o comando de atualizacao nao estiver no PATH, procurar o cliente embutido da superficie (ex.: o claude do app desktop); se ainda assim nao atualizar, parar e pedir ao responsavel, sem trabalhar na versao velha. Se a atualizacao so vale apos reiniciar, avisar e esperar a nova sessao. So no inicio da execucao: no meio de um lote, terminar o lote antes de atualizar. Conferir a distribuicao e as skills disponiveis pelo catalogo abaixo. Instalacao/atualizacao e recarga seguem [INSTALL.md](INSTALL.md). Ler arquivo nao comprova plugin ou hook ativo.
 4. Aplicar `romulo-analisar` e Ponytail `full`; carregar integralmente somente as skills e referencias pertinentes ao efeito real; dependencias entre skills sao instrucoes de consulta, nao chamadas de programa automaticas.
 5. Ler o sumario/documentacao do projeto e seguir ate regras, contratos, codigo e consumidores atingidos. Padrao central explica COMO trabalhar; o projeto explica O QUE existe e suas regras de negocio.
 6. Aplicar o encaminhamento abaixo e terminar com `romulo-verificar`. Falha corrigivel volta a construcao, nao vira encerramento por etiqueta pendente.
@@ -49,6 +49,10 @@ Nao remover plugins ou mudar permissoes por uma lista colada no chat. Confirmar 
 
 ## Validacao e limites
 Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover -s tests -v`, com Python 3.10+ (usar `python` no Windows quando apropriado). Sem dependencias Python externas. O validador confere estrutura, catalogo, links, templates e roteamento textual; nao impede toda escrita do sistema operacional, nao instala plugins e nao comprova obediencia do modelo ou qualidade de telas. Bloqueio mecanico de escrita exige hook/permissao/sandbox do ambiente, implantado e testado com autorizacao propria; nao alegar blindagem apenas pelo Markdown.
+
+## Migracao 1.10.3 -> 1.10.4
+
+Sem mudanca de compatibilidade. O passo 3 vira bloqueio: com versao instalada diferente da oficial nenhuma tarefa comeca; a propria IA atualiza sem pedir, em todos os escopos (procurando o cliente embutido quando o comando nao estiver no PATH), recarregar ou reiniciar e so entao trabalhar; sem conseguir, parar e pedir ao responsavel. Atualizar o plugin e recarregar as skills.
 
 ## Migracao 1.10.2 -> 1.10.3
 
