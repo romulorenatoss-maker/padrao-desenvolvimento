@@ -33,6 +33,9 @@ Remocao autorizada reconcilia no mesmo lote os vinculos afetados: codigo, rota/m
 
 Limpeza dos registros de trabalho: registro de perguntas, andamento/fila, pendencias, mapas de construcao e marcas de "falta publicar" guardam so o que esta aberto. O lote que constroi e publica uma entrega retira, no mesmo commit, tudo o que ela concluiu nesses registros (pergunta respondida, linha do andamento, item da fila, pendencia, marca). Decisao fica no documento do modulo dono, nunca no registro. Nenhum lote fecha deixando registro de coisa ja entregue; o historico fica no Git.
 
+Substituicao de decisao pelo responsavel: identificar o comportamento anterior, a nova regra e seus consumidores antes de alterar. No mesmo lote, retirar efetivamente codigo, validacoes, textos, controles e referencias que ficaram sem uso ou contradizem a nova decisao; reconciliar pedidos/perguntas/fila e mapas documentais, inclusive prototipo, para descrever a versao atual. Nao acumular regras antigas como alternativas ativas nem pedir aprovacao de pedido substituido. Preservar historico no Git, dados persistentes e trabalho alheio; remocao depende de consumidores conferidos. Testar a nova regra e a ausencia do comportamento antigo no alcance atingido. Sem evidencia de retirada, nao afirmar limpeza concluida.
+
+
 Historico de entregas: toda entrega publicada ganha, no mesmo commit, uma entrada no topo do historico de lote do projeto ([destinos documentais](../../references/DOCUMENTACAO.md)) com QUEM (qual IA ou pessoa), COMMITS, FEZ (o que do prototipo/pedido aprovado ficou construido no real), CONFERIU, FALTA e DESFAZER. E por ela que outra IA responde o que ja foi construido. Lote publicado sem essa entrada nao fecha.
 
 Nao abrir auditoria global nem refatorar modulo inteiro para corrigir defeito local conhecido.
@@ -60,10 +63,17 @@ Parar a parte dependente somente diante de decisao de negocio ausente, autorizac
 ## Previsao de arquivos e estrutura
 Antes de qualquer arquivo novo, aplicar o gate de `romulo-analisar` e os [destinos e nomes](../../references/ARQUITETURA.md). Sem previsao expressa e necessidade comprovada, exigir `0393` especifico; nao executar gerador antes desse exame. Organizacao ampla usa `romulo-auditar-projeto`. Sem equivalente, usar o fallback autorizado, sem inventar arvore ou perguntar convencao que ja esta definida.
 
+## Salvamento frequente no Git
+Salvar os arquivos no disco durante o trabalho. Fazer commit de preservacao a cada 5 alteracoes logicas concluidas e verificadas, ou antes ao encerrar o trabalho, interromper ou receber "salvar tudo". Uma alteracao logica e um ajuste de comportamento, interface ou regra com seus consumidores/documentos; nao contar teclas, arquivos ou decisoes ainda nao implementadas. Nao esperar a quinta quando o lote ja estiver pronto.
+
+Incluir todas as alteracoes autorizadas acumuladas, inclusive codigo real, fontes do prototipo local, regras pedidas, mapas documentais, testes e remocoes pertinentes. "Salvar tudo" autoriza reunir esses lotes; inventariar tambem arquivos novos e excluidos, conferir diff e indice e adicionar caminhos explicitamente, nunca `git add -A`. Trabalho paralelo em arquivo compartilhado e preservado; trabalho alheio fora do alcance exige ordem expressa, nao e apagado nem incluido silenciosamente. Excluir segredos, dados privados e gerados descartaveis; fonte unica de prototipo nao e descartavel.
+
+Executar guardas e verificacoes proporcionais antes do commit; nao contornar falhas, protegidos ou autorizacoes especificas. Se o gatilho chegar com bloqueio, informar o impedimento concreto e preservar no disco, sem fingir commit. Commit de preservacao nao certifica conclusao funcional. Confirmar SHA e arquivos gravados; push segue autorizacao aplicavel e deve ter resultado confirmado separadamente. Esta regra orienta o executor: nao instala autosave, contador ou hook automatico.
+
 ## Pasta compartilhada entre IAs
 Quando mais de uma IA (Claude, Codex ou outra) trabalha no mesmo projeto, todas usam a mesma pasta e o mesmo prototipo; o que vale e o estado atual aprovado pelo responsavel, independente de qual IA fez ou alterou por ultimo.
 1. A pasta fica sempre na branch oficial. Nela e proibido trocar de branch, criar worktree, usar stash, reset, checkout de arquivo, restore ou clean: esses comandos tiram dos arquivos o trabalho de outra IA.
 2. Antes de alterar um arquivo, reler como ele esta no disco naquele momento e alterar por cima. Nunca gravar uma copia inteira guardada antes (cache, scratch, versao do Git): isso apaga a alteracao feita depois por outra IA. A ultima alteracao feita sobre o estado atual e a que vale.
-3. Commit leva o estado atual dos arquivos do pedido, sem separar autoria; adicionar ao commit somente os caminhos do pedido, nunca `git add -A` da pasta inteira.
+3. Commit leva o estado atual dos arquivos dos pedidos autorizados, sem separar autoria, inclusive lotes acumulados quando o responsavel manda "salvar tudo"; seguir Salvamento frequente no Git e adicionar somente caminhos conferidos, nunca `git add -A` da pasta inteira.
 4. Antes de atualizar a pasta a partir da branch oficial remota, commitar o pedido em andamento. Se houver alteracao sem commit que nao e do pedido, nao atualizar por cima: avisar o responsavel e esperar.
 5. Analisar o trabalho de outra IA e somente leitura, com relatorio ao responsavel (certo, errado, pela metade). Mexer, mover, juntar ou publicar esse trabalho so com ordem expressa do responsavel.

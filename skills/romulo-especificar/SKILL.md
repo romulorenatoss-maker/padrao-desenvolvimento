@@ -31,7 +31,7 @@ Para cada tema, marque RESOLVIDO_PELO_PEDIDO, RESOLVIDO_PELO_SISTEMA, PRECISA_DE
 | Visual | Referencia aprovada, componentes/tokens existentes, responsividade e peculiaridades protegidas. |
 | Aceite | Cenarios observaveis de sucesso, falha, acesso, persistencia e efeitos pertinentes. |
 
-Pergunte ao responsavel somente decisoes ausentes ou conflitantes que afetem a solucao. Agrupe perguntas em uma rodada curta, com recomendacao e consequencia das alternativas quando util. Em revisao iterativa de telas com o responsavel, uma pergunta por vez conforme `romulo-interface` secao 6: as demais ficam no registro canonico de perguntas ate o aceite da atual. Nao perguntar nome de arquivo, endpoint ou tamanho ja definido no projeto. Nao repetir resposta conhecida. Limites de acesso se resolvem por investigacao/autorizacao, nao pedindo que o usuario invente fatos tecnicos.
+Pergunte ao responsavel somente decisoes ausentes ou conflitantes que afetem a solucao. Agrupe perguntas em uma rodada curta, com recomendacao e consequencia das alternativas quando util. Em revisao iterativa, seguir `romulo-interface` secao 6: confirmar entendimento e conferir com o responsavel quando pertinente, sem criar pendencia pelo silencio; construir no prototipo ou real conforme o alvo definido e perguntar apenas decisoes indispensaveis ausentes. Nao perguntar nome de arquivo, endpoint ou tamanho ja definido no projeto. Nao repetir resposta conhecida. Limites de acesso se resolvem por investigacao/autorizacao, nao pedindo que o usuario invente fatos tecnicos.
 
 ## 3. Proposta obrigatoria depois das respostas
 
