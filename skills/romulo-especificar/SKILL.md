@@ -13,6 +13,8 @@ Reformule: quem executa qual tarefa, em qual contexto, para obter qual resultado
 
 Leia primeiro a documentacao canonica, decisoes aprovadas, tela, componentes, rotas, contratos, regras e consumidores do recorte. Siga as dependencias encontradas. Nao invente comportamento porque um modulo tem um nome familiar; capacidade usada numa tela continua pertencendo ao modulo dono da regra.
 
+Procedimento obrigatorio antes da proposta: inspecionar a tela pedida no navegador quando disponivel e rastrear cada elemento atingido: eventos/gatilhos, modais, actions, services, contratos, dados, regras de disponibilidade e consumidores noutras telas/aparelhos, inclusive prototipo e real conforme o alvo. Conferir a finalidade original e os pedidos anteriores nas fontes canonicas e, se necessario, no historico Git; a ultima decisao autorizada prevalece. Identificar o que sera adicionado, alterado, movido, removido ou preservado e por que, incluindo consequencias nas regras ligadas ao recorte. A investigacao e profunda; a apresentacao e curta, no formato de `romulo-interface` secao 6. Elo inacessivel ou nao comprovado deve ser declarado, sem inventar conclusao.
+
 Diferencie contrato aprovado de implementacao atual. Codigo existente evidencia comportamento, nao necessariamente aprovacao. Divergencia entre codigo, documento e decisao exige reconciliacao; nao documentar o bug como nova regra.
 
 ## 2. Checklist interno antes de perguntar
@@ -37,12 +39,9 @@ Pergunte ao responsavel somente decisoes ausentes ou conflitantes que afetem a s
 
 Antes de construir uma capacidade nova, mudar fluxo/regra ou redesenhar, apresente a proposta consolidada e aguarde aprovacao do responsavel. Ausencia de novas perguntas nao elimina a proposta. Pedido ja acompanhado de proposta explicitamente aprovada: referencie essa revisao e nao peca aprovacao de novo.
 
-Use tabela ou blocos curtos, na linguagem da operacao:
+Apresente na linguagem da operacao, seguindo a ordem, os titulos em negrito, o mapa em arvore de texto e a pergunta de confirmacao definidos em `romulo-interface` secao 6. Mostrar somente o recorte afetado pelo pedido.
 
-| Tela/aba | Criar, alterar ou reutilizar | Para que serve | Informacoes e acoes | Origem, destino e conexoes | O que preservar |
-|---|---|---|---|---|---|
-
-Nomeie telas, abas/subabas quando necessarias, entrada, finalidade de cada parte, campos, botoes e resultado de cada acao; informe estados, acesso, navegacao posterior, visual de referencia, impactos e aceite. Sem novas telas/abas, diga isso expressamente. Nao invente nomes de rotas, APIs, tabelas ou permissoes como se existissem: separar COMPROVADO, PROPOSTO e A_LOCALIZAR. Antes da implementacao dependente, localizar o elo ou aprovar a capacidade ausente no dono correto.
+Nomeie telas, abas/subabas quando necessarias, entrada, finalidade de cada parte, campos, botoes e resultado de cada acao; informe estados, acesso, navegacao posterior, visual de referencia, impactos e aceite pertinentes ao recorte. Nao invente nomes de rotas, APIs, tabelas ou permissoes como se existissem: separar COMPROVADO, PROPOSTO e A_LOCALIZAR. Antes da implementacao dependente, localizar o elo ou aprovar a capacidade ausente no dono correto.
 
 Decisao de composicao: tela para tarefa com identidade/fluxo proprio; aba para contexto da mesma entidade; modal/drawer para acao curta contextual; ampliar/reutilizar quando a responsabilidade e compativel. Nao usar porcentagem arbitraria nem forcar toda tarefa em modal.
 
@@ -56,6 +55,8 @@ Toda acao criada ou alterada deve responder:
 - qual verbo/rotulo descreve o resultado observavel;
 - qual comportamento local, navegacao, consulta ou mutacao executa;
 - qual componente padrao, regra/contrato e evidencia a sustentam.
+
+Pedido de remover botao: localizar suas copias e entradas alternativas, quem ainda chama sua funcao e qual regra motivou sua existencia. Informar se a capacidade termina ou continua em local nominal identificado. Se termina, retirar no alcance autorizado botao, gatilhos e codigo/registros exclusivos sem consumidor, incluindo mapas e prototipo atingidos; se continua, preservar somente os consumidores validos e atualizar suas ligacoes. Nao deixar botao oculto, handler orfao ou regra substituida ativa, nem apagar funcao compartilhada ainda necessaria. Reconciliar os testes existentes conforme o comportamento decidido.
 
 Cancelar, voltar, fechar, tentar novamente e recursos de acessibilidade podem ser necessarios ao fluxo aprovado sem pedido individual. Justifique a necessidade; nao use isso para adicionar capacidades de negocio.
 

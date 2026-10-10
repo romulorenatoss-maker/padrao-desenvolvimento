@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.10.4
+Versao: 1.10.5
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -49,6 +49,10 @@ Nao remover plugins ou mudar permissoes por uma lista colada no chat. Confirmar 
 
 ## Validacao e limites
 Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover -s tests -v`, com Python 3.10+ (usar `python` no Windows quando apropriado). Sem dependencias Python externas. O validador confere estrutura, catalogo, links, templates e roteamento textual; nao impede toda escrita do sistema operacional, nao instala plugins e nao comprova obediencia do modelo ou qualidade de telas. Bloqueio mecanico de escrita exige hook/permissao/sandbox do ambiente, implantado e testado com autorizacao propria; nao alegar blindagem apenas pelo Markdown.
+
+## Migracao 1.10.4 -> 1.10.5
+
+Sem mudanca de compatibilidade. `romulo-interface` secao 6 fixa a ordem da proposta com titulos em negrito: Entendimento (ate tres linhas), Mapa em árvore e Impacto (I001., I002., uma linha por efeito), seguidos da pergunta que confirma o entendimento e autoriza construir. Os numeros permitem corrigir ou desfazer um item sem perder as decisoes posteriores. `romulo-especificar` exige investigar a tela, finalidade anterior, regras e consumidores antes da proposta; remover botao exige dizer se sua capacidade termina ou onde continua, reconciliando copias, gatilhos, codigo e registros atingidos. A proposta aponta para a fonte de formato, retirando a alternativa de tabela. Perguntas continuam limitadas a decisoes indispensaveis ausentes; autorizacao ja dada nao se repete e silencio nao cria pendencia. Atualizar o plugin e recarregar as skills apos publicacao autorizada.
 
 ## Migracao 1.10.3 -> 1.10.4
 
