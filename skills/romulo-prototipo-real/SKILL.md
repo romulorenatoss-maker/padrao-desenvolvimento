@@ -7,6 +7,9 @@ description: Use sempre que uma interface, fluxo ou regra aprovada em prototipo 
 
 Prototipo especifica a mudanca aprovada; nao comprova backend, persistencia, seguranca ou publicacao.
 
+## Prototipo nunca publica
+Pedido de prototipo altera somente a copia local do prototipo. Nao editar arquivo que o real usa (codigo publicado, migracao, dado oficial) e nao fazer commit/push que dispare deploy (ex.: branch com deploy automatico) antes da ordem explicita do responsavel "construir no real". Para nao perder trabalho, salvar no Git as fontes alteradas do prototipo em pasta que o real nao usa (destino de prototipo do projeto). Na ordem de construir, levar o aprovado ao real, testar e so entao publicar. Em duvida se o pedido e prototipo ou real, perguntar antes de escrever.
+
 Antes da conversao identifique: finalidade, usuario/tarefa, gatilho, campos/origem, validacoes, estados, contrato, autorizacao/escopo, efeitos/consumidores, erros/recuperacao, aceite e impacto pertinentes.
 
 Compare somente a cadeia atingida. Preserve interface e regras aprovadas. Troque simulacoes pelos contratos reais necessarios. Nao redesenhe durante a integracao sem aprovacao.
