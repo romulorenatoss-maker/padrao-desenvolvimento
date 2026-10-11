@@ -89,3 +89,5 @@ Falha corrigivel no alcance -> corrigir -> renderizar/testar de novo. Sem navega
 4. Pedido de correcao ou de construcao explicito: executar no alcance definido, testar e mostrar o resultado, sem exigir nova confirmacao da mesma decisao.
 5. Registrar no destino canonico somente decisoes efetivamente dadas, trabalho tecnico realizado e pendencias reais. Nao registrar como acao a pergunta de satisfacao nem inventar uma resposta. Funcionamento e publicacao sao sustentados por evidencias do executor.
 6. Decisao indispensavel ausente ou autorizacao especifica continua sendo perguntada; seu alcance dependente nao e decidido por silencio. Conferencias e testes tecnicos cabem ao executor.
+
+Na revisao iterativa de prototipo, seguir o fluxo de entrega visual e autorizacao documental de [romulo-prototipo-real](../romulo-prototipo-real/SKILL.md#revisao-rapida-do-prototipo-e-documentacao-paralela). Essa autorizacao documental nao equivale a aceite funcional nem construcao/publicacao real.

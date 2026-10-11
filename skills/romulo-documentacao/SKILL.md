@@ -16,3 +16,5 @@ Decisoes de `romulo-especificar` e referencia/peculiaridades de `romulo-interfac
 Migrar texto de AGENTS/CLAUDE usa DE/PARA e preservacao descritos na referencia; a reducao do arquivo nao pode excluir protecao nem usar uma referencia ainda inexistente. Se a autorizacao de arquivo protegido faltar, nao mover/apagar seu conteudo. Consultar `romulo-iniciar-projeto` para bootstrap/ponte e `romulo-verificar` para fechamento.
 
 Mudanca de diretriz GLOBAL segue `romulo-evoluir-padrao` na fonte central; regra financeira, tela, permissão, infraestrutura ou guarda peculiar continua no projeto. Regra de arquivo prevista em skill nao dispensa documentar a criacao quando o contrato exigir.
+
+Na revisao iterativa de prototipo, seguir o fluxo de entrega visual e autorizacao documental de [romulo-prototipo-real](../romulo-prototipo-real/SKILL.md#revisao-rapida-do-prototipo-e-documentacao-paralela). Essa autorizacao documental nao equivale a aceite funcional nem construcao/publicacao real.

@@ -82,3 +82,5 @@ Cenarios obrigatorios ao revisar esta skill (avaliacao de comportamento, nao tes
 - "Criar tela nova": perguntas faltantes -> proposta nominal de telas/abas/acoes -> aprovacao -> construir.
 - "Adicionar exportar porque cabe no cabecalho": recusar essa inclusao especulativa, sem remover requisitos legitimos.
 - "Reaplicar padrao": preservar peculiaridade aprovada e consultar antes de muda-la.
+
+Na revisao iterativa de prototipo, seguir o fluxo de entrega visual e autorizacao documental de [romulo-prototipo-real](../romulo-prototipo-real/SKILL.md#revisao-rapida-do-prototipo-e-documentacao-paralela). Essa autorizacao documental nao equivale a aceite funcional nem construcao/publicacao real.

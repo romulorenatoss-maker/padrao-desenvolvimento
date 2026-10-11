@@ -1,11 +1,23 @@
 ---
 name: romulo-prototipo-real
-description: Use sempre que uma interface, fluxo ou regra aprovada em prototipo for convertida, integrada, publicada ou comparada com a implementacao real.
+description: Use na revisao visual iterativa de prototipos e quando uma interface, fluxo ou regra aprovada for convertida, integrada, publicada ou comparada com o real.
 ---
 
 # Romulo Prototipo para Real
 
 Prototipo especifica a mudanca aprovada; nao comprova backend, persistencia, seguranca ou publicacao.
+
+## Revisao rapida do prototipo e documentacao paralela
+
+No trabalho iterativo definido como prototipo, manter o contexto e as correcoes na conversa coordenadora. Encaminhar ao construtor pedidos curtos e fieis, com alvo e resultado esperado, sem ampliar pedido visual para construcao real. Investigar somente a cadeia atingida e executar a alteracao ja autorizada sem repetir aprovacao; perguntar apenas decisao indispensavel ausente.
+
+Aplicar primeiro no ambiente local de prototipo previsto pelo projeto e mostrar a tela renderizada no navegador/painel ao lado apos cada entrega. Conferir que a fonte alterada foi realmente carregada; editar arquivo, abrir URL ou enviar mensagem nao comprova atualizacao visual. Preservar edicoes nao salvas; usar aba separada quando necessario. Sem acesso visual, declarar o limite.
+
+Depois de mostrar a versao, encerrar com a pergunta exata: "Posso documentar assim?". Correcao solicitada entra em seguida e atualiza o entendimento. OK autoriza documentar a versao mostrada. Quando o responsavel tiver explicitamente adotado este fluxo, passar a um novo pedido sem corrigir a entrega mostrada tambem autoriza documentar aquela versao; registrar essa fonte de autorizacao, sem inventar aceite funcional ou publicacao. Silencio sozinho nao autoriza documentar nem cria pendencia.
+
+Com documentacao autorizada e delegacao disponivel, outro agente aplica `romulo-documentacao` aos destinos canonicos existentes enquanto o construtor continua. Entregar ao documentador o recorte/revisao mostrada, decisoes, arquivos e evidencias; separar propriedade dos arquivos para evitar sobrescrita e conferir a correspondencia antes de salvar o lote. Documentador nao altera codigo nem acrescenta regras. Sem delegacao disponivel, concluir a documentacao no mesmo agente sem prometer paralelismo.
+
+Documentar ou aprovar o prototipo nao autoriza construir, integrar ou publicar no real. Exigir pedido explicito para essa conversao. Novo pedido nao cancela trabalho anterior em execucao quando o responsavel mandou aguardar sua conclusao.
 
 ## Prototipo nunca publica
 Pedido de prototipo altera somente a copia local do prototipo. Nao editar arquivo que o real usa (codigo publicado, migracao, dado oficial) e nao fazer commit/push que dispare deploy (ex.: branch com deploy automatico) antes da ordem explicita do responsavel "construir no real". Para nao perder trabalho, salvar no Git as fontes alteradas do prototipo em `docs/prototipo/<modulo>/fontes/`, no mesmo caminho relativo do arquivo real (copia fiel, que mantem o identificador do original). Finalidade unica dessa pasta: guardar o prototipo sem publicar; o real nunca le dela. Registrar cada copia no sumario de prototipo do modulo. Na ordem de construir, levar a copia aprovada ao arquivo real e apagar a copia e o registro no mesmo lote. A guarda local de arvore documental deve aceitar esse destino. Protótipo deve parecer igual em qualquer aparelho: letra carregada pela pagina (nao a do sistema) e alertas de trabalho animados mesmo com reducao de movimento. Na ordem de construir, levar o aprovado ao real, testar e so entao publicar. Em duvida se o pedido e prototipo ou real, perguntar antes de escrever.

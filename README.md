@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.10.5
+Versao: 1.10.6
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -45,10 +45,14 @@ Ponytail e complemento externo oficial `DietrichGebert/ponytail`, em modo `full`
 ## Uso de recursos externos
 Skills instaladas, recursos embutidos e conectores nao concedem autorizacao de escrita. `init`, geradores de plugins/skills/documentos, memorias, Figma e demais ferramentas tambem passam pelo gate de artefatos de `romulo-analisar` quando usados neste trabalho. Nao fabricar CLAUDE.md longo, planos ou copias de regras por sugestao automatica.
 
-Nao remover plugins ou mudar permissoes por uma lista colada no chat. Confirmar superficie, origem, escopo, uso e autorizacao. Recurso opcional sem uso pode ser desabilitado no escopo adequado apos decisao; nao enfraquecer revisao de seguranca nem permissoes para reduzir avisos. Nao delegar geracao de codigo a outro agente; preservar excecao local de revisor independente quando autorizada.
+Nao remover plugins ou mudar permissoes por uma lista colada no chat. Confirmar superficie, origem, escopo, uso e autorizacao. Recurso opcional sem uso pode ser desabilitado no escopo adequado apos decisao; nao enfraquecer revisao de seguranca nem permissoes para reduzir avisos. Delegacao exige autorizacao do responsavel; no fluxo iterativo autorizado, separar construtor e documentador conforme `romulo-prototipo-real`, preservando o revisor independente quando aplicavel.
 
 ## Validacao e limites
 Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover -s tests -v`, com Python 3.10+ (usar `python` no Windows quando apropriado). Sem dependencias Python externas. O validador confere estrutura, catalogo, links, templates e roteamento textual; nao impede toda escrita do sistema operacional, nao instala plugins e nao comprova obediencia do modelo ou qualidade de telas. Bloqueio mecanico de escrita exige hook/permissao/sandbox do ambiente, implantado e testado com autorizacao propria; nao alegar blindagem apenas pelo Markdown.
+
+## Migracao 1.10.5 -> 1.10.6
+
+`romulo-prototipo-real` passa a governar a revisao rapida: alterar primeiro no prototipo local, mostrar resultado renderizado e perguntar "Posso documentar assim?". OK ou novo pedido no fluxo explicitamente adotado autoriza documentar a versao mostrada; silencio sozinho nao autoriza. Documentador separado pode continuar sem bloquear o construtor, com propriedade de arquivos e revisao identificadas. Documentacao nao autoriza conversao/publicacao real. As skills de interface, especificacao e documentacao apontam para essa fonte unica. Atualizar o plugin pelo mecanismo suportado e comprovar recarga; sessoes abertas nao sao consideradas atualizadas automaticamente.
 
 ## Migracao 1.10.4 -> 1.10.5
 
