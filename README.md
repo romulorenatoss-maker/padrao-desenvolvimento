@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.10.7
+Versao: 1.10.8
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -49,6 +49,12 @@ Nao remover plugins ou mudar permissoes por uma lista colada no chat. Confirmar 
 
 ## Validacao e limites
 Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover -s tests -v`, com Python 3.10+ (usar `python` no Windows quando apropriado). Sem dependencias Python externas. O validador confere estrutura, catalogo, links, templates e roteamento textual; nao impede toda escrita do sistema operacional, nao instala plugins e nao comprova obediencia do modelo ou qualidade de telas. Bloqueio mecanico de escrita exige hook/permissao/sandbox do ambiente, implantado e testado com autorizacao propria; nao alegar blindagem apenas pelo Markdown.
+
+## Migracao 1.10.7 -> 1.10.8
+
+`romulo-especificar` exige interpretar finalidade e dependencias antes de alterar/remover; consultar mapa, pagina, regra dona e consumidores, confrontando o codigo. `romulo-documentacao` define conhecimento vivo por pagina/aba: resumo de ate duas linhas por comportamento/DNA, detalhes tecnicos necessarios e regra compartilhada em fonte unica. `references/DOCUMENTACAO.md` determina como escrever TELA.md por item/DNA, com local visual, finalidade, regra dona, detalhe na pagina, conexoes e fontes tecnicas/evidencias. Mudancas reconciliam documentos dos consumidores afetados e preservam continuidade da informacao; remover controle nao presume encerrar capacidade. `romulo-verificar` confronta esses vinculos. Nao instala engrenagens, nao migra documentos antigos em massa nem autoriza mudanca de produto. Atualizar plugin e conferir recarga pelo mecanismo suportado.
+
+Antes de proposta nova, recuperar obrigatoriamente ideias/decisoes futuras pertinentes e apresenta-las com fonte e estado. Preservar detalhes humanos alem do resumo, incorporar incrementos no mesmo dono e reavaliar consumidores. Modulo/tela inexistente fica PREVISTO no dono atual ou assunto do prototipo, sem artefato vazio, API/tabela/ID ficticio ou alegacao de construcao. Entrevista pausada pergunta somente a proxima decisao indispensavel; proposta aprovada continua orientando a conversao real autorizada.
 
 ## Migracao 1.10.6 -> 1.10.7
 

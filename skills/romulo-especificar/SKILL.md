@@ -17,6 +17,20 @@ Procedimento obrigatorio antes da proposta: inspecionar a tela pedida no navegad
 
 Diferencie contrato aprovado de implementacao atual. Codigo existente evidencia comportamento, nao necessariamente aprovacao. Divergencia entre codigo, documento e decisao exige reconciliacao; nao documentar o bug como nova regra.
 
+### Entender a finalidade e o impacto antes de mudar
+
+Interpretar a fala do responsavel no contexto das decisoes vigentes: identificar o problema que ele quer resolver, para que o elemento foi criado e qual regra precisa continuar. Remover um botao, mover uma aba e encerrar a capacidade sao pedidos distintos; nao presumir que tirar da tela autoriza interromper dados ou consumidores.
+
+Consultar primeiro sumario/mapa -> documento da pagina e aba -> regra/contrato dono -> paginas consumidoras -> codigo e dados pertinentes. Confrontar documentacao com comportamento atual e procurar tambem consumidores nao registrados pelos IDs, chamadas e contratos. Documento parcial/desatualizado nao permite afirmar impacto completo.
+
+Antes de mudanca que rompa comportamento ou conexao, apresentar de forma curta: o que deixa de existir, quem recebe/devolve essa informacao, o efeito em cada local e onde a funcao continuara. Pedir somente a decisao ausente e aguardar antes da parte dependente; decisao explicitamente aprovada nao exige nova confirmacao. Alteracao visual sem romper contrato segue o fluxo curto autorizado.
+
+Quando faltar explicacao, investigar antes de perguntar. Se a intencao continuar desconhecida, perguntar de modo dirigido: "Para que este item serve e quem precisa da informacao dele?"; usar as respostas para completar o documento dono. Nao transformar uma deducao do codigo em intencao atribuida ao responsavel nem entrevistar novamente o que ja esta definido. O formato e a manutencao deste conhecimento pertencem a `romulo-documentacao`.
+
+Antes de propor pagina/capacidade/conexao nova, buscar obrigatoriamente ideias, decisoes e vinculos futuros ja registrados sobre as entidades envolvidas: sumarios, documento dono, regras/contratos e assuntos do prototipo, pelos IDs existentes e nomes/termos pertinentes. Se houver proposta anterior, apresenta-la primeiro: "Voce havia explicado X para Y; esta registrado em Z como previsto/aprovado/construido. Este pedido acrescenta ou muda o que?". Usar as palavras/ideia comprovadas e citar a fonte; sugestao da IA nao vira pedido/aprovacao humana. Nao reconstruir a proposta do zero nem obrigar o usuario a repetir o que ja respondeu.
+
+Conduzir o detalhamento de forma progressiva, uma questao indispensavel por vez quando o responsavel adotar entrevista pausada. Incorporar respostas novas preservando detalhes anteriores ainda validos e reavaliar impactos nos demais locais conectados. Decisao nova substitui somente o trecho que efetivamente mudou; conflito ausente nao cria nova aprovacao. Vagas lembrancas ou busca sem resultado nao permitem alegar que a ideia nunca existiu.
+
 ## 2. Checklist interno antes de perguntar
 
 Para cada tema, marque RESOLVIDO_PELO_PEDIDO, RESOLVIDO_PELO_SISTEMA, PRECISA_DECISAO ou NAO_SE_APLICA. Registre a fonte/justificativa no destino canonico quando necessario. Sem acesso: NAO_DESCOBERTO, nao ausencia comprovada.

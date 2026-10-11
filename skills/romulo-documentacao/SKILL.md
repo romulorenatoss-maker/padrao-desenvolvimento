@@ -13,6 +13,24 @@ Registrar fatos comprovados e decisoes aprovadas, com fonte e revisao. Preservar
 
 Decisoes de `romulo-especificar` e referencia/peculiaridades de `romulo-interface` ficam no mapa/assunto local. Padrao geral permanece na skill central. Indicador de peculiaridade e projecao derivada usam a mesma fonte, sem listas manuais concorrentes.
 
+## Conhecimento vivo das paginas e suas conexoes
+
+Cada pagina criada tem um documento dono util; reutilizar `TELA.md` ou equivalente existente, com secoes para abas relacionadas, seguindo [Como escrever o documento da pagina](../../references/DOCUMENTACAO.md#como-escrever-o-documento-da-pagina-telamd-ou-equivalente). Regras compartilhadas ficam no contrato/componente dono. Cada pagina consumidora aponta para a regra e explica por que a usa, sem copiar a mesma especificacao para varios locais.
+
+Para cada comportamento identificado pelo DNA existente, manter uma explicacao rapida de ate duas linhas curtas: (1) o que faz e por que existe; (2) de onde recebe, quem utiliza e qual efeito relevante uma alteracao/remocao provoca. Vincular ao ID, local visual e fonte dona. O limite vale para esse resumo por item: detalhar abaixo as condicoes, excecoes, dados, contratos e arquivos/simbolos necessarios, sem cortar regra critica para caber. Linha visual varia por dispositivo; usar duas frases curtas como referencia.
+
+Registrar decisao/intencao com sua fonte, comportamento implementado com revisao/evidencia e divergencias pendentes de forma distinta. Informacao desconhecida permanece explicita ate a pergunta/resposta pertinente; documentacao nao comprova execucao.
+
+Preservar a riqueza util da explicacao humana: finalidade, motivacao, exemplos, excecoes, condicoes e conexoes futuras. As duas linhas sao somente o resumo do item; os detalhes continuam no dono canonico. Pergunta respondida sai da fila aberta e sua resposta entra no item/assunto correspondente. Registrar fonte e data/revisao da decisao; nao copiar conversa inteira, perder excecao relevante ao resumir, nem criar memoria funcional paralela.
+
+Ideia para modulo/tela ainda inexistente fica no documento da entidade atual ou no assunto existente do prototipo, vinculada no sumario pertinente para descoberta futura, como PREVISTO - NAO CONSTRUIDO; aprovacao do desenho e estado de construcao sao separados. Descrever finalidade e conexao pretendida, sem fabricar caminho/link resolvido, DNA de implementacao, tabela ou API. Ao criar o consumidor autorizado, ligar a documentacao existente ao seu ID/documento real e conferir novamente a proposta. O previsto nao autoriza criar modulo, banco, interface ou publicar.
+
+Cada resposta/incremento atualiza a mesma fonte e, quando pertinente, os documentos dos consumidores existentes afetados; manter vinculos coerentes e explicar o efeito do novo detalhe. Preservar decisoes anteriores ainda validas, tratar substituicoes explicitamente e guardar historico no Git. Antes de nova proposta, a consulta obrigatoria deste conhecimento segue `romulo-especificar`.
+
+Ao criar, editar, mover ou remover capacidade, reconciliar no mesmo recorte o documento dono e os documentos de TODAS as paginas/abas comprovadamente afetadas: links/IDs, entrada/saida, motivo da dependencia e novo destino da funcao/informacao. Descobrir consumidores reais antes de declarar cobertura; nao criar listas concorrentes nem repetir a regra em cada consumidor. Pagina sem impacto nao exige narrativa nova. Nao apagar o historico nem romper continuidade de dados por retirar um controle visual.
+
+Configuracoes transversais, como engrenagem e suas abas, registram finalidade, escopo e excecoes no dono; telas referenciam esse contrato. Descrever o padrao nao autoriza instalar o elemento em todas as paginas. A entrevista e a apresentacao do impacto seguem `romulo-especificar`.
+
 Migrar texto de AGENTS/CLAUDE usa DE/PARA e preservacao descritos na referencia; a reducao do arquivo nao pode excluir protecao nem usar uma referencia ainda inexistente. Se a autorizacao de arquivo protegido faltar, nao mover/apagar seu conteudo. Consultar `romulo-iniciar-projeto` para bootstrap/ponte e `romulo-verificar` para fechamento.
 
 Mudanca de diretriz GLOBAL segue `romulo-evoluir-padrao` na fonte central; regra financeira, tela, permissão, infraestrutura ou guarda peculiar continua no projeto. Regra de arquivo prevista em skill nao dispensa documentar a criacao quando o contrato exigir.
