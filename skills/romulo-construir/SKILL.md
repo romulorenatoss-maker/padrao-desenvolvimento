@@ -77,3 +77,5 @@ Quando mais de uma IA (Claude, Codex ou outra) trabalha no mesmo projeto, todas 
 3. Commit leva o estado atual dos arquivos dos pedidos autorizados, sem separar autoria, inclusive lotes acumulados quando o responsavel manda "salvar tudo"; seguir Salvamento frequente no Git e adicionar somente caminhos conferidos, nunca `git add -A` da pasta inteira.
 4. Antes de atualizar a pasta a partir da branch oficial remota, commitar o pedido em andamento. Se houver alteracao sem commit que nao e do pedido, nao atualizar por cima: avisar o responsavel e esperar.
 5. Analisar o trabalho de outra IA e somente leitura, com relatorio ao responsavel (certo, errado, pela metade). Mexer, mover, juntar ou publicar esse trabalho so com ordem expressa do responsavel.
+
+Para testes e criterio de parada, seguir [romulo-verificar](../romulo-verificar/SKILL.md#testar-corrigir-e-entregar-sem-repeticao-desnecessaria): validar o pedido, corrigir falhas e retestar os pontos atingidos; validou, entregar sem repeticao ou ampliacao sem motivo.

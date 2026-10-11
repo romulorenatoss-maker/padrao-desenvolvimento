@@ -7,6 +7,16 @@ description: "Use antes de encerrar tarefa tecnica para verificar escopo, arquiv
 
 Verificar proporcionalmente ao efeito, nao a quantidade de arquivos. Confrontar alcance autorizado, pedido/decisao aprovada, diff, consumidores, contratos, seguranca e documentacao. Estados de verificacao: PASSOU, FALHOU, NAO_EXECUTADO ou NAO_SE_APLICA. Ausencia de evidencia nao e PASSOU; nao declarar ausencia universal de defeitos.
 
+## Testar, corrigir e entregar sem repeticao desnecessaria
+
+Nao definir quantidade fixa de testes ou tentativas como meta. Escolher cenarios proporcionais ao pedido e aos consumidores realmente afetados; distinguir numero de cenarios, assercoes e execucoes ao informar resultados.
+
+Executar o recorte. Se falhar, corrigir a causa e retestar o cenario que falhou e as dependencias atingidas pela correcao. Continuar enquanto houver falha corrigivel no alcance. Bloqueio externo concreto deve ser informado; repetir sem nova evidencia nao resolve.
+
+Quando o comportamento solicitado e os pontos afetados estiverem validados, parar de ampliar ou repetir a bateria e entregar imediatamente o resultado. Nova rodada ou cobertura maior exige motivo concreto: nova alteracao, falha, dependencia afetada ou preocupacao ainda nao resolvida. Preservar verificacoes obrigatorias do projeto; nao trocar criterio de aceite por rapidez.
+
+No prototipo iterativo, mostrar o recorte apos a checagem minima pertinente conforme `romulo-prototipo-real`, deixando claro o que ainda nao foi verificado. Com divisao expressamente autorizada, o documentador/revisor testa a funcao e pode corrigir desvios estritamente dentro do pedido; antes de editar codigo, combinar propriedade dos arquivos com o construtor. So marcar verificado depois da evidencia, sem confundir entrega visual com integracao real.
+
 ## Arquivos, nomes e autorizacoes
 Reconciliar cada arquivo criado/alterado/removido/renomeado no candidato e os novos arquivos nao rastreados pertinentes ao trabalho. Confrontar previsao da skill/reference e necessidade com o gate de `romulo-analisar`; sem previsao, exigir evidencia do 0393 especifico antes de criar, nao autorizacao retroativa presumida. Diretorio vazio ou artefato sem finalidade/consumidor falha.
 
