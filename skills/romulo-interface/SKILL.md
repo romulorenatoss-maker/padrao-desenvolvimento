@@ -50,7 +50,21 @@ Nao padronizar apenas classes: verificar tamanho computado/renderizado do icone,
 
 ## 4. Peculiaridade protegida, clara na propria tela
 
-Padrao aprovado e obrigatorio, salvo excecao explicitamente aprovada. Antes de CRIAR ou ALTERAR uma excecao, apresentar o que difere, motivo, alcance e impacto, e pedir aprovacao. Preservar somente o que foi protegido, nao congelar toda a tela por inferencia. Uma peculiaridade nao vira padrao global sem decisao separada.
+Padrao aprovado e obrigatorio, salvo excecao explicitamente aprovada. Antes de CRIAR ou ALTERAR uma excecao, apresentar o que difere, motivo, alcance e impacto, e pedir aprovacao. Preservar o aprovado fora da mudanca autorizada; peculiaridade registrada torna a protecao mais precisa, mas ausencia de marca especial nao autoriza reorganizar o existente. Uma peculiaridade nao vira padrao global sem decisao separada.
+
+### Edicao pontual e acrescimo sem reorganizar o aprovado
+
+Adicionar botao/campo ou corrigir funcao nao autoriza mudar posicao, ordem, dimensoes, cor, animacao ou comportamento de outros elementos. Conferir o recorte atual e efeitos de CSS/componentes compartilhados antes de editar. Se o pedido cabe sem alterar o existente aprovado, executar dentro da autorizacao vigente, sem pergunta artificial.
+
+Nao usar "pequeno", "pouco" ou um limite de pixels para dispensar essa conferencia/aprovacao: ate uma linha deslocada e mudanca do existente. Dizer qual elemento muda e de onde para onde; informar medida quando efetivamente conferida no mesmo viewport/estado, sem estimar como fato. Variacoes dinamicas/responsivas ja previstas pelo contrato nao sao uma nova alteracao de layout por si.
+
+Se para atender ao pedido precisar reduzir, deslocar ou alterar algo ja aprovado, parar antes dessa mudanca e fazer uma pergunta curta que diga exatamente o impacto real: "Para encaixar X, preciso reduzir Y e mover Z para cima. Quer ver a previa?" Usar os nomes reais e somente efeitos comprovados; nao substituir por "vou melhorar o layout" nem apresentar proposta gigante por esse ajuste. Autorizacao de acrescentar X nao aprova esses efeitos colaterais.
+
+Se o responsavel pedir imagem, mostrar como ficaria em previa separada, preservando a tela/edicao aprovada; identificar que e proposta, nao entrega aplicada. So mexer no layout existente depois da aprovacao daquele impacto/previa; silencio nao aprova. Aprovacao explicita que ja inclua esses movimentos nao e perguntada novamente. Sem conseguir produzir a previa solicitada, declarar o impedimento e manter o layout atual.
+
+Quando o responsavel definir que precisa VER a proposta antes de qualquer mudanca no layout existente, a previa visual anterior passa a ser obrigatoria para esse trabalho, mesmo que o deslocamento pareca minimo. A pergunta curta inicia essa proposta; nao equivale a permissao para editar a tela aprovada enquanto prepara a imagem.
+
+Depois da edicao, confrontar o recorte com a referencia anterior e conferir as propriedades que deveriam permanecer. Mudanca fora do pedido e regressao a corrigir, nao melhoria presumida; nao alterar a referencia apenas para aceitar o desvio.
 
 No mapa canonico da tela/componente, registrar: identificador estavel existente ou minimo necessario, escopo nominal (tela/aba/elemento), propriedade/comportamento protegido, motivo, referencia base, aprovador/fonte, revisao e limite de alteracao. Nao copiar esse cadastro manualmente para varios arquivos.
 
@@ -77,7 +91,7 @@ Falha corrigivel no alcance -> corrigir -> renderizar/testar de novo. Sem navega
 
 ## 6. Confirmar entendimento sem criar pendencia por silencio
 
-1. Apresentar a proposta nesta ordem, com os titulos em negrito: **Entendimento** (no maximo tres linhas curtas confirmando o pedido), **Mapa em árvore** (fluxo em texto normal) e **Impacto** (itens I001., I002. e assim por diante). O mapa nao usa tabela, bloco de codigo ou lousa: item/pergunta principal centralizado, linhas e ramificacoes para esquerda e direita, botoes, condicoes Sim/Nao e consequencias. Usar o fluxo conferido no sistema; exemplo nao conferido deve ser identificado como ilustrativo.
+1. Para proposta de capacidade/fluxo ou redesenho, apresentar nesta ordem, com os titulos em negrito: **Entendimento** (no maximo tres linhas curtas confirmando o pedido), **Mapa em árvore** (fluxo em texto normal) e **Impacto** (itens I001., I002. e assim por diante). Edicao pontual/acrescimo que exige alterar layout ja aprovado usa a pergunta curta da secao 4, sem repetir esse formato amplo; a autorizacao do efeito colateral continua obrigatoria. O mapa nao usa tabela, bloco de codigo ou lousa: item/pergunta principal centralizado, linhas e ramificacoes para esquerda e direita, botoes, condicoes Sim/Nao e consequencias. Usar o fluxo conferido no sistema; exemplo nao conferido deve ser identificado como ilustrativo.
 
    O impacto vem da investigacao da tela e da cadeia existente em `romulo-especificar`, incluindo finalidade anterior e decisoes vigentes, nunca apenas do que o botao aparenta fazer. Cada item ocupa uma linha curta: numero, ADICIONAR/ALTERAR/REMOVER/MOVER/PRESERVAR, elemento e local, antes -> depois, motivo e efeito nas regras ou conexoes atingidas. Separar efeitos diferentes em itens distintos; cobrir todas as consequencias comprovadas do recorte, incluindo a regra relacionada que precisa continuar e por que. Nao inventar impacto ou afirmar leitura de elo nao conferido.
 

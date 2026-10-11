@@ -84,6 +84,8 @@ Informe CRIAR, ALTERAR, REUTILIZAR e PRESERVAR no registro existente, sem arquiv
 
 Bug que apenas restaura contrato aprovado, texto ou ajuste visual que retorna ao padrao: consulta curta + informar diferenca + corrigir no alcance autorizado, sem entrevista nem redesenho. Nova regra, nova tarefa, alteracao de peculiaridade protegida ou mudanca visual nao aprovada: apresentar apenas o delta para aprovacao.
 
+Acrescimo/edicao pontual com deslocamento, reducao ou outro efeito em layout ja aprovado segue a pergunta curta e previa quando solicitada de `romulo-interface` secao 4. O pedido funcional nao autoriza esse efeito colateral; nao alterar primeiro para mostrar depois. Se o existente permanece intacto, nao repetir aprovacao ja dada.
+
 Uma duvida bloqueia somente a parte dependente; nao construir essa parte por suposicao. Autorizacao de desenho, codigo, banco, concessao de permissao, commit/push e deploy continuam distintas conforme contrato local. Nao aumentar o escopo para resolver conveniencia tecnica.
 
 ## 6. Handoff e cenarios de aceite do metodo

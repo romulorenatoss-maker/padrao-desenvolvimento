@@ -35,6 +35,8 @@ Conferencia bidirecional: requisito sem entrega e elemento sem tarefa comprovada
 
 Ao mudar/remover elemento, conferir a finalidade aprovada e a continuidade da informacao nos consumidores conforme `romulo-especificar`. Documento dono e paginas afetadas devem concordar sobre IDs, regra referenciada e destino da capacidade; resumo curto nao substitui contrato tecnico. Conferir dependencias no codigo alem das ja registradas e declarar lacunas sem afirmar cobertura completa.
 
+Em edicao pontual/acrescimo visual, conferir que posicao, dimensoes, cores, animacoes e comportamento do existente fora do pedido foram preservados. Efeito colateral em layout aprovado exige evidencia da aprovacao previa conforme `romulo-interface`; pedido do novo elemento sozinho nao e essa evidencia. A regra de skill nao constitui bloqueio mecanico de edicao.
+
 Em nova capacidade/conexao, conferir que ideias anteriores pertinentes foram consultadas/apresentadas e que o incremento preserva detalhes/decisoes ainda validos. Vinculo previsto nao e consumidor implementado nem teste executado; sem documento/pagina existente, nenhuma referencia falsa ou estado construido. Fonte permite distinguir explicacao do responsavel de sugestao da IA.
 
 Testes reais em ambiente autorizado com dados controlados. Fixtures isoladas sao legitimas; nao fallback ficticio de producao. Novos testes, screenshots e saidas usam destinos previstos no catalogo; nao criar certificado, memoria ou plano paralelo. Executar comandos pertinentes descobertos no projeto, nunca alegar execucao sem resultado.
