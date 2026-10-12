@@ -30,6 +30,8 @@ Antes de mostrar o prototipo, checar o pedido/cadeia afetados e renderizacao con
 CI de PR executa checks requeridos e suites proporcionais/cadeias criticas, sem relaxar seguranca ou instrumentacao local obrigatoria. Reexecucao ou ampliacao precisa de nova mudanca, falha ou risco concreto. Corrigir causa -> retestar o afetado -> validou, entregar. Nao impor auditoria global/mutacao completa para pedido pontual; nao esconder falha relevante para ganhar velocidade.
 
 Conferir issue/PR e os [vinculos por DNA](../../references/DOCUMENTACAO.md#rastreabilidade-dna-issue-pr-e-commit), base e diff do lote, revisao/checks exigidos e autorizacao de integrar/publicar segundo `romulo-construir`. Protecao de branch/CI so e ativa com configuracao e ensaio no repositorio; regra em .md orienta agentes e nao comprova bloqueio mecanico. Guardas preexistentes continuam obrigatorias.
+
+Em deploy de produto, conferir a revisao/artefato efetivamente testado, fontes/assets e versoes necessarias, configuracao do ambiente sem segredo, migrations aplicadas e compatibilidade dos consumidores. Publicar conteudo diferente do candidato testado exige nova verificacao atingida; nao inventar etapa de build para PHP/JS puro. Confirmar versao ativa e smoke test autorizado da cadeia; resultado falho exige parar a promocao e aplicar recuperacao prevista compativel com os dados. Voltar codigo nao desfaz escrita/migration automaticamente. Implantacao gradual e observabilidade seguem o perfil autorizado; nao instalar plataforma de deploy por esta regra.
 ## Arquivos, nomes e autorizacoes
 
 Reconciliar cada arquivo criado/alterado/removido/renomeado no candidato e os novos arquivos nao rastreados pertinentes ao trabalho. Confrontar previsao da skill/reference e necessidade com o gate de `romulo-analisar`; sem previsao, exigir evidencia do 0393 especifico antes de criar, nao autorizacao retroativa presumida. Diretorio vazio ou artefato sem finalidade/consumidor falha.
@@ -44,10 +46,13 @@ Confirmar sumario central consultado, fontes coerentes na mesma revisao e destin
 - Migration/remocao: ensaio, integridade, preservacao/recuperacao e autorizacao.
 - Interface: proposta de `romulo-especificar` e revisao renderizada de `romulo-interface`, incluindo peculiaridades; comportamento da acao e fonte oficial conforme aplicabilidade.
 - Prototipo: fluxo local pertinente, sem fingir persistencia/seguranca real.
+- Reconstrucao: origem/revisao e dependencias conferidas; cadeia executada no destino autorizado, contratos/RPCs e controles exercitados quando aplicaveis, interface comparada com a referencia. Guia referencia fontes reais; simulacao, dependencia externa e recorte nao executado permanecem explicitos, sem promessa de zero bugs.
 
 Conferencia bidirecional: requisito sem entrega e elemento sem tarefa comprovada sao defeitos. Em mutacao, confirmar reabertura/reload e consumidores; botao local nao exige banco. Screenshot nao comprova persistencia, build nao comprova clique e imports nao comprovam fluxo.
 
 Ao mudar/remover elemento, conferir a finalidade aprovada e a continuidade da informacao nos consumidores conforme `romulo-especificar`. Documento dono e paginas afetadas devem concordar sobre IDs, regra referenciada e destino da capacidade; resumo curto nao substitui contrato tecnico. Conferir dependencias no codigo alem das ja registradas e declarar lacunas sem afirmar cobertura completa.
+
+Conferir residuos do lote nos dois sentidos conforme `romulo-construir`: requisito/DNA, dono, fonte/assets, contratos/RPCs/dados, consumidores e testes efetivamente envolvidos. Unidade criada sem consumidor ou referencia ativa ao removido e falha a corrigir; item compartilhado/historico/dinamico sem desuso comprovado nao e apagado. Preservar guardas e mapas locais, mesmo que a consulta humana fique mais curta.
 
 Em edicao pontual/acrescimo visual, conferir que posicao, dimensoes, cores, animacoes e comportamento do existente fora do pedido foram preservados. Efeito colateral em layout aprovado exige evidencia da aprovacao previa conforme `romulo-interface`; pedido do novo elemento sozinho nao e essa evidencia. A regra de skill nao constitui bloqueio mecanico de edicao.
 

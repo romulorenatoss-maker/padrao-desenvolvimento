@@ -26,6 +26,8 @@ Pedido de prototipo altera somente a copia local do prototipo. Nao editar arquiv
 
 Antes da conversao identifique: finalidade, usuario/tarefa, gatilho, campos/origem, validacoes, estados, contrato, autorizacao/escopo, efeitos/consumidores, erros/recuperacao, aceite e impacto pertinentes.
 
+Conferir no [documento dono](../../references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao) a revisao/fontes aprovadas, DNAs e regras de cada item do recorte, simulacoes e contratos reais correspondentes. Documentacao ausente indispensavel e completada antes da implementacao dependente, sem repetir entrevista resolvida ou copiar regra para um novo dossie. Preservar a entrega visual rapida e a documentacao paralela autorizada; pendencia documental fica no registro existente ate o fechamento, nao equivale a backend pronto.
+
 Compare somente a cadeia atingida. Preserve interface e regras aprovadas. Troque simulacoes pelos contratos reais necessarios. Nao redesenhe durante a integracao sem aprovacao.
 
 Direcao dos dados: real -> prototipo, nunca prototipo -> real. Nao transporte contas, usuarios, lancamentos, anexos, IDs, valores de exemplo, fixtures, localStorage/sessionStorage ou banco de prototipo para producao.
@@ -53,8 +55,10 @@ Falha tecnica corrigivel dentro do alcance segue o ciclo de `romulo-construir`; 
 ## Fechamento da conversao: prototipo x real
 Ao publicar o real de uma tela, aba ou modal prototipado:
 1. Comparar prototipo x real item por item (abas, modais, botoes, campos, filtros, estados e acoes), com a tela renderizada dos dois lados quando possivel. Dado ficticio nao conta como diferenca.
-2. Item do prototipo que nao foi construido vira linha no andamento/fila do projeto como "diferenca prototipo x real a decidir", com o nome do item; nunca e descartado em silencio.
+2. Item do prototipo que nao foi construido vira linha no andamento/fila do projeto como "diferenca prototipo x real a decidir", com nome/ID e referencia ao detalhe aprovado no dono; nunca e descartado em silencio nem reduzido a um nome sem suas regras/fontes.
 3. Item construido diferente do aprovado: corrigir ou registrar a decisao do responsavel no documento da tela.
-4. O documento da tela/modulo passa a descrever so o real: retirar ponteiros ao prototipo (rota, arquivo, "abas aprovadas no prototipo", comparacoes). Fonte historica marcada como removida pode ficar como origem da decisao.
+4. Somente o recorte efetivamente convertido passa a descrever o real: retirar seus ponteiros ativos ao prototipo (rota, arquivo, comparacoes), preservando a origem historica da decisao quando pertinente. Itens ainda nao convertidos permanecem no MESMO documento dono, com detalhes/fontes aprovados e estado PROTOTIPO/PENDENTE explicito; publicar uma aba/modal nao autoriza apagar as demais. Retirar esses detalhes somente apos conversao ou descarte explicitamente autorizado.
 5. Quando nao sobrar item do prototipo por construir ou decidir, apagar os arquivos do prototipo daquela tela e suas referencias no mesmo lote (`romulo-construir`, remocao autorizada e limpeza dos registros de trabalho).
 6. A entrada no historico de entregas diz o resultado da comparacao: sem diferenca, ou quais diferencas foram para o andamento.
+
+O fiscal independente exigido pelo projeto confere esse candidato e a revisao aprovada, nao apenas o texto do recibo. Mudanca posterior invalida a evidencia atingida; revisao/documentacao aprovadas nao substituem execucao real ou prova de versao ativa.

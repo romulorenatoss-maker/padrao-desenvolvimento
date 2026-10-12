@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.11.0
+Versao: 1.12.0
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -57,83 +57,22 @@ Nao remover plugins ou mudar permissoes por uma lista colada no chat. Confirmar 
 ## Validacao e limites
 Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover -s tests -v`, com Python 3.10+ (usar `python` no Windows quando apropriado). Sem dependencias Python externas. O validador confere estrutura, catalogo, links, templates e roteamento textual; nao impede toda escrita do sistema operacional, nao instala plugins e nao comprova obediencia do modelo ou qualidade de telas. Bloqueio mecanico de escrita exige hook/permissao/sandbox do ambiente, implantado e testado com autorizacao propria; nao alegar blindagem apenas pelo Markdown.
 
-## Migracao 1.10.11 -> 1.11.0
+## Contratos consultados por efeito
 
-Pedido autorizado em [issue #1](https://github.com/romulorenatoss-maker/romulo-dev-standard/issues/1). Acrescenta issue/PR por tarefa/entrega e links junto aos DNAs existentes, sem substituir IDs nem criar outro mapa. O dono vigente continua fonte da regra; marcacao de consolidacao e detalhes em duas frases preservados. Perfil de qualidade/observabilidade e estados de carregamento sao compativeis e proporcionais ao projeto, sem instalar a lista inteira. Design Motion Principles incorporado completo na revisao indicada pela propria skill, com MIT/autoria e entry/workflows adaptados; referencias/templates preservados.
+Correcao fiel: DNA -> trecho vigente no dono -> codigo/consumidores -> teste atingido. Evolucao: briefing visual, fluxo do app e TRD pertinentes; reconstrucao: revisao exata de fontes/assets e guia modular com contratos/RPCs/dados/seguranca/ordem/aceite. Conteudo e destinos em [references/DOCUMENTACAO.md](references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao); implementacao e limpeza em `romulo-construir`, verificacao/fiscal em `romulo-verificar`. Resumo rapido e referencia ao detalhe, sem retirar mapas nominais ou checks locais.
 
-Mudanca de fluxo: salvar localmente continua permitido; integracao/publicacao passa por PR. Nao trocar branch nem retirar trabalho da pasta compartilhada: ref de entrega pode partir do commit conferido sem checkout nessa pasta, com base/diff e alcance comprovados. Contrato local que exige push direto precisa de migracao especifica; terminar lotes em curso na politica fixada antes de adotar. Nenhum merge autoriza deploy real de prototipo. Atualizar plugin e conferir recarga antes de iniciar novo lote; citar versao nao comprova ativacao de sessao.
+A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOTIPO, DNAs, regras, revisao/fontes e simulacoes/contratos a integrar. Conversao atualiza a mesma fonte e verifica prototipo x real, sem refazer entendimento nem duplicar manual. Falta indispensavel e resolvida antes da implementacao dependente; a entrega visual local continua rapida conforme `romulo-prototipo-real`.
 
-O padrao central valida distribuicao/testes em CI de PR; implantacao de protecao/checks obrigatorios no consumidor continua separada e autorizada. Nao transferir o pacote para cada projeto nem copiar regras no AGENTS: manter ponte e perfil local concreto. A primeira adocao solicitada no Mixupa e tarefa propria, sem interferir em documentacao ou edicoes nao salvas em andamento.
+## Migracao 1.11.0 -> 1.12.0
 
-Entrega deste padrao: QUEM: Codex, com revisao independente do fiscal. COMMITS: [PR #2 / commits](https://github.com/romulorenatoss-maker/romulo-dev-standard/pull/2/commits), vinculada a [issue #1](https://github.com/romulorenatoss-maker/romulo-dev-standard/issues/1). FEZ: metodo de entrega/rastreabilidade, perfil compativel e pacote completo de movimento. CONFERIU: validador estrutural, quick_validate da skill, 26 testes locais aprovados e 2 de symlink nao executados no Windows, diff sem erros e revisao independente; resultados de CI ficam na [PR](https://github.com/romulorenatoss-maker/romulo-dev-standard/pull/2/checks). FALTA: recarga comprovada de sessoes abertas e adocao/testes dos consumidores, que nao sao certificados por esta distribuicao. DESFAZER: nova PR de reversao localizada, com migracao dos consumidores pertinente, sem reset de pastas compartilhadas nem apagamento de dados/trabalho posterior.
+Revisao da [issue #3](https://github.com/romulorenatoss-maker/romulo-dev-standard/issues/3), autorizada pelo responsavel com 0393 em 11/10/2026. Centraliza briefing, fluxo/TRD e guia de reconstrucao nos donos existentes, explicita RPCs e rastreio bidirecional, preserva o fiscal e condensa narrativa repetida. Nao altera os contratos de arquitetura/dados/seguranca, stack, dados, IDs, guardas, aprovacao de layout ou alvo PROTOTIPO/REAL. Instalar o metodo nao cria documentos vazios, muda telas ou configura protecao/CI/deploy do consumidor.
 
-## Migracao 1.10.10 -> 1.10.11
+Terminar lotes em curso na revisao fixada. Depois da publicacao autorizada, atualizar pacote e comprovar recarga conforme [INSTALL.md](INSTALL.md); migracao de AGENTS protegido ou guarda local exige autorizacao propria. Adocao/limpeza no consumidor precisa conferir suas fontes, instrumentos e referencias; nao apagar manifests/recibos por volume. Versionamento nao comprova ativacao em sessoes abertas nem que todo modulo esta documentado.
 
-Fechamento da marcacao: ao concluir a conciliacao, o executor grava CONTEXTO_CONSOLIDADO: SIM no mesmo lote antes da entrega/commit e retira a pendencia documental resolvida, sem novo pedido ou repasse a outra IA. Parte incompleta nao promove documento inteiro; duvidas reais e pendencias de construcao/teste/publicacao permanecem. Verificacao exige corrigir a marca ausente no recorte concluido. Atualizar plugin e conferir recarga.
+Registro desta revisao: QUEM: Codex, com fiscal independente. COMMITS: [PR #4 / commits](https://github.com/romulorenatoss-maker/romulo-dev-standard/pull/4/commits), vinculada a [issue #3](https://github.com/romulorenatoss-maker/romulo-dev-standard/issues/3). FEZ: consulta, contratos de projeto/reconstrucao, limpeza da narrativa central e correcao do fechamento parcial de prototipo; nenhuma tela/codigo/banco de consumidor alterados. CONFERIU: validador e suite locais (26 cenarios aprovados, 2 symlink nao executados no Windows), diff sem erros; fiscal identificou risco de perder detalhe aprovado ainda nao convertido, corrigido e reconferido sem bloqueio textual restante no recorte. CI de cada commit consta na [PR](https://github.com/romulorenatoss-maker/romulo-dev-standard/pull/4/checks). FALTA: recarga comprovada de sessoes abertas e adocao/testes dos consumidores; revisao textual e CI da distribuicao nao certificam produto ou comportamento de modelos. DESFAZER: reversao por PR localizada preservando trabalho posterior e migracao pertinente dos consumidores.
 
-## Migracao 1.10.9 -> 1.10.10
+Migracoes anteriores ficam no [README versionado da 1.11.0](https://github.com/romulorenatoss-maker/romulo-dev-standard/blob/bc7bc0948808c6009792447a2ebb6ecbb52139d5/README.md), sem segunda versao de regras na leitura corrente. A entrega 1.11.0 e rastreavel pela [PR #2](https://github.com/romulorenatoss-maker/romulo-dev-standard/pull/2); regras vigentes estao nas fontes donas do catalogo e a compatibilidade dos instaladores em INSTALL.md.
 
-O documento dono vigente da pagina e fonte canonica de suas decisoes, independente do chat. Conversa ajuda a recuperar lacunas e o conhecimento confirmado entra no TELA.md/equivalente; compartilhados mantem dono unico referenciado. Substituidos/descartados saem da especificacao sem arquivo paralelo; ideias futuras ainda validas e historico tecnico obrigatorio permanecem. Documentacao, especificacao e verificacao reconciliam a regra atual e consumidores, sem reativar versao superada nem confundir descrito com construido. Atualizar plugin e conferir recarga; nenhuma limpeza de projeto/dados e aplicada automaticamente.
+## Base da analise de equipes e entregas
 
-`CONTEXTO_CONSOLIDADO: SIM` marca somente a pagina/aba efetivamente reconciliada: consulta futura usa o documento vigente; recortes sem marca podem recuperar conversas/historico temporariamente e conciliar. Novos pedidos incrementam o dono. A marca e documental, independente de STATUS_DOCUMENTACAO e de construcao/teste/publicacao, e nao instala UI.
-
-## Migracao 1.10.8 -> 1.10.9
-
-`romulo-interface` explicita que edicao pontual/acrescimo preserva o layout aprovado fora do pedido, mesmo sem marca de peculiaridade. Se exigir mover/reduzir/alterar o existente, perguntar em frase curta o efeito concreto; se solicitada, mostrar previa separada e aguardar aprovacao antes de editar. Acrescimo sem esse impacto segue autorizacao vigente. Proposta ampla nao e repetida para esse ajuste. Especificacao e verificacao apontam para a fonte e conferem preservacao/aprovacao; regra textual nao e bloqueio mecanico. Atualizar plugin e conferir recarga.
-
-## Migracao 1.10.7 -> 1.10.8
-
-`romulo-especificar` exige interpretar finalidade e dependencias antes de alterar/remover; consultar mapa, pagina, regra dona e consumidores, confrontando o codigo. `romulo-documentacao` define conhecimento vivo por pagina/aba: resumo de ate duas linhas por comportamento/DNA, detalhes tecnicos necessarios e regra compartilhada em fonte unica. `references/DOCUMENTACAO.md` determina como escrever TELA.md por item/DNA, com local visual, finalidade, regra dona, detalhe na pagina, conexoes e fontes tecnicas/evidencias. Mudancas reconciliam documentos dos consumidores afetados e preservam continuidade da informacao; remover controle nao presume encerrar capacidade. `romulo-verificar` confronta esses vinculos. Nao instala engrenagens, nao migra documentos antigos em massa nem autoriza mudanca de produto. Atualizar plugin e conferir recarga pelo mecanismo suportado.
-
-Antes de proposta nova, recuperar obrigatoriamente ideias/decisoes futuras pertinentes e apresenta-las com fonte e estado. Preservar detalhes humanos alem do resumo, incorporar incrementos no mesmo dono e reavaliar consumidores. Modulo/tela inexistente fica PREVISTO no dono atual ou assunto do prototipo, sem artefato vazio, API/tabela/ID ficticio ou alegacao de construcao. Entrevista pausada pergunta somente a proxima decisao indispensavel; proposta aprovada continua orientando a conversao real autorizada.
-
-## Migracao 1.10.6 -> 1.10.7
-
-`romulo-verificar` centraliza o ciclo proporcional: testar, corrigir falhas e retestar os pontos atingidos; quando validado, entregar sem novas baterias ou repeticoes sem motivo. Contagem de cenarios nao equivale a tentativas. No prototipo, distinguir entrega visual minima de verificacao completa. Documentador pode revisar e corrigir o recorte somente com autorizacao expressa e propriedade de arquivos coordenada. Atualizar plugin e confirmar recarga pelo mecanismo suportado.
-
-## Migracao 1.10.5 -> 1.10.6
-
-`romulo-prototipo-real` passa a governar a revisao rapida: alterar primeiro no prototipo local, mostrar resultado renderizado e perguntar "Posso documentar assim?". OK ou novo pedido no fluxo explicitamente adotado autoriza documentar a versao mostrada; silencio sozinho nao autoriza. Documentador separado pode continuar sem bloquear o construtor, com propriedade de arquivos e revisao identificadas. Documentacao nao autoriza conversao/publicacao real. As skills de interface, especificacao e documentacao apontam para essa fonte unica. Atualizar o plugin pelo mecanismo suportado e comprovar recarga; sessoes abertas nao sao consideradas atualizadas automaticamente.
-
-## Migracao 1.10.4 -> 1.10.5
-
-Sem mudanca de compatibilidade. `romulo-interface` secao 6 fixa a ordem da proposta com titulos em negrito: Entendimento (ate tres linhas), Mapa em árvore e Impacto (I001., I002., uma linha por efeito), seguidos da pergunta que confirma o entendimento e autoriza construir. Os numeros permitem corrigir ou desfazer um item sem perder as decisoes posteriores. `romulo-especificar` exige investigar a tela, finalidade anterior, regras e consumidores antes da proposta; remover botao exige dizer se sua capacidade termina ou onde continua, reconciliando copias, gatilhos, codigo e registros atingidos. A proposta aponta para a fonte de formato, retirando a alternativa de tabela. Perguntas continuam limitadas a decisoes indispensaveis ausentes; autorizacao ja dada nao se repete e silencio nao cria pendencia. Atualizar o plugin e recarregar as skills apos publicacao autorizada.
-
-## Migracao 1.10.3 -> 1.10.4
-
-Sem mudanca de compatibilidade. O passo 3 vira bloqueio: com versao instalada diferente da oficial nenhuma tarefa comeca; a propria IA atualiza sem pedir, em todos os escopos (procurando o cliente embutido quando o comando nao estiver no PATH), recarregar ou reiniciar e so entao trabalhar; sem conseguir, parar e pedir ao responsavel. Atualizar o plugin e recarregar as skills.
-
-## Migracao 1.10.2 -> 1.10.3
-
-Sem mudanca de compatibilidade. `romulo-prototipo-real` define o destino das fontes do prototipo: `docs/prototipo/<modulo>/fontes/` no mesmo caminho do real, so para guardar sem publicar, registrado no sumario do prototipo e apagado ao construir no real; prototipo com letra carregada pela pagina e alertas animados para ficar igual em todo aparelho. AGENTS local nao repete regra: so palavra de autorizacao e ponte para o padrao. Atualizar o plugin e recarregar as skills.
-
-## Migracao 1.10.1 -> 1.10.2
-
-Sem mudanca de compatibilidade. `romulo-prototipo-real` ganha "Prototipo nunca publica": pedido de prototipo altera so a copia local, salva as fontes no Git em pasta que o real nao usa e nao faz commit/push que dispare deploy antes da ordem "construir no real". Projetos com deploy automatico pela branch oficial devem manter o prototipo fora dos arquivos publicados. Atualizar o plugin e recarregar as skills.
-
-## Migracao 1.10.0 -> 1.10.1
-
-Revisao de interface apresenta entendimento curto e arvore de decisao em texto com ramificacoes laterais, botoes e caminhos Sim/Nao; mostra impacto quando muda uma decisao e pergunta "Confirma que posso construir dessa forma?", sem criar pendencia pelo silencio ou repetir autorizacao existente. Responsavel define prototipo ou real; perguntar somente se houver duvida concreta. Decisao substituida exige retirada de codigo e registros obsoletos, incluindo mapas/prototipo. Salvamento frequente em `romulo-construir`: commit a cada 5 alteracoes logicas concluidas/verificadas, antes ao encerrar/interromper ou receber "salvar tudo", incluindo fontes de prototipo e documentacao autorizadas, preservando trabalho paralelo e guardas. Nao instala autosave mecanico; commit, push e deploy sao distintos. Atualizar o plugin e recarregar as skills apos publicacao autorizada.
-
-## Migracao 1.9.0 -> 1.10.0
-
-Sem mudanca de compatibilidade. O passo 3 da entrada manda toda IA comparar a versao instalada com a oficial no inicio e, se diferente, avisar e atualizar as skills antes de escrever. `romulo-construir` ganha a secao "Pasta compartilhada entre IAs": uma pasta na branch oficial, sem stash/reset/checkout/troca de branch, reler antes de gravar, vale o estado atual aprovado independente de quem fez, commit so do pedido e trabalho de outra IA so com ordem do responsavel. O template de AGENTS passa a pedir a conferencia de versao. Atualizar o plugin e recarregar as skills.
-
-## Migracao 1.8.0 -> 1.9.0
-
-Sem mudanca de compatibilidade. `romulo-prototipo-real` ganha o fechamento da conversao (comparar prototipo x real, diferencas ao andamento, documento so com o real, apagar prototipo concluido); `romulo-verificar` manda o fiscal conferir. Atualizar o plugin e recarregar as skills.
-
-## Migracao 1.7.0 -> 1.8.0
-
-Sem mudanca de compatibilidade. `romulo-construir` torna obrigatorio o historico de entregas (QUEM, COMMITS, FEZ, CONFERIU, FALTA, DESFAZER) em toda entrega publicada; `references/DOCUMENTACAO.md` deixa de tratar o historico de lote como opcional; `romulo-verificar` manda o fiscal independente conferir o fechamento documental e a limpeza dos registros de trabalho. Atualizar o plugin e recarregar as skills.
-
-## Migracao 1.6.0 -> 1.7.0
-
-Sem mudanca de compatibilidade. `romulo-construir` ganha a limpeza dos registros de trabalho (o que foi entregue sai de perguntas, andamento, fila, pendencias e mapas no mesmo lote); `romulo-interface` secao 6 item 6 deixa de "marcar como respondida": a pergunta sai do registro ao documentar a decisao e fica no andamento como "respondida, a construir" ate ser publicada; `romulo-documentacao` aponta para isso. Atualizar o plugin e recarregar as skills; projetos limpam seus registros na proxima entrega.
-
-## Migracao 1.5.0 -> 1.6.0
-
-Sem mudanca de compatibilidade. `romulo-interface` ganha a secao 6 (revisao com o responsavel, uma peca por vez, com fila canonica de perguntas) e `romulo-especificar` aponta para ela. Atualizar o plugin e recarregar as skills; nenhum AGENTS local precisa ser alterado.
-
-## Migracao 1.4.0 -> 1.5.0
-Sem novas skills: centraliza o indice, reduz o template e define organizacao/gate de arquivos nas fontes existentes. Atualizar o plugin e comprovar descoberta conforme INSTALL.md. Para consumidores, integrar o template preservando identidade, IDs, guardas, peculiaridades e regras locais; nunca copiar o AGENTS da raiz central nem sobrescrever AGENTS protegido. Mover conteudo local exige destino canonico e vinculo antes de retirar da origem. Codigo, banco e telas nao mudam por instalar este metodo.
+As praticas foram confrontadas com [qualidade documental DORA](https://dora.dev/capabilities/documentation-quality/), [gestao de mudancas de banco DORA](https://dora.dev/capabilities/database-change-management/), [engenharia de releases Google SRE](https://sre.google/sre-book/release-engineering/) e [CODEOWNERS/revisao GitHub](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners). Essas fontes fundamentam consulta util, reproducao, compatibilidade e verificacoes; nao ampliam autorizacao nem prometem ausencia de erros. Nao copiar infraestrutura de grande empresa para resolver um ajuste local.
