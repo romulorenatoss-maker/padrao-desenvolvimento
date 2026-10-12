@@ -39,6 +39,10 @@ Em edicao pontual/acrescimo visual, conferir que posicao, dimensoes, cores, anim
 
 Em nova capacidade/conexao, conferir que ideias anteriores pertinentes foram consultadas/apresentadas e que o incremento preserva detalhes/decisoes ainda validos. Vinculo previsto nao e consumidor implementado nem teste executado; sem documento/pagina existente, nenhuma referencia falsa ou estado construido. Fonte permite distinguir explicacao do responsavel de sugestao da IA.
 
+Conferir que o documento dono permite entender a decisao atual sem chat e nao conserva como alternativas vigentes regras substituidas ou sugestoes descartadas. Conferir links dos consumidores afetados, sem transformar consolidacao de conversa em auditoria ampla. Essa limpeza nao apaga historico Git, dados/auditoria nem pendencia real de implementacao.
+
+Conferir o alcance de `CONTEXTO_CONSOLIDADO: SIM`: nao marcar documento inteiro por consolidar so uma aba, nem usar a marca como prova de funcionamento/publicacao. Conferir que o conteudo vigente e suficiente sem chat, mantendo lacunas de implementacao explicitas.
+
 Testes reais em ambiente autorizado com dados controlados. Fixtures isoladas sao legitimas; nao fallback ficticio de producao. Novos testes, screenshots e saidas usam destinos previstos no catalogo; nao criar certificado, memoria ou plano paralelo. Executar comandos pertinentes descobertos no projeto, nunca alegar execucao sem resultado.
 
 Registrar no dono canonico: escopo/revisao/SHA testado, ambiente, cenario/rota, comando/passos, resultado/evidencia e limites. Remover segredos/dados sensiveis. Mudanca posterior invalida evidencia dependente. Amostra declarada nao comprova execucao de todos os consumidores.

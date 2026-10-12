@@ -29,6 +29,10 @@ Quando faltar explicacao, investigar antes de perguntar. Se a intencao continuar
 
 Antes de propor pagina/capacidade/conexao nova, buscar obrigatoriamente ideias, decisoes e vinculos futuros ja registrados sobre as entidades envolvidas: sumarios, documento dono, regras/contratos e assuntos do prototipo, pelos IDs existentes e nomes/termos pertinentes. Se houver proposta anterior, apresenta-la primeiro: "Voce havia explicado X para Y; esta registrado em Z como previsto/aprovado/construido. Este pedido acrescenta ou muda o que?". Usar as palavras/ideia comprovadas e citar a fonte; sugestao da IA nao vira pedido/aprovacao humana. Nao reconstruir a proposta do zero nem obrigar o usuario a repetir o que ja respondeu.
 
+Essa recuperacao usa a especificacao vigente e ideias futuras ainda validas, nao versoes substituidas/sugestoes descartadas. Chat/historico pode esclarecer lacuna real, mas nao reativa decisao superada nem se torna dependencia permanente: reconciliar o conhecimento confirmado no documento dono conforme `romulo-documentacao`.
+
+Antes de recuperar conversa antiga, conferir a [marcacao do contexto consolidado](../../references/DOCUMENTACAO.md#marcacao-do-contexto-consolidado) do recorte: SIM usa documento vigente e referencias; sem SIM permite conciliacao com contexto/historico temporario. Nova fala do responsavel pode incrementar ou substituir a decisao documentada com o impacto pertinente, sem reabrir o passado por iniciativa propria.
+
 Conduzir o detalhamento de forma progressiva, uma questao indispensavel por vez quando o responsavel adotar entrevista pausada. Incorporar respostas novas preservando detalhes anteriores ainda validos e reavaliar impactos nos demais locais conectados. Decisao nova substitui somente o trecho que efetivamente mudou; conflito ausente nao cria nova aprovacao. Vagas lembrancas ou busca sem resultado nao permitem alegar que a ideia nunca existiu.
 
 ## 2. Checklist interno antes de perguntar

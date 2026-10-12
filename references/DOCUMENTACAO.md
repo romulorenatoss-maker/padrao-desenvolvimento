@@ -22,6 +22,18 @@ Todos os subdiretorios sao relativos ao modulo real; criar somente com documento
 
 Cabecalho minimo: identidade documental e dono existentes; nome/finalidade da pagina; rota, menu/submenu; estado PROTOTIPO/REAL e revisao das fontes. Agrupar abas/subabas e configuracoes no mesmo documento quando pertencem a essa pagina. Indicar os arquivos que a renderizam/interagem e as cadeias/contratos donos, sem listar arquivos sem relacao.
 
+Descrever a decisao vigente por completo: o leitor deve compreender a pagina mesmo que a conversa original seja apagada. Fonte/data de aprovacao podem identificar proveniencia, mas um link ao chat nao substitui o conteudo aprovado. Revisao nova substitui a descricao superada no mesmo item e reconcilia referencias; nao manter duas regras concorrentes nem arquivo de propostas descartadas. Preservar historico tecnico obrigatorio e ideias futuras validas conforme `romulo-documentacao`.
+
+### Marcacao do contexto consolidado
+
+Usar no cabecalho do TELA.md/documento equivalente `CONTEXTO_CONSOLIDADO: SIM` somente apos reconciliar finalidade, decisoes vigentes, detalhes e conexoes daquele recorte e salva-los no dono. No documento inteiro, SIM exige cobrir todas as paginas/abas que ele declara; quando apenas uma aba/recorte esta consolidado, colocar o marcador na secao nominal correspondente. Ausencia ou `CONTEXTO_CONSOLIDADO: NAO` significa conciliacao ainda nao concluida. Nao marcar automaticamente porque existe arquivo ou para fazer uma guarda passar.
+
+No recorte marcado SIM, consultar o documento vigente e donos referenciados; nao recuperar conversas antigas para reinterpretar/reativar decisoes dele. Pedido novo do responsavel e acrescentado/corrigido no mesmo dono, com impacto e autorizacao aplicaveis. Se faltar detalhe indispensavel, registrar a lacuna e perguntar conforme o fluxo adotado, sem preencher por regra antiga superada. Codigo/contratos continuam sendo conferidos para implementar e validar.
+
+No recorte sem SIM, pode consultar contexto do chat e historico disponivel como apoio temporario, confrontando com documentacao existente, codigo e decisoes posteriores. Conciliar conflitos, salvar somente contexto vigente no dono e entao marcar o recorte. Em tarefas entre telas marcadas e nao marcadas, aplicar esse criterio a cada uma; nao migrar todo o sistema por essa regra.
+
+Essa marcacao identifica consolidacao do conhecimento, nao aceite visual, funcao construida/testada/publicada nem autorizacao de mudar layout; `STATUS_DOCUMENTACAO` e estados de implementacao/verificacao continuam independentes. E metadado do documento, nao novo indicador/botao na interface.
+
 Para cada item funcional, usar uma secao ancorada ao identificador ja existente. O nome visivel sozinho nao identifica o item: informar pagina, aba, modal/etapa e posicao quando relevante. Referenciar `DNA_ID`/`DNA_AUX` da capacidade e `ELEMENTO_ID`/`COMPONENTE_ID` quando existentes; nao inventar DNA por elemento decorativo nem trocar IDs para caber no modelo. Um comportamento compartilhado conserva sua identidade e ganha referencias nos consumidores.
 
 Formato de cada item, preenchido somente com fatos/decisoes identificados:
