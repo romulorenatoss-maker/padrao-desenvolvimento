@@ -29,6 +29,12 @@ Reutilizar fontes equivalentes e vincula-las no sumario; um documento existente 
 - Fluxo do app: tarefa/usuario -> entrada -> telas/cliques -> resultado e retorno; condicoes, estados de sucesso/erro/vazio/acesso e efeitos pertinentes. Referenciar DNAs, paginas e contratos donos, sem copiar campos/regras em todas as jornadas.
 - TRD: stack e versoes permitidas, modulos/donos, dependencias e contratos, persistencia/RPCs, seguranca, operacao/entrega e o que fica fora do alcance. Vincular guias tecnicos existentes; configuracoes por nome/finalidade, nunca segredos ou dados privados. Proposta tecnica nao vira implementacao comprovada.
 
+O briefing visual tem uma fonte dona por projeto: reutilizar documento equivalente; na falta, `docs/architecture/BRIEFING_DESIGN.md`, ligado ao sumario. Uma colecao externa chamada DESIGN.md e referencia de proposta, nao segunda fonte da verdade. Tela/aba referencia o briefing e descreve apenas sua composicao/peculiaridade local; o padrao de entrevista e comparacao pertence a romulo-interface.
+
+Para cada decisao visual, registrar somente o vigente: escopo/usuario/tarefa; estado PROPOSTO ou APROVADO e fonte da decisao; referencia visual/revisao; cores com papeis e valores; fonte/tamanhos/pesos; botoes e estados; cantos/espacamentos/densidade; responsividade/movimento; tokens/componentes consumidores; excecoes protegidas e limites de aplicacao. Resumo curto e valores suficientes para outra pessoa/IA reproduzir a escolha. DNAs existentes ligam elementos funcionais e telas; nao criar identidade por cor, pixel ou decoracao.
+
+Antes da primeira UI definitiva, resolver as decisoes indispensaveis e mostrar a referencia representativa. Em projeto existente inconsistente, inventariar somente o alcance pedido e distinguir conforme, desvio, peculiaridade aprovada e nao verificado; novo briefing nao certifica migracao de todas as telas. Converter prototipo ao real conserva esse mesmo dono/referencia e atualiza os vinculos de implementacao, sem repetir entrevista ou criar manual paralelo.
+
 Guia modular de reconstrucao referencia o codigo/assets na revisao exata e os donos abaixo. O minimo e permitir que outra pessoa/IA localize e reproduza a cadeia sem depender da conversa; duas frases resumem a finalidade, nao limitam os contratos tecnicos.
 
 | Peca | O que precisa ser localizavel e conferido |

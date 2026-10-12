@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.12.2
+Versao: 1.12.3
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -62,6 +62,14 @@ Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover 
 Correcao fiel: DNA -> trecho vigente no dono -> codigo/consumidores -> teste atingido. Evolucao: briefing visual, fluxo do app e TRD pertinentes; reconstrucao: revisao exata de fontes/assets e guia modular com contratos/RPCs/dados/seguranca/ordem/aceite. Conteudo e destinos em [references/DOCUMENTACAO.md](references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao); implementacao e limpeza em `romulo-construir`, verificacao/fiscal em `romulo-verificar`. Resumo rapido e referencia ao detalhe, sem retirar mapas nominais ou checks locais.
 
 A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOTIPO, DNAs, regras, revisao/fontes e simulacoes/contratos a integrar. Conversao atualiza a mesma fonte e verifica prototipo x real, sem refazer entendimento nem duplicar manual. Falta indispensavel e resolvida antes da implementacao dependente; a entrega visual local continua rapida conforme `romulo-prototipo-real`.
+
+## Migracao 1.12.2 -> 1.12.3
+
+Pedido da [issue #10](https://github.com/romulorenatoss-maker/romulo-dev-standard/issues/10), autorizado pelo responsavel com "0393 — publicar a skill e salvar o briefing". `romulo-interface` define entrevista inicial de uma decisao ausente por vez, escolha de ferramentas compativeis pelo efeito e comparacao isolada somente quando solicitada; [documentacao](references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao) define briefing unico, decisoes vigentes e vinculos aos tokens/componentes. Briefing existente e tela aprovada continuam sendo consultados sem nova entrevista por bug ou edicao pontual.
+
+Alcance: essas duas fontes, este README e os tres manifests existentes, seis caminhos centrais. Sem mudanca de stack, templates, catalogo, comandos de verificacao ou regras de negocio; nenhuma ferramenta instalada, UI modificada ou briefing de consumidor criado por este pacote. Terminar lotes na revisao fixada; publicacao, atualizacao/recarregamento e ativacao seguem [INSTALL.md](INSTALL.md), com evidencias separadas.
+
+Registro: QUEM: Codex, com fiscal independente. FEZ: patch aprovado de entrevista, briefing e ferramentas visuais. CONFERIU: proposta em dois cenarios dirigidos, projeto PHP/JS novo sem briefing e correcao local com tela/briefing aprovados; validador central, quick_validate da skill e diff sem erros; 26 cenarios centrais aprovados e dois de symlink NAO_EXECUTADO no Windows. Revisao textual/testes estruturais nao certificam execucao do modelo, benchmark ou UI. FALTA: fiscal independente do candidato, commit/envio/PR/CI e instalacao/recarga dos consumidores. DESFAZER: nova PR localizada, preservando decisoes/trabalho posteriores e protecoes legitimas.
 
 ## Migracao 1.12.1 -> 1.12.2
 

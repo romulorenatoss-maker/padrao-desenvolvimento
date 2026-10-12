@@ -19,6 +19,18 @@ Padrao GLOBAL significa identidade compartilhada dentro daquele projeto, nao mes
 
 Sem referencia suficiente: apresentar proposta visual do recorte, aprovar e implementar so os tokens/componentes necessarios. Nao construir catalogo inteiro para uma unica funcao. Com referencia aprovada: reutilizar, sem reabrir perguntas resolvidas.
 
+### Entrevista inicial e escolha de ferramentas
+
+No inicio da primeira interface ou de um novo padrao visual solicitado, conferir o briefing existente e perguntar UMA decisao ausente por vez: usuario/tarefa e dispositivos; direcao e referencias; cores e tipografia; botoes, cantos, espacamentos/densidade; estados, movimento e peculiaridades protegidas. A ordem segue a lacuna real, nao um questionario fixo; neste fluxo, nao agrupar varias escolhas na mesma pergunta, mesmo se outro roteiro sugerir agrupa-las. Nao repetir respostas ja dadas nem entrevistar de novo por um bug ou edicao pontual.
+
+Salvar cada decisao vigente no dono do briefing previsto em [documentacao](../../references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao). Proposta recebe PROPOSTO; somente a escolha explicita vira APROVADO. Depois, telas e TELA.md consultam esse dono e suas excecoes, sem copiar outra especificacao visual. Valores concretos e referencia renderizada ligam a escolha aos tokens/componentes implementados; apenas dizer "bonito" ou citar uma skill nao define um padrao.
+
+Escolher recursos pelo efeito: direcao estetica/colecao de DESIGN.md ajuda a propor; image-to-code exige alvo visual escolhido e ajuda a reproduzir; guidelines revisam acessibilidade/usabilidade/performance; navegador/Playwright conferem renderizacao e regressao, nao decidem gosto nem editam layout por si. Confirmar fonte, revisao, compatibilidade e ferramentas realmente disponiveis. Nenhum recurso externo autoriza framework, dependencia, instalacao, troca de fonte canonica ou reforma de tela aprovada.
+
+Quando o responsavel pedir comparacao de abordagens, preparar previas isoladas da MESMA pagina, com mesmo conteudo, estados, viewport e alcance. Comparar hierarquia, legibilidade/contraste, densidade, acoes, responsividade e fidelidade; declarar o que foi realmente executado. Duas propostas do mesmo modelo com instrucoes diferentes nao sao um benchmark de dois executores independentes. Imagem gerada e proposta, nao prova de UI funcional; bloqueio de renderizacao nao vira PASSOU.
+
+Escolha aprovada fixa a referencia daquele projeto. Novas telas reutilizam tokens/componentes; tela antiga muda somente no lote autorizado, preservando regras, DNAs e peculiaridades. Nao carregar varias skills de gosto simultaneamente como ordens concorrentes nem obrigar uma comparacao A/B a cada ajuste. Reusar verificacoes aprovadas; corrigir falha e retestar somente o efeito atingido.
+
 ## 2. Uma fonte implementada, varios consumidores
 
 Buscar componente/token/variante antes de criar. Reutilizar; estender quando semanticamente compativel; criar somente responsabilidade distinta necessaria. Nao criar Botao2, copias de modal ou um componente unico com dezenas de flags contraditorias.
