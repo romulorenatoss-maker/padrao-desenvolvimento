@@ -9,13 +9,16 @@ SUPABASE_PROJECT_REF: <referencia publica confirmada, se usado; nunca chave>
 DEPLOY: <provedor/servico confirmado, se usado>
 DOCUMENTACAO_LOCAL: <sumario canonico confirmado; AUSENTE se comprovado>
 PROTECOES_LOCAIS: <regras curtas ou caminho canonico confirmado; nao inventar>
-PADRAO_REPOSITORIO: https://github.com/romulorenatoss-maker/romulo-dev-standard
+PADRAO_REPOSITORIO: https://github.com/romulorenatoss-maker/padrao-desenvolvimento
 PADRAO_REF: main
 PADRAO_ENTRADA: README.md
+SETUP_PADRAO: <estado factual e referencia ao registro aprovado; nao inventar aceite>
 
 Antes de qualquer tarefa tecnica, ler o ponto de entrada oficial do padrao
 na revisao resolvida e aplicar seu sumario de diretrizes, skills e verificacoes
 pertinentes. Ler tambem a documentacao e as protecoes locais deste projeto.
+Usar os nomes vigentes do catalogo central para descobrir/invocar as skills;
+nao reutilizar nomes de uma distribuicao anterior.
 Confirmar identidade, branch, ambiente e autorizacao antes de escrever.
 Antes de escrever, comparar a versao instalada das skills com a do ponto de
 entrada; se diferente, avisar "achei uma versao diferente" e atualizar as skills.

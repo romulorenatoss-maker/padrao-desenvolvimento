@@ -1,6 +1,6 @@
 # Workflow: Audit Mode
 
-Review only the requested scope. Apply [Romulo governance](../SKILL.md#integracao-ao-romulo-dev-standard--ler-antes-dos-workflows) first. Read-only findings are the default; HTML examples below are optional, require an authorized destination and never authorize changing approved UI.
+Review only the requested scope. Apply [development governance](../SKILL.md#integracao-ao-padrao-de-desenvolvimento--ler-antes-dos-workflows) first. Read-only findings are the default; HTML examples below are optional, require an authorized destination and never authorize changing approved UI.
 
 ## Required Reading
 
@@ -127,7 +127,7 @@ By default, return concise findings in the conversation with location, impact an
 
 ### Optional behavior — an authorized HTML report
 
-1. **Resolve the authorized write location** through Romulo Analisar and the project convention. The original `motion-audits/{project-name}-{ISO-date}.html` below is an example, not permission to create that folder.
+1. **Resolve the authorized write location** through `analisar` and the project convention. The original `motion-audits/{project-name}-{ISO-date}.html` below is an example, not permission to create that folder.
    - **Audited project root**: run `git rev-parse --show-toplevel` from the agent's cwd. If it succeeds, use that path. If it fails (no `.git` ancestor), use cwd.
    - **`{project-name}`**: the `name` field from `package.json` at the project root if it exists; else the `name` field from `pyproject.toml`; else the basename of the project root. Strip any scoping prefix (`@scope/pkg` → `pkg`) and sanitize to lowercase kebab-case (`[a-z0-9-]`, replace others with `-`).
    - **`{ISO-date}`**: today's date as `YYYY-MM-DD`.

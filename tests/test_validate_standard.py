@@ -38,43 +38,43 @@ class DistributionTests(unittest.TestCase):
         self.assertEqual(validate(self.root), [])
 
     def test_missing_skill_fails(self):
-        shutil.rmtree(self.root / "skills/romulo-interface")
+        shutil.rmtree(self.root / "skills/interface")
         self.assertTrue(validate(self.root))
 
     def test_invalid_metadata_fails(self):
         self.assert_mutations_fail([
-            ("skills/romulo-interface/SKILL.md", "name: romulo-interface", "name: romulo-outro"),
-            ("skills/romulo-interface/SKILL.md", 'description: "', 'description "'),
+            ("skills/interface/SKILL.md", "name: interface", "name: outro"),
+            ("skills/interface/SKILL.md", 'description: "', 'description "'),
         ])
 
     def test_duplicate_metadata_fails(self):
-        self.edit("skills/romulo-interface/SKILL.md", "name: romulo-interface", "name: romulo-interface\nname: romulo-interface")
+        self.edit("skills/interface/SKILL.md", "name: interface", "name: interface\nname: interface")
         self.assertTrue(validate(self.root))
 
     def test_missing_frontmatter_and_body_fail(self):
-        path = self.root / "skills/romulo-interface/SKILL.md"
+        path = self.root / "skills/interface/SKILL.md"
         original = path.read_text(encoding="utf-8")
-        for text in (original.replace("---\n", "", 1), original.split("---\n", 2)[0] + "---\nname: romulo-interface\ndescription: ok\n---\n"):
+        for text in (original.replace("---\n", "", 1), original.split("---\n", 2)[0] + "---\nname: interface\ndescription: ok\n---\n"):
             with self.subTest(text=text[:40]):
                 path.write_text(text, encoding="utf-8")
                 self.assertTrue(validate(self.root))
 
     def test_empty_description_fails(self):
-        path = self.root / "skills/romulo-interface/SKILL.md"
+        path = self.root / "skills/interface/SKILL.md"
         lines = path.read_text(encoding="utf-8").splitlines()
         lines[2] = 'description: ""'
         path.write_text("\n".join(lines) + "\n", encoding="utf-8")
         self.assertTrue(validate(self.root))
 
     def test_quoted_colon_is_valid(self):
-        path = self.root / "skills/romulo-interface/SKILL.md"
+        path = self.root / "skills/interface/SKILL.md"
         lines = path.read_text(encoding="utf-8").splitlines()
         lines[2] = 'description: "Texto valido: com dois pontos"'
         path.write_text("\n".join(lines) + "\n", encoding="utf-8")
         self.assertEqual(validate(self.root), [])
 
     def test_unquoted_colon_fails(self):
-        path = self.root / "skills/romulo-interface/SKILL.md"
+        path = self.root / "skills/interface/SKILL.md"
         lines = path.read_text(encoding="utf-8").splitlines()
         lines[2] = "description: Texto invalido: valor"
         path.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -85,8 +85,8 @@ class DistributionTests(unittest.TestCase):
         self.assert_mutations_fail([
             ("plugin.json", f'"version": "{version}"', '"version": "0.0.0"'),
             ("plugin.json", f'"version": "{version}"', '"version": null'),
-            ("plugin.json", '"name": "romulo-dev-standard"', '"name": "outro"'),
-            ("plugin.json", '"name": "romulo-dev-standard"', '"name": "x", "name": "romulo-dev-standard"'),
+            ("plugin.json", '"name": "padrao-desenvolvimento"', '"name": "outro"'),
+            ("plugin.json", '"name": "padrao-desenvolvimento"', '"name": "x", "name": "padrao-desenvolvimento"'),
             (".codex-plugin/plugin.json", '"skills": "./skills/"', '"skills": "./ausente/"'),
             (".agents/plugins/marketplace.json", '"path": "./"', '"path": "../"'),
             (".claude-plugin/marketplace.json", '"source": "./"', '"source": "./outro"'),
@@ -105,14 +105,14 @@ class DistributionTests(unittest.TestCase):
     def test_catalog_requires_all_skills_once(self):
         path = self.root / "README.md"
         original = path.read_text(encoding="utf-8")
-        row = next(line for line in original.splitlines(True) if line.startswith("| [romulo-interface]"))
+        row = next(line for line in original.splitlines(True) if line.startswith("| [interface]"))
         for replacement in ("", row + row):
             with self.subTest(replacement=bool(replacement)):
                 path.write_text(original.replace(row, replacement), encoding="utf-8")
                 self.assertTrue(validate(self.root))
 
     def test_catalog_wrong_destination_fails(self):
-        self.edit("README.md", "[romulo-interface](skills/romulo-interface/SKILL.md)", "[romulo-interface](skills/romulo-construir/SKILL.md)")
+        self.edit("README.md", "[interface](skills/interface/SKILL.md)", "[interface](skills/construir/SKILL.md)")
         self.assertTrue(validate(self.root))
 
     def test_readme_version_mismatch_fails(self):
@@ -123,7 +123,7 @@ class DistributionTests(unittest.TestCase):
     def test_template_must_be_minimal_and_unversioned(self):
         path = self.root / "templates/AGENTS.md"
         original = path.read_text(encoding="utf-8")
-        for extra in ("\n- romulo-interface\n", "\n11 skills\n", "\nVERSAO_MINIMA: 1.5.0\n", "\n" * 45):
+        for extra in ("\n- interface\n", "\n11 skills\n", "\nVERSAO_MINIMA: 1.5.0\n", "\n" * 45):
             with self.subTest(extra=extra[:30]):
                 path.write_text(original + extra, encoding="utf-8")
                 self.assertTrue(validate(self.root))
@@ -132,6 +132,7 @@ class DistributionTests(unittest.TestCase):
         self.assert_mutations_fail([
             ("templates/AGENTS.md", "PADRAO_ENTRADA: README.md", "PADRAO_ENTRADA: AGENTS.md"),
             ("templates/AGENTS.md", "PROTECOES_LOCAIS:", "OUTRO:"),
+            ("templates/AGENTS.md", "SETUP_PADRAO:", "OUTRO_SETUP:"),
             ("templates/AGENTS.md", "0393", ""),
         ])
 
@@ -145,12 +146,12 @@ class DistributionTests(unittest.TestCase):
     def test_install_must_reference_central_catalog(self):
         self.assert_mutations_fail([("INSTALL.md", "[README.md](README.md)", "README.md")])
         path = self.root / "INSTALL.md"
-        path.write_text(path.read_text(encoding="utf-8") + "\n- romulo-interface\n", encoding="utf-8")
+        path.write_text(path.read_text(encoding="utf-8") + "\n- interface\n", encoding="utf-8")
         self.assertTrue(validate(self.root))
 
     def test_unknown_skill_and_broken_links_fail(self):
         self.assert_mutations_fail([
-            ("skills/romulo-construir/SKILL.md", "`romulo-interface`", "`romulo-fantasma`"),
+            ("skills/construir/SKILL.md", "`interface`", "`fantasma`"),
             ("README.md", "[INSTALL.md](INSTALL.md)", "[INSTALL.md](nao-existe.md)"),
             ("README.md", "[INSTALL.md](INSTALL.md)", "[INSTALL.md](../../outside.md)"),
         ])
@@ -159,30 +160,45 @@ class DistributionTests(unittest.TestCase):
         (self.root / "references/ARQUITETURA.md").unlink()
         self.assertTrue(validate(self.root))
 
+    def test_unknown_skill_link_fails(self):
+        path = self.root / "skills/construir/SKILL.md"
+        path.write_text(path.read_text(encoding="utf-8") + "\n[Ausente](../fantasma/SKILL.md)\n", encoding="utf-8")
+        self.assertTrue(any("skill desconhecida: fantasma" in error for error in validate(self.root)))
+
+    def test_backup_route_required_at_entry_bootstrap_and_closure(self):
+        for name in ("analisar", "iniciar-projeto", "verificar"):
+            with self.subTest(owner=name):
+                path = self.root / "skills" / name / "SKILL.md"
+                original = path.read_text(encoding="utf-8")
+                self.assertIn("../backup-recuperacao/SKILL.md", original)
+                path.write_text(original.replace("../backup-recuperacao/SKILL.md", "../../README.md"), encoding="utf-8")
+                self.assertTrue(any(f"roteamento: {name}" in error for error in validate(self.root)))
+                path.write_text(original, encoding="utf-8")
+
     def test_motion_package_resources_and_license_required(self):
         paths = ("LICENSE", "workflows/create.md", "workflows/audit.md",
                  "references/motion-cookbook.md", "references/demo-shell.html")
         for relative in paths:
             with self.subTest(relative=relative):
-                path = self.root / "skills/romulo-motion-principles" / relative
+                path = self.root / "skills/motion-principles" / relative
                 content = path.read_bytes()
                 path.unlink()
                 self.assertTrue(validate(self.root))
                 path.write_bytes(content)
 
     def test_nested_skill_reference_link_is_checked(self):
-        self.edit("skills/romulo-motion-principles/workflows/create.md",
+        self.edit("skills/motion-principles/workflows/create.md",
                   "../SKILL.md", "../../outside.md")
         self.assertTrue(validate(self.root))
 
     def test_artifact_gate_references_required(self):
         self.assert_mutations_fail([
-            ("skills/romulo-analisar/SKILL.md", "SEM_PREVISAO_NA_SKILL", "OUTRO_ESTADO"),
-            ("skills/romulo-iniciar-projeto/SKILL.md", "../../templates/CLAUDE.md", "../../README.md"),
+            ("skills/analisar/SKILL.md", "SEM_PREVISAO_NA_SKILL", "OUTRO_ESTADO"),
+            ("skills/iniciar-projeto/SKILL.md", "../../templates/CLAUDE.md", "../../README.md"),
         ])
 
     def test_symlink_outside_root_fails(self):
-        path = self.root / "skills/romulo-interface/SKILL.md"
+        path = self.root / "skills/interface/SKILL.md"
         path.unlink()
         outside = Path(self.temp.name) / "outside.md"
         outside.write_text("NAO LER", encoding="utf-8")

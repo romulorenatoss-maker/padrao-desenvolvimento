@@ -1,10 +1,10 @@
 {
-  "name": "romulo-dev-standard",
+  "name": "padrao-desenvolvimento",
   "interface": {
-    "displayName": "Romulo Dev Standard"
+    "displayName": "Padrao de Desenvolvimento"
   },
   "plugins": [{
-    "name": "romulo-dev-standard",
+    "name": "padrao-desenvolvimento",
     "source": {
       "source": "local",
       "path": "./"

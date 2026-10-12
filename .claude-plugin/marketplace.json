@@ -1,9 +1,9 @@
 {
-  "name": "romulo-dev-standard",
+  "name": "padrao-desenvolvimento",
   "owner": {"name": "Romulo Renato"},
   "plugins": [{
-    "name": "romulo-dev-standard",
+    "name": "padrao-desenvolvimento",
     "source": "./",
-    "description": "Padrao Romulo para desenvolvimento, seguranca, documentacao e verificacao."
+    "description": "Padrao de desenvolvimento para desenvolvimento, seguranca, documentacao e verificacao."
   }]
 }

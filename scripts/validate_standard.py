@@ -8,17 +8,18 @@ from pathlib import Path
 import re
 import sys
 
-NAME = "romulo-dev-standard"
+NAME = "padrao-desenvolvimento"
 MANIFESTS = ("plugin.json", ".claude-plugin/plugin.json", ".codex-plugin/plugin.json")
-SKILL_REF = re.compile(r"\bromulo-[a-z0-9]+(?:-[a-z0-9]+)*\b")
+SKILL_NAME = r"[a-z0-9]+(?:-[a-z0-9]+)*"
+SKILL_REF = re.compile(r"(?:skills/|\.\./)(" + SKILL_NAME + r")/SKILL\.md")
 ROUTES = {
-    "romulo-analisar": ("romulo-especificar", "romulo-interface", "romulo-verificar"),
-    "romulo-construir": ("romulo-analisar", "romulo-especificar", "romulo-interface", "romulo-verificar"),
-    "romulo-verificar": ("romulo-analisar", "romulo-especificar", "romulo-interface", "romulo-construir"),
-    "romulo-iniciar-projeto": ("romulo-analisar", "romulo-especificar", "romulo-interface", "romulo-construir"),
-    "romulo-prototipo-real": ("romulo-especificar", "romulo-interface", "romulo-verificar"),
-    "romulo-documentacao": ("romulo-analisar", "romulo-especificar", "romulo-interface"),
-    "romulo-auditar-projeto": ("romulo-analisar", "romulo-especificar", "romulo-interface"),
+    "analisar": ("especificar", "interface", "verificar", "backup-recuperacao"),
+    "construir": ("analisar", "especificar", "interface", "verificar"),
+    "verificar": ("analisar", "especificar", "interface", "construir", "backup-recuperacao"),
+    "iniciar-projeto": ("analisar", "especificar", "interface", "construir", "backup-recuperacao"),
+    "prototipo-real": ("especificar", "interface", "verificar"),
+    "documentacao": ("analisar", "especificar", "interface"),
+    "auditar-projeto": ("analisar", "especificar", "interface"),
 }
 DOCS = ("README.md", "INSTALL.md", "AGENTS.md", "templates/AGENTS.md", "templates/CLAUDE.md",
         "references/ARQUITETURA.md", "references/DOCUMENTACAO.md", "references/DADOS.md",
@@ -133,7 +134,7 @@ def validate(root: Path) -> list[str]:
                 if not separator or key in fields:
                     raise ValueError("metadado invalido/duplicado")
                 fields[key] = scalar(value.strip())
-            if fields.get("name") != folder.name or not re.fullmatch(r"romulo-[a-z0-9]+(?:-[a-z0-9]+)*", folder.name):
+            if fields.get("name") != folder.name or len(folder.name) > 64 or not re.fullmatch(SKILL_NAME, folder.name):
                 raise ValueError("nome divergente")
             if not 1 <= len(fields.get("description", "").strip()) <= 1024:
                 raise ValueError("descricao invalida")
@@ -150,7 +151,7 @@ def validate(root: Path) -> list[str]:
         except (OSError, UnicodeError, ValueError):
             errors.append(f"{relative}: ausente/ilegivel")
     readme = docs.get("README.md", "")
-    rows = re.findall(r"^\| \[(romulo-[a-z0-9-]+)\]\((skills/[^)]+)\) \| ([^|]+) \| ([^|]+) \|$", readme, re.M)
+    rows = re.findall(r"^\| \[(" + SKILL_NAME + r")\]\((skills/[^)]+)\) \| ([^|]+) \| ([^|]+) \|$", readme, re.M)
     names = [row[0] for row in rows]
     if set(names) != set(skills) or len(names) != len(set(names)):
         errors.append("README.md: catalogo nominal divergente/duplicado")
@@ -163,10 +164,11 @@ def validate(root: Path) -> list[str]:
     template = docs.get("templates/AGENTS.md", "")
     required_fields = ("PROJETO:", "REPOSITORIO_OFICIAL:", "BRANCH_OFICIAL:", "DOCUMENTACAO_LOCAL:",
                        "PROTECOES_LOCAIS:", f"PADRAO_REPOSITORIO: https://github.com/romulorenatoss-maker/{NAME}",
-                       "PADRAO_REF: main", "PADRAO_ENTRADA: README.md")
+                       "PADRAO_REF: main", "PADRAO_ENTRADA: README.md", "SETUP_PADRAO:")
     if any(field not in template for field in required_fields):
         errors.append("templates/AGENTS.md: identidade/ponte/protecao incompleta")
-    if len(template.splitlines()) > 40 or set(SKILL_REF.findall(template)) - {NAME}:
+    skill_list = re.compile(r"^\s*-\s+(?:" + "|".join(re.escape(name) for name in skills) + r")\s*$", re.M)
+    if len(template.splitlines()) > 40 or SKILL_REF.search(template) or skill_list.search(template):
         errors.append("templates/AGENTS.md: deixou de ser minimo ou duplicou skills")
     if re.search(r"\b\d+ skills\b|VERSAO_MINIMA|plugin (?:install|add|update|marketplace)", template):
         errors.append("templates/AGENTS.md: catalogo/instalacao/versao duplicados")
@@ -178,7 +180,7 @@ def validate(root: Path) -> list[str]:
         errors.append("AGENTS.md: dono central/template nao distinguidos")
     if not re.search(r"\[README.md\]\(README.md\)", docs.get("INSTALL.md", "")):
         errors.append("INSTALL.md: nao aponta para catalogo central")
-    if re.search(r"^- romulo-[a-z0-9-]+\s*$", docs.get("INSTALL.md", ""), re.M):
+    if skill_list.search(docs.get("INSTALL.md", "")):
         errors.append("INSTALL.md: catalogo duplicado")
 
     texts = {**docs, **{f"skills/{n}/SKILL.md": t for n, t in skills.items()}}
@@ -209,13 +211,14 @@ def validate(root: Path) -> list[str]:
                 errors.append(f"{relative}: link local invalido: {link}")
     for owner, targets in ROUTES.items():
         for target in targets:
-            if target not in skills or f"`{target}`" not in skills.get(owner, ""):
+            owner_text = skills.get(owner, "")
+            if target not in skills or not (f"`{target}`" in owner_text or f"../{target}/SKILL.md" in owner_text):
                 errors.append(f"roteamento: {owner} nao referencia {target}")
     for name, fragments in {
-        "romulo-analisar": ("SEM_PREVISAO_NA_SKILL", "0393", "../../references/ARQUITETURA.md"),
-        "romulo-iniciar-projeto": ("../../templates/AGENTS.md", "../../templates/CLAUDE.md", "0393"),
-        "romulo-auditar-projeto": ("../../references/ARQUITETURA.md", "../../references/DOCUMENTACAO.md"),
-        "romulo-documentacao": ("../../references/DOCUMENTACAO.md",),
+        "analisar": ("SEM_PREVISAO_NA_SKILL", "0393", "../../references/ARQUITETURA.md"),
+        "iniciar-projeto": ("../../templates/AGENTS.md", "../../templates/CLAUDE.md", "0393"),
+        "auditar-projeto": ("../../references/ARQUITETURA.md", "../../references/DOCUMENTACAO.md"),
+        "documentacao": ("../../references/DOCUMENTACAO.md",),
     }.items():
         if any(fragment not in skills.get(name, "") for fragment in fragments):
             errors.append(f"{name}: referencia/gate obrigatorio ausente")
