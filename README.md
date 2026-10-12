@@ -67,11 +67,13 @@ A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOT
 
 Pedido da [issue #7](https://github.com/romulorenatoss-maker/romulo-dev-standard/issues/7), autorizado pelo responsavel com 0393 para aplicar e publicar o patch aprovado. [references/SEGURANCA.md](references/SEGURANCA.md#auditoria-dirigida--oito-riscos) concentra oito riscos, controles, evidencia e limites; `romulo-seguranca` fornece a invocacao de auditoria em leitura e `romulo-verificar` confere fechamento/reteste atingido. Nao exige oito suites em todo ajuste nem cria scanner, dependencia, permissao ou nova skill.
 
-Alcance: essas tres fontes, este README e os tres manifests existentes (plugin.json, .claude-plugin/plugin.json e .codex-plugin/plugin.json), sete caminhos centrais; nenhum codigo de consumidor alterado. Publicacao, recibo da PR e instalacao/recarga permanecem pendentes de comprovacao; comandos de verificacao continuam os deste README.
+Alcance: essas tres fontes, este README e os tres manifests existentes (plugin.json, .claude-plugin/plugin.json e .codex-plugin/plugin.json), sete caminhos centrais; nenhum codigo de consumidor alterado. Fonte enviada em d096da6bc2e7edb48633e3b6814612d1d822f35d pela PR #8; integracao/recarga permanecem sujeitas a evidencia, e os comandos de verificacao continuam os deste README.
 
 Compatibilidade: sem mudanca de stack, templates, nomes, catalogo ou comandos centrais. Terminar lotes na revisao fixada; apos publicacao confirmada, atualizar/recarregar conforme [INSTALL.md](INSTALL.md) e comprovar ativacao. Consumidores preservam guardas/escopo local; auditoria nao abre .env/backup/chaves, modifica dados/roles, executa ataque em producao ou autoriza correcao fora do pedido.
 
 Fonte, runtime e aplicacao ativa tem evidencias separadas; resultado estrutural ou conversa nao certifica seguranca do produto nem obediencia do modelo. Publicacao, instalacao e recarga precisam de comprovacao propria; rollback e nova PR localizada, preservando alteracoes posteriores e controles legitimos.
+
+Registro: QUEM: Codex, seguranca_sistema e fiscal independente revisor_candidato. COMMITS: [PR #8 / commits](https://github.com/romulorenatoss-maker/romulo-dev-standard/pull/8/commits), fonte d096da6bc2e7edb48633e3b6814612d1d822f35d. FEZ: patch aprovado dos oito riscos, invocacao de auditoria e fechamento por efeito. CONFERIU: fonte correspondente ao patch exato, sete caminhos, validador PASSOU, 26 cenarios aprovados e dois symlink NAO_EXECUTADO no Windows; fiscal sem bloqueio no candidato. FALTA: confirmar checks/merge e atualizar/recarregar consumidores apos lotes em curso; nao certifica runtime dos produtos. DESFAZER: nova PR localizada, preservando trabalho posterior.
 
 ## Migracao 1.12.0 -> 1.12.1
 
