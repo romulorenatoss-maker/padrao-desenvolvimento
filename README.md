@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.12.0
+Versao: 1.12.1
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -62,6 +62,12 @@ Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover 
 Correcao fiel: DNA -> trecho vigente no dono -> codigo/consumidores -> teste atingido. Evolucao: briefing visual, fluxo do app e TRD pertinentes; reconstrucao: revisao exata de fontes/assets e guia modular com contratos/RPCs/dados/seguranca/ordem/aceite. Conteudo e destinos em [references/DOCUMENTACAO.md](references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao); implementacao e limpeza em `romulo-construir`, verificacao/fiscal em `romulo-verificar`. Resumo rapido e referencia ao detalhe, sem retirar mapas nominais ou checks locais.
 
 A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOTIPO, DNAs, regras, revisao/fontes e simulacoes/contratos a integrar. Conversao atualiza a mesma fonte e verifica prototipo x real, sem refazer entendimento nem duplicar manual. Falta indispensavel e resolvida antes da implementacao dependente; a entrega visual local continua rapida conforme `romulo-prototipo-real`.
+
+## Migracao 1.12.0 -> 1.12.1
+
+Pedido da [issue #5](https://github.com/romulorenatoss-maker/romulo-dev-standard/issues/5), autorizado com 0393 nesta conversa. Explicita divisao/nomes/limites de JS escrito a mao, cabecalho e DNA junto do trecho funcional, com fonte reutilizavel do prototipo ao real. Donos: [arquitetura](references/ARQUITETURA.md#javascript-por-responsabilidade-e-tamanho) e [documentacao interna](references/DOCUMENTACAO.md#identificacao-e-documentacao-interna-do-codigo). Nao instala linter/framework, muda stack, refatora consumidores automaticamente ou altera interface aprovada.
+
+Registro desta revisao: QUEM: Codex, fiscal independente fiscal_salvamento. COMMITS: [PR #6 / commits](https://github.com/romulorenatoss-maker/romulo-dev-standard/pull/6/commits), fonte 834e0805be766208982221bd05d65caaa2a8c40f e recibo na mesma PR. FEZ: regras e referencias de JS/cabecalho/DNA/prototipo, nove arquivos centrais; nenhum codigo de consumidor alterado. CONFERIU: validador e diff sem erros, suite local26 cenarios PASSOU e2 symlink NAO_EXECUTADO no Windows, fiscal COMMIT OK nos nove hashes; [checks da PR](https://github.com/romulorenatoss-maker/romulo-dev-standard/pull/6/checks) identificam a revisao CI. FALTA: ativacao comprovada de sessoes abertas e ajustes dos consumidores em lotes proprios; texto/CI nao certificam obediência do modelo nem produto. DESFAZER: nova PR localizada, preservando trabalho posterior e compatibilidade dos consumidores.
 
 ## Migracao 1.11.0 -> 1.12.0
 

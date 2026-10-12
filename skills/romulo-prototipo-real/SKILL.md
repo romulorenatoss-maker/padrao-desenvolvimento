@@ -7,6 +7,8 @@ description: Use na revisao visual iterativa de prototipos e quando uma interfac
 
 Prototipo especifica a mudanca aprovada; nao comprova backend, persistencia, seguranca ou publicacao.
 
+Desde a criacao, aplicar a [divisao JavaScript por responsabilidade](../../references/ARQUITETURA.md#javascript-por-responsabilidade-e-tamanho) e a [identificacao interna por DNA](../../references/DOCUMENTACAO.md#identificacao-e-documentacao-interna-do-codigo). Usar fontes e interfaces reutilizaveis no real; manter simulacao separada e substituir somente o adaptador/contrato necessario na conversao autorizada, preservando IDs e interface. Isso reduz reescrita, sem fingir backend pronto nem importar dados ficticios.
+
 ## Revisao rapida do prototipo e documentacao paralela
 
 No trabalho iterativo definido como prototipo, manter o contexto e as correcoes na conversa coordenadora. Encaminhar ao construtor pedidos curtos e fieis, com alvo e resultado esperado, sem ampliar pedido visual para construcao real. Investigar somente a cadeia atingida e executar a alteracao ja autorizada sem repetir aprovacao; perguntar apenas decisao indispensavel ausente.
