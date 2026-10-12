@@ -1,12 +1,12 @@
 # Padrao de Desenvolvimento
 
-Versao: 1.0.0
+Versao: 1.0.1
 Repositorio oficial: `romulorenatoss-maker/padrao-desenvolvimento`.
 
 Orienta IAs a trabalhar com o mesmo metodo: criar prototipos visuais com dados e regras simulados, revisar o comportamento com o responsavel e converter o aprovado ao real com documentacao por DNA de ponta a ponta. Modularizacao, contratos/RPCs, analise de impacto, preservacao do visual aprovado e limpeza verificada tornam alteracoes e remocoes rastreaveis; instrucoes de skill nao garantem obediencia perfeita nem ausencia de erros.
 
 ## Entrada obrigatoria — sumario de diretrizes
-Este README e o unico indice central de metodo e roteamento. O AGENTS.md de cada projeto guarda identidade, ambientes, ponte para este indice e protecoes/ponte documental locais; nao copia lista/contagem de skills, comandos de instalacao ou regras gerais. O AGENTS.md da raiz deste repositorio governa somente o padrao, nao e o modelo dos consumidores.
+Este README e a entrada e o catalogo central; o mapa detalhado por pedido pertence a `analisar`. O AGENTS.md de cada projeto guarda identidade, ambientes, ponte para este indice e protecoes/ponte documental locais; nao copia lista/contagem de skills, comandos de instalacao ou regras gerais. O AGENTS.md da raiz deste repositorio governa somente o padrao, nao e o modelo dos consumidores.
 
 Em toda execucao tecnica, antes de escrever:
 1. Ler o AGENTS.md local e as protecoes locais pertinentes. Identificar repositorio, worktree, branch, ambiente e alcance autorizado.
@@ -38,6 +38,8 @@ A tabela e tambem o catalogo nominal conferido pelo validador. Nao repetir uma c
 | [evoluir-padrao](skills/evoluir-padrao/SKILL.md) | Diretriz comum criada/alterada | Evoluir esta fonte, validar, versionar e distribuir. |
 
 Ponytail e complemento externo oficial `DietrichGebert/ponytail`, em modo `full`; nao equivale a uma skill deste pacote. Nao remove requisito, aprovacao, seguranca, documentacao, acessibilidade ou teste. Instalacao em [INSTALL.md](INSTALL.md).
+
+O catalogo acima descobre as skills. O [mapa rapido por pedido](skills/analisar/SKILL.md#mapa-rapido-por-pedido) classifica o efeito e encaminha somente as leituras necessarias; nao repetir esse mapa nos AGENTS consumidores.
 
 ## Quem define cada padrao
 - Estrutura, modulos, nomes e catalogo condicional de artefatos: [references/ARQUITETURA.md](references/ARQUITETURA.md), consultado pelas skills de analise/auditoria/construcao.
