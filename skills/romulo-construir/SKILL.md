@@ -19,6 +19,8 @@ Frontend apresenta; servidor decide efeitos oficiais; banco protege invariantes.
 
 Nao misture refatoracao conveniente com o alcance pedido. Nao reverta trabalho alheio.
 
+Em criacao ou separacao de JavaScript autorizada, aplicar [responsabilidades, nomes e limites](../../references/ARQUITETURA.md#javascript-por-responsabilidade-e-tamanho) e [cabecalho/DNA junto da unidade funcional](../../references/DOCUMENTACAO.md#identificacao-e-documentacao-interna-do-codigo). Reconciliar carregamento, interface publica, mapas e consumidores; comentario/ID nao substitui contrato ou teste. Prototipo segue a mesma organizacao reutilizavel, com simulacao isolada.
+
 Aplique romulo-seguranca quando houver superficie de seguranca e romulo-documentacao quando o conhecimento canonico mudar. Termine com romulo-verificar.
 
 ## Modulos, limites e remocao

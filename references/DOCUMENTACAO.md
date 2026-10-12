@@ -44,6 +44,16 @@ Ao converter prototipo, o documento dono liga a revisao/fontes mostradas aos DNA
 
 Metadados nominais de codigo/RPC/consumidores ficam nos mapas/inventario que o projeto ja exige; geracao/conferencia usa instrumentos existentes quando disponiveis. Nao manter copias manuais concorrentes. Regra de negocio/finalidade aprovada precisa de descricao humana no dono; geracao de nomes nao a substitui. Sem instrumento comprovado, conferir o recorte e declarar o limite, nunca alegar rastreio completo por existir um DNA.
 
+## Identificacao e documentacao interna do codigo
+
+Codigo escrito a mao identifica arquivo, modulo dono, finalidade curta e documento canonico existente no cabecalho. Reutilizar metadados/convenções exigidos pelo projeto; na falta deles, usar `ARQUIVO_ID: arquivo:<caminho relativo>`, `MODULO_DONO: <modulo>`, `FINALIDADE: <uma frase>` e `DOCUMENTO_CANONICO: <caminho/ancora que resolve>`. Nao escrever placeholders como se fossem cadastro pronto, nem repetir a especificacao de negocio no cabecalho.
+
+DNA fica imediatamente junto da unidade funcional que identifica (funcao, acao, handler ou entrada publica), nao apenas no topo do arquivo. Usar `DNA_ID` e a identidade estavel do mapa dono; auxiliares usam `DNA_AUX` quando a convencao local exigir. Exemplo ilustrativo de marcador: `/* DNA_ID: producao.transferencia.liberar::js.confirmarTransferencia */`. O mapa/dono define a identidade antes de introduzi-la; nao fabricar DNA para cada linha, variavel ou elemento decorativo, nem reduzir a granularidade nominal ja exigida pelo projeto.
+
+Extracao conserva o DNA da mesma capacidade, atualiza caminho/simbolo nos mapas e aponta consumidores ao novo destino; nao trocar ID por renomear arquivo nem duplicar identidade entre implementacoes concorrentes. Copias aprovadas de prototipo seguem o contrato de romulo-prototipo-real e distinguem plano/revisao sem virar outra capacidade. Remocao confere finalidade, chamadores estaticos/dinamicos, assets, contratos, testes e documentos antes de retirar referencias exclusivas. DNA ajuda localizar, mas nao prova desuso sozinho.
+
+Documentacao interna de entrada publica/contrato nao obvio descreve finalidade, parametros/tipos/unidades, retorno ou Promise, erros e efeitos relevantes; usar JSDoc ou convencao equivalente existente sem instalar gerador. Comentario explica decisao, restricao ou cuidado que o codigo nao mostra. Nao comentar cada linha nem repetir nomes obvios; regra detalhada, aprovacao e conexoes vivem no documento dono. Sem segredo/dado privado nos exemplos. Limites, nomes e separacao pertencem a [arquitetura JavaScript](ARQUITETURA.md#javascript-por-responsabilidade-e-tamanho).
+
 ## Manutencao e limpeza do conhecimento vigente
 
 Atualizar o mesmo item/DNA e os consumidores comprovadamente afetados no mesmo lote. Resumo curto permite achar a decisao; detalhes validos, excecoes, exemplos e conexoes permanecem no dono. Decisao substituida sai da especificacao ativa; nao narrar tentativas descartadas nem transferir texto obsoleto para notas paralelas. Ideia futura ainda valida permanece PREVISTO no dono atual, sem criar pagina/API/DNA ficticio; ao surgir pedido relacionado, recuperar essa ideia conforme `romulo-especificar`.
