@@ -1,11 +1,11 @@
 ---
-name: romulo-especificar
+name: especificar
 description: Use antes de criar ou alterar capacidade, tela, aba, campo, botao, navegacao, regra ou integracao. Investigue o existente, pergunte so decisoes ausentes e apresente a proposta de telas, acoes e conexoes para aprovacao antes de construir. Em correcao fiel ao contrato, use a verificacao curta sem repetir entrevista.
 ---
 
-# Romulo Especificar
+# Especificar
 
-Fonte dona da especificacao e da utilidade de cada elemento. Use depois de `romulo-analisar`; padrao visual pertence a `romulo-interface`, implementacao a `romulo-construir` e aceite a `romulo-verificar`. Nao duplica essas regras.
+Fonte dona da especificacao e da utilidade de cada elemento. Use depois de `analisar`; padrao visual pertence a `interface`, implementacao a `construir` e aceite a `verificar`. Nao duplica essas regras.
 
 ## 1. Identificar a tarefa antes de desenhar
 
@@ -15,7 +15,7 @@ Leia primeiro a documentacao canonica, decisoes aprovadas, tela, componentes, ro
 
 Para projeto/capacidade nova, confrontar briefing visual, fluxo do app e TRD do projeto com o recorte conforme [contratos de projeto](../../references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao). Descobrir quais telas/cliques/transicoes levam ao resultado e quais modulos/contratos/dados o sustentam; perguntar somente decisoes ausentes. Atualizar seus donos aprovados quando houver mudanca real, sem duplicar TELA.md nem refazer os tres contratos em cada bug. Reconstrucao fiel preserva o contrato de origem; diferenca solicitada e tratada como evolucao, sem presumir redesenho.
 
-Procedimento obrigatorio antes da proposta: inspecionar a tela pedida no navegador quando disponivel e rastrear cada elemento atingido: eventos/gatilhos, modais, actions, services, contratos, dados, regras de disponibilidade e consumidores noutras telas/aparelhos, inclusive prototipo e real conforme o alvo. Conferir a finalidade original e os pedidos anteriores nas fontes canonicas e, se necessario, no historico Git; a ultima decisao autorizada prevalece. Identificar o que sera adicionado, alterado, movido, removido ou preservado e por que, incluindo consequencias nas regras ligadas ao recorte. A investigacao e profunda; a apresentacao e curta, no formato de `romulo-interface` secao 6. Elo inacessivel ou nao comprovado deve ser declarado, sem inventar conclusao.
+Procedimento obrigatorio antes da proposta: inspecionar a tela pedida no navegador quando disponivel e rastrear cada elemento atingido: eventos/gatilhos, modais, actions, services, contratos, dados, regras de disponibilidade e consumidores noutras telas/aparelhos, inclusive prototipo e real conforme o alvo. Conferir a finalidade original e os pedidos anteriores nas fontes canonicas e, se necessario, no historico Git; a ultima decisao autorizada prevalece. Identificar o que sera adicionado, alterado, movido, removido ou preservado e por que, incluindo consequencias nas regras ligadas ao recorte. A investigacao e profunda; a apresentacao e curta, no formato de `interface` secao 6. Elo inacessivel ou nao comprovado deve ser declarado, sem inventar conclusao.
 
 Diferencie contrato aprovado de implementacao atual. Codigo existente evidencia comportamento, nao necessariamente aprovacao. Divergencia entre codigo, documento e decisao exige reconciliacao; nao documentar o bug como nova regra.
 
@@ -27,11 +27,11 @@ Consultar primeiro sumario/mapa -> documento da pagina e aba -> regra/contrato d
 
 Antes de mudanca que rompa comportamento ou conexao, apresentar de forma curta: o que deixa de existir, quem recebe/devolve essa informacao, o efeito em cada local e onde a funcao continuara. Pedir somente a decisao ausente e aguardar antes da parte dependente; decisao explicitamente aprovada nao exige nova confirmacao. Alteracao visual sem romper contrato segue o fluxo curto autorizado.
 
-Quando faltar explicacao, investigar antes de perguntar. Se a intencao continuar desconhecida, perguntar de modo dirigido: "Para que este item serve e quem precisa da informacao dele?"; usar as respostas para completar o documento dono. Nao transformar uma deducao do codigo em intencao atribuida ao responsavel nem entrevistar novamente o que ja esta definido. O formato e a manutencao deste conhecimento pertencem a `romulo-documentacao`.
+Quando faltar explicacao, investigar antes de perguntar. Se a intencao continuar desconhecida, perguntar de modo dirigido: "Para que este item serve e quem precisa da informacao dele?"; usar as respostas para completar o documento dono. Nao transformar uma deducao do codigo em intencao atribuida ao responsavel nem entrevistar novamente o que ja esta definido. O formato e a manutencao deste conhecimento pertencem a `documentacao`.
 
 Antes de propor pagina/capacidade/conexao nova, buscar obrigatoriamente ideias, decisoes e vinculos futuros ja registrados sobre as entidades envolvidas: sumarios, documento dono, regras/contratos e assuntos do prototipo, pelos IDs existentes e nomes/termos pertinentes. Se houver proposta anterior, apresenta-la primeiro: "Voce havia explicado X para Y; esta registrado em Z como previsto/aprovado/construido. Este pedido acrescenta ou muda o que?". Usar as palavras/ideia comprovadas e citar a fonte; sugestao da IA nao vira pedido/aprovacao humana. Nao reconstruir a proposta do zero nem obrigar o usuario a repetir o que ja respondeu.
 
-Essa recuperacao usa a especificacao vigente e ideias futuras ainda validas, nao versoes substituidas/sugestoes descartadas. Chat/historico pode esclarecer lacuna real, mas nao reativa decisao superada nem se torna dependencia permanente: reconciliar o conhecimento confirmado no documento dono conforme `romulo-documentacao`.
+Essa recuperacao usa a especificacao vigente e ideias futuras ainda validas, nao versoes substituidas/sugestoes descartadas. Chat/historico pode esclarecer lacuna real, mas nao reativa decisao superada nem se torna dependencia permanente: reconciliar o conhecimento confirmado no documento dono conforme `documentacao`.
 
 Antes de recuperar conversa antiga, conferir a [marcacao do contexto consolidado](../../references/DOCUMENTACAO.md#marcacao-do-contexto-consolidado) do recorte: SIM usa documento vigente e referencias; sem SIM permite conciliacao com contexto/historico temporario. Nova fala do responsavel pode incrementar ou substituir a decisao documentada com o impacto pertinente, sem reabrir o passado por iniciativa propria.
 
@@ -53,19 +53,19 @@ Para cada tema, marque RESOLVIDO_PELO_PEDIDO, RESOLVIDO_PELO_SISTEMA, PRECISA_DE
 | Visual | Referencia aprovada, componentes/tokens existentes, responsividade e peculiaridades protegidas. |
 | Aceite | Cenarios observaveis de sucesso, falha, acesso, persistencia e efeitos pertinentes. |
 
-Pergunte ao responsavel somente decisoes ausentes ou conflitantes que afetem a solucao. Agrupe perguntas em uma rodada curta, com recomendacao e consequencia das alternativas quando util. Em revisao iterativa, seguir `romulo-interface` secao 6: confirmar entendimento e conferir com o responsavel quando pertinente, sem criar pendencia pelo silencio; construir no prototipo ou real conforme o alvo definido e perguntar apenas decisoes indispensaveis ausentes. Nao perguntar nome de arquivo, endpoint ou tamanho ja definido no projeto. Nao repetir resposta conhecida. Limites de acesso se resolvem por investigacao/autorizacao, nao pedindo que o usuario invente fatos tecnicos.
+Pergunte ao responsavel somente decisoes ausentes ou conflitantes que afetem a solucao. Agrupe perguntas em uma rodada curta, com recomendacao e consequencia das alternativas quando util. Em revisao iterativa, seguir `interface` secao 6: confirmar entendimento e conferir com o responsavel quando pertinente, sem criar pendencia pelo silencio; construir no prototipo ou real conforme o alvo definido e perguntar apenas decisoes indispensaveis ausentes. Nao perguntar nome de arquivo, endpoint ou tamanho ja definido no projeto. Nao repetir resposta conhecida. Limites de acesso se resolvem por investigacao/autorizacao, nao pedindo que o usuario invente fatos tecnicos.
 
 ## 3. Proposta obrigatoria depois das respostas
 
 Antes de construir uma capacidade nova, mudar fluxo/regra ou redesenhar, apresente a proposta consolidada e aguarde aprovacao do responsavel. Ausencia de novas perguntas nao elimina a proposta. Pedido ja acompanhado de proposta explicitamente aprovada: referencie essa revisao e nao peca aprovacao de novo.
 
-Apresente na linguagem da operacao, seguindo a ordem, os titulos em negrito, o mapa em arvore de texto e a pergunta de confirmacao definidos em `romulo-interface` secao 6. Mostrar somente o recorte afetado pelo pedido.
+Apresente na linguagem da operacao, seguindo a ordem, os titulos em negrito, o mapa em arvore de texto e a pergunta de confirmacao definidos em `interface` secao 6. Mostrar somente o recorte afetado pelo pedido.
 
 Nomeie telas, abas/subabas quando necessarias, entrada, finalidade de cada parte, campos, botoes e resultado de cada acao; informe estados, acesso, navegacao posterior, visual de referencia, impactos e aceite pertinentes ao recorte. Nao invente nomes de rotas, APIs, tabelas ou permissoes como se existissem: separar COMPROVADO, PROPOSTO e A_LOCALIZAR. Antes da implementacao dependente, localizar o elo ou aprovar a capacidade ausente no dono correto.
 
 Decisao de composicao: tela para tarefa com identidade/fluxo proprio; aba para contexto da mesma entidade; modal/drawer para acao curta contextual; ampliar/reutilizar quando a responsabilidade e compativel. Nao usar porcentagem arbitraria nem forcar toda tarefa em modal.
 
-Para criar/alterar a identidade visual, apresente referencia renderizada/prototipo do recorte com `romulo-interface` antes de propagar a mudanca. Aprovar a proposta funcional nao aprova automaticamente um visual ainda nao mostrado. Prototipo visual aprovado nao comprova integracao real.
+Para criar/alterar a identidade visual, apresente referencia renderizada/prototipo do recorte com `interface` antes de propagar a mudanca. Aprovar a proposta funcional nao aprova automaticamente um visual ainda nao mostrado. Prototipo visual aprovado nao comprova integracao real.
 
 ## 4. Contrato de utilidade de botoes e elementos
 
@@ -86,17 +86,17 @@ Revisao bidirecional: todo requisito aprovado tem solucao; todo elemento propost
 
 ## 5. Escopo, aprovacao e mudancas
 
-Informe CRIAR, ALTERAR, REUTILIZAR e PRESERVAR no registro existente, sem arquivo de plano paralelo. Associe proposta/revisao, fonte da aprovacao e criterios de aceite ao mapa/assunto canonico; atualize com `romulo-documentacao`.
+Informe CRIAR, ALTERAR, REUTILIZAR e PRESERVAR no registro existente, sem arquivo de plano paralelo. Associe proposta/revisao, fonte da aprovacao e criterios de aceite ao mapa/assunto canonico; atualize com `documentacao`.
 
 Bug que apenas restaura contrato aprovado, texto ou ajuste visual que retorna ao padrao: consulta curta + informar diferenca + corrigir no alcance autorizado, sem entrevista nem redesenho. Nova regra, nova tarefa, alteracao de peculiaridade protegida ou mudanca visual nao aprovada: apresentar apenas o delta para aprovacao.
 
-Acrescimo/edicao pontual com deslocamento, reducao ou outro efeito em layout ja aprovado segue a pergunta curta e previa quando solicitada de `romulo-interface` secao 4. O pedido funcional nao autoriza esse efeito colateral; nao alterar primeiro para mostrar depois. Se o existente permanece intacto, nao repetir aprovacao ja dada.
+Acrescimo/edicao pontual com deslocamento, reducao ou outro efeito em layout ja aprovado segue a pergunta curta e previa quando solicitada de `interface` secao 4. O pedido funcional nao autoriza esse efeito colateral; nao alterar primeiro para mostrar depois. Se o existente permanece intacto, nao repetir aprovacao ja dada.
 
 Uma duvida bloqueia somente a parte dependente; nao construir essa parte por suposicao. Autorizacao de desenho, codigo, banco, concessao de permissao, commit/push e deploy continuam distintas conforme contrato local. Nao aumentar o escopo para resolver conveniencia tecnica.
 
 ## 6. Handoff e cenarios de aceite do metodo
 
-A construcao recebe a revisao aprovada e seus vinculos, nao uma descricao solta. Conferir novamente se surgiram mudancas concorrentes nas fontes antes de escrever. Na entrega, confrontar proposta e resultado com `romulo-verificar`.
+A construcao recebe a revisao aprovada e seus vinculos, nao uma descricao solta. Conferir novamente se surgiram mudancas concorrentes nas fontes antes de escrever. Na entrega, confrontar proposta e resultado com `verificar`.
 
 Cenarios obrigatorios ao revisar esta skill (avaliacao de comportamento, nao teste automatico de IA):
 - "Financeiro no cliente": localizar dono e contratos; propor integracao, nao criar financeiro paralelo.
@@ -105,4 +105,4 @@ Cenarios obrigatorios ao revisar esta skill (avaliacao de comportamento, nao tes
 - "Adicionar exportar porque cabe no cabecalho": recusar essa inclusao especulativa, sem remover requisitos legitimos.
 - "Reaplicar padrao": preservar peculiaridade aprovada e consultar antes de muda-la.
 
-Na revisao iterativa de prototipo, seguir o fluxo de entrega visual e autorizacao documental de [romulo-prototipo-real](../romulo-prototipo-real/SKILL.md#revisao-rapida-do-prototipo-e-documentacao-paralela). Essa autorizacao documental nao equivale a aceite funcional nem construcao/publicacao real.
+Na revisao iterativa de prototipo, seguir o fluxo de entrega visual e autorizacao documental de [prototipo-real](../prototipo-real/SKILL.md#revisao-rapida-do-prototipo-e-documentacao-paralela). Essa autorizacao documental nao equivale a aceite funcional nem construcao/publicacao real.

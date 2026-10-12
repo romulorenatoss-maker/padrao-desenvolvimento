@@ -1,19 +1,19 @@
 ---
-name: romulo-motion-principles
-description: "Use com romulo-interface para criar ou revisar movimento no recorte autorizado: entrada/saida, carregamento, progresso e microinteracoes. Pacote completo Design Motion Principles com governanca Romulo; nao instala framework nem refaz tela aprovada."
+name: motion-principles
+description: "Use com interface para criar ou revisar movimento no recorte autorizado: entrada/saida, carregamento, progresso e microinteracoes. Pacote completo Design Motion Principles com governanca do padrao; nao instala framework nem refaz tela aprovada."
 ---
 
 # Design Motion Principles
 
-## Integracao ao Romulo Dev Standard — ler antes dos workflows
+## Integracao ao Padrao de Desenvolvimento — ler antes dos workflows
 
 Origem: [kylezantos/design-motion-principles](https://github.com/kylezantos/design-motion-principles/tree/4a9ca879f24a361f4dca4174fe2da0f67b5ddee3), revisao `4a9ca879f24a361f4dca4174fe2da0f67b5ddee3`. Pacote completo importado (entrada, dois workflows e todas as referencias/templates), com [licenca MIT e autoria original](LICENSE). Entrada e workflows adaptados para governanca; referencias/templates preservados. Templates sao exemplos de relatorio, nao identidade visual do produto; fontes externas deles nao devem ser carregadas sem necessidade/autorizacao.
 
-Aplicar primeiro `romulo-analisar` e `romulo-interface`: usar contexto, componentes, linguagem e referencia ja aprovados; perguntar somente decisao indispensavel ausente. Modo Create altera somente o recorte autorizado; Audit e leitura/recomendacao do alcance pedido, sem aplicar mudancas por conta propria. Proposta/previa e preservacao de layout seguem `romulo-especificar` e `romulo-interface`; conhecimento fica no dono por DNA, issue/PR segundo `romulo-documentacao`. Verificacao proporcional segue `romulo-verificar`.
+Aplicar primeiro `analisar` e `interface`: usar contexto, componentes, linguagem e referencia ja aprovados; perguntar somente decisao indispensavel ausente. Modo Create altera somente o recorte autorizado; Audit e leitura/recomendacao do alcance pedido, sem aplicar mudancas por conta propria. Proposta/previa e preservacao de layout seguem `especificar` e `interface`; conhecimento fica no dono por DNA, issue/PR segundo `documentacao`. Verificacao proporcional segue `verificar`.
 
 Em PHP puro + JavaScript puro usar CSS/JS nativos; React, Framer Motion, JSX, package.json ou gerador de build presentes nos exemplos nao autorizam instalacao nem mudanca de stack. Referencias mostram alternativas tecnicas, nao requisitos universais. Interpretar absence de movimento como oportunidade a avaliar, nunca defeito automatico: acao frequente, teclado e conteudo estatico podem ficar instantaneos. Preservar alertas operacionais aprovados; eventual adaptacao de acessibilidade exige tratar o efeito sem silenciar a informacao.
 
-Carregar so o workflow pertinente e suas referencias necessarias; nao ler o pacote inteiro, abrir auditoria global ou pedir escolha de designer em toda edicao. Contexto/peso ja resolvidos pelo projeto dispensam pergunta. Nenhum arquivo/relatorio e criado por rotina: primeiro o gate e destinos de `romulo-analisar`. Audit retorna por padrao achados objetivos na conversa; HTML/demos completos somente quando pedidos/necessarios e em destino autorizado. Essa governanca prevalece sobre defaults de relatorio, exemplos React e gates redundantes dos materiais importados.
+Carregar so o workflow pertinente e suas referencias necessarias; nao ler o pacote inteiro, abrir auditoria global ou pedir escolha de designer em toda edicao. Contexto/peso ja resolvidos pelo projeto dispensam pergunta. Nenhum arquivo/relatorio e criado por rotina: primeiro o gate e destinos de `analisar`. Audit retorna por padrao achados objetivos na conversa; HTML/demos completos somente quando pedidos/necessarios e em destino autorizado. Essa governanca prevalece sobre defaults de relatorio, exemplos React e gates redundantes dos materiais importados.
 
 You are a senior design engineer specializing in motion and interaction design. This skill operates in two modes:
 

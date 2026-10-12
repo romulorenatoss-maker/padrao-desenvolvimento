@@ -1,11 +1,11 @@
 ---
-name: romulo-interface
+name: interface
 description: "Use em toda criacao, alteracao, correcao ou revisao com efeito visual ou interativo: telas, abas, botoes, icones, formularios, tabelas, CSS, tokens, componentes, navegacao e prototipos. Aplique a referencia aprovada, preserve peculiaridades e verifique a tela renderizada, sem inventar elementos ou estilos."
 ---
 
-# Romulo Interface
+# Interface
 
-Fonte dona da consistencia visual, composicao e peculiaridades. Use com `romulo-especificar` para proposta/utilidade, `romulo-construir` para conexoes e `romulo-verificar` para evidencias. Nao exige React, Tailwind, biblioteca ou estrutura de pastas especifica.
+Fonte dona da consistencia visual, composicao e peculiaridades. Use com `especificar` para proposta/utilidade, `construir` para conexoes e `verificar` para evidencias. Nao exige React, Tailwind, biblioteca ou estrutura de pastas especifica.
 
 ## 1. Descobrir e aprovar a referencia
 
@@ -54,7 +54,7 @@ Nao corrigir defeito local com seletor global abrangente, `!important` em cascat
 
 ## 3. Botoes com sentido e comportamento previsivel
 
-Use o contrato de utilidade de `romulo-especificar`. Rotulo diz a acao/resultado, nao "Clique aqui". Hierarquia reflete importancia, nao decoracao. Agrupe acoes secundarias sem esconder a essencial; mantenha destrutivas distintas. Nao fabrique botoes para preencher cards.
+Use o contrato de utilidade de `especificar`. Rotulo diz a acao/resultado, nao "Clique aqui". Hierarquia reflete importancia, nao decoracao. Agrupe acoes secundarias sem esconder a essencial; mantenha destrutivas distintas. Nao fabrique botoes para preencher cards.
 
 Use semantica nativa correta: link para destino, botao para acao, submit no formulario, controles de aba apropriados. Nome acessivel para acao so com icone; tooltip sozinho nao substitui. Preserve teclado, foco visivel, labels e anuncio de erro/resultado pertinentes.
 
@@ -68,7 +68,7 @@ Toda interface criada/alterada trata os estados pertinentes; reutilizar o compon
 
 Progresso determinado usa medicao real; sem total conhecido, usar indicador indeterminado, nunca percentual inventado. Comando enviado nao e estado confirmado nem tarefa concluida. Animacao de entrada/saida ou troca de estado deve explicar a mudanca sem atrasar clique, teclado ou operacao frequente. Respeitar `prefers-reduced-motion`, sem perder a informacao/atencao do alerta. Nao colocar spinner, skeleton, fade ou hover em todo elemento por rotina.
 
-Para criar ou revisar movimento, consultar `romulo-motion-principles`; carregar somente o workflow e referencias pertinentes ao recorte. A skill inclui o pacote completo importado, mas este padrao define preservacao, escopo, arquitetura e autorizacao. CSS/JavaScript nativos em projetos PHP puro; exemplo React/Framer Motion nao permite framework novo. Aplicar novos estados/movimentos de modo incremental nas tarefas autorizadas; nao animar/redesenhar telas aprovadas em massa.
+Para criar ou revisar movimento, consultar `motion-principles`; carregar somente o workflow e referencias pertinentes ao recorte. A skill inclui o pacote completo importado, mas este padrao define preservacao, escopo, arquitetura e autorizacao. CSS/JavaScript nativos em projetos PHP puro; exemplo React/Framer Motion nao permite framework novo. Aplicar novos estados/movimentos de modo incremental nas tarefas autorizadas; nao animar/redesenhar telas aprovadas em massa.
 
 ## 4. Peculiaridade protegida, clara na propria tela
 
@@ -115,15 +115,15 @@ Falha corrigivel no alcance -> corrigir -> renderizar/testar de novo. Sem navega
 
 1. Para proposta de capacidade/fluxo ou redesenho, apresentar nesta ordem, com os titulos em negrito: **Entendimento** (no maximo tres linhas curtas confirmando o pedido), **Mapa em árvore** (fluxo em texto normal) e **Impacto** (itens I001., I002. e assim por diante). Edicao pontual/acrescimo que exige alterar layout ja aprovado usa a pergunta curta da secao 4, sem repetir esse formato amplo; a autorizacao do efeito colateral continua obrigatoria. O mapa nao usa tabela, bloco de codigo ou lousa: item/pergunta principal centralizado, linhas e ramificacoes para esquerda e direita, botoes, condicoes Sim/Nao e consequencias. Usar o fluxo conferido no sistema; exemplo nao conferido deve ser identificado como ilustrativo.
 
-   O impacto vem da investigacao da tela e da cadeia existente em `romulo-especificar`, incluindo finalidade anterior e decisoes vigentes, nunca apenas do que o botao aparenta fazer. Cada item ocupa uma linha curta: numero, ADICIONAR/ALTERAR/REMOVER/MOVER/PRESERVAR, elemento e local, antes -> depois, motivo e efeito nas regras ou conexoes atingidas. Separar efeitos diferentes em itens distintos; cobrir todas as consequencias comprovadas do recorte, incluindo a regra relacionada que precisa continuar e por que. Nao inventar impacto ou afirmar leitura de elo nao conferido.
+   O impacto vem da investigacao da tela e da cadeia existente em `especificar`, incluindo finalidade anterior e decisoes vigentes, nunca apenas do que o botao aparenta fazer. Cada item ocupa uma linha curta: numero, ADICIONAR/ALTERAR/REMOVER/MOVER/PRESERVAR, elemento e local, antes -> depois, motivo e efeito nas regras ou conexoes atingidas. Separar efeitos diferentes em itens distintos; cobrir todas as consequencias comprovadas do recorte, incluindo a regra relacionada que precisa continuar e por que. Nao inventar impacto ou afirmar leitura de elo nao conferido.
 
    Na remocao, explicitar se a funcao deixa de existir ou onde continua e o destino dos seus gatilhos/copias; esconder o botao nao equivale a remover. Limpeza obrigatoria retira codigo e registros exclusivos que ficaram sem consumidor, preservando funcoes compartilhadas ainda usadas. Nao acrescentar um resumo generico de limpeza. Os numeros identificam os itens desta proposta, nao criam identidades tecnicas nem fila de pendencias; mante-los nas revisoes para o responsavel pedir "desfazer I003" ou corrigir aquele entendimento. Rever efeitos dependentes antes de desfazer, preservando decisoes posteriores e trabalho alheio.
 
-   Encerrar com "Confirma que entendi corretamente e posso construir dessa forma?"; essa pergunta confirma entendimento, mapa e impacto e autoriza a proposta apresentada, nao pede certificacao tecnica. Perguntar antes somente decisoes indispensaveis ausentes, conforme `romulo-especificar`. Nao repetir confirmacao de proposta ja autorizada.
+   Encerrar com "Confirma que entendi corretamente e posso construir dessa forma?"; essa pergunta confirma entendimento, mapa e impacto e autoriza a proposta apresentada, nao pede certificacao tecnica. Perguntar antes somente decisoes indispensaveis ausentes, conforme `especificar`. Nao repetir confirmacao de proposta ja autorizada.
 2. Nao criar acao, pergunta aberta, estado "aguardando resposta" ou pendencia documental apenas porque o responsavel nao respondeu ao "esta bom". Ao receber outro assunto, seguir esse pedido; nao insistir na pergunta anterior nem tratar o silencio como aceite registrado.
 3. O responsavel define PROTOTIPO ou REAL quando mandar construir. Se a instrucao ou contexto ja definir o alvo, executar sem repetir a pergunta; se houver duvida concreta entre prototipar para ver e ajustar o real, perguntar onde antes da escrita dependente. Preservar a autorizacao ja dada; ausencia de resposta nao autoriza trocar o alvo, ampliar escopo ou publicar.
 4. Pedido de correcao ou de construcao explicito: executar no alcance definido, testar e mostrar o resultado, sem exigir nova confirmacao da mesma decisao.
 5. Registrar no destino canonico somente decisoes efetivamente dadas, trabalho tecnico realizado e pendencias reais. Nao registrar como acao a pergunta de satisfacao nem inventar uma resposta. Funcionamento e publicacao sao sustentados por evidencias do executor.
 6. Decisao indispensavel ausente ou autorizacao especifica continua sendo perguntada; seu alcance dependente nao e decidido por silencio. Conferencias e testes tecnicos cabem ao executor.
 
-Na revisao iterativa de prototipo, seguir o fluxo de entrega visual e autorizacao documental de [romulo-prototipo-real](../romulo-prototipo-real/SKILL.md#revisao-rapida-do-prototipo-e-documentacao-paralela). Essa autorizacao documental nao equivale a aceite funcional nem construcao/publicacao real.
+Na revisao iterativa de prototipo, seguir o fluxo de entrega visual e autorizacao documental de [prototipo-real](../prototipo-real/SKILL.md#revisao-rapida-do-prototipo-e-documentacao-paralela). Essa autorizacao documental nao equivale a aceite funcional nem construcao/publicacao real.

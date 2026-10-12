@@ -10,13 +10,13 @@ Resolver o README e templates da mesma revisao oficial indicada pelo AGENTS. O s
 ## Claude Code — comandos no terminal
 Primeira instalacao, se o marketplace/plugin nao existir:
 ```sh
-claude plugin marketplace add romulorenatoss-maker/romulo-dev-standard
-claude plugin install romulo-dev-standard@romulo-dev-standard
+claude plugin marketplace add romulorenatoss-maker/padrao-desenvolvimento
+claude plugin install padrao-desenvolvimento@padrao-desenvolvimento
 ```
 Ja instalado:
 ```sh
-claude plugin marketplace update romulo-dev-standard
-claude plugin update romulo-dev-standard@romulo-dev-standard
+claude plugin marketplace update padrao-desenvolvimento
+claude plugin update padrao-desenvolvimento@padrao-desenvolvimento
 claude plugin list
 ```
 Confirmar escopo com a listagem; usar `--scope` correto se a versao instalada exigir. Nao forcar, aceitar comandos de instalacao adicionais ou conceder permissoes amplas sem revisar.
@@ -38,8 +38,8 @@ Confirmar modo full e hooks pelo mecanismo suportado. Nao ativar ultra nem confi
 Comandos do catalogo documentados; executar somente os disponiveis no cliente:
 ```sh
 codex plugin marketplace list
-codex plugin marketplace add romulorenatoss-maker/romulo-dev-standard --ref main
-codex plugin marketplace upgrade romulo-dev-standard
+codex plugin marketplace add romulorenatoss-maker/padrao-desenvolvimento --ref main
+codex plugin marketplace upgrade padrao-desenvolvimento
 ```
 Adicionar somente se ausente; atualizar somente o catalogo existente. Instalar/atualizar/habilitar o plugin pelo gerenciador suportado da superficie. `codex plugin add` nao e pressuposto universal: so usa-lo se o `--help` local o comprovar e explicar o escopo. Atualizar o marketplace sozinho nao confirma instalacao nem carga da conversa.
 
@@ -47,8 +47,16 @@ Para Ponytail ausente, cadastrar `DietrichGebert/ponytail` pelo mesmo mecanismo 
 
 A sessao deve comprovar a redescoberta. Se nao suportar recarga, reiniciar/abrir nova sessao pelo mecanismo adequado; preservar contexto no dono documental, nao gerar memoria paralela. Configurar plugin nao delega geracao de codigo.
 
+## Migracao de nomes — 1.0.0
+
+O pacote/repositorio passa de `romulo-dev-standard` para `padrao-desenvolvimento`. Skills existentes retiram `romulo-` do nome; a nova skill e `backup-recuperacao`. O [catalogo vigente](README.md#catalogo-e-encaminhamento--fonte-unica) determina nomes/efeitos; nao usar comandos legados como alias nem distribuir duas copias da mesma politica. Historico, autoria e licenca nao sao apagados.
+
+Terminar lotes abertos na revisao fixada. Confirmar que a nova origem oficial realmente existe e aponta ao mesmo repositorio/revisao publicada antes de migrar consumidores. Conferir APIs/comandos do cliente instalado e seu escopo. Cadastrar/instalar o novo nome pelos comandos abaixo/gerenciador suportado, conferir versao/catalogo completo e migrar as pontes/invocacoes com autorizacao pertinente. Remover/desabilitar apenas a antiga distribuicao deste padrao pelo mecanismo nativo apos comprovar a nova; nao remover outros plugins nem editar caches internos. Nao repetir marketplace add se a origem ja estiver cadastrada sob o nome novo.
+
+AGENTS local aponta ao novo repositorio/ref/README; nao lista skills, nao muda identidade/guardas/stack. Se remoto, instalacao ou recarga estiverem pendentes, declarar o impedimento e preservar a fonte anterior fixada, sem fingir versao2.0 ativa nem deixar ponte apontando para repositorio inexistente. Conferir nomes na sessao nova ou recarga suportada, e registrar evidencia nos donos existentes.
+
 ## AGENTS local e CLAUDE ponte
-A skill dona e romulo-iniciar-projeto, indicada no catalogo central. Buscar [templates/AGENTS.md](templates/AGENTS.md), nunca copiar o AGENTS da raiz deste repositorio. Ler TODO o contrato atual, identificar protecoes e apresentar o diff de migracao. Preencher dados comprovados e remover campos opcionais nao aplicaveis; nao salvar placeholders.
+A skill dona e iniciar-projeto, indicada no catalogo central. Buscar [templates/AGENTS.md](templates/AGENTS.md), nunca copiar o AGENTS da raiz deste repositorio. Ler TODO o contrato atual, identificar protecoes e apresentar o diff de migracao. Preencher dados comprovados e remover campos opcionais nao aplicaveis; nao salvar placeholders.
 
 Se AGENTS estiver protegido por 0393, a migracao fica pendente ate autorizacao especifica. Mencao da senha nesta documentacao nao autoriza. Antes de retirar regras locais, preservar seu conteudo em destinos canonicos validos e apontados; nao enfraquecer guardas para caber no template. Nao sobrescrever alteracoes de outro executor. Sem autorizacao, e permitido analisar/atualizar o plugin dentro do escopo autorizado, nao mudar o contrato protegido.
 

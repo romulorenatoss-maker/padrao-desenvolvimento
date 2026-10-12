@@ -1,9 +1,9 @@
 ---
-name: romulo-prototipo-real
+name: prototipo-real
 description: Use na revisao visual iterativa de prototipos e quando uma interface, fluxo ou regra aprovada for convertida, integrada, publicada ou comparada com o real.
 ---
 
-# Romulo Prototipo para Real
+# Prototipo para Real
 
 Prototipo especifica a mudanca aprovada; nao comprova backend, persistencia, seguranca ou publicacao.
 
@@ -17,14 +17,14 @@ Aplicar primeiro no ambiente local de prototipo previsto pelo projeto e mostrar 
 
 Depois de mostrar a versao, encerrar com a pergunta exata: "Posso documentar assim?". Correcao solicitada entra em seguida e atualiza o entendimento. OK autoriza documentar a versao mostrada. Quando o responsavel tiver explicitamente adotado este fluxo, passar a um novo pedido sem corrigir a entrega mostrada tambem autoriza documentar aquela versao; registrar essa fonte de autorizacao, sem inventar aceite funcional ou publicacao. Silencio sozinho nao autoriza documentar nem cria pendencia.
 
-Com documentacao autorizada e delegacao disponivel, outro agente aplica `romulo-documentacao` aos destinos canonicos existentes enquanto o construtor continua. Entregar ao documentador o recorte/revisao mostrada, decisoes, arquivos e evidencias; separar propriedade dos arquivos para evitar sobrescrita e conferir a correspondencia antes de salvar o lote. Documentador nao acrescenta regras nem altera codigo sem autorizacao. Quando o responsavel autorizar tambem revisao e correcao, pode testar e corrigir desvios do pedido no recorte entregue, apos combinar propriedade dos arquivos; seguir o ciclo de testes de `romulo-verificar`. Sem delegacao disponivel, concluir a documentacao no mesmo agente sem prometer paralelismo.
+Com documentacao autorizada e delegacao disponivel, outro agente aplica `documentacao` aos destinos canonicos existentes enquanto o construtor continua. Entregar ao documentador o recorte/revisao mostrada, decisoes, arquivos e evidencias; separar propriedade dos arquivos para evitar sobrescrita e conferir a correspondencia antes de salvar o lote. Documentador nao acrescenta regras nem altera codigo sem autorizacao. Quando o responsavel autorizar tambem revisao e correcao, pode testar e corrigir desvios do pedido no recorte entregue, apos combinar propriedade dos arquivos; seguir o ciclo de testes de `verificar`. Sem delegacao disponivel, concluir a documentacao no mesmo agente sem prometer paralelismo.
 
 Documentar ou aprovar o prototipo nao autoriza construir, integrar ou publicar no real. Exigir pedido explicito para essa conversao. Novo pedido nao cancela trabalho anterior em execucao quando o responsavel mandou aguardar sua conclusao.
 
-Issue e PR seguem `romulo-construir`, sem atrasar a entrega visual local por check externo opcional. Registrar alcance PROTOTIPO e fechar somente o que esse alcance entrega; tarefa de conversao real permanece aberta ate seu proprio aceite. Vincular DNA/issue/PR no dono, sem mapa paralelo. Publicar a skill ou atualizar plugin nao autoriza alterar interfaces de todos os projetos; adocao e incremental, preservando o lote em curso.
+Issue e PR seguem `construir`, sem atrasar a entrega visual local por check externo opcional. Registrar alcance PROTOTIPO e fechar somente o que esse alcance entrega; tarefa de conversao real permanece aberta ate seu proprio aceite. Vincular DNA/issue/PR no dono, sem mapa paralelo. Publicar a skill ou atualizar plugin nao autoriza alterar interfaces de todos os projetos; adocao e incremental, preservando o lote em curso.
 
 ## Prototipo nunca publica
-Pedido de prototipo altera somente a copia local do prototipo. Nao editar arquivo que o real usa (codigo publicado, migracao, dado oficial) e nao fazer commit/push que dispare deploy (ex.: branch com deploy automatico) antes da ordem explicita do responsavel "construir no real". Para nao perder trabalho, salvar no Git as fontes alteradas do prototipo em `docs/prototipo/<modulo>/fontes/`, no mesmo caminho relativo do arquivo real (copia fiel, que mantem o identificador do original). Finalidade unica dessa pasta: guardar o prototipo sem publicar; o real nunca le dela. Registrar cada copia no sumario de prototipo do modulo. Na ordem de construir, levar a copia aprovada ao arquivo real e apagar a copia e o registro no mesmo lote. A guarda local de arvore documental deve aceitar esse destino. Protótipo deve parecer igual em qualquer aparelho: letra carregada pela pagina (nao a do sistema) e alertas de trabalho conforme o contrato aprovado, respeitando reducao de movimento sem perder a informacao/atencao; seguir `romulo-interface` e nao alterar alertas existentes automaticamente. Na ordem de construir, levar o aprovado ao real, testar e so entao publicar. Em duvida se o pedido e prototipo ou real, perguntar antes de escrever.
+Pedido de prototipo altera somente a copia local do prototipo. Nao editar arquivo que o real usa (codigo publicado, migracao, dado oficial) e nao fazer commit/push que dispare deploy (ex.: branch com deploy automatico) antes da ordem explicita do responsavel "construir no real". Para nao perder trabalho, salvar no Git as fontes alteradas do prototipo em `docs/prototipo/<modulo>/fontes/`, no mesmo caminho relativo do arquivo real (copia fiel, que mantem o identificador do original). Finalidade unica dessa pasta: guardar o prototipo sem publicar; o real nunca le dela. Registrar cada copia no sumario de prototipo do modulo. Na ordem de construir, levar a copia aprovada ao arquivo real e apagar a copia e o registro no mesmo lote. A guarda local de arvore documental deve aceitar esse destino. Protótipo deve parecer igual em qualquer aparelho: letra carregada pela pagina (nao a do sistema) e alertas de trabalho conforme o contrato aprovado, respeitando reducao de movimento sem perder a informacao/atencao; seguir `interface` e nao alterar alertas existentes automaticamente. Na ordem de construir, levar o aprovado ao real, testar e so entao publicar. Em duvida se o pedido e prototipo ou real, perguntar antes de escrever.
 
 Antes da conversao identifique: finalidade, usuario/tarefa, gatilho, campos/origem, validacoes, estados, contrato, autorizacao/escopo, efeitos/consumidores, erros/recuperacao, aceite e impacto pertinentes.
 
@@ -50,9 +50,9 @@ Opcao ficticia encontrada no real exige rastrear e corrigir a origem; nao autori
 Nao apagar proposta aprovada pendente porque outra parte foi publicada.
 
 ## Especificacao e visual na conversao
-Aplicar `romulo-especificar` para confrontar a revisao aprovada e as conexoes reais; nao reabrir decisoes ja respondidas. Aplicar `romulo-interface` para preservar referencia e peculiaridades. Prototipo aprovado nao autoriza novas telas, botoes ou regras durante a conversao.
+Aplicar `especificar` para confrontar a revisao aprovada e as conexoes reais; nao reabrir decisoes ja respondidas. Aplicar `interface` para preservar referencia e peculiaridades. Prototipo aprovado nao autoriza novas telas, botoes ou regras durante a conversao.
 
-Falha tecnica corrigivel dentro do alcance segue o ciclo de `romulo-construir`; nao encerrar apenas marcando pendencia. Preservar os estados documentais de publicacao quando depender de autorizacao externa. Verificar a implementacao com `romulo-verificar` antes de declarar integracao real.
+Falha tecnica corrigivel dentro do alcance segue o ciclo de `construir`; nao encerrar apenas marcando pendencia. Preservar os estados documentais de publicacao quando depender de autorizacao externa. Verificar a implementacao com `verificar` antes de declarar integracao real.
 
 ## Fechamento da conversao: prototipo x real
 Ao publicar o real de uma tela, aba ou modal prototipado:
@@ -60,7 +60,7 @@ Ao publicar o real de uma tela, aba ou modal prototipado:
 2. Item do prototipo que nao foi construido vira linha no andamento/fila do projeto como "diferenca prototipo x real a decidir", com nome/ID e referencia ao detalhe aprovado no dono; nunca e descartado em silencio nem reduzido a um nome sem suas regras/fontes.
 3. Item construido diferente do aprovado: corrigir ou registrar a decisao do responsavel no documento da tela.
 4. Somente o recorte efetivamente convertido passa a descrever o real: retirar seus ponteiros ativos ao prototipo (rota, arquivo, comparacoes), preservando a origem historica da decisao quando pertinente. Itens ainda nao convertidos permanecem no MESMO documento dono, com detalhes/fontes aprovados e estado PROTOTIPO/PENDENTE explicito; publicar uma aba/modal nao autoriza apagar as demais. Retirar esses detalhes somente apos conversao ou descarte explicitamente autorizado.
-5. Quando nao sobrar item do prototipo por construir ou decidir, apagar os arquivos do prototipo daquela tela e suas referencias no mesmo lote (`romulo-construir`, remocao autorizada e limpeza dos registros de trabalho).
+5. Quando nao sobrar item do prototipo por construir ou decidir, apagar os arquivos do prototipo daquela tela e suas referencias no mesmo lote (`construir`, remocao autorizada e limpeza dos registros de trabalho).
 6. A entrada no historico de entregas diz o resultado da comparacao: sem diferenca, ou quais diferencas foram para o andamento.
 
 O fiscal independente exigido pelo projeto confere esse candidato e a revisao aprovada, nao apenas o texto do recibo. Mudanca posterior invalida a evidencia atingida; revisao/documentacao aprovadas nao substituem execucao real ou prova de versao ativa.

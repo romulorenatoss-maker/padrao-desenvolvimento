@@ -1,7 +1,7 @@
 {
-  "name": "romulo-dev-standard",
-  "version": "1.12.4",
-  "description": "Padrao unico para projetos Romulo: bootstrap, inicializacao, arquitetura, seguranca, documentacao e verificacao.",
+  "name": "padrao-desenvolvimento",
+  "version": "1.0.0",
+  "description": "Padrao unico para projetos: bootstrap, inicializacao, arquitetura, seguranca, documentacao e verificacao.",
   "author": {"name": "Romulo Renato"},
-  "repository": "https://github.com/romulorenatoss-maker/romulo-dev-standard"
+  "repository": "https://github.com/romulorenatoss-maker/padrao-desenvolvimento"
 }

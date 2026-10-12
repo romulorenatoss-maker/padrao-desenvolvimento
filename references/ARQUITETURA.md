@@ -42,17 +42,17 @@ No prototipo, usar a mesma divisao e contratos previstos para o real, com simula
 Nomes novos descritivos, estaveis, sem espacos/acentos para caminhos portateis; convencao existente coerente prevalece. Slug de modulo em minusculas com hifen quando a stack permitir; simbolos/namespace seguem a linguagem. Nao sufixar `2`, `novo`, `v2`, `old`, `backup` para contornar responsabilidade existente.
 
 ## Catalogo condicional de criacao
-Esta tabela e consumida pelo gate de `romulo-analisar`. E previsao de tipos/destinos, nao autorizacao irrestrita: cada caminho precisa de necessidade, skill dona, consumidor e pedido autorizado. Sem linha aplicavel: exigir excecao `0393` antes da criacao.
+Esta tabela e consumida pelo gate de `analisar`. E previsao de tipos/destinos, nao autorizacao irrestrita: cada caminho precisa de necessidade, skill dona, consumidor e pedido autorizado. Sem linha aplicavel: exigir excecao `0393` antes da criacao.
 
 | Categoria | Skill dona | Condicao de criacao |
 |---|---|---|
-| AGENTS.md e CLAUDE.md do bootstrap | romulo-iniciar-projeto | Ausentes, bootstrap autorizado, identidade preenchida, destino confirmado. Existente protegido nao pode ser sobrescrito. |
-| Fonte, teste, asset ou configuracao do recurso | romulo-construir; romulo-interface quando visual | Capacidade/revisao aprovada, responsabilidade e consumidor reais, destino anterior ou fallback acima. Configuracao nao concede privilegios. |
-| Documento ou indice canonico | romulo-documentacao | Conhecimento necessario sem destino equivalente; nome/escopo segundo referencia documental. |
-| Migration/contrato persistente | romulo-construir e romulo-seguranca | Mudanca de dados necessaria e autorizacao da operacao; criar SQL nao autoriza aplica-lo. |
-| Alteracao da distribuicao central | romulo-evoluir-padrao | Pedido de evolucao do metodo; skill/reference/template/manifests e verificacoes diretamente afetados, sem fabrica de arquivos. |
-| Saidas de build, testes e instalacao autorizados | romulo-verificar; romulo-iniciar-projeto para bootstrap | Comando conhecido, destino gerado/cache/temp identificado, dados controlados e descarte/retencao definida. Inclui relatórios e screenshots pertinentes; nao permite notas paralelas. |
-| Copia de trabalho para analise/teste | romulo-analisar | Fonte/ref confirmados, destino descartavel delimitado e separado do projeto; copia nao e nova fonte canonica nem autorizacao de sobrescrita. |
-| Configuracao de qualidade, testes, telemetria ou CI | romulo-verificar; romulo-seguranca para dados/integração | Perfil compativel e adocao autorizados, reutilizar ferramentas/comandos e destinos existentes; gasto, contas, dados enviados e novas dependencias precisam de escopo especifico. |
+| AGENTS.md e CLAUDE.md do bootstrap | iniciar-projeto | Ausentes, bootstrap autorizado, identidade preenchida, destino confirmado. Existente protegido nao pode ser sobrescrito. |
+| Fonte, teste, asset ou configuracao do recurso | construir; interface quando visual | Capacidade/revisao aprovada, responsabilidade e consumidor reais, destino anterior ou fallback acima. Configuracao nao concede privilegios. |
+| Documento ou indice canonico | documentacao | Conhecimento necessario sem destino equivalente; nome/escopo segundo referencia documental. |
+| Migration/contrato persistente | construir e seguranca | Mudanca de dados necessaria e autorizacao da operacao; criar SQL nao autoriza aplica-lo. |
+| Alteracao da distribuicao central | evoluir-padrao | Pedido de evolucao do metodo; skill/reference/template/manifests e verificacoes diretamente afetados, sem fabrica de arquivos. |
+| Saidas de build, testes e instalacao autorizados | verificar; iniciar-projeto para bootstrap | Comando conhecido, destino gerado/cache/temp identificado, dados controlados e descarte/retencao definida. Inclui relatórios e screenshots pertinentes; nao permite notas paralelas. |
+| Copia de trabalho para analise/teste | analisar | Fonte/ref confirmados, destino descartavel delimitado e separado do projeto; copia nao e nova fonte canonica nem autorizacao de sobrescrita. |
+| Configuracao de qualidade, testes, telemetria ou CI | verificar; seguranca para dados/integração | Perfil compativel e adocao autorizados, reutilizar ferramentas/comandos e destinos existentes; gasto, contas, dados enviados e novas dependencias precisam de escopo especifico. |
 
 Pasta so com conteudo necessario. Nome previsto sem necessidade nao autoriza criar. Nova dependencia, recurso externo, lockfile ou scaffolder exige avaliar todos os arquivos e efeitos produzidos antes de executar. Nao usar comando de terceiro para contornar a regra.

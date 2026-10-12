@@ -1,6 +1,6 @@
 # Workflow: Create Mode
 
-Build the authorized component with purposeful motion. Apply [Romulo governance](../SKILL.md#integracao-ao-romulo-dev-standard--ler-antes-dos-workflows) first; use the approved stack and context. Cookbook examples do not authorize new dependencies.
+Build the authorized component with purposeful motion. Apply [development governance](../SKILL.md#integracao-ao-padrao-de-desenvolvimento--ler-antes-dos-workflows) first; use the approved stack and context. Cookbook examples do not authorize new dependencies.
 
 ## Required Reading
 
