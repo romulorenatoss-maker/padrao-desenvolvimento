@@ -9,11 +9,17 @@ Prototipo especifica a mudanca aprovada; nao comprova backend, persistencia, seg
 
 Desde a criacao, aplicar a [divisao JavaScript por responsabilidade](../../references/ARQUITETURA.md#javascript-por-responsabilidade-e-tamanho) e a [identificacao interna por DNA](../../references/DOCUMENTACAO.md#identificacao-e-documentacao-interna-do-codigo). Usar fontes e interfaces reutilizaveis no real; manter simulacao separada e substituir somente o adaptador/contrato necessario na conversao autorizada, preservando IDs e interface. Isso reduz reescrita, sem fingir backend pronto nem importar dados ficticios.
 
+## Leitura proporcional e documento reutilizavel
+
+Prototipo visual/comportamental com simulacao isolada consulta somente o DNA e seu documento dono, regras/conexoes do recorte e briefing/componentes pertinentes. Nao cria banco, API real nem executa checks de implantacao por rotina; preserva modularidade, separacao de dados e guardas locais. Dados reais, credenciais, acesso ou integracao reais exigem a consulta de seguranca pertinente antes da operacao, mesmo no prototipo.
+
+Usar o mesmo documento canonico e DNA na conversao: registrar finalidade (para que/por que/para quem), regras, gatilhos/estados, origem/saida, fornecedor/consumidores e contrato real previsto no detalhe do recorte, sem repetir o manual tecnico. Marcar PROTOTIPO/PENDENTE e distinguir decidido, simulado e construido. Na ordem de construir no real, completar somente lacunas tecnicas indispensaveis, substituir adaptadores simulados pelos contratos autorizados e validar a cadeia atingida; nao inventar backend pronto nem recriar a especificacao.
+
 ## Revisao rapida do prototipo e documentacao paralela
 
 No trabalho iterativo definido como prototipo, manter o contexto e as correcoes na conversa coordenadora. Encaminhar ao construtor pedidos curtos e fieis, com alvo e resultado esperado, sem ampliar pedido visual para construcao real. Investigar somente a cadeia atingida e executar a alteracao ja autorizada sem repetir aprovacao; perguntar apenas decisao indispensavel ausente.
 
-Aplicar primeiro no ambiente local de prototipo previsto pelo projeto e mostrar a tela renderizada no navegador/painel ao lado apos cada entrega. Conferir que a fonte alterada foi realmente carregada; editar arquivo, abrir URL ou enviar mensagem nao comprova atualizacao visual. Preservar edicoes nao salvas; usar aba separada quando necessario. Sem acesso visual, declarar o limite.
+Para efeito visual, cumprir primeiro a previa e aprovacao de imagem de `interface`; pedido de melhorar uma lista ou mover um botao ja aciona esse fluxo. Depois da aprovacao ou dispensa explicita, aplicar no ambiente local de prototipo previsto pelo projeto e mostrar a tela renderizada na mesma aba visivel apos cada entrega. Conferir que a fonte alterada foi realmente carregada; editar arquivo, abrir URL ou enviar mensagem nao comprova atualizacao visual. Preservar edicoes nao salvas; segunda aba somente se o responsavel pedir. Sem acesso visual, declarar o limite.
 
 Depois de mostrar a versao, encerrar com a pergunta exata: "Posso documentar assim?". Correcao solicitada entra em seguida e atualiza o entendimento. OK autoriza documentar a versao mostrada. Quando o responsavel tiver explicitamente adotado este fluxo, passar a um novo pedido sem corrigir a entrega mostrada tambem autoriza documentar aquela versao; registrar essa fonte de autorizacao, sem inventar aceite funcional ou publicacao. Silencio sozinho nao autoriza documentar nem cria pendencia.
 
@@ -41,7 +47,7 @@ Mantenha como PENDENTE/NAO_VERIFICADO tudo que nao foi construido, testado ou pu
 Antes de marcar REAL, retire fontes ficticias da cadeia publicada, teste o backend pertinente e confirme a separacao de dados.
 
 ## Complementos
-Quando o usuario pedir exemplo de interface no chat, apresentar prototipo visual interativo e responsivo do recorte (campos, abas, estados e interacoes), nao desenho em texto. Apos aprovacao, implementar fielmente; divergencia exige aprovacao previa.
+Quando o usuario pedir proposta visual no chat, seguir a previa em imagem de `interface`; apos aprovacao, construir o prototipo interativo e responsivo do recorte. Pedido explicito de simulacao/interacao respeita esse alcance, sem substituir uma previa de imagem ainda pendente. Divergencia da proposta aprovada exige nova aprovacao antes de editar.
 
 Campo so vem preenchido no real quando o valor foi efetivamente registrado e continua valido e autorizado; nunca selecionar opcao automaticamente. Verificar o cenario sem cadastro e confirmar que nenhum dado do prototipo foi gravado no banco oficial.
 

@@ -103,3 +103,11 @@ Quando mais de uma IA (Claude, Codex ou outra) trabalha no mesmo projeto, todas 
 5. Analisar o trabalho de outra IA e somente leitura, com relatorio ao responsavel (certo, errado, pela metade). Mexer, mover, juntar ou publicar esse trabalho so com ordem expressa do responsavel.
 
 Para testes e criterio de parada, seguir [verificar](../verificar/SKILL.md#testar-corrigir-e-entregar-sem-repeticao-desnecessaria): validar o pedido, corrigir falhas e retestar os pontos atingidos; validou, entregar sem repeticao ou ampliacao sem motivo.
+
+## Encerramento e reset da sessao do executor
+
+Antes do reset: verificar aceite/checks e fiscal exigido, salvar fonte e documentacao canonica, conferir Git/recibo pertinentes e registrar resultado/pendencias e proxima tarefa no registro existente. Pendencia que impede fechar o proprio recorte, aprovacao aguardada, agente ainda ativo ou escrita compartilhada sem liberacao impedem o reset. Pendencias externas ao alcance entregue ficam no dono, sem inventar conclusao.
+
+Depois desse fechamento, executar o reset real somente na sessao do executor e pelo mecanismo suportado/configurado do cliente, conforme autorizacao vigente; `/clear` nao e um comando universal de shell. Nao resetar o coordenador, interromper trabalho, apagar memoria/documentos/dados ou criar outro executor concorrente. Se o host nao expoe esse mecanismo, declarar reset nao executado; nao simular limpeza dizendo que esqueceu.
+
+Confirmar o novo contexto/identificador quando aplicavel, preservando projeto/caminho/ambiente e regras de acesso. A proxima tarefa carrega AGENTS -> mapa de `analisar` -> skills pertinentes -> registro/DNA, sem recuperar historico inteiro. Essa diretriz nao instala hooks nem garante economia de creditos. Nao fazer reset a cada pequena correcao da mesma tarefa.

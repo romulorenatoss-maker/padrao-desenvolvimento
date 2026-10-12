@@ -5,6 +5,8 @@ description: "Use em toda criacao, alteracao, correcao ou revisao com efeito vis
 
 # Interface
 
+Acionar esta skill em todo pedido que atinja a apresentacao ou interacao da tela, inclusive efeito indireto; nao esperar que o responsavel diga "usar design". Usar a skill/ferramenta visual e de geracao/edicao de imagem disponivel e pertinente para diagnostico e previa conforme este fluxo, sem instalar recurso por rotina. Alteracao interna sem efeito de UI nao aciona redesenho.
+
 Fonte dona da consistencia visual, composicao e peculiaridades. Use com `especificar` para proposta/utilidade, `construir` para conexoes e `verificar` para evidencias. Nao exige React, Tailwind, biblioteca ou estrutura de pastas especifica.
 
 ## 1. Descobrir e aprovar a referencia
@@ -12,6 +14,8 @@ Fonte dona da consistencia visual, composicao e peculiaridades. Use com `especif
 Antes de editar, localizar sistema visual real: tokens/tema, componentes, layouts, exemplos aprovados, formatos, estados e peculiaridades do recorte. Inspecionar a renderizacao existente quando o ambiente permitir; sem navegador, declarar a verificacao visual nao executada, nao inventar screenshot.
 
 Consultar o briefing visual do projeto conforme [contratos de projeto](../../references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao): cores, letras, botoes, cantos, espacamentos e variantes aprovadas com valores/referencias concretos. Tela nova reutiliza esse contrato; alteracao consulta somente o trecho pertinente. Se faltar, propor o recorte necessario antes da UI definitiva. Briefing novo nao autoriza uniformizar telas antigas nem remover peculiaridades aprovadas; divergencias seguem a migracao e aprovacao das secoes 4 e 5.
+
+Na proposta, confrontar o elemento com o equivalente aprovado em outros locais do sistema: listas, tabelas, botoes, telas, menus, cores e estados. Reutilizar o mesmo token/componente/variante e registrar nova decisao vigente no briefing/dono, com links no DNA; nao duplicar valores em cada TELA.md. Se os locais divergem e nao ha referencia aprovada, mostrar essa diferenca e propor a referencia antes de uniformizar. Ajuste local nao autoriza alterar os outros locais: migracao de consumidores compartilhados precisa do alcance e aprovacao pertinentes.
 
 O estilo mais repetido nao e necessariamente o melhor nem o aprovado. Em sistema inconsistente, propor uma referencia representativa na tecnologia existente e apresenta-la para aprovacao antes de espalhar alteracoes. Uma referencia util mostra formulario, tabela, botoes, abas/modal quando pertinentes e estados reais, nao apenas uma imagem decorativa.
 
@@ -74,17 +78,15 @@ Para criar ou revisar movimento, consultar `motion-principles`; carregar somente
 
 Padrao aprovado e obrigatorio, salvo excecao explicitamente aprovada. Antes de CRIAR ou ALTERAR uma excecao, apresentar o que difere, motivo, alcance e impacto, e pedir aprovacao. Preservar o aprovado fora da mudanca autorizada; peculiaridade registrada torna a protecao mais precisa, mas ausencia de marca especial nao autoriza reorganizar o existente. Uma peculiaridade nao vira padrao global sem decisao separada.
 
-### Edicao pontual e acrescimo sem reorganizar o aprovado
+### Edicao pontual e previa em imagem por padrao
 
-Adicionar botao/campo ou corrigir funcao nao autoriza mudar posicao, ordem, dimensoes, cor, animacao ou comportamento de outros elementos. Conferir o recorte atual e efeitos de CSS/componentes compartilhados antes de editar. Se o pedido cabe sem alterar o existente aprovado, executar dentro da autorizacao vigente, sem pergunta artificial.
+Adicionar, retirar ou ajustar um elemento nao autoriza mudar outros elementos aprovados. Conferir a tela atual e os consumidores de CSS/componentes compartilhados; descrever em frase curta exatamente o que muda, sem chamar um deslocamento de "pequeno" para dispensar aprovacao.
 
-Nao usar "pequeno", "pouco" ou um limite de pixels para dispensar essa conferencia/aprovacao: ate uma linha deslocada e mudanca do existente. Dizer qual elemento muda e de onde para onde; informar medida quando efetivamente conferida no mesmo viewport/estado, sem estimar como fato. Variacoes dinamicas/responsivas ja previstas pelo contrato nao sao uma nova alteracao de layout por si.
+Qualquer criacao ou alteracao com diferenca visual exige, por padrao, uma imagem da proposta ANTES de editar a interface: posicao, ordem, lista, fonte, cor, tamanho, espacamento ou apresentacao. Partir de captura da tela existente e identificar sua origem real ou prototipo; nunca chamar a captura do prototipo de producao. Sem tela existente, usar o briefing e marcar a proposta como tela nova. Nao alterar a tela em uso nem seus dados para produzir essa imagem.
 
-Se para atender ao pedido precisar reduzir, deslocar ou alterar algo ja aprovado, parar antes dessa mudanca e fazer uma pergunta curta que diga exatamente o impacto real: "Para encaixar X, preciso reduzir Y e mover Z para cima. Quer ver a previa?" Usar os nomes reais e somente efeitos comprovados; nao substituir por "vou melhorar o layout" nem apresentar proposta gigante por esse ajuste. Autorizacao de acrescentar X nao aprova esses efeitos colaterais.
+Mostrar a imagem e o efeito proposto; pedidos de ajuste atualizam a imagem, ate aprovacao explicita da revisao. So entao construir fielmente no prototipo, atualizar a mesma aba visivel e comparar o renderizado com a proposta. Preservar edicoes nao salvas; outra aba somente se pedida pelo responsavel. Imagem aprovada autoriza esse visual no prototipo, nao regra de negocio, banco, construcao real ou publicacao. Silencio nao aprova; aprovacao de outra revisao nao cobre mudancas posteriores.
 
-Se o responsavel pedir imagem, mostrar como ficaria em previa separada, preservando a tela/edicao aprovada; identificar que e proposta, nao entrega aplicada. So mexer no layout existente depois da aprovacao daquele impacto/previa; silencio nao aprova. Aprovacao explicita que ja inclua esses movimentos nao e perguntada novamente. Sem conseguir produzir a previa solicitada, declarar o impedimento e manter o layout atual.
-
-Quando o responsavel definir que precisa VER a proposta antes de qualquer mudanca no layout existente, a previa visual anterior passa a ser obrigatoria para esse trabalho, mesmo que o deslocamento pareca minimo. A pergunta curta inicia essa proposta; nao equivale a permissao para editar a tela aprovada enquanto prepara a imagem.
+Dispensar a imagem somente quando o responsavel pedir explicitamente edicao direta, "sem previa", ou desligar esse comportamento; respeitar o alcance dessa escolha e manter as outras protecoes. Alteracao exclusivamente interna, sem diferenca visual, nao exige imagem. Falta da ferramenta/captura necessaria e impedimento a declarar, nao permissao para editar primeiro. Preferir uma previa focada; nao prometer economia de creditos ou rapidez so por gerar imagem.
 
 Depois da edicao, confrontar o recorte com a referencia anterior e conferir as propriedades que deveriam permanecer. Mudanca fora do pedido e regressao a corrigir, nao melhoria presumida; nao alterar a referencia apenas para aceitar o desvio.
 

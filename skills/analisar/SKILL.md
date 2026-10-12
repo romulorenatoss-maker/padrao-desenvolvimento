@@ -24,6 +24,35 @@ Escolher a leitura pelo pedido: correcao fiel usa DNA -> trecho vigente no dono 
 
 Toda criacao/alteracao consulta o padrao pertinente: `especificar` para capacidade/regra/fluxo/interface, `interface` para efeito visual/interativo inclusive indireto; Ponytail `full` como complemento. Sem efeito de produto/UI, justificar NAO_SE_APLICA, sem entrevista artificial. Perguntar apenas decisao ausente, conflito real ou autorizacao especifica; nunca nomes tecnicos ja derivaveis. Nao abrir auditoria global por bug local.
 
+## Mapa rapido por pedido
+
+Primeiro classificar: o que vou fazer, em qual DNA/cadeia e em qual plano (PROPOSTA, PROTOTIPO ou REAL)? Este e o mapa de entrada; AGENTS aponta para esta skill, sem copiar a tabela. Carregar integralmente somente as SKILL.md pertinentes; nas referencias, ler as secoes ligadas ao efeito e suas dependencias obrigatorias. Somar linhas do mapa quando houver varios efeitos; nao omitir seguranca porque o pedido foi chamado de visual.
+
+| Efeito comprovado | Consultar antes da escrita | Fonte local minima |
+|---|---|---|
+| Prototipo visual/comportamental com simulacao isolada | `prototipo-real`, `interface` e `documentacao` | DNA -> regra/conexoes do dono -> briefing/componente; previa aprovada, interacao e estados pertinentes. Arquitetura somente no trecho estrutural atingido; seguranca se houver fronteira/dado real. |
+| Criar/melhorar/mover/remover algo visual, lista ou tabela da tela | `interface`; `especificar` no alcance da proposta; ferramentas de design pertinentes; previa em imagem antes do prototipo | Briefing, referencia atual e regras/excecoes do DNA da tela. |
+| Corrigir comportamento fiel ja decidido | `construir` e contrato vigente; perguntas de `especificar` somente se faltar decisao | DNA -> dono -> codigo/callers e teste que reproduz o defeito. |
+| Arquivo, modulo, separacao ou contrato novo | [arquitetura](../../references/ARQUITETURA.md), gate abaixo e `construir`; `auditar-projeto` somente para organizacao ampla | Dono, equivalente, responsabilidade, consumidor, destino/nome e limites pertinentes. |
+| Tabela do banco, SQL/RPC, persistencia ou dado oficial | [dados](../../references/DADOS.md), `seguranca`, arquitetura pertinente e `construir` | Modelo/RPC do dono, constraints, tenant/permissao e consumidores atingidos. |
+| API, credencial, login/permissao, upload ou outra fronteira de confianca | `seguranca` e contratos/dados pertinentes | Entrada, autorizacao, escopo, segredo, limite e efeito real; frontend nao decide autoridade. |
+| Construir/integrar no real | `prototipo-real`, `construir`, `seguranca` pelo risco e `verificar` | Revisao aprovada -> contratos/adaptadores -> dados/consumidores -> checks reais aplicaveis. |
+| Documentar/remover codigo ou regra | `documentacao`; remocao tambem usa `construir` e analise de impacto | Para que/por que/para quem, DNA, referencias de entrada e consumidores reais; historico no Git. |
+| Backup, restauracao ou transferencia de instancia | [backup-recuperacao](../backup-recuperacao/SKILL.md) e `seguranca` | Guia/destinos autorizados e evidencia da copia pertinente; leitura nao inicia restauracao. |
+| Mudar o padrao/skill/bootstrap | `evoluir-padrao`; bootstrap tambem usa `iniciar-projeto` | Fonte central/versao, consumidores e autorizacoes dos arquivos protegidos. |
+
+O alcance PROTOTIPO evita procedimentos de banco, implantacao e seguranca real sem efeito correspondente, nao a estrutura reutilizavel nem a documentacao vigente. DNA localiza regras e conexoes; confirmar chamadas atingidas no codigo. Backend, dado oficial, credencial ou API real fazem consultar as linhas de dados/seguranca, mesmo quando a tela se chama prototipo.
+
+Toda tarefa termina com `verificar` no alcance do efeito. Pedido visual usa Taste/Redesign para diagnostico estetico quando disponivel e compativel, guidelines para acessibilidade/usabilidade e navegador para conferencia; image-to-code somente com referencia escolhida. Esses recursos seguem `interface`, nao substituem aprovacao nem autorizam framework/dependencia. Sem ferramenta obrigatoria disponivel, informar o limite antes da operacao dependente.
+
+## Plano curto e contexto do executor
+
+Uma tarefa coerente por sessao do executor; ajustes do mesmo pedido continuam nessa tarefa. Antes de construir, um planejador define objetivo/aceite, DNAs/donos, caminhos/consumidores, riscos e checks em registro ja existente ou proposta curta. Reusar esse plano enquanto revisao/alcance forem validos; nao repetir levantamento completo a cada clique.
+
+Com papeis, modelos e delegacao previamente autorizados/configurados, usar planejador de maior capacidade e executor economico, sem impor marca/modelo a qualquer cliente. Somente um executor escreve cada caminho; fiscal independente quando exigido. Sem capacidade de delegacao, o mesmo agente separa planejamento e construcao, declarando esse limite. Troca de modelo nao garante economia nem autoriza quebrar protecoes locais.
+
+O executor recebe o plano, IDs/links e revisao aprovada, sem transcript inteiro nem copia de todos os manuais. Consultar o dono por DNA quando faltar detalhe, nunca tratar o ID como conteudo suficiente ou memoria infalivel. Encerramento/reset segue `construir`; coordenador preserva continuidade.
+
 ## Gate de criacao — nenhum arquivo fora da previsao sem 0393
 Antes de criar arquivo/pasta, inclusive via ferramenta, gerador, importacao, copia, rename para novo caminho ou comando de shell, confrontar o [catalogo condicional de artefatos](../../references/ARQUITETURA.md) e a skill dona vigente.
 

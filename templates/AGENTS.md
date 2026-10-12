@@ -15,8 +15,8 @@ PADRAO_ENTRADA: README.md
 SETUP_PADRAO: <estado factual e referencia ao registro aprovado; nao inventar aceite>
 
 Antes de qualquer tarefa tecnica, ler o ponto de entrada oficial do padrao
-na revisao resolvida e aplicar seu sumario de diretrizes, skills e verificacoes
-pertinentes. Ler tambem a documentacao e as protecoes locais deste projeto.
+na revisao resolvida. Pelo sumario, abrir o mapa de `analisar` e carregar somente
+as skills pertinentes. Ler tambem a documentacao e as protecoes locais deste projeto.
 Usar os nomes vigentes do catalogo central para descobrir/invocar as skills;
 nao reutilizar nomes de uma distribuicao anterior.
 Confirmar identidade, branch, ambiente e autorizacao antes de escrever.
