@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.12.3
+Versao: 1.12.4
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -62,6 +62,14 @@ Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover 
 Correcao fiel: DNA -> trecho vigente no dono -> codigo/consumidores -> teste atingido. Evolucao: briefing visual, fluxo do app e TRD pertinentes; reconstrucao: revisao exata de fontes/assets e guia modular com contratos/RPCs/dados/seguranca/ordem/aceite. Conteudo e destinos em [references/DOCUMENTACAO.md](references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao); implementacao e limpeza em `romulo-construir`, verificacao/fiscal em `romulo-verificar`. Resumo rapido e referencia ao detalhe, sem retirar mapas nominais ou checks locais.
 
 A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOTIPO, DNAs, regras, revisao/fontes e simulacoes/contratos a integrar. Conversao atualiza a mesma fonte e verifica prototipo x real, sem refazer entendimento nem duplicar manual. Falta indispensavel e resolvida antes da implementacao dependente; a entrega visual local continua rapida conforme `romulo-prototipo-real`.
+
+## Migracao 1.12.3 -> 1.12.4
+
+Pedido da [issue #13](https://github.com/romulorenatoss-maker/romulo-dev-standard/issues/13), autorizado pelo responsavel com 0393 para esta alteracao. [DOCUMENTACAO.md](references/DOCUMENTACAO.md#como-escrever-o-documento-da-pagina-telamd-ou-equivalente) define resumo em duas frases (para que, por que, para quem), varios DNAs por tela e contrato compartilhado com dono unico/consumidores explicitos. Analise consulta esses vinculos e chamadas reais antes de editar/remover; documentacao atualiza o dono durante a alteracao; fiscal confronta o diff real e confere o encerramento do temporario pelo instrumento local.
+
+Alcance: referencia documental, skills romulo-analisar/romulo-documentacao/romulo-verificar, este README e tres manifests, oito caminhos existentes. Sem nova skill/mapa, mudanca de IDs, stack, interface, banco, guardas ou arquitetura de consumidor. Reutilizar blocos/tabelas equivalentes; aplicar o formato incrementalmente aos itens atingidos, sem migracao automatica do produto ou reescrita de contratos tecnicos. Terminar lotes na revisao fixada; atualizacao/recarga seguem [INSTALL.md](INSTALL.md). Texto de metodo nao certifica inventario completo nem bloqueio mecanico.
+
+Registro: QUEM: Codex, com fiscal independente. COMMITS: entrega vinculada a issue #13; fonte e PR identificadas apos criacao. FEZ: blocos curtos e vinculos compartilhados; preservou detalhe tecnico, contratos, pendencias e guardas locais. CONFERIU: validador central, quick_validate das tres skills e diff sem erros; 26 cenarios centrais PASSOU e dois symlink NAO_EXECUTADO no Windows. Fiscal revisou tres situacoes (contrato com dois consumidores, IDs sem vinculo e lote interrompido/encerrado); a ambiguidade de propriedade na correcao documental foi corrigida e aguarda reconferencia. Revisao textual/estrutural nao comprova comportamento executado da IA. FALTA: aceite final do fiscal, integracao/CI/publicacao e comprovacao de atualizacao/recarga. DESFAZER: nova PR localizada, preservando decisoes posteriores e instrumentos locais.
 
 ## Migracao 1.12.2 -> 1.12.3
 

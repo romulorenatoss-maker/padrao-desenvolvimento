@@ -12,6 +12,8 @@ Ler a menor fonte canonica suficiente: sumario -> modulo -> tela/cadeia/contrato
 
 Classificar fatos COMPROVADO, PARCIAL, NAO_DESCOBERTO ou NAO_SE_APLICA. Falta de acesso ou busca vazia nao prova inexistencia. Identificar quem e dono da regra e distinguir comportamento atual de decisao aprovada; nao documentar bug como nova regra.
 
+Antes de editar/remover capacidade compartilhada, consultar para que, por que e para quem serve no dono e seus [vinculos por DNA](../../references/DOCUMENTACAO.md#como-escrever-o-documento-da-pagina-telamd-ou-equivalente). Conferir consumidores registrados e chamadas reais, inclusive dinamicas quando pertinentes; varios IDs no arquivo nao provam dependencia. Informar o impacto concreto e resolver a decisao de ruptura conforme `romulo-especificar`, sem nova entrevista para correcao fiel ja autorizada.
+
 Para tarefa de construcao, resolver os IDs/documento dono e seus links de issue/PR antes de recuperar conversa; encaminhar rastreabilidade a `romulo-construir`. Ler apenas o perfil local de ferramentas/checks e os consumidores afetados, nao abrir auditoria do sistema por rotina. Issue descreve trabalho; documento vigente define regra. Ausencia de issue nao autoriza inventar aprovacao ou alterar o DNA.
 
 Escolher a leitura pelo pedido: correcao fiel usa DNA -> trecho vigente no dono -> codigo e consumidores atingidos; evolucao consulta briefing visual, fluxo e TRD pertinentes; reconstrucao segue o guia do modulo e suas dependencias na revisao de origem conferida. Os [contratos de projeto e reconstrucao](../../references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao) definem o conteudo. Nao ler todo o historico nem produzir um novo dossie para cada ajuste; preservar mapas tecnicos e checks exigidos localmente.

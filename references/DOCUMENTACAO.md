@@ -68,6 +68,8 @@ Retirar duplicacao somente depois de conferir dono, equivalencia, referencias e 
 
 No fechamento, requisito/DNA -> dono -> fonte/contrato/RPC/dado -> consumidores/testes, e inverso, deve concordar no alcance. O fiscal independente confere o candidato exato e a limpeza prevista; nao aceita somente a declaracao de que o executor seguiu o manual. Conferencia documental nao certifica funcao, pixels ou deploy; `romulo-verificar` define a evidencia por efeito. Uma regra escrita nao instala nem substitui uma guarda executavel.
 
+O executor documenta ao alterar, sem esperar o fiscal. Quando houver registro temporario do lote, reutilizar o instrumento existente: caminhos/simbolos alterados, DNAs e donos documentais, estado da conciliacao e pendencias; nao copiar regras para ele. O fiscal confronta esse registro com o diff real, inclusive omissoes e consumidores atingidos, aponta divergencias ao executor e reconfere a correcao. So altera documentacao com autorizacao e propriedade dos caminhos; seu delta recebe revisao independente. Ao encerrar, retirar o temporario pelo fluxo autorizado, depois dos checks/recibos exigidos; preservar evidencia no dono/Git. Em interrupcao ou falha, manter o aberto para retomar. Manifest usado pela guarda e recibo obrigatorio seguem seu ciclo local, sem apagamento antecipado ou certificado paralelo.
+
 ## Como escrever o documento da pagina (TELA.md ou equivalente)
 
 Cabecalho minimo: identidade documental e dono existentes; nome/finalidade da pagina; rota, menu/submenu; estado PROTOTIPO/REAL e revisao das fontes. Agrupar abas/subabas e configuracoes no mesmo documento quando pertencem a essa pagina. Indicar os arquivos que a renderizam/interagem e as cadeias/contratos donos, sem listar arquivos sem relacao.
@@ -93,21 +95,21 @@ Formato de cada item, preenchido somente com fatos/decisoes identificados:
 ```text
 <ID existente> — <nome funcional/visivel>
 LOCAL: <rota/pagina > aba/subaba > modal/etapa > item>
-RESUMO (ate duas linhas/frases curtas):
-1. <o que faz e por que existe>
-2. <de onde recebe, quem utiliza e o efeito relevante de mudar/remover>
+RESUMO (ate duas frases curtas):
+1. <para que serve e por que existe>
+2. <para quem serve: usuario e/ou capacidade consumidora>
 REGRA DONA: <link + ancora do contrato/componente; regra local fica aqui>
-DETALHE NESTA TELA: <o que mostra/coleta; gatilho, condicoes, estados e excecoes>
-CONEXOES: <ID da origem/destino, documento/ancora, informacao e motivo do vinculo>
-TECNICO: <arquivos/simbolos, action/contrato/dados efetivamente usados>
+CONEXOES: <DNA | recebe de/fornece a/compartilha | dono/ancora | o que usa e por que | efeito de mudar/remover>
+DETALHE: <regra particular, condicoes/estados/excecoes; arquivos/simbolos, action/contrato/dados pertinentes>
 DECISAO/EVIDENCIA: <fonte da finalidade/aprovacao; revisao, verificacao e limites>
 RASTREABILIDADE (quando existente): <repositorio, links de issue/PR e commit da entrega>
-PREVISTO (quando houver): <ideia/conexao futura, finalidade e fonte; estado separado>
 ```
 
 O bloco e um modelo de escrita, nao um formulario a repetir vazio: omitir campos NAO_SE_APLICA, integrar secoes/tabelas equivalentes existentes e tornar desconhecidos relevantes explicitos. Nao publicar placeholders como documentacao pronta. Mostrar condicoes exatas quando alteram comportamento; duas linhas resumem, nao substituem detalhes necessarios. As mesmas regras nao sao copiadas para cada item: usar link ao dono e registrar somente a aplicacao particular na pagina.
 
-O detalhe funcional/tecnico da pagina solicitada fica no documento dela, ligado ao DNA do item e ao contrato dono. Quando recebe informacao de outra pagina, o documento da origem tambem explica por que cadastra/fornece essa informacao e aponta para o consumidor; o consumidor explica para que a usa e aponta para a origem. Por exemplo ilustrativo: Ativos/Estoque documenta identidade, disponibilidade e fornecimento do equipamento; Construtor documenta como esse vinculo habilita a maquina e referencia o contrato de entrada/saida. Cada lado descreve sua propria responsabilidade, com dados/arquivos/contratos pertinentes; nao copiar todo o detalhe do Construtor para Estoque nem atribuir regra de processamento ao cadastro de ativos. Consultar o vinculo nos dois sentidos antes de retirar qualquer ponta.
+Uma tela/arquivo pode reunir varios DNAs: cada comportamento conserva sua identidade e resumo; agrupar o que tiver a mesma responsabilidade, sem misturar regras independentes. Contrato/componente compartilhado tem uma unica definicao dona e os consumidores existentes identificados pelos seus DNAs, documentos e pelo que usam. Nas telas consumidoras, registrar somente a aplicacao local e o link de volta; dois IDs no mesmo arquivo nao comprovam dependencia. Reutilizar mapa/tabela de consumidores existente, sem manter outra lista concorrente.
+
+O detalhe funcional/tecnico fica na pagina solicitada e referencia o contrato dono. Origem explica o que fornece e por que; consumidor explica para que usa. Exemplo ilustrativo: Estoque fornece identidade/disponibilidade do ativo; Construtor usa esse vinculo para habilitar a maquina e aponta para o contrato de entrada/saida. Cada lado guarda somente sua responsabilidade. Antes de editar/remover contrato compartilhado, conferir ambos os sentidos e as chamadas reais, mostrar quais consumidores perdem/mudam informacao e preservar continuidade ou obter a decisao exigida para a ruptura. Ausencia de vinculo documentado nao prova ausencia de consumidor.
 
 Intencoes futuras ainda sem pagina ficam em PREVISTO no dono atual/assunto do prototipo, com descricao rica suficiente para retomar e vinculo no sumario existente. Nao criar documento vazio da pagina futura. Ao surgir pedido relacionado, consultar e apresentar essa ideia antes de propor outra; manter exemplos/excecoes pertinentes nos detalhes e distinguir pedido humano de sugestao e de implementacao comprovada. Atualizar o mesmo item ao receber novas explicacoes, conforme `romulo-documentacao`.
 

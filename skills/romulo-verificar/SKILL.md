@@ -41,7 +41,7 @@ Reconciliar cada arquivo criado/alterado/removido/renomeado no candidato e os no
 Confirmar sumario central consultado, fontes coerentes na mesma revisao e destinations canonicos. Bootstrap/migracao: AGENTS local minimo sem catalogo duplicado, ponte CLAUDE pertinente, nenhuma peculiaridade/guarda perdida, links de destino validos e autorizacao para alterar protegido. Nao afirmar que mudar o arquivo carregou o plugin/sessao.
 
 ## Aceite por efeito
-- Docs: links/IDs/donos correspondem a fatos e consumidores.
+- Docs: DNAs explicam para que, por que e para quem; links/donos e consumidores compartilhados correspondem aos fatos, sem duplicar a regra.
 - Bug: cenario que falhava passa; dependencia compartilhada permanece valida.
 - Backend/acesso: efeito/contrato real e caminho permitido/recusa pertinentes.
 - Pagamento/saldo/estoque/repeticao: integridade, concorrencia, idempotencia e recuperacao quando a garantia mudou.
@@ -52,7 +52,7 @@ Confirmar sumario central consultado, fontes coerentes na mesma revisao e destin
 
 Conferencia bidirecional: requisito sem entrega e elemento sem tarefa comprovada sao defeitos. Em mutacao, confirmar reabertura/reload e consumidores; botao local nao exige banco. Screenshot nao comprova persistencia, build nao comprova clique e imports nao comprovam fluxo.
 
-Ao mudar/remover elemento, conferir a finalidade aprovada e a continuidade da informacao nos consumidores conforme `romulo-especificar`. Documento dono e paginas afetadas devem concordar sobre IDs, regra referenciada e destino da capacidade; resumo curto nao substitui contrato tecnico. Conferir dependencias no codigo alem das ja registradas e declarar lacunas sem afirmar cobertura completa.
+Ao mudar/remover elemento, conferir finalidade aprovada e continuidade da informacao conforme `romulo-especificar`. Contrato compartilhado exige conferir consumidores e os efeitos em cada um; documento dono e paginas afetadas devem concordar sobre DNAs, regra e destino da capacidade. Resumo curto nao substitui contrato tecnico. Conferir dependencias no codigo alem das registradas e declarar lacunas sem afirmar cobertura completa.
 
 Conferir residuos do lote nos dois sentidos conforme `romulo-construir`: requisito/DNA, dono, fonte/assets, contratos/RPCs/dados, consumidores e testes efetivamente envolvidos. Unidade criada sem consumidor ou referencia ativa ao removido e falha a corrigir; item compartilhado/historico/dinamico sem desuso comprovado nao e apagado. Preservar guardas e mapas locais, mesmo que a consulta humana fique mais curta.
 
@@ -74,6 +74,8 @@ Registrar no dono canonico: escopo/revisao/SHA testado, ambiente, cenario/rota, 
 Falha corrigivel no alcance retorna a `romulo-construir`, corrige causa e retesta; nao encerrar apenas como pendencia. Recurso externo ausente exige impedimento concreto, sem prometer execucao futura. Nao afrouxar teste, esconder requisito, apagar baseline ou aceitar screenshot novo sem aprovacao para passar.
 
 Preservar guardas, hooks, CI e fiscal independente quando exigidos pelo contrato local.
+
+Conferir o [registro temporario e seu fechamento](../../references/DOCUMENTACAO.md#manutencao-e-limpeza-do-conhecimento-vigente) pelo diff real: caminhos/simbolos, DNAs, donos atualizados e consumidores atingidos, inclusive itens omitidos pelo executor. Encaminhar divergencias conforme a referencia e reconferir antes de fechar. Lote encerrado nao deixa temporario de mudancas; lote interrompido preserva o aberto. Evidencia canonica/Git e manifestos/recibos exigidos seguem o ciclo local, sem apagamento para contornar guarda. Conferencia do lote nao certifica todo o repositorio.
 
 Fiscal independente confere, alem do codigo, o fechamento documental de tudo o que as skills exigem para o lote: decisao gravada no documento do modulo/tela dono; entrada no historico de entregas com QUEM, COMMITS, FEZ, CONFERIU, FALTA e DESFAZER; limpeza dos registros de trabalho (pergunta respondida fora do registro, andamento/fila/pendencias/mapas/marcas de "falta publicar" sem o que foi entregue, "respondida, a construir" onde ainda nao foi construido); inventario/identidades e vinculos reconciliados; migrations aplicadas e conferidas quando o codigo depende delas. Ausencia de qualquer um e lacuna, nao observacao. Em lote que publica tela/aba/modal prototipado, o fiscal confere tambem a comparacao prototipo x real (`romulo-prototipo-real`, fechamento da conversao): diferencas no andamento, documento da tela so com o real e prototipo apagado quando nada sobrou. Ausencia e lacuna. Candidato contem somente o lote autorizado; sem `--no-verify`, reset destrutivo, amend/force, perda de trabalho alheio ou permissao concedida por conveniencia. Commit, push confirmado, deploy e versao ativa sao distintos.
 
