@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.10.11
+Versao: 1.11.0
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -26,6 +26,7 @@ A tabela e tambem o catalogo nominal conferido pelo validador. Nao repetir uma c
 | [romulo-auditar-projeto](skills/romulo-auditar-projeto/SKILL.md) | Organizar projeto existente ou diagnostico amplo | Descobrir, mapear modulos e propor organizacao por lacunas comprovadas. |
 | [romulo-especificar](skills/romulo-especificar/SKILL.md) | Capacidade, regra, fluxo, tela, aba ou acao | Perguntas faltantes, proposta, utilidade dos elementos e aprovacao. |
 | [romulo-interface](skills/romulo-interface/SKILL.md) | Qualquer efeito visual/interativo | Referencia aprovada, componentes, CSS, peculiaridades e revisao renderizada. |
+| [romulo-motion-principles](skills/romulo-motion-principles/SKILL.md) | Criar/revisar movimento no recorte de interface autorizado | Pacote completo Design Motion Principles, acessibilidade e movimento com finalidade na stack aprovada. |
 | [romulo-construir](skills/romulo-construir/SKILL.md) | Construcao, alteracao ou bug autorizado | Cadeia funcional completa e correcao com reteste. |
 | [romulo-seguranca](skills/romulo-seguranca/SKILL.md) | Entrada, acesso, dados, banco, integracao ou efeito critico | Controles no runtime, autorizacao e integridade. |
 | [romulo-documentacao](skills/romulo-documentacao/SKILL.md) | Conhecimento canonico alterado | Destinos, nomes e vinculos documentais sem duplicacao. |
@@ -42,6 +43,12 @@ Ponytail e complemento externo oficial `DietrichGebert/ponytail`, em modo `full`
 - Criacao de AGENTS/CLAUDE e migracao de peculiaridades: `romulo-iniciar-projeto`, usando [templates/AGENTS.md](templates/AGENTS.md) e [templates/CLAUDE.md](templates/CLAUDE.md).
 - Arquivo novo nao previsto: gate de `romulo-analisar`; exige `0393` do responsavel para aquela excecao. A regra nao concede permissao para alterar arquivo protegido, dados, acesso ou deploy.
 
+## Entrega rapida, qualidade e rastreabilidade
+
+Tarefas logicas usam issue e entregas usam PR vinculada segundo `romulo-construir`, preservando o prototipo localhost e os checks obrigatorios. Consulta segue mapa/DNA -> documento dono -> links qualificados de issue/PR/commit -> consumidores atingidos, conforme [documentacao](references/DOCUMENTACAO.md#rastreabilidade-dna-issue-pr-e-commit). Tickets rastreiam trabalho; documento vigente define regra.
+
+Qualidade/testes por perfil compativel do projeto em `romulo-verificar`; observabilidade em `romulo-seguranca`; estados visuais em `romulo-interface` e movimento no pacote importado `romulo-motion-principles`. Essas regras nao instalam servicos/dependencias nem reformam telas antigas automaticamente. Definir comandos reais no documento/processo local existente e aplicar incrementalmente ao alcance autorizado.
+
 ## Uso de recursos externos
 Skills instaladas, recursos embutidos e conectores nao concedem autorizacao de escrita. `init`, geradores de plugins/skills/documentos, memorias, Figma e demais ferramentas tambem passam pelo gate de artefatos de `romulo-analisar` quando usados neste trabalho. Nao fabricar CLAUDE.md longo, planos ou copias de regras por sugestao automatica.
 
@@ -49,6 +56,14 @@ Nao remover plugins ou mudar permissoes por uma lista colada no chat. Confirmar 
 
 ## Validacao e limites
 Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover -s tests -v`, com Python 3.10+ (usar `python` no Windows quando apropriado). Sem dependencias Python externas. O validador confere estrutura, catalogo, links, templates e roteamento textual; nao impede toda escrita do sistema operacional, nao instala plugins e nao comprova obediencia do modelo ou qualidade de telas. Bloqueio mecanico de escrita exige hook/permissao/sandbox do ambiente, implantado e testado com autorizacao propria; nao alegar blindagem apenas pelo Markdown.
+
+## Migracao 1.10.11 -> 1.11.0
+
+Pedido autorizado em [issue #1](https://github.com/romulorenatoss-maker/romulo-dev-standard/issues/1). Acrescenta issue/PR por tarefa/entrega e links junto aos DNAs existentes, sem substituir IDs nem criar outro mapa. O dono vigente continua fonte da regra; marcacao de consolidacao e detalhes em duas frases preservados. Perfil de qualidade/observabilidade e estados de carregamento sao compativeis e proporcionais ao projeto, sem instalar a lista inteira. Design Motion Principles incorporado completo na revisao indicada pela propria skill, com MIT/autoria e entry/workflows adaptados; referencias/templates preservados.
+
+Mudanca de fluxo: salvar localmente continua permitido; integracao/publicacao passa por PR. Nao trocar branch nem retirar trabalho da pasta compartilhada: ref de entrega pode partir do commit conferido sem checkout nessa pasta, com base/diff e alcance comprovados. Contrato local que exige push direto precisa de migracao especifica; terminar lotes em curso na politica fixada antes de adotar. Nenhum merge autoriza deploy real de prototipo. Atualizar plugin e conferir recarga antes de iniciar novo lote; citar versao nao comprova ativacao de sessao.
+
+O padrao central valida distribuicao/testes em CI de PR; implantacao de protecao/checks obrigatorios no consumidor continua separada e autorizada. Nao transferir o pacote para cada projeto nem copiar regras no AGENTS: manter ponte e perfil local concreto. A primeira adocao solicitada no Mixupa e tarefa propria, sem interferir em documentacao ou edicoes nao salvas em andamento.
 
 ## Migracao 1.10.10 -> 1.10.11
 

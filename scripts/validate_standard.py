@@ -182,6 +182,15 @@ def validate(root: Path) -> list[str]:
         errors.append("INSTALL.md: catalogo duplicado")
 
     texts = {**docs, **{f"skills/{n}/SKILL.md": t for n, t in skills.items()}}
+    for name in skills:
+        for resource in (root / "skills" / name).rglob("*.md"):
+            relative = resource.relative_to(root).as_posix()
+            if relative in texts:
+                continue
+            try:
+                texts[relative] = read(relative)
+            except (OSError, UnicodeError, ValueError):
+                errors.append(f"{relative}: recurso ausente/ilegivel ou inseguro")
     for relative, text in texts.items():
         unknown = set(SKILL_REF.findall(text)) - set(skills) - {NAME}
         if unknown:

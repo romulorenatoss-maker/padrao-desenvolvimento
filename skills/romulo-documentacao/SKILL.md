@@ -13,6 +13,8 @@ Registrar fatos comprovados e decisoes aprovadas, com fonte e revisao. Preservar
 
 Decisoes de `romulo-especificar` e referencia/peculiaridades de `romulo-interface` ficam no mapa/assunto local. Padrao geral permanece na skill central. Indicador de peculiaridade e projecao derivada usam a mesma fonte, sem listas manuais concorrentes.
 
+Registrar [rastreabilidade DNA, issue, PR e commit](../../references/DOCUMENTACAO.md#rastreabilidade-dna-issue-pr-e-commit) junto ao item/lote dono; preservar identidade, usar links qualificados e atualizar o mapa existente. Issue/PR apontam de volta para IDs/documentos; nao criar outro mapa nem usar o ticket como fonte da regra vigente. Perfil concreto de ferramentas/checks fica no processo/PROJETO.md equivalente existente conforme a referencia, sem duplicar o metodo no AGENTS.
+
 ## Conhecimento vivo das paginas e suas conexoes
 
 Cada pagina criada tem um documento dono util; reutilizar `TELA.md` ou equivalente existente, com secoes para abas relacionadas, seguindo [Como escrever o documento da pagina](../../references/DOCUMENTACAO.md#como-escrever-o-documento-da-pagina-telamd-ou-equivalente). Regras compartilhadas ficam no contrato/componente dono. Cada pagina consumidora aponta para a regra e explica por que a usa, sem copiar a mesma especificacao para varios locais.

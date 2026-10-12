@@ -12,6 +12,8 @@ Ler a menor fonte canonica suficiente: sumario -> modulo -> tela/cadeia/contrato
 
 Classificar fatos COMPROVADO, PARCIAL, NAO_DESCOBERTO ou NAO_SE_APLICA. Falta de acesso ou busca vazia nao prova inexistencia. Identificar quem e dono da regra e distinguir comportamento atual de decisao aprovada; nao documentar bug como nova regra.
 
+Para tarefa de construcao, resolver os IDs/documento dono e seus links de issue/PR antes de recuperar conversa; encaminhar rastreabilidade a `romulo-construir`. Ler apenas o perfil local de ferramentas/checks e os consumidores afetados, nao abrir auditoria do sistema por rotina. Issue descreve trabalho; documento vigente define regra. Ausencia de issue nao autoriza inventar aprovacao ou alterar o DNA.
+
 Toda criacao/alteracao consulta o padrao pertinente: `romulo-especificar` para capacidade/regra/fluxo/interface, `romulo-interface` para efeito visual/interativo inclusive indireto; Ponytail `full` como complemento. Sem efeito de produto/UI, justificar NAO_SE_APLICA, sem entrevista artificial. Perguntar apenas decisao ausente, conflito real ou autorizacao especifica; nunca nomes tecnicos ja derivaveis. Nao abrir auditoria global por bug local.
 
 ## Gate de criacao — nenhum arquivo fora da previsao sem 0393

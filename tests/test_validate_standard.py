@@ -159,6 +159,22 @@ class DistributionTests(unittest.TestCase):
         (self.root / "references/ARQUITETURA.md").unlink()
         self.assertTrue(validate(self.root))
 
+    def test_motion_package_resources_and_license_required(self):
+        paths = ("LICENSE", "workflows/create.md", "workflows/audit.md",
+                 "references/motion-cookbook.md", "references/demo-shell.html")
+        for relative in paths:
+            with self.subTest(relative=relative):
+                path = self.root / "skills/romulo-motion-principles" / relative
+                content = path.read_bytes()
+                path.unlink()
+                self.assertTrue(validate(self.root))
+                path.write_bytes(content)
+
+    def test_nested_skill_reference_link_is_checked(self):
+        self.edit("skills/romulo-motion-principles/workflows/create.md",
+                  "../SKILL.md", "../../outside.md")
+        self.assertTrue(validate(self.root))
+
     def test_artifact_gate_references_required(self):
         self.assert_mutations_fail([
             ("skills/romulo-analisar/SKILL.md", "SEM_PREVISAO_NA_SKILL", "OUTRO_ESTADO"),
@@ -196,13 +212,19 @@ class DistributionTests(unittest.TestCase):
         bad = subprocess.run(command, capture_output=True, text=True, timeout=10)
         self.assertEqual(bad.returncode, 1, bad.stdout + bad.stderr)
 
-    @unittest.skipUnless(shutil.which("bash"), "bash indisponivel")
     def test_legacy_installer_is_read_only_and_rejects_write_modes(self):
+        bash = shutil.which("bash")
+        if sys.platform == "win32" and shutil.which("git"):
+            git_bash = Path(shutil.which("git")).parent.parent / "bin/bash.exe"
+            if git_bash.is_file():
+                bash = str(git_bash)
+        if not bash:
+            self.skipTest("bash indisponivel")
         script = self.root / "install/install.sh"
         before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
-        good = subprocess.run(["bash", str(script)], capture_output=True, text=True, timeout=10)
+        good = subprocess.run([bash, str(script)], capture_output=True, text=True, timeout=10)
         self.assertEqual(good.returncode, 0, good.stdout + good.stderr)
-        bad = subprocess.run(["bash", str(script), str(self.root), "all"], capture_output=True, text=True, timeout=10)
+        bad = subprocess.run([bash, str(script), str(self.root), "all"], capture_output=True, text=True, timeout=10)
         self.assertEqual(bad.returncode, 2, bad.stdout + bad.stderr)
         after = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
         self.assertEqual(before, after)
