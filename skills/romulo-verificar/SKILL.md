@@ -79,3 +79,9 @@ Fiscal independente confere, alem do codigo, o fechamento documental de tudo o q
 
 ## Validacao do proprio padrao
 Executar os comandos do README central. Separar VALIDACAO_ESTRUTURAL, CENARIOS_DO_METODO, ACEITE_FUNCIONAL, ACEITE_VISUAL e ATIVACAO_NA_SESSAO com estados e escopo claros. Teste de parser/links e exemplos em prosa nao sao teste comportamental de modelo. Gate descrito em Markdown nao e fiscal universal de escrita; hook/permissao/sandbox requer implementacao e ensaio no ambiente antes de afirmar bloqueio mecanico.
+
+## Fechamento de seguranca por risco
+
+Quando o recorte tocar acesso, entrada, integracao ou efeito critico, aplicar romulo-seguranca e [a matriz de riscos/evidencia](../../references/SEGURANCA.md#auditoria-dirigida--oito-riscos). Triar pertinencia dos oito temas, sem exigir oito suites em todo ajuste; preservar recusas e checks locais obrigatorios. Achado deve apontar evidencia sanitizada, revisao/ambiente, fonte/runtime/aplicacao e estado COMPROVADO/SUSPEITA/NAO_VERIFICADO/NAO_SE_APLICA.
+
+Retestar a correcao e consumidores afetados em ambiente autorizado com dados controlados. Nao concluir controle ativo por leitura/scanner, promover backend simulado ou omitir risco comprovado relevante para liberar a entrega; limites de acesso/ensaio ficam explicitos no registro existente. Auditoria em leitura nao autoriza abrir segredos, modificar dados/roles ou atacar producao. Fiscal independente confronta candidato e evidencias quando exigido; resultado estrutural do padrao nao certifica seguranca dos consumidores.

@@ -1,6 +1,6 @@
 # Romulo Dev Standard
 
-Versao: 1.12.1
+Versao: 1.12.2
 Repositorio oficial: `romulorenatoss-maker/romulo-dev-standard`.
 
 ## Entrada obrigatoria — sumario de diretrizes
@@ -62,6 +62,16 @@ Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover 
 Correcao fiel: DNA -> trecho vigente no dono -> codigo/consumidores -> teste atingido. Evolucao: briefing visual, fluxo do app e TRD pertinentes; reconstrucao: revisao exata de fontes/assets e guia modular com contratos/RPCs/dados/seguranca/ordem/aceite. Conteudo e destinos em [references/DOCUMENTACAO.md](references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao); implementacao e limpeza em `romulo-construir`, verificacao/fiscal em `romulo-verificar`. Resumo rapido e referencia ao detalhe, sem retirar mapas nominais ou checks locais.
 
 A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOTIPO, DNAs, regras, revisao/fontes e simulacoes/contratos a integrar. Conversao atualiza a mesma fonte e verifica prototipo x real, sem refazer entendimento nem duplicar manual. Falta indispensavel e resolvida antes da implementacao dependente; a entrega visual local continua rapida conforme `romulo-prototipo-real`.
+
+## Migracao 1.12.1 -> 1.12.2
+
+Pedido da [issue #7](https://github.com/romulorenatoss-maker/romulo-dev-standard/issues/7), autorizado pelo responsavel com 0393 para aplicar e publicar o patch aprovado. [references/SEGURANCA.md](references/SEGURANCA.md#auditoria-dirigida--oito-riscos) concentra oito riscos, controles, evidencia e limites; `romulo-seguranca` fornece a invocacao de auditoria em leitura e `romulo-verificar` confere fechamento/reteste atingido. Nao exige oito suites em todo ajuste nem cria scanner, dependencia, permissao ou nova skill.
+
+Alcance: essas tres fontes, este README e os tres manifests existentes (plugin.json, .claude-plugin/plugin.json e .codex-plugin/plugin.json), sete caminhos centrais; nenhum codigo de consumidor alterado. Publicacao, recibo da PR e instalacao/recarga permanecem pendentes de comprovacao; comandos de verificacao continuam os deste README.
+
+Compatibilidade: sem mudanca de stack, templates, nomes, catalogo ou comandos centrais. Terminar lotes na revisao fixada; apos publicacao confirmada, atualizar/recarregar conforme [INSTALL.md](INSTALL.md) e comprovar ativacao. Consumidores preservam guardas/escopo local; auditoria nao abre .env/backup/chaves, modifica dados/roles, executa ataque em producao ou autoriza correcao fora do pedido.
+
+Fonte, runtime e aplicacao ativa tem evidencias separadas; resultado estrutural ou conversa nao certifica seguranca do produto nem obediencia do modelo. Publicacao, instalacao e recarga precisam de comprovacao propria; rollback e nova PR localizada, preservando alteracoes posteriores e controles legitimos.
 
 ## Migracao 1.12.0 -> 1.12.1
 
