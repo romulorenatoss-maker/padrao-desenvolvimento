@@ -21,6 +21,8 @@ O documento vigente da pagina e a fonte canonica das decisoes dela: conter o con
 
 Ao consolidar uma pagina/aba, aplicar a [marcacao do contexto consolidado](../../references/DOCUMENTACAO.md#marcacao-do-contexto-consolidado). Ela define quais recortes ja usam exclusivamente o conhecimento vigente documentado e quais ainda podem recuperar conversas/historico. Consolidacao e incremental: nova explicacao atualiza o dono; a marca nao congela a regra nem comprova implementacao.
 
+Terminou a conciliacao do recorte, marcar `CONTEXTO_CONSOLIDADO: SIM` e reconciliar sua pendencia documental no mesmo lote antes da entrega/commit. O executor faz esse fechamento sem pedir nova autorizacao para a marca, nem deixar a conclusao para outro agente; seguir os limites de alcance definidos na referencia.
+
 Para cada comportamento identificado pelo DNA existente, manter uma explicacao rapida de ate duas linhas curtas: (1) o que faz e por que existe; (2) de onde recebe, quem utiliza e qual efeito relevante uma alteracao/remocao provoca. Vincular ao ID, local visual e fonte dona. O limite vale para esse resumo por item: detalhar abaixo as condicoes, excecoes, dados, contratos e arquivos/simbolos necessarios, sem cortar regra critica para caber. Linha visual varia por dispositivo; usar duas frases curtas como referencia.
 
 Registrar decisao/intencao com sua fonte, comportamento implementado com revisao/evidencia e divergencias pendentes de forma distinta. Informacao desconhecida permanece explicita ate a pergunta/resposta pertinente; documentacao nao comprova execucao.
