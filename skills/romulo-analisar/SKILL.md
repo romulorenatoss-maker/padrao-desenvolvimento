@@ -14,6 +14,8 @@ Classificar fatos COMPROVADO, PARCIAL, NAO_DESCOBERTO ou NAO_SE_APLICA. Falta de
 
 Para tarefa de construcao, resolver os IDs/documento dono e seus links de issue/PR antes de recuperar conversa; encaminhar rastreabilidade a `romulo-construir`. Ler apenas o perfil local de ferramentas/checks e os consumidores afetados, nao abrir auditoria do sistema por rotina. Issue descreve trabalho; documento vigente define regra. Ausencia de issue nao autoriza inventar aprovacao ou alterar o DNA.
 
+Escolher a leitura pelo pedido: correcao fiel usa DNA -> trecho vigente no dono -> codigo e consumidores atingidos; evolucao consulta briefing visual, fluxo e TRD pertinentes; reconstrucao segue o guia do modulo e suas dependencias na revisao de origem conferida. Os [contratos de projeto e reconstrucao](../../references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao) definem o conteudo. Nao ler todo o historico nem produzir um novo dossie para cada ajuste; preservar mapas tecnicos e checks exigidos localmente.
+
 Toda criacao/alteracao consulta o padrao pertinente: `romulo-especificar` para capacidade/regra/fluxo/interface, `romulo-interface` para efeito visual/interativo inclusive indireto; Ponytail `full` como complemento. Sem efeito de produto/UI, justificar NAO_SE_APLICA, sem entrevista artificial. Perguntar apenas decisao ausente, conflito real ou autorizacao especifica; nunca nomes tecnicos ja derivaveis. Nao abrir auditoria global por bug local.
 
 ## Gate de criacao — nenhum arquivo fora da previsao sem 0393

@@ -31,6 +31,8 @@ Limpeza separa:
 
 Remocao autorizada reconcilia no mesmo lote os vinculos afetados: codigo, rota/menu, consumidores, contrato, permissao exclusiva, docs, inventario e testes. Historico fica no Git; nao criar copias `old`, `backup` ou `v2`.
 
+Rastrear nos dois sentidos: requisito/DNA -> dono -> codigo/assets -> entrada/contrato/RPC -> dados e consumidores -> teste, conforme os elos realmente existentes. Substituir uma ponta exige conferir as demais e retirar residuos exclusivos comprovados; mapa tecnicamente exigido continua nominal e atualizado. Busca textual vazia nao prova desuso dinamico. Migrations publicadas, auditoria e dados historicos nao sao residuos de codigo; sem prova ou autorizacao, declarar o limite em vez de apagar.
+
 Limpeza dos registros de trabalho: registro de perguntas, andamento/fila, pendencias, mapas de construcao e marcas de "falta publicar" guardam so o que esta aberto. O lote que constroi e publica uma entrega retira, no mesmo commit, tudo o que ela concluiu nesses registros (pergunta respondida, linha do andamento, item da fila, pendencia, marca). Decisao fica no documento do modulo dono, nunca no registro. Nenhum lote fecha deixando registro de coisa ja entregue; o historico fica no Git.
 
 Substituicao de decisao pelo responsavel: identificar o comportamento anterior, a nova regra e seus consumidores antes de alterar. No mesmo lote, retirar efetivamente codigo, validacoes, textos, controles e referencias que ficaram sem uso ou contradizem a nova decisao; reconciliar pedidos/perguntas/fila e mapas documentais, inclusive prototipo, para descrever a versao atual. Nao acumular regras antigas como alternativas ativas nem pedir aprovacao de pedido substituido. Preservar historico no Git, dados persistentes e trabalho alheio; remocao depende de consumidores conferidos. Testar a nova regra e a ausencia do comportamento antigo no alcance atingido. Sem evidencia de retirada, nao afirmar limpeza concluida.
@@ -39,6 +41,12 @@ Substituicao de decisao pelo responsavel: identificar o comportamento anterior, 
 Historico de entregas: toda entrega publicada ganha, no mesmo commit, uma entrada no topo do historico de lote do projeto ([destinos documentais](../../references/DOCUMENTACAO.md)) com QUEM (qual IA ou pessoa), COMMITS, FEZ (o que do prototipo/pedido aprovado ficou construido no real), CONFERIU, FALTA e DESFAZER. E por ela que outra IA responde o que ja foi construido. Lote publicado sem essa entrada nao fecha.
 
 Nao abrir auditoria global nem refatorar modulo inteiro para corrigir defeito local conhecido.
+
+## Reconstrucao fiel de modulo
+
+Confirmar origem/revisao, destino e alcance autorizados; consultar o [guia de reconstrucao](../../references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao) e conferir fontes, assets, contratos, dados/RPCs, configuracao e consumidores reais. Reutilizar a implementacao aprovada na ordem de suas dependencias, preservando stack, limites, interface e DNAs da mesma capacidade; nao criar arquitetura paralela nem importar identidade, dados privados ou segredos de outro projeto. Dependencia ausente e lacuna a resolver no dono, nao oportunidade de fabricar substituto.
+
+Criar/aplicar banco, instalar dependencias e publicar sao autorizacoes distintas. Ensaiar a cadeia no destino permitido com dados controlados e comparar comportamento/interface com a referencia; registrar dependencias externas nao exercitadas. Reconstrucao parcial nao e copia completa certificada; corrigir desvios do alcance e atualizar o guia existente, sem duplicar a regra de negocio em prosa.
 
 ## Entrada obrigatoria e construcao conectada
 Antes de criar/alterar, consultar `romulo-especificar` e a revisao aprovada aplicavel; efeito de interface chama `romulo-interface`. Correcao fiel ao contrato usa o caminho curto dessas skills, nao dispensa leitura. Nao construir funcionalidade enquanto falta aprovacao exigida.
@@ -79,6 +87,8 @@ Para integrar/publicar, trabalhar com PR ligada a cada issue pertinente. A descr
 Separar salvar de integrar: commits de preservacao continuam frequentes; enviar o lote autorizado para uma branch de entrega e abrir PR para a branch oficial, sem push direto que contorne esse fluxo. A pasta compartilhada conserva sua branch e os arquivos atuais: e permitido criar/enviar uma ref de entrega a partir do commit conferido sem fazer checkout, worktree, stash ou reset nessa pasta. Conferir base remota e todos os commits/diffs da ref; nao carregar por acidente trabalhos acumulados fora do lote. Se nao for possivel isolar a entrega com seguranca, combinar a estrategia antes de mexer na pasta. Nao atualizar a copia a partir da branch oficial enquanto houver trabalho paralelo nao salvo.
 
 Merge/publicacao exigem autorizacao aplicavel e checks/revisao requeridos; nao desativar guardas nem usar bypass. Confirmar separadamente PR integrada, SHA publicado e versao ativa quando houver deploy. Nao instalar automerge, protecao de branch ou pipeline de produto por esta regra; requer configuracao autorizada e verificacao. Projeto com contrato local conflitante migra explicitamente, sem aplicar a nova politica no meio de um lote.
+
+Mudancas concorrentes, humanas ou de IAs, precisam de dono/revisor identificados no fluxo existente e base/candidato conferidos. Antes de integrar, verificar se head, dependencias ou base de integracao mudaram desde a evidencia; atualizar somente a verificacao atingida e revisao aplicavel. CODEOWNERS e checks obrigatorios sao opcoes de instrumentacao com configuracao/ensaio autorizados, nao protecao instalada pelo manual. Na pasta compartilhada, combinar propriedade de arquivos antes de editar; nao adotar isolamento/troca de branch contra o contrato local.
 
 No localhost, a entrega visual apos a checagem pertinente continua imediata; registrar issue e fazer verificacoes independentes em paralelo quando ja autorizado. Nao aguardar auditoria global, cobertura total ou servico opcional para mostrar o recorte; cumprir os checks obrigatorios antes de integrar. Documentacao usa os [vinculos DNA/issue/PR](../../references/DOCUMENTACAO.md#rastreabilidade-dna-issue-pr-e-commit).
 
