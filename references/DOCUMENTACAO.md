@@ -51,6 +51,7 @@ DETALHE NESTA TELA: <o que mostra/coleta; gatilho, condicoes, estados e excecoes
 CONEXOES: <ID da origem/destino, documento/ancora, informacao e motivo do vinculo>
 TECNICO: <arquivos/simbolos, action/contrato/dados efetivamente usados>
 DECISAO/EVIDENCIA: <fonte da finalidade/aprovacao; revisao, verificacao e limites>
+RASTREABILIDADE (quando existente): <repositorio, links de issue/PR e commit da entrega>
 PREVISTO (quando houver): <ideia/conexao futura, finalidade e fonte; estado separado>
 ```
 
@@ -61,6 +62,16 @@ O detalhe funcional/tecnico da pagina solicitada fica no documento dela, ligado 
 Intencoes futuras ainda sem pagina ficam em PREVISTO no dono atual/assunto do prototipo, com descricao rica suficiente para retomar e vinculo no sumario existente. Nao criar documento vazio da pagina futura. Ao surgir pedido relacionado, consultar e apresentar essa ideia antes de propor outra; manter exemplos/excecoes pertinentes nos detalhes e distinguir pedido humano de sugestao e de implementacao comprovada. Atualizar o mesmo item ao receber novas explicacoes, conforme `romulo-documentacao`.
 
 Ao receber uma decisao, atualizar o item correspondente pelo ID. Ao mover, preservar identidade e ajustar LOCAL/rotas e links. Ao remover/alterar capacidade, conferir e atualizar os itens consumidores comprovadamente afetados, dizendo o novo destino e como a informacao continua (ou que interrupcao foi explicitamente aprovada). Mudanca apenas de aparencia nao presume alterar contrato. A manutencao e consulta seguem `romulo-documentacao` e `romulo-especificar`; nenhum documento passa a permitir uma regra de negocio nova por si.
+
+## Rastreabilidade DNA, issue, PR e commit
+
+No item/secao do documento dono, associar os IDs existentes aos links completos de issue e PR do repositorio correto e ao commit conferido. DNA identifica a capacidade/elemento estavel; issue identifica tarefa; PR identifica entrega. Nunca substituir/sufixar o DNA com o numero GitHub, inventar identificador para preencher campo ou usar numero solto sem repositorio. Uma issue/PR pode atingir varios DNAs e um DNA pode ter varias entregas; nao exigir correspondencia um-para-um.
+
+Reutilizar campo/tabela/registro de lote existente. Se precisar de formato, usar uma linha curta por entrega: `DNA existente | owner/repo#issue (link) | owner/repo#PR (link) | commit conferido`. Antes de a PR/commit existirem, omitir o campo ou indicar ainda nao criado no registro de trabalho; nao prever numeros/SHA. Issue e PR tambem apontam para os DNAs e documentos pertinentes. O mapa/sumario atual aponta ao dono; nao criar arquivo de mapa paralelo, cadastro universal ou copia manual em cada consumidor.
+
+Consulta rapida: mapa/DNA -> decisao vigente no dono -> issue/PR/commit quando a tarefa/evidencia exigir -> codigo/consumidores atingidos. Ticket antigo nao reativa regra superada e PR/issue fechada nao comprova deploy ou funcionamento. Manter conhecimento vigente completo no TELA.md/equivalente; o Git e o GitHub preservam historia de entregas, sem acumular alternativas antigas no item ativo. Vinculos dos consumidores continuam bidirecionais e sem especificacao duplicada.
+
+Metodo comum fica no padrao central; AGENTS local guarda ponte e protecoes, nao copia lista de ferramentas/regras. No processo/PROJETO.md ou equivalente existente, registrar somente o perfil concreto: ferramenta e finalidade, versao/revisao, comando/check, ambiente, alcance e estado CONFIGURADO/VERIFICADO/PREVISTO/NAO_SE_APLICA. Marcar opcional e motivo quando pertinente; nunca registrar segredo ou alegar instalacao por citar o nome. Nao criar arquivo vazio so para repetir o perfil.
 
 ## Enxugar AGENTS/CLAUDE existentes sem perder regras
 Classificar cada trecho: identidade/ponte/protecao curta -> AGENTS; metodo global -> referencia central vigente; regra de negocio/guarda/peculiaridade local -> dono documental existente. Destino local faltante usa a tabela acima se a migracao estiver autorizada. Registrar DE/PARA no registro canonico do lote, criar/validar destino e link antes de retirar texto da origem.

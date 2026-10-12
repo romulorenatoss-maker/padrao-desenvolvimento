@@ -54,6 +54,10 @@ Se AGENTS estiver protegido por 0393, a migracao fica pendente ate autorizacao e
 
 Quando requerido no projeto com Claude Code, criar CLAUDE.md ausente a partir de [templates/CLAUDE.md](templates/CLAUDE.md), contendo somente @AGENTS.md. Existente: preservar e reconciliar, nunca copiar regras globais ou usar /init para gerar um contrato concorrente. Claude moderno pode ler AGENTS diretamente; a ponte explicita continua o modelo portatil adotado pelo padrao quando CLAUDE for requerido.
 
+## Recursos importados na distribuicao
+
+A distribuicao inclui o pacote completo de movimento registrado no catalogo central, com revisao de origem e licenca dentro da pasta da skill. Atualizar o plugin completo instala tambem seus workflows/referencias; nao copiar SKILL.md avulso, nao instalar o pacote upstream separadamente nem executar instaladores de dependencias por exemplos. Na nova sessao, conferir a descoberta nominal e versao; sessao aberta termina o lote antes da migracao.
+
 ## Leitura direta nao e ativacao
 Arquivos acessiveis podem orientar analise/bootstrap, registrando fonte e revisao. Isso nao ativa plugin nem hooks. Nao instalar copia avulsa de SKILL.md: quebra referencias relativas e cria fontes concorrentes. A construcao de produto permanece sujeita a disponibilidade exigida no projeto. Fontes indisponiveis nao podem ser inventadas.
 

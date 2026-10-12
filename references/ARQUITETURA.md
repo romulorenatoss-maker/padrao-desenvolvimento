@@ -25,6 +25,7 @@ Interface -> entrada/transporte/sessao -> normalizacao -> regra/autorizacao -> p
 | Teste | Runner, pasta e sufixo vigentes | `tests/<modulo>/` com nome da capacidade e convencao nativa; nao impor extensao, runner ou framework diferente. |
 | Migration | Diretorio e ordenacao do instrumento atual | Primeiro definir instrumento permitido; sem instrumento, propor antes de criar SQL solto ou aplicar no banco. |
 | Script necessario | Scripts existentes da responsabilidade | `scripts/<responsabilidade>/<acao>.<ext>` com consumidor/comando real; nao script temporario versionado sem finalidade. |
+| Check/pipeline de CI | Workflows e verificacoes existentes | `.github/workflows/<responsabilidade>.yml` em projeto GitHub, somente para comandos/checks de necessidade comprovada; privilegio minimo, sem segredo literal/deploy automatico implicito. |
 | Documentacao | Destinos canonicos locais | Aplicar references/DOCUMENTACAO.md; nunca abrir arvore inteira antecipadamente. |
 
 Nomes novos descritivos, estaveis, sem espacos/acentos para caminhos portateis; convencao existente coerente prevalece. Slug de modulo em minusculas com hifen quando a stack permitir; simbolos/namespace seguem a linguagem. Nao sufixar `2`, `novo`, `v2`, `old`, `backup` para contornar responsabilidade existente.
@@ -41,5 +42,6 @@ Esta tabela e consumida pelo gate de `romulo-analisar`. E previsao de tipos/dest
 | Alteracao da distribuicao central | romulo-evoluir-padrao | Pedido de evolucao do metodo; skill/reference/template/manifests e verificacoes diretamente afetados, sem fabrica de arquivos. |
 | Saidas de build, testes e instalacao autorizados | romulo-verificar; romulo-iniciar-projeto para bootstrap | Comando conhecido, destino gerado/cache/temp identificado, dados controlados e descarte/retencao definida. Inclui relatórios e screenshots pertinentes; nao permite notas paralelas. |
 | Copia de trabalho para analise/teste | romulo-analisar | Fonte/ref confirmados, destino descartavel delimitado e separado do projeto; copia nao e nova fonte canonica nem autorizacao de sobrescrita. |
+| Configuracao de qualidade, testes, telemetria ou CI | romulo-verificar; romulo-seguranca para dados/integração | Perfil compativel e adocao autorizados, reutilizar ferramentas/comandos e destinos existentes; gasto, contas, dados enviados e novas dependencias precisam de escopo especifico. |
 
 Pasta so com conteudo necessario. Nome previsto sem necessidade nao autoriza criar. Nova dependencia, recurso externo, lockfile ou scaffolder exige avaliar todos os arquivos e efeitos produzidos antes de executar. Nao usar comando de terceiro para contornar a regra.
