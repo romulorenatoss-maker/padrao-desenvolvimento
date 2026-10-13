@@ -104,6 +104,8 @@ Quando mais de uma IA (Claude, Codex ou outra) trabalha no mesmo projeto, todas 
 
 Para testes e criterio de parada, seguir [verificar](../verificar/SKILL.md#testar-corrigir-e-entregar-sem-repeticao-desnecessaria): validar o pedido, corrigir falhas e retestar os pontos atingidos; validou, entregar sem repeticao ou ampliacao sem motivo.
 
+Perfil otimizado e mecanismos por cliente seguem [iniciar-projeto](../iniciar-projeto/SKILL.md#perfil-de-execucao-otimizado-por-cliente); configuracao nao comprova ativacao.
+
 ## Encerramento e reset da sessao do executor
 
 Antes do reset: verificar aceite/checks e fiscal exigido, salvar fonte e documentacao canonica, conferir Git/recibo pertinentes e registrar resultado/pendencias e proxima tarefa no registro existente. Pendencia que impede fechar o proprio recorte, aprovacao aguardada, agente ainda ativo ou escrita compartilhada sem liberacao impedem o reset. Pendencias externas ao alcance entregue ficam no dono, sem inventar conclusao.

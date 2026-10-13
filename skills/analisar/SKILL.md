@@ -39,6 +39,7 @@ Primeiro classificar: o que vou fazer, em qual DNA/cadeia e em qual plano (PROPO
 | Construir/integrar no real | `prototipo-real`, `construir`, `seguranca` pelo risco e `verificar` | Revisao aprovada -> contratos/adaptadores -> dados/consumidores -> checks reais aplicaveis. |
 | Documentar/remover codigo ou regra | `documentacao`; remocao tambem usa `construir` e analise de impacto | Para que/por que/para quem, DNA, referencias de entrada e consumidores reais; historico no Git. |
 | Backup, restauracao ou transferencia de instancia | [backup-recuperacao](../backup-recuperacao/SKILL.md) e `seguranca` | Guia/destinos autorizados e evidencia da copia pertinente; leitura nao inicia restauracao. |
+| Configurar/trocar cliente, modelo ou modo otimizado | [iniciar-projeto](../iniciar-projeto/SKILL.md#perfil-de-execucao-otimizado-por-cliente) | Perfil/escopo aprovado, capacidade nativa e evidencia do modelo efetivo; preservar tarefa aberta e escolha. |
 | Mudar o padrao/skill/bootstrap | `evoluir-padrao`; bootstrap tambem usa `iniciar-projeto` | Fonte central/versao, consumidores e autorizacoes dos arquivos protegidos. |
 
 O alcance PROTOTIPO evita procedimentos de banco, implantacao e seguranca real sem efeito correspondente, nao a estrutura reutilizavel nem a documentacao vigente. DNA localiza regras e conexoes; confirmar chamadas atingidas no codigo. Backend, dado oficial, credencial ou API real fazem consultar as linhas de dados/seguranca, mesmo quando a tela se chama prototipo.
