@@ -37,6 +37,8 @@ Registrar no documento dono existente a rota canonica, seus aliases/acessos loca
 
 A ultima edicao gravada em disco deve aparecer na proxima carga local, mesmo sem commit. Commit preserva trabalho; nao ativa a tela. Antes de entregar ou passar para outra IA, conferir rota/aliases, origem da view/assets e renderizacao conforme a revisao visual acima. Sem essa correspondencia, corrigir o carregamento antes de dizer que a tela foi atualizada. Preservar edicoes nao salvas e propriedade dos arquivos; nao recarregar uma aba em edicao para cumprir o check.
 
+Conferir tambem autoload, dependencias PHP e contratos da cadeia que renderiza a fonte ativa. Uma copia-base obsoleta deve ser reconciliada com o codigo ja existente/autorizado, sem exigir novo commit ou deploy apenas para ativar trabalho local e sem sobrescrever WIP. Conferir a presenca da dependencia no clone e na revisao usada pela copia antes de afirmar que falta implementar ou publicar.
+
 Adocao em projeto existente: reconciliar a fonte e os acessos da tela atingida, retirar do carregamento as versoes concorrentes e atualizar seus vinculos no dono, apos conferir consumidores. Nao apagar dados, historico ou referencias validas. Esta regra nao promove o prototipo ao real nem exige que ambientes publicados mostrem trabalho local nao publicado; a conversao continua exigindo a autorizacao abaixo.
 
 ## Prototipo nunca publica
