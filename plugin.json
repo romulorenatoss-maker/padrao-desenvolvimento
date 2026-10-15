@@ -1,6 +1,6 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "padrao-desenvolvimento",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Padrao unico para projetos: bootstrap, inicializacao, arquitetura, seguranca, documentacao, prototipo-real, verificacao e evolucao."
 }
