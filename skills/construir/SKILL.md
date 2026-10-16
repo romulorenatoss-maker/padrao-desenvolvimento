@@ -31,7 +31,7 @@ Limpeza separa:
 - codigo/doc aparentemente orfao: buscar caminho, nome, ID, simbolo, rota, imports, chamadas, menu, jobs, contratos, testes, assets e referencias dinamicas; classificar ATIVO, COMPARTILHADO, HISTORICO, COMPATIBILIDADE, GERADO/TEMPORARIO, CANDIDATO_A_REMOCAO ou FINALIDADE_NAO_COMPROVADA (este ultimo nao autoriza apagar);
 - dados persistentes: nunca apagar por limpeza de codigo.
 
-Remocao autorizada reconcilia no mesmo lote os vinculos afetados: codigo, rota/menu, consumidores, contrato, permissao exclusiva, docs, inventario e testes. Historico fica no Git; nao criar copias `old`, `backup` ou `v2`.
+Remover e apagar de verdade o codigo e seus vinculos; nunca esconder (CSS, flag, condicao, comentario) o que foi mandado remover. Antes de remover, analisar o impacto nas correlacoes com outras telas e consumidores (rotas/menu, chamadas, contratos, permissao exclusiva, dados, docs, inventario, testes e mapas) e reconciliar tudo no mesmo lote; se a remocao quebrar regra aprovada sem substituto, parar e informar o responsavel. Historico fica no Git; nao criar copias `old`, `backup` ou `v2`.
 
 Rastrear nos dois sentidos: requisito/DNA -> dono -> codigo/assets -> entrada/contrato/RPC -> dados e consumidores -> teste, conforme os elos realmente existentes. Substituir uma ponta exige conferir as demais e retirar residuos exclusivos comprovados; mapa tecnicamente exigido continua nominal e atualizado. Busca textual vazia nao prova desuso dinamico. Migrations publicadas, auditoria e dados historicos nao sao residuos de codigo; sem prova ou autorizacao, declarar o limite em vez de apagar.
 
