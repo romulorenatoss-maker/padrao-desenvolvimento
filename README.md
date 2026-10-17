@@ -1,6 +1,6 @@
 # Padrao de Desenvolvimento
 
-Versao: 1.0.4
+Versao: 1.0.5
 Repositorio oficial: `romulorenatoss-maker/padrao-desenvolvimento`.
 
 Orienta IAs a trabalhar com o mesmo metodo: criar prototipos visuais com dados e regras simulados, revisar o comportamento com o responsavel e converter o aprovado ao real com documentacao por DNA de ponta a ponta. Modularizacao, contratos/RPCs, analise de impacto, preservacao do visual aprovado e limpeza verificada tornam alteracoes e remocoes rastreaveis; instrucoes de skill nao garantem obediencia perfeita nem ausencia de erros.
@@ -34,6 +34,7 @@ A tabela e tambem o catalogo nominal conferido pelo validador. Nao repetir uma c
 | [documentacao](skills/documentacao/SKILL.md) | Conhecimento canonico alterado | Destinos, nomes e vinculos documentais sem duplicacao. |
 | [prototipo-real](skills/prototipo-real/SKILL.md) | Prototipo convertido/integrado/comparado ao real | Preservar proposta e trocar simulacao por contratos reais. |
 | [backup-recuperacao](skills/backup-recuperacao/SKILL.md) | Saude de backup na entrada/bootstrap; portabilidade, contingencia e restauracao | Cobrar copia independente ativa; setup de destinos/acessos, corte consistente, restauracao isolada e virada conferida. |
+| [docker-portabilidade](skills/docker-portabilidade/SKILL.md) | Pacote Docker para copiar, instalar, reconstruir ou migrar um sistema existente | Empacotar software/agendador/dependencias em imagens locais; classificar destinos, separar dados/segredos e ensaiar a instalacao correspondente. |
 | [verificar](skills/verificar/SKILL.md) | Antes de encerrar toda entrega tecnica | Aceite por efeito, arquivos, documentacao, visual e evidencias. |
 | [evoluir-padrao](skills/evoluir-padrao/SKILL.md) | Diretriz comum criada/alterada | Evoluir esta fonte, validar, versionar e distribuir. |
 
@@ -75,6 +76,9 @@ Correcao fiel: DNA -> trecho vigente no dono -> codigo/consumidores -> teste ati
 A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOTIPO, DNAs, regras, revisao/fontes e simulacoes/contratos a integrar. Conversao atualiza a mesma fonte e verifica prototipo x real, sem refazer entendimento nem duplicar manual. Falta indispensavel e resolvida antes da implementacao dependente; a entrega visual local continua rapida conforme `prototipo-real`.
 
 Migracao 1.0.3: aplicar a [fonte unica ativa da tela local](skills/prototipo-real/SKILL.md#fonte-unica-ativa-da-tela-local) ao recorte alterado, reconciliando fonte, rotas/aliases, assets e copias geradas no documento dono existente. A atualizacao do pacote nao muda servidores ou telas dos consumidores automaticamente; concluir lotes na revisao fixada e comprovar a adocao/recarga separadamente.
+
+Migracao 1.0.5: o pacote compartilhado incorpora [docker-portabilidade](skills/docker-portabilidade/SKILL.md), para sistemas de diferentes stacks, sob a mesma versao desta distribuicao. A responsabilidade de recuperacao/corte continua em backup-recuperacao; o empacotamento e a compatibilidade por destino ficam na nova skill. A [versao unica](skills/evoluir-padrao/SKILL.md#versao-unica-do-pacote) sobe a cada alteracao distribuida; o bootstrap define [CLAUDE, AGENTS e README do projeto](skills/iniciar-projeto/SKILL.md#readmemd-do-projeto-e-verificacao-das-entradas), sem duplicar metodo/versao localmente. Atualizar o plugin completo pelo [procedimento existente](INSTALL.md) e conferir sua descoberta na sessao. Isso disponibiliza o metodo; nao instala Docker, migra dados ou altera AGENTS dos projetos automaticamente.
+
 Migracao 1.0.4: remover passa a ser [apagar de verdade](skills/construir/SKILL.md#modulos-limites-e-remocao) codigo e vinculos, nunca esconder, com impacto nas correlacoes analisado e reconciliado no mesmo lote; remocao que quebre regra aprovada sem substituto para e informa o responsavel. Vale para lotes novos; nao exige varredura retroativa.
 
 ## Distribuicao 1.0.0 e migracao

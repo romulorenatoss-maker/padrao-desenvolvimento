@@ -9,6 +9,8 @@ Fonte dona do metodo de recuperacao e virada de instancia. Preservar o mesmo cod
 
 Aplicar [analisar](../analisar/SKILL.md), [dados](../../references/DADOS.md) e [seguranca](../seguranca/SKILL.md). Conhecimento local fica nos donos de deployment/backup/reconstrucao e Configuracoes ja existentes, conforme [documentacao](../../references/DOCUMENTACAO.md); nao criar manual por execucao. Preparar esta skill nao provisiona conta, concede acesso, instala infraestrutura ou autoriza pausa/restore/deploy.
 
+Quando o pedido incluir preparar ou instalar uma pasta Docker transportavel, consultar [docker-portabilidade](../docker-portabilidade/SKILL.md) para imagens locais, compatibilidade por destino e ensaio sem fontes/volumes da origem. Esta skill continua dona da copia independente, preservacao, corte e virada; nao repetir aqui o contrato do pacote.
+
 ## Verificacao curta na entrada
 
 Na entrada de execucao tecnica em projeto com dados persistentes, inclusive bootstrap/instalacao, consultar o perfil e a saude do backup por mecanismo existente somente leitura. Confirmar origem, instancia/executor que captura, destino independente, rotina recorrente habilitada e ultima execucao concluida com copia recebida/verificada no destino dentro do intervalo definido. Agendador habilitado, container rodando ou configuracao salva nao bastam. Conferir metadados/evidencias sanitizados; nao abrir segredos ou conteudo do backup. Reutilizar evidencia atual da mesma origem/alcance nesta execucao; nao consultar repetidamente a cada comando nem iniciar captura/restauracao como teste de rotina.

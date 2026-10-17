@@ -1,0 +1,4 @@
+interface:
+  display_name: "Docker e portabilidade"
+  short_description: "Empacotar, reconstruir e migrar sistemas com Docker"
+  default_prompt: "Use $docker-portabilidade para preparar um pacote reproduzível deste sistema e verificar o que cada destino exige para instalar e restaurar."
