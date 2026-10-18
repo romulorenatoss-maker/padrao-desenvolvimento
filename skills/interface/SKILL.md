@@ -39,6 +39,8 @@ Escolha aprovada fixa a referencia daquele projeto. Novas telas reutilizam token
 
 Buscar componente/token/variante antes de criar. Reutilizar; estender quando semanticamente compativel; criar somente responsabilidade distinta necessaria. Nao criar Botao2, copias de modal ou um componente unico com dezenas de flags contraditorias.
 
+Similaridade obriga pergunta. Antes de construir qualquer tela, modal, lista, campo, menu ou acao, procurar no projeto o que ja faz algo parecido (mesmo assunto, mesmo tipo de dado, mesma acao: garantia, anexo, lancamento pai/filhos, valor em moeda, selecao em lista, cor de menu, forma de carregar) por nome, rota, classe e DNA. Achou: listar ao responsavel e perguntar UMA vez "usa o mesmo de X?" antes de escrever. Confirmado, a implementacao vira componente compartilhado (um arquivo, uma fonte de estilo) e cada tela so informa de onde le e onde grava; mudanca pedida nele vale para todas as telas. Proibido copiar markup/CSS de outra tela, recriar uma variante "parecida" ou dar cor/letra/espacamento proprios a um elemento que ja tem padrao no projeto. Valor em moeda usa a mascara compartilhada do projeto; lista de lancamentos segue a tela de referencia aprovada.
+
 | Parte | Contrato visual que deve vir da fonte aprovada |
 |---|---|
 | Tema e tipografia | Cores semanticas, contraste, hierarquia, fontes, formatos de data/moeda/unidade. |
