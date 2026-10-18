@@ -94,6 +94,10 @@ Mudancas concorrentes, humanas ou de IAs, precisam de dono/revisor identificados
 
 No localhost, a entrega visual apos a checagem pertinente continua imediata; registrar issue e fazer verificacoes independentes em paralelo quando ja autorizado. Nao aguardar auditoria global, cobertura total ou servico opcional para mostrar o recorte; cumprir os checks obrigatorios antes de integrar. Documentacao usa os [vinculos DNA/issue/PR](../../references/DOCUMENTACAO.md#rastreabilidade-dna-issue-pr-e-commit).
 
+## Modo manutencao ao mexer no real
+
+Toda alteracao no ambiente real que grava no banco publicado (migration, publicacao de lote com migration ou ajuste de dados) acontece com o sistema em modo manutencao: gravacoes pausadas para todos, consultas liberadas e faixa visivel em todas as telas avisando o motivo e a previsao de volta. Ligar imediatamente antes de aplicar e desligar somente depois de conferir migration e publicacao; o modo tem prazo maximo e desliga sozinho ao vencer, para nunca travar o dia. O mecanismo de aplicar migration do projeto liga e desliga sozinho; quando houver passo fora dele, ligar e desligar pelo controle do proprio sistema. Projeto sem esse mecanismo: construi-lo antes da proxima migration (trava central no ponto unico de entrada das gravacoes, controle restrito ao responsavel maximo, registro de quem ligou e quando). Nao contornar a trava para gravar durante a manutencao.
+
 ## Pasta compartilhada entre IAs
 Quando mais de uma IA (Claude, Codex ou outra) trabalha no mesmo projeto, todas usam a mesma pasta e o mesmo prototipo; o que vale e o estado atual aprovado pelo responsavel, independente de qual IA fez ou alterou por ultimo.
 1. A pasta permanece na branch combinada, normalmente a oficial no projeto existente. Nela e proibido trocar de branch, criar worktree, usar stash, reset, checkout de arquivo, restore ou clean: esses comandos tiram dos arquivos o trabalho de outra IA. A branch oficial remota recebe entregas por PR conforme a secao anterior; isso nao exige trocar a branch desta pasta.
