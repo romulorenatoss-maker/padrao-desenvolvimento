@@ -1,6 +1,6 @@
 # Padrao de Desenvolvimento
 
-Versao: 1.0.5
+Versao: 1.0.6
 Repositorio oficial: `romulorenatoss-maker/padrao-desenvolvimento`.
 
 Orienta IAs a trabalhar com o mesmo metodo: criar prototipos visuais com dados e regras simulados, revisar o comportamento com o responsavel e converter o aprovado ao real com documentacao por DNA de ponta a ponta. Modularizacao, contratos/RPCs, analise de impacto, preservacao do visual aprovado e limpeza verificada tornam alteracoes e remocoes rastreaveis; instrucoes de skill nao garantem obediencia perfeita nem ausencia de erros.
@@ -76,6 +76,8 @@ Correcao fiel: DNA -> trecho vigente no dono -> codigo/consumidores -> teste ati
 A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOTIPO, DNAs, regras, revisao/fontes e simulacoes/contratos a integrar. Conversao atualiza a mesma fonte e verifica prototipo x real, sem refazer entendimento nem duplicar manual. Falta indispensavel e resolvida antes da implementacao dependente; a entrega visual local continua rapida conforme `prototipo-real`.
 
 Migracao 1.0.3: aplicar a [fonte unica ativa da tela local](skills/prototipo-real/SKILL.md#fonte-unica-ativa-da-tela-local) ao recorte alterado, reconciliando fonte, rotas/aliases, assets e copias geradas no documento dono existente. A atualizacao do pacote nao muda servidores ou telas dos consumidores automaticamente; concluir lotes na revisao fixada e comprovar a adocao/recarga separadamente.
+
+Migracao 1.0.6: mexer no real (migration ou publicacao que grava no banco) passa a exigir o [modo manutencao](skills/construir/SKILL.md#modo-manutencao-ao-mexer-no-real): gravacoes pausadas e faixa em todas as telas durante a alteracao, desligando ao conferir ou ao vencer o prazo. Projeto sem o mecanismo o constroi antes da proxima migration.
 
 Migracao 1.0.5: o pacote compartilhado incorpora [docker-portabilidade](skills/docker-portabilidade/SKILL.md), para sistemas de diferentes stacks, sob a mesma versao desta distribuicao. A responsabilidade de recuperacao/corte continua em backup-recuperacao; o empacotamento e a compatibilidade por destino ficam na nova skill. A [versao unica](skills/evoluir-padrao/SKILL.md#versao-unica-do-pacote) sobe a cada alteracao distribuida; o bootstrap define [CLAUDE, AGENTS e README do projeto](skills/iniciar-projeto/SKILL.md#readmemd-do-projeto-e-verificacao-das-entradas), sem duplicar metodo/versao localmente. Atualizar o plugin completo pelo [procedimento existente](INSTALL.md) e conferir sua descoberta na sessao. Isso disponibiliza o metodo; nao instala Docker, migra dados ou altera AGENTS dos projetos automaticamente.
 
