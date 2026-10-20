@@ -1,6 +1,6 @@
 # Padrao de Desenvolvimento
 
-Versao: 1.0.7
+Versao: 1.0.8
 Repositorio oficial: `romulorenatoss-maker/padrao-desenvolvimento`.
 
 Orienta IAs a trabalhar com o mesmo metodo: criar prototipos visuais com dados e regras simulados, revisar o comportamento com o responsavel e converter o aprovado ao real com documentacao por DNA de ponta a ponta. Modularizacao, contratos/RPCs, analise de impacto, preservacao do visual aprovado e limpeza verificada tornam alteracoes e remocoes rastreaveis; instrucoes de skill nao garantem obediencia perfeita nem ausencia de erros.
@@ -76,6 +76,8 @@ Correcao fiel: DNA -> trecho vigente no dono -> codigo/consumidores -> teste ati
 A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOTIPO, DNAs, regras, revisao/fontes e simulacoes/contratos a integrar. Conversao atualiza a mesma fonte e verifica prototipo x real, sem refazer entendimento nem duplicar manual. Falta indispensavel e resolvida antes da implementacao dependente; a entrega visual local continua rapida conforme `prototipo-real`.
 
 Migracao 1.0.3: aplicar a [fonte unica ativa da tela local](skills/prototipo-real/SKILL.md#fonte-unica-ativa-da-tela-local) ao recorte alterado, reconciliando fonte, rotas/aliases, assets e copias geradas no documento dono existente. A atualizacao do pacote nao muda servidores ou telas dos consumidores automaticamente; concluir lotes na revisao fixada e comprovar a adocao/recarga separadamente.
+
+Migracao 1.0.8: AGENTS novo ou migrado pelo [iniciar-projeto](skills/iniciar-projeto/SKILL.md#papeis-de-delegacao) declara `DELEGACAO: arquiteto -> construtor -> fiscal` (arquiteto entende e manda; construtor escreve em segundo plano, um escritor por arquivo; fiscal confere depois). Projeto existente adota com a autorizacao do seu AGENTS protegido.
 
 Migracao 1.0.7: antes de construir algo parecido com o que ja existe, a skill [interface](skills/interface/SKILL.md#2-uma-fonte-implementada-varios-consumidores) exige procurar o existente, perguntar ao responsavel se usa o mesmo e implementar como componente compartilhado (nunca copia por tela).
 

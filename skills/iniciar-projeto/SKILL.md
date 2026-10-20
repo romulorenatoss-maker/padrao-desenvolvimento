@@ -52,6 +52,14 @@ Usar [templates/AGENTS.md](../../templates/AGENTS.md), nunca o AGENTS.md da raiz
 
 A ponte do AGENTS leva ao README e, por ele, ao mapa rapido de `analisar` na mesma revisao resolvida; nao escrever o mapa dentro do AGENTS. Nao colocar lista, contagem, comandos de instalacao ou regras globais no AGENTS local. O sumario central determina as skills necessarias a cada execucao. Protecao local curta fica explicita; detalhes de negocio/guardas/peculiaridades ficam em donos locais obrigatoriamente referenciados, nunca no padrao global.
 
+## Papeis de delegacao
+
+Todo AGENTS criado ou migrado pelo bootstrap declara `DELEGACAO: arquiteto -> construtor -> fiscal`. Fluxo de cada pedido:
+- arquiteto: entende o pedido, analisa as fontes e consumidores, planeja, responde ao responsavel e manda o pedido fechado ao construtor; nao escreve codigo;
+- construtor: escreve o codigo em segundo plano, um unico escritor por arquivo, gravando cada parte assim que funciona para o responsavel acompanhar na tela; ajustes pedidos pelo responsavel chegam pelo arquiteto;
+- fiscal independente: depois do construtor, confere o resultado contra o pedido e a revisao aprovada, aponta o que esta errado e nao escreve.
+O coordenador da sessao define o papel e os arquivos de cada agente, confere antes do commit e faz commit/publicacao. Sem capacidade de delegacao no cliente, o mesmo agente cumpre os tres papeis em sequencia e declara esse limite. Projeto existente adota a linha somente com a autorizacao do AGENTS protegido (0393 quando exigido).
+
 ## CLAUDE.md ponte
 Quando Claude Code fizer parte do ambiente, procurar CLAUDE.md e equivalentes de escopo ja utilizados antes de criar. Ausente e bootstrap autorizado: criar na raiz o nome EXATO `CLAUDE.md` com o conteudo de [templates/CLAUDE.md](../../templates/CLAUDE.md): `@AGENTS.md` e quebra de linha. Nao criar `claud.md`, nao copiar AGENTS nem acumular regras duplicadas. Mesmo em versao que leia AGENTS nativamente, esta ponte explicita e o modelo portatil adotado quando CLAUDE e requerido no projeto.
 
