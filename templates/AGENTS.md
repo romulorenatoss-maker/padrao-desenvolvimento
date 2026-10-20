@@ -14,6 +14,7 @@ PADRAO_REF: main
 PADRAO_ENTRADA: README.md
 PADRAO_VERSAO_CONFERIDA: <versao e commit oficiais efetivamente consultados; nao inventar>
 SETUP_PADRAO: <estado factual e referencia ao registro aprovado; nao inventar aceite>
+DELEGACAO: arquiteto -> construtor -> fiscal (ver iniciar-projeto, Papeis de delegacao)
 
 Antes de iniciar qualquer mudanca, ler a entrada oficial do padrao na ref
 resolvida e seguir suas skills, inclusive consulta de versao e atualizacao.
