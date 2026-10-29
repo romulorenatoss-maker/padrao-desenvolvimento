@@ -1,6 +1,6 @@
 # Padrao de Desenvolvimento
 
-Versao: 1.0.8
+Versao: 1.0.9
 Repositorio oficial: `romulorenatoss-maker/padrao-desenvolvimento`.
 
 Orienta IAs a trabalhar com o mesmo metodo: criar prototipos visuais com dados e regras simulados, revisar o comportamento com o responsavel e converter o aprovado ao real com documentacao por DNA de ponta a ponta. Modularizacao, contratos/RPCs, analise de impacto, preservacao do visual aprovado e limpeza verificada tornam alteracoes e remocoes rastreaveis; instrucoes de skill nao garantem obediencia perfeita nem ausencia de erros.
@@ -77,6 +77,8 @@ A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOT
 
 Migracao 1.0.3: aplicar a [fonte unica ativa da tela local](skills/prototipo-real/SKILL.md#fonte-unica-ativa-da-tela-local) ao recorte alterado, reconciliando fonte, rotas/aliases, assets e copias geradas no documento dono existente. A atualizacao do pacote nao muda servidores ou telas dos consumidores automaticamente; concluir lotes na revisao fixada e comprovar a adocao/recarga separadamente.
 
+Migracao 1.0.9: a [fonte unica ativa da tela local](skills/prototipo-real/SKILL.md#fonte-unica-ativa-da-tela-local) exige salvar imediatamente a implementacao autorizada e preservar exemplos/alteracoes confirmadas em armazenamento persistente isolado entre reload, reinicio e reabertura. Adotar no recorte atingido e ensaiar a correspondencia da fonte/resposta e a preservacao; atualizar o pacote nao corrige nem certifica automaticamente o runtime dos consumidores.
+
 Migracao 1.0.8: AGENTS novo ou migrado pelo [iniciar-projeto](skills/iniciar-projeto/SKILL.md#papeis-de-delegacao) declara `DELEGACAO: arquiteto -> construtor -> fiscal` (arquiteto entende e manda; construtor escreve em segundo plano, um escritor por arquivo; fiscal confere depois). Projeto existente adota com a autorizacao do seu AGENTS protegido.
 
 Migracao 1.0.7: antes de construir algo parecido com o que ja existe, a skill [interface](skills/interface/SKILL.md#2-uma-fonte-implementada-varios-consumidores) exige procurar o existente, perguntar ao responsavel se usa o mesmo e implementar como componente compartilhado (nunca copia por tela).
@@ -91,7 +93,7 @@ Migracao 1.0.4: remover passa a ser [apagar de verdade](skills/construir/SKILL.m
 
 O pacote `padrao-desenvolvimento` usa os nomes neutros do catalogo, incluindo `backup-recuperacao`; as responsabilidades, guardas, autoria e licencas permanecem. A migracao de nomes/comandos segue [INSTALL.md](INSTALL.md#migracao-de-nomes--100): concluir lotes na revisao fixada, atualizar o pacote completo, conferir sua descoberta e migrar AGENTS protegido somente com autorizacao especifica.
 
-A [entrega vigente — PR #18](https://github.com/romulorenatoss-maker/padrao-desenvolvimento/pull/18), vinculada as [issues #15](https://github.com/romulorenatoss-maker/padrao-desenvolvimento/issues/15) e [#16](https://github.com/romulorenatoss-maker/padrao-desenvolvimento/issues/16), registra commits, verificacoes, integracao, ativacao e pendencias. Publicacao e instalacao sao conferencias distintas; esta distribuicao nao altera telas, dados ou infraestrutura de consumidores nem executa backup/restore. O historico de publicacoes permanece no Git/PRs; a leitura corrente usa somente este catalogo e as fontes donas.
+Entrega 1.0.9 — [issue #33](https://github.com/romulorenatoss-maker/padrao-desenvolvimento/issues/33). QUEM: Codex, com autorizacao 0393 do responsavel. COMMITS: commits desta entrega identificados no Git/PR vinculada a issue. FEZ: regra central de preservacao da fonte ativa e exemplos confirmados, ensaio dirigido e versao unica 1.0.9. CONFERIU: `python scripts/validate_standard.py` PASSOU; `python -m unittest discover -s tests -v` OK (30 testes, dois ignorados por ambiente sem symlinks); `git diff --check` PASSOU; fiscal independente sem bloqueadores no candidato. FALTA: integracao da PR, instalacao/recarga e ensaio nos consumidores, sem ativacao comprovada. DESFAZER: reverter o lote por nova entrega versionada, sem apagar dados persistentes. Publicacao e instalacao sao conferencias distintas; esta distribuicao nao altera telas, dados ou infraestrutura de consumidores nem executa backup/restore. O historico de publicacoes permanece no Git/PRs; a leitura corrente usa somente este catalogo e as fontes donas.
 
 ## Base da analise de equipes e entregas
 

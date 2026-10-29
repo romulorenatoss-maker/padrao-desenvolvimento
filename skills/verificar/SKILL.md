@@ -53,7 +53,7 @@ Confirmar sumario central consultado, fontes coerentes na mesma revisao e destin
 - Pagamento/saldo/estoque/repeticao: integridade, concorrencia, idempotencia e recuperacao quando a garantia mudou.
 - Migration/remocao: ensaio, integridade, preservacao/recuperacao e autorizacao.
 - Interface: proposta de `especificar` e revisao renderizada de `interface`, incluindo peculiaridades; comportamento da acao e fonte oficial conforme aplicabilidade.
-- Prototipo: fluxo local pertinente, sem fingir persistencia/seguranca real.
+- Prototipo: fluxo local pertinente e [ensaio de preservacao da fonte ativa e exemplos confirmados](../prototipo-real/SKILL.md#fonte-unica-ativa-da-tela-local), incluindo reload, reinicio do servico, reabertura e correspondencia da fonte com a resposta servida; sem fingir persistencia/seguranca real.
 - Reconstrucao: origem/revisao e dependencias conferidas; cadeia executada no destino autorizado, contratos/RPCs e controles exercitados quando aplicaveis, interface comparada com a referencia. Guia referencia fontes reais; simulacao, dependencia externa e recorte nao executado permanecem explicitos, sem promessa de zero bugs.
 
 Conferencia bidirecional: requisito sem entrega e elemento sem tarefa comprovada sao defeitos. Em mutacao, confirmar reabertura/reload e consumidores; botao local nao exige banco. Screenshot nao comprova persistencia, build nao comprova clique e imports nao comprovam fluxo.
