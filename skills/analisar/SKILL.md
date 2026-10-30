@@ -30,8 +30,8 @@ Primeiro classificar: o que vou fazer, em qual DNA/cadeia e em qual plano (PROPO
 
 | Efeito comprovado | Consultar antes da escrita | Fonte local minima |
 |---|---|---|
-| Prototipo visual/comportamental com simulacao isolada | `prototipo-real`, `interface` e `documentacao` | DNA -> regra/conexoes do dono -> briefing/componente; previa aprovada, interacao e estados pertinentes. Arquitetura somente no trecho estrutural atingido; seguranca se houver fronteira/dado real. |
-| Criar/melhorar/mover/remover algo visual, lista ou tabela da tela | `interface`; `especificar` no alcance da proposta; ferramentas de design pertinentes; previa em imagem antes do prototipo | Briefing, referencia atual e regras/excecoes do DNA da tela. |
+| Prototipo visual/comportamental com simulacao isolada | `prototipo-real`, `interface` e `documentacao` | DNA -> regra/conexoes do dono -> briefing/componente; referencia vigente, interacao e estados pertinentes; pedido direto nao espera previa artificial. Arquitetura somente no trecho estrutural atingido; seguranca se houver fronteira/dado real. |
+| Criar/melhorar/mover/remover algo visual, lista ou tabela da tela | `interface`; `especificar` no alcance da proposta; ferramentas de design pertinentes; execucao direta conforme `especificar`; previa somente se solicitada ou decisao visual indispensavel | Briefing, referencia atual e regras/excecoes do DNA da tela. |
 | Corrigir comportamento fiel ja decidido | `construir` e contrato vigente; perguntas de `especificar` somente se faltar decisao | DNA -> dono -> codigo/callers e teste que reproduz o defeito. |
 | Arquivo, modulo, separacao ou contrato novo | [arquitetura](../../references/ARQUITETURA.md), gate abaixo e `construir`; `auditar-projeto` somente para organizacao ampla | Dono, equivalente, responsabilidade, consumidor, destino/nome e limites pertinentes. |
 | Tabela do banco, SQL/RPC, persistencia ou dado oficial | [dados](../../references/DADOS.md), `seguranca`, arquitetura pertinente e `construir` | Modelo/RPC do dono, constraints, tenant/permissao e consumidores atingidos. |

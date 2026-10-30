@@ -13,6 +13,7 @@ MANIFESTS = ("plugin.json", ".claude-plugin/plugin.json", ".codex-plugin/plugin.
 SKILL_NAME = r"[a-z0-9]+(?:-[a-z0-9]+)*"
 SKILL_REF = re.compile(r"(?:skills/|\.\./)(" + SKILL_NAME + r")/SKILL\.md")
 ROUTES = {
+    "especificar": ("analisar", "interface", "prototipo-real", "verificar"),
     "analisar": ("especificar", "interface", "verificar", "backup-recuperacao"),
     "construir": ("analisar", "especificar", "interface", "verificar"),
     "verificar": ("analisar", "especificar", "interface", "construir", "backup-recuperacao"),
