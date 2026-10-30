@@ -25,7 +25,7 @@ Interpretar a fala do responsavel no contexto das decisoes vigentes: identificar
 
 Consultar primeiro sumario/mapa -> documento da pagina e aba -> regra/contrato dono -> paginas consumidoras -> codigo e dados pertinentes. Confrontar documentacao com comportamento atual e procurar tambem consumidores nao registrados pelos IDs, chamadas e contratos. Documento parcial/desatualizado nao permite afirmar impacto completo.
 
-Antes de mudanca que rompa comportamento ou conexao, apresentar de forma curta: o que deixa de existir, quem recebe/devolve essa informacao, o efeito em cada local e onde a funcao continuara. Pedir somente a decisao ausente e aguardar antes da parte dependente; decisao explicitamente aprovada nao exige nova confirmacao. Alteracao visual sem romper contrato segue o fluxo curto autorizado.
+Antes de mudanca que rompa comportamento ou conexao, apresentar de forma curta: o que deixa de existir, quem recebe/devolve essa informacao, o efeito em cada local e onde a funcao continuara. Pedir somente a decisao ausente e aguardar antes da parte dependente; decisao explicitamente aprovada nao exige nova autorizacao de construcao. Alteracao visual sem romper contrato segue o fluxo curto autorizado e a confirmacao obrigatoria do resultado.
 
 Quando faltar explicacao, investigar antes de perguntar. Se a intencao continuar desconhecida, perguntar de modo dirigido: "Para que este item serve e quem precisa da informacao dele?"; usar as respostas para completar o documento dono. Nao transformar uma deducao do codigo em intencao atribuida ao responsavel nem entrevistar novamente o que ja esta definido. O formato e a manutencao deste conhecimento pertencem a `documentacao`.
 
@@ -35,7 +35,7 @@ Essa recuperacao usa a especificacao vigente e ideias futuras ainda validas, nao
 
 Antes de recuperar conversa antiga, conferir a [marcacao do contexto consolidado](../../references/DOCUMENTACAO.md#marcacao-do-contexto-consolidado) do recorte: SIM usa documento vigente e referencias; sem SIM permite conciliacao com contexto/historico temporario. Nova fala do responsavel pode incrementar ou substituir a decisao documentada com o impacto pertinente, sem reabrir o passado por iniciativa propria.
 
-Conduzir o detalhamento de forma progressiva, uma questao indispensavel por vez quando o responsavel adotar entrevista pausada. Incorporar respostas novas preservando detalhes anteriores ainda validos e reavaliar impactos nos demais locais conectados. Decisao nova substitui somente o trecho que efetivamente mudou; conflito ausente nao cria nova aprovacao. Vagas lembrancas ou busca sem resultado nao permitem alegar que a ideia nunca existiu.
+Conduzir o detalhamento de forma progressiva, uma questao indispensavel por vez quando o responsavel adotar entrevista pausada. Incorporar respostas novas preservando detalhes anteriores ainda validos e reavaliar impactos nos demais locais conectados. Decisao nova substitui somente o trecho que efetivamente mudou; conflito ausente nao cria nova autorizacao do mesmo escopo. Vagas lembrancas ou busca sem resultado nao permitem alegar que a ideia nunca existiu.
 
 ## 2. Checklist interno antes de perguntar
 
@@ -53,7 +53,7 @@ Para cada tema, marque RESOLVIDO_PELO_PEDIDO, RESOLVIDO_PELO_SISTEMA, PRECISA_DE
 | Visual | Referencia aprovada, componentes/tokens existentes, responsividade e peculiaridades protegidas. |
 | Aceite | Cenarios observaveis de sucesso, falha, acesso, persistencia e efeitos pertinentes. |
 
-Pergunte ao responsavel somente decisoes ausentes ou conflitantes que afetem a solucao. Agrupe perguntas em uma rodada curta, com recomendacao e consequencia das alternativas quando util. Em revisao iterativa, seguir `interface` secao 6: confirmar entendimento e conferir com o responsavel quando pertinente, sem criar pendencia pelo silencio; construir no prototipo ou real conforme o alvo definido e perguntar apenas decisoes indispensaveis ausentes. Nao perguntar nome de arquivo, endpoint ou tamanho ja definido no projeto. Nao repetir resposta conhecida. Limites de acesso se resolvem por investigacao/autorizacao, nao pedindo que o usuario invente fatos tecnicos.
+Pergunte ao responsavel somente decisoes ausentes ou conflitantes que afetem a solucao. Agrupe perguntas em uma rodada curta, com recomendacao e consequencia das alternativas quando util. Em revisao iterativa, seguir a fila de `interface` secao 6: autorizar a construcao no alcance definido, apresentar uma tela/modal por vez e manter pendencia ate confirmacao explicita do resultado. A aprovacao de proposta nao substitui esse aceite posterior; silencio e novo pedido nao aprovam. Nao perguntar nome de arquivo, endpoint ou tamanho ja definido no projeto. Nao repetir resposta conhecida. Limites de acesso se resolvem por investigacao/autorizacao, nao pedindo que o usuario invente fatos tecnicos.
 
 ## 3. Proposta obrigatoria depois das respostas
 
@@ -88,9 +88,9 @@ Revisao bidirecional: todo requisito aprovado tem solucao; todo elemento propost
 
 Informe CRIAR, ALTERAR, REUTILIZAR e PRESERVAR no registro existente, sem arquivo de plano paralelo. Associe proposta/revisao, fonte da aprovacao e criterios de aceite ao mapa/assunto canonico; atualize com `documentacao`.
 
-Bug que apenas restaura contrato aprovado, texto ou ajuste visual que retorna ao padrao: consulta curta + informar diferenca + corrigir no alcance autorizado, sem entrevista nem redesenho. Nova regra, nova tarefa, alteracao de peculiaridade protegida ou mudanca visual nao aprovada: apresentar apenas o delta para aprovacao.
+Bug que apenas restaura contrato aprovado, texto ou ajuste visual que retorna ao padrao: consulta curta + informar diferenca + corrigir no alcance autorizado, sem entrevista nem redesenho. Nova regra, nova tarefa, alteracao de peculiaridade protegida ou mudanca visual nao aprovada: apresentar apenas o delta para aprovacao. Em ambos os casos, efeito de UI exige apresentar e confirmar a implementacao conforme `interface` secao 6.
 
-Acrescimo/edicao pontual com deslocamento, reducao ou outro efeito em layout ja aprovado segue a pergunta curta e previa quando solicitada de `interface` secao 4. O pedido funcional nao autoriza esse efeito colateral; nao alterar primeiro para mostrar depois. Se o existente permanece intacto, nao repetir aprovacao ja dada.
+Acrescimo/edicao pontual com deslocamento, reducao ou outro efeito em layout ja aprovado segue a pergunta curta e previa por padrao de `interface` secao 4. O pedido funcional nao autoriza esse efeito colateral; nao alterar primeiro para mostrar depois. Se o existente permanece intacto, nao repetir autorizacao de construcao ja dada. Locais adicionais devem ser nominalmente autorizados e incluidos na fila; mudanca de ideia resolve expressamente o destino dos locais antigos ainda nao decidido.
 
 Uma duvida bloqueia somente a parte dependente; nao construir essa parte por suposicao. Autorizacao de desenho, codigo, banco, concessao de permissao, commit/push e deploy continuam distintas conforme contrato local. Nao aumentar o escopo para resolver conveniencia tecnica.
 
@@ -101,8 +101,8 @@ A construcao recebe a revisao aprovada e seus vinculos, nao uma descricao solta.
 Cenarios obrigatorios ao revisar esta skill (avaliacao de comportamento, nao teste automatico de IA):
 - "Financeiro no cliente": localizar dono e contratos; propor integracao, nao criar financeiro paralelo.
 - "Corrigir salvar": rastrear e restaurar a cadeia aprovada, nao perguntar novamente quais abas o sistema tem.
-- "Criar tela nova": perguntas faltantes -> proposta nominal de telas/abas/acoes -> aprovacao -> construir.
+- "Criar tela nova": perguntas faltantes -> proposta nominal de telas/abas/acoes -> aprovacao -> construir -> apresentacao e confirmacao de cada item.
 - "Adicionar exportar porque cabe no cabecalho": recusar essa inclusao especulativa, sem remover requisitos legitimos.
 - "Reaplicar padrao": preservar peculiaridade aprovada e consultar antes de muda-la.
 
-Na revisao iterativa de prototipo, seguir o fluxo de entrega visual e autorizacao documental de [prototipo-real](../prototipo-real/SKILL.md#revisao-rapida-do-prototipo-e-documentacao-paralela). Essa autorizacao documental nao equivale a aceite funcional nem construcao/publicacao real.
+Na revisao iterativa de prototipo, seguir o fluxo de entrega visual e autorizacao documental de [prototipo-real](../prototipo-real/SKILL.md#revisao-rapida-do-prototipo-e-documentacao-paralela), subordinado ao aceite explicito por item de `interface` secao 6. Essa aprovacao nao equivale a construcao/publicacao real.
