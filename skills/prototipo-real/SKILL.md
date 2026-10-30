@@ -70,6 +70,8 @@ Mantenha como PENDENTE/NAO_VERIFICADO tudo que nao foi construido, testado ou pu
 
 Antes de marcar REAL, retire fontes ficticias da cadeia publicada, teste o backend pertinente e confirme a separacao de dados.
 
+Dados no prototipo e na conversao seguem [prototipo x real nos dados](../../references/DADOS.md#prototipo-x-real-nos-dados): simulacao com os metodos previstos da persistencia e modelo registrado no dono; migration e persistencia real somente na ordem de construir.
+
 ## Complementos
 Quando o usuario pedir proposta visual no chat, seguir a previa em imagem de `interface`; construir o prototipo interativo somente quando solicitado, reutilizando a proposta aprovada. Pedido direto de simulacao/interacao respeita esse alcance e executa no prototipo; previa explicitamente solicitada e ainda nao aprovada permanece uma decisao pendente. Divergencia da proposta aprovada exige nova aprovacao antes de editar.
 
