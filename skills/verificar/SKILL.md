@@ -76,6 +76,8 @@ Testes reais em ambiente autorizado com dados controlados. Fixtures isoladas sao
 
 Registrar no dono canonico: escopo/revisao/SHA testado, ambiente, cenario/rota, comando/passos, resultado/evidencia e limites. Remover segredos/dados sensiveis. Mudanca posterior invalida evidencia dependente. Amostra declarada nao comprova execucao de todos os consumidores.
 
+Lote REAL com dados executa, conforme o [perfil local](../../references/DADOS.md#perfil-local-de-dados), o check de formato de toda migration nova e a trava de acesso ao banco fora da persistencia nos arquivos alterados; falha bloqueia a entrega, sem bypass.
+
 ## Retorno a construcao e publicacao
 Falha corrigivel no alcance retorna a `construir`, corrige causa e retesta; nao encerrar apenas como pendencia. Recurso externo ausente exige impedimento concreto, sem prometer execucao futura. Nao afrouxar teste, esconder requisito, apagar baseline ou aceitar screenshot novo sem aprovacao para passar.
 

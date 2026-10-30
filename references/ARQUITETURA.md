@@ -13,7 +13,7 @@ Reutilizar modulo existente quando a responsabilidade pertence a ele. Criar modu
 Proposta de organizacao usa DE -> PARA com motivo, responsabilidade, consumidores, documentos, testes, preservacao e recuperacao. Mudanca de caminho reconcilia imports/autoload, rotas, assets, jobs, contratos, IDs, CI e documentacao no mesmo lote. Migrations publicadas e dados historicos nao sao reescritos por organizacao.
 
 ## Responsabilidades, nao camadas vazias
-Interface -> entrada/transporte/sessao -> normalizacao -> regra/autorizacao -> persistencia/contrato -> integridade no banco. Materializar apenas o necessario, idiomaticamente na stack. Funcao local de UI nao exige backend; efeito oficial nao fica apenas no navegador.
+Interface -> entrada/transporte/sessao -> normalizacao -> regra/autorizacao -> persistencia/contrato -> integridade no banco. Materializar apenas o necessario, idiomaticamente na stack. Funcao local de UI nao exige backend; efeito oficial nao fica apenas no navegador. Somente a persistencia do modulo dono acessa o banco, conforme [acesso ao banco](DADOS.md#acesso-ao-banco-somente-pela-persistencia-do-modulo).
 
 ## JavaScript por responsabilidade e tamanho
 Vale para fontes JavaScript escritas a mao no prototipo e no real. Alvo: ate 300 linhas de codigo por arquivo; acima de 500, revisar e separar responsabilidades antes de fechar a entrega. Contar linhas de fonte legivel, desconsiderando linhas vazias e exclusivamente de comentario. Nao minificar, juntar instrucoes ou esconder templates em linhas gigantes para cumprir o numero. Gerados/minificados e dependencias de terceiros ficam fora dessa contagem, com origem identificada.
@@ -34,7 +34,7 @@ No prototipo, usar a mesma divisao e contratos previstos para o real, com simula
 | UI da capacidade | Telas/views/componentes do modulo | View/componente com nome da tarefa no destino de interface do modulo; rota e consumidor no mesmo lote. |
 | Tokens e componente visual compartilhado | Tema/CSS e componentes centrais | Destino compartilhado de interface na raiz existente; `src/ui/` apenas sem equivalente, com primeiro componente/token realmente consumido. |
 | Teste | Runner, pasta e sufixo vigentes | `tests/<modulo>/` com nome da capacidade e convencao nativa; nao impor extensao, runner ou framework diferente. |
-| Migration | Diretorio e ordenacao do instrumento atual | Primeiro definir instrumento permitido; sem instrumento, propor antes de criar SQL solto ou aplicar no banco. |
+| Migration | Diretorio e ordenacao do instrumento atual | Primeiro definir instrumento permitido; sem instrumento, propor antes de criar SQL solto ou aplicar no banco. Seguir o [contrato da migration](DADOS.md#contrato-da-migration) e o perfil local. |
 | Script necessario | Scripts existentes da responsabilidade | `scripts/<responsabilidade>/<acao>.<ext>` com consumidor/comando real; nao script temporario versionado sem finalidade. |
 | Check/pipeline de CI | Workflows e verificacoes existentes | `.github/workflows/<responsabilidade>.yml` em projeto GitHub, somente para comandos/checks de necessidade comprovada; privilegio minimo, sem segredo literal/deploy automatico implicito. |
 | Documentacao | Destinos canonicos locais | Aplicar references/DOCUMENTACAO.md; nunca abrir arvore inteira antecipadamente. |
