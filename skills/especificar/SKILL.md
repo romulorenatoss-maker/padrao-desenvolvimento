@@ -1,11 +1,17 @@
 ---
 name: especificar
-description: Use antes de criar ou alterar capacidade, tela, aba, campo, botao, navegacao, regra ou integracao. Investigue o existente, pergunte so decisoes ausentes e apresente a proposta de telas, acoes e conexoes para aprovacao antes de construir. Em correcao fiel ao contrato, use a verificacao curta sem repetir entrevista.
+description: Use antes de criar ou alterar capacidade, tela, aba, campo, botao, navegacao, regra ou integracao. Diferencie pedido direto de proposta; execute o pedido claro no prototipo e pergunte somente decisoes indispensaveis, preservando a confirmacao visual posterior. Em correcao fiel ao contrato, use a verificacao curta sem repetir entrevista.
 ---
 
 # Especificar
 
 Fonte dona da especificacao e da utilidade de cada elemento. Use depois de `analisar`; padrao visual pertence a `interface`, implementacao a `construir` e aceite a `verificar`. Nao duplica essas regras.
+
+## Pedido direto ou proposta
+
+Pedido imperativo, claro e executavel para criar, adicionar, mudar, corrigir ou alterar ja autoriza construir no alcance pedido. Informar entendimento em uma a tres linhas e prosseguir na mesma execucao: investigar, registrar, construir, testar e apresentar para confirmacao posterior; nunca encerrar em "entendi", "vou fazer" ou "posso construir?". A selecao de ambiente pertence a [prototipo-real](../prototipo-real/SKILL.md#ambiente-padrao-e-limites).
+
+Pedido de ideias, sugestao, analise, planejamento ou "como ficaria?" sem ordem de executar recebe somente proposta. Decisao indispensavel ausente/contraditoria bloqueia apenas a parte dependente; perguntar essa decisao, nao repetir autorizacao do que ja esta definido. Ordem direta nao autoriza locais adicionais, alteracao alheia, dado oficial, permissao ou deploy.
 
 ## 1. Identificar a tarefa antes de desenhar
 
@@ -55,11 +61,11 @@ Para cada tema, marque RESOLVIDO_PELO_PEDIDO, RESOLVIDO_PELO_SISTEMA, PRECISA_DE
 
 Pergunte ao responsavel somente decisoes ausentes ou conflitantes que afetem a solucao. Agrupe perguntas em uma rodada curta, com recomendacao e consequencia das alternativas quando util. Em revisao iterativa, seguir a fila de `interface` secao 6: autorizar a construcao no alcance definido, apresentar uma tela/modal por vez e manter pendencia ate confirmacao explicita do resultado. A aprovacao de proposta nao substitui esse aceite posterior; silencio e novo pedido nao aprovam. Nao perguntar nome de arquivo, endpoint ou tamanho ja definido no projeto. Nao repetir resposta conhecida. Limites de acesso se resolvem por investigacao/autorizacao, nao pedindo que o usuario invente fatos tecnicos.
 
-## 3. Proposta obrigatoria depois das respostas
+## 3. Proposta quando solicitada ou indispensavel
 
-Antes de construir uma capacidade nova, mudar fluxo/regra ou redesenhar, apresente a proposta consolidada e aguarde aprovacao do responsavel. Ausencia de novas perguntas nao elimina a proposta. Pedido ja acompanhado de proposta explicitamente aprovada: referencie essa revisao e nao peca aprovacao de novo.
+Quando o pedido for de proposta ou houver decisao indispensavel ainda ausente, apresentar somente o recorte/delta que exige escolha e aguardar essa resposta. Pedido direto claro segue a execucao imediata acima, inclusive para nova capacidade no prototipo: nao exigir aprovacao do entendimento antes de construir. Pedido ja acompanhado de proposta aprovada reutiliza essa revisao.
 
-Apresente na linguagem da operacao, seguindo a ordem, os titulos em negrito, o mapa em arvore de texto e a pergunta de confirmacao definidos em `interface` secao 6. Mostrar somente o recorte afetado pelo pedido.
+Na proposta, apresentar na linguagem da operacao, seguindo os titulos, mapa e confirmacao definidos em `interface` secao 6; na execucao direta, manter somente o entendimento curto e continuar. Mostrar somente o recorte afetado pelo pedido.
 
 Nomeie telas, abas/subabas quando necessarias, entrada, finalidade de cada parte, campos, botoes e resultado de cada acao; informe estados, acesso, navegacao posterior, visual de referencia, impactos e aceite pertinentes ao recorte. Nao invente nomes de rotas, APIs, tabelas ou permissoes como se existissem: separar COMPROVADO, PROPOSTO e A_LOCALIZAR. Antes da implementacao dependente, localizar o elo ou aprovar a capacidade ausente no dono correto.
 
@@ -88,20 +94,20 @@ Revisao bidirecional: todo requisito aprovado tem solucao; todo elemento propost
 
 Informe CRIAR, ALTERAR, REUTILIZAR e PRESERVAR no registro existente, sem arquivo de plano paralelo. Associe proposta/revisao, fonte da aprovacao e criterios de aceite ao mapa/assunto canonico; atualize com `documentacao`.
 
-Bug que apenas restaura contrato aprovado, texto ou ajuste visual que retorna ao padrao: consulta curta + informar diferenca + corrigir no alcance autorizado, sem entrevista nem redesenho. Nova regra, nova tarefa, alteracao de peculiaridade protegida ou mudanca visual nao aprovada: apresentar apenas o delta para aprovacao. Em ambos os casos, efeito de UI exige apresentar e confirmar a implementacao conforme `interface` secao 6.
+Bug que apenas restaura contrato aprovado, texto ou ajuste visual que retorna ao padrao: consulta curta + informar diferenca + corrigir no alcance autorizado, sem entrevista nem redesenho. Nova regra/tarefa ou alteracao de peculiaridade expressamente pedida segue o mesmo alcance direto; delta nao decidido ou efeito adicional exige a decisao especifica antes da parte dependente. Em ambos os casos, efeito de UI exige apresentar e confirmar a implementacao conforme `interface` secao 6.
 
-Acrescimo/edicao pontual com deslocamento, reducao ou outro efeito em layout ja aprovado segue a pergunta curta e previa por padrao de `interface` secao 4. O pedido funcional nao autoriza esse efeito colateral; nao alterar primeiro para mostrar depois. Se o existente permanece intacto, nao repetir autorizacao de construcao ja dada. Locais adicionais devem ser nominalmente autorizados e incluidos na fila; mudanca de ideia resolve expressamente o destino dos locais antigos ainda nao decidido.
+Acrescimo/edicao pontual segue `interface` secao 4: executar o pedido direto no prototipo, preservando o restante aprovado e resolvendo somente efeitos adicionais nao autorizados. O pedido funcional nao autoriza esse efeito colateral; nao alterar primeiro para mostrar depois. Se o existente permanece intacto, nao repetir autorizacao de construcao ja dada. Locais adicionais devem ser nominalmente autorizados e incluidos na fila; mudanca de ideia resolve expressamente o destino dos locais antigos ainda nao decidido.
 
 Uma duvida bloqueia somente a parte dependente; nao construir essa parte por suposicao. Autorizacao de desenho, codigo, banco, concessao de permissao, commit/push e deploy continuam distintas conforme contrato local. Nao aumentar o escopo para resolver conveniencia tecnica.
 
 ## 6. Handoff e cenarios de aceite do metodo
 
-A construcao recebe a revisao aprovada e seus vinculos, nao uma descricao solta. Conferir novamente se surgiram mudancas concorrentes nas fontes antes de escrever. Na entrega, confrontar proposta e resultado com `verificar`.
+A construcao recebe o pedido direto autorizado ou a proposta aprovada e seus vinculos; nao inventa decisoes ausentes nem exige aceite previo do candidato. Conferir novamente se surgiram mudancas concorrentes nas fontes antes de escrever. Na entrega, confrontar proposta e resultado com `verificar`.
 
 Cenarios obrigatorios ao revisar esta skill (avaliacao de comportamento, nao teste automatico de IA):
 - "Financeiro no cliente": localizar dono e contratos; propor integracao, nao criar financeiro paralelo.
 - "Corrigir salvar": rastrear e restaurar a cadeia aprovada, nao perguntar novamente quais abas o sistema tem.
-- "Criar tela nova": perguntas faltantes -> proposta nominal de telas/abas/acoes -> aprovacao -> construir -> apresentacao e confirmacao de cada item.
+- "Criar tela nova": localizar referencia/escopo -> resolver so lacuna indispensavel -> construir no prototipo -> apresentar e confirmar cada item, sem segunda autorizacao de inicio.
 - "Adicionar exportar porque cabe no cabecalho": recusar essa inclusao especulativa, sem remover requisitos legitimos.
 - "Reaplicar padrao": preservar peculiaridade aprovada e consultar antes de muda-la.
 

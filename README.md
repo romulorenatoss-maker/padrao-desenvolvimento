@@ -1,6 +1,6 @@
 # Padrao de Desenvolvimento
 
-Versao: 1.0.10
+Versao: 1.0.11
 Repositorio oficial: `romulorenatoss-maker/padrao-desenvolvimento`.
 
 Orienta IAs a trabalhar com o mesmo metodo: criar prototipos visuais com dados e regras simulados, revisar o comportamento com o responsavel e converter o aprovado ao real com documentacao por DNA de ponta a ponta. Modularizacao, contratos/RPCs, analise de impacto, preservacao do visual aprovado e limpeza verificada tornam alteracoes e remocoes rastreaveis; instrucoes de skill nao garantem obediencia perfeita nem ausencia de erros.
@@ -77,13 +77,15 @@ A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOT
 
 Migracao 1.0.3: aplicar a [fonte unica ativa da tela local](skills/prototipo-real/SKILL.md#fonte-unica-ativa-da-tela-local) ao recorte alterado, reconciliando fonte, rotas/aliases, assets e copias geradas no documento dono existente. A atualizacao do pacote nao muda servidores ou telas dos consumidores automaticamente; concluir lotes na revisao fixada e comprovar a adocao/recarga separadamente.
 
+Migracao 1.0.11: [pedido direto ou proposta](skills/especificar/SKILL.md#pedido-direto-ou-proposta) distingue executar de sugerir. Pedido claro construi no prototipo seguro por padrao na mesma execucao, com entendimento curto e confirmacao visual posterior, sem previa obrigatoria nem segunda autorizacao de inicio. Revoga esses bloqueios das versoes anteriores; preservar alcance adicional, fila, fonte unica e lote Git de cinco aprovados. REAL expresso e publicacao seguem autorizacoes separadas. Instalar/recarregar conforme INSTALL e conferir a versao efetiva; o texto nao instala hook nem certifica comportamento do executor.
+
 Migracao 1.0.10: adotar a [fila de construcao e confirmacao visual obrigatoria](skills/interface/SKILL.md#6-fila-de-construcao-e-confirmacao-visual-obrigatoria) no registro existente. Revoga aprovacao por continuidade e a instrucao de nao registrar pendencia por falta de resposta; revisar uma tela/modal por vez, com screenshot real e aceite explicito, inclusive consumidores compartilhados autorizados. Pendencias anteriores nao viram aprovadas retroativamente. O [salvamento frequente](skills/construir/SKILL.md#salvamento-frequente-no-git) conta cinco alteracoes logicas integralmente aprovadas, confirma commit/push e preserva PR, checks, isolamento das pendencias e proibicao de deploy de prototipo. Atualizar/recarregar o pacote conforme INSTALL; contratos locais conflitantes e lotes em curso exigem reconciliacao autorizada. Nao cria fila executavel, hook ou permissao nova nem comprova ativacao do cliente.
 
 Migracao 1.0.9: a [fonte unica ativa da tela local](skills/prototipo-real/SKILL.md#fonte-unica-ativa-da-tela-local) exige salvar imediatamente a implementacao autorizada e preservar exemplos/alteracoes confirmadas em armazenamento persistente isolado entre reload, reinicio e reabertura. Adotar no recorte atingido e ensaiar a correspondencia da fonte/resposta e a preservacao; atualizar o pacote nao corrige nem certifica automaticamente o runtime dos consumidores.
 
 Migracao 1.0.8: AGENTS novo ou migrado pelo [iniciar-projeto](skills/iniciar-projeto/SKILL.md#papeis-de-delegacao) declara `DELEGACAO: arquiteto -> construtor -> fiscal` (arquiteto entende e manda; construtor escreve em segundo plano, um escritor por arquivo; fiscal confere depois). Projeto existente adota com a autorizacao do seu AGENTS protegido.
 
-Migracao 1.0.7: antes de construir algo parecido com o que ja existe, a skill [interface](skills/interface/SKILL.md#2-uma-fonte-implementada-varios-consumidores) exige procurar o existente, perguntar ao responsavel se usa o mesmo e implementar como componente compartilhado (nunca copia por tela).
+Migracao 1.0.7 (pergunta de reutilizacao superada em 1.0.11 quando pedido/referencia ja definem a escolha): antes de construir algo parecido com o que ja existe, a skill [interface](skills/interface/SKILL.md#2-uma-fonte-implementada-varios-consumidores) exige procurar o existente, perguntar ao responsavel se usa o mesmo e implementar como componente compartilhado (nunca copia por tela).
 
 Migracao 1.0.6: mexer no real (migration ou publicacao que grava no banco) passa a exigir o [modo manutencao](skills/construir/SKILL.md#modo-manutencao-ao-mexer-no-real): gravacoes pausadas e faixa em todas as telas durante a alteracao, desligando ao conferir ou ao vencer o prazo. Projeto sem esse mecanismo o constroi antes da proxima migration.
 
@@ -102,3 +104,5 @@ Entrega 1.0.9 — [PR #34](https://github.com/romulorenatoss-maker/padrao-desenv
 ## Base da analise de equipes e entregas
 
 As praticas foram confrontadas com [qualidade documental DORA](https://dora.dev/capabilities/documentation-quality/), [gestao de mudancas de banco DORA](https://dora.dev/capabilities/database-change-management/), [engenharia de releases Google SRE](https://sre.google/sre-book/release-engineering/) e [CODEOWNERS/revisao GitHub](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners). Essas fontes fundamentam consulta util, reproducao, compatibilidade e verificacoes; nao ampliam autorizacao nem prometem ausencia de erros. Nao copiar infraestrutura de grande empresa para resolver um ajuste local.
+
+Entrega 1.0.11 — [issue #37](https://github.com/romulorenatoss-maker/padrao-desenvolvimento/issues/37). QUEM: Codex, autorizacao 0393 direta do responsavel; sem delegacao. COMMITS: candidato/PR vinculados a issue. FEZ: reconciliar execucao imediata no prototipo e confirmacao posterior nas skills donas, sem alterar consumidores. CONFERIU: resultados estruturais e limites registrados na PR; nenhuma execucao comportamental ou carga de cliente presumida. FALTA: ensaios comportamentais autorizados e comprovacao de instalacao/recarga por cliente. DESFAZER: nova entrega versionada revertendo o recorte, preservando fila, escopo e trabalho alheio.

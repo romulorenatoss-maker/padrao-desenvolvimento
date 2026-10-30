@@ -175,6 +175,20 @@ class DistributionTests(unittest.TestCase):
                 self.assertTrue(any(f"roteamento: {name}" in error for error in validate(self.root)))
                 path.write_text(original, encoding="utf-8")
 
+    def test_direct_request_routes_keep_owners_connected(self):
+        # Structural routing only: removing the environment owner must not pass.
+        path = self.root / "skills/especificar/SKILL.md"
+        text = path.read_text(encoding="utf-8")
+        for target in ("analisar", "interface", "prototipo-real", "verificar"):
+            with self.subTest(target=target):
+                changed = text.replace(f"`{target}`", "referencia retirada").replace(
+                    f"../{target}/SKILL.md", "../../README.md")
+                path.write_text(changed, encoding="utf-8")
+                errors = validate(self.root)
+                self.assertTrue(any(f"roteamento: especificar nao referencia {target}" == e for e in errors))
+                path.write_text(text, encoding="utf-8")
+        self.assertEqual(validate(self.root), [])
+
     def test_motion_package_resources_and_license_required(self):
         paths = ("LICENSE", "workflows/create.md", "workflows/audit.md",
                  "references/motion-cookbook.md", "references/demo-shell.html")

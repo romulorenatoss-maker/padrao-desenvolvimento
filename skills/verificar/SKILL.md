@@ -85,6 +85,29 @@ Conferir o [registro temporario e seu fechamento](../../references/DOCUMENTACAO.
 
 Fiscal independente confere, alem do codigo, o fechamento documental de tudo o que as skills exigem para o lote: decisao gravada no documento do modulo/tela dono; entrada no historico de entregas com QUEM, COMMITS, FEZ, CONFERIU, FALTA e DESFAZER; limpeza dos registros de trabalho (pergunta respondida fora do registro, andamento/fila/pendencias/mapas/marcas de "falta publicar" sem o que foi entregue, "respondida, a construir" onde ainda nao foi construido); inventario/identidades e vinculos reconciliados; migrations aplicadas e conferidas quando o codigo depende delas. Ausencia de qualquer um e lacuna, nao observacao. Em lote que publica tela/aba/modal prototipado, o fiscal confere tambem a comparacao prototipo x real (`prototipo-real`, fechamento da conversao): diferencas no andamento, documento da tela so com o real e prototipo apagado quando nada sobrou. Ausencia e lacuna. Candidato contem somente o lote autorizado; sem `--no-verify`, reset destrutivo, amend/force, perda de trabalho alheio ou permissao concedida por conveniencia. Commit, push confirmado, deploy e versao ativa sao distintos.
 
+## Cenarios de execucao imediata do metodo
+
+Conferir os encaminhamentos de `especificar`, `interface` e `prototipo-real`, inclusive contradicoes que reintroduzam pergunta de inicio. Ensaios comportamentais no cliente usam ambiente autorizado e a fila existente, sem alterar produto por uma tarefa limitada ao padrao. Registrar comando/passos, revisao, resposta observada e limites; revisao textual nao executa um modelo nem aprova telas.
+
+| Cenario | Resultado esperado |
+|---|---|
+| 1. Mude o texto do botao X para Y | Entendimento curto e construcao no prototipo na mesma execucao; sem "posso construir?". |
+| 2. Adicione campo X no modal Y | Reutilizar modal atual, construir e apresentar aberto para confirmacao. |
+| 3. Sugira uma tela | Apenas proposta; nenhuma construcao. |
+| 4. Faca direto no real | Respeitar REAL e protecoes; nao presumir deploy. |
+| 5. Mude X em A com impacto em B | Construir A se independente; autorizar B antes de alterar, ou bloquear a dependencia inseparavel. |
+| 6. Tres telas autorizadas | Tres apresentacoes/aceites individuais, uma por vez. |
+| 7. Novo pedido sem responder ao print | Manter primeiro item pendente; registrar/executar novo alcance autorizado. |
+| 8. Corrija modal mostrado | Mesmo modal/DNA, nova candidata e confirmacao reaberta. |
+| 9. Mude local da funcao | Resolver retirada/permanencia anterior ainda nao decidida. |
+| 10. Cinco pedidos integralmente aprovados | Lote Git elegivel conforme `construir`, sem levar pendencias. |
+| 11. Quinto pedido com tela nao aprovada | Nao contar como quinto nem enviar esse pedido. |
+| 12. Navegador indisponivel | Construir recorte independente se possivel; IMPLEMENTADO_NAO_APRESENTADO, sem screenshot/aceite ficticio. |
+| 13. Prototipo aprovado | Nao construir/publicar real automaticamente. |
+| 14. Sessao reaberta | Recuperar fila/fonte atual; nao ressuscitar descartados nem presumir plugin recarregado. |
+
+Sem execucao observada, marcar CENARIOS_DO_METODO/ACEITE_FUNCIONAL como NAO_EXECUTADO e distinguir da VALIDACAO_ESTRUTURAL. ACEITE_VISUAL e NAO_SE_APLICA em patch exclusivo do padrao; ensaio de consumidor continua pendente no seu proprio alcance autorizado.
+
 ## Validacao do proprio padrao
 Executar os comandos do README central. Separar VALIDACAO_ESTRUTURAL, CENARIOS_DO_METODO, ACEITE_FUNCIONAL, ACEITE_VISUAL e ATIVACAO_NA_SESSAO com estados e escopo claros. Teste de parser/links e exemplos em prosa nao sao teste comportamental de modelo. Gate descrito em Markdown nao e fiscal universal de escrita; hook/permissao/sandbox requer implementacao e ensaio no ambiente antes de afirmar bloqueio mecanico.
 
