@@ -118,3 +118,11 @@ Executar os comandos do README central. Separar VALIDACAO_ESTRUTURAL, CENARIOS_D
 Quando o recorte tocar acesso, entrada, integracao ou efeito critico, aplicar seguranca e [a matriz de riscos/evidencia](../../references/SEGURANCA.md#auditoria-dirigida--oito-riscos). Triar pertinencia dos oito temas, sem exigir oito suites em todo ajuste; preservar recusas e checks locais obrigatorios. Achado deve apontar evidencia sanitizada, revisao/ambiente, fonte/runtime/aplicacao e estado COMPROVADO/SUSPEITA/NAO_VERIFICADO/NAO_SE_APLICA.
 
 Retestar a correcao e consumidores afetados em ambiente autorizado com dados controlados. Nao concluir controle ativo por leitura/scanner, promover backend simulado ou omitir risco comprovado relevante para liberar a entrega; limites de acesso/ensaio ficam explicitos no registro existente. Auditoria em leitura nao autoriza abrir segredos, modificar dados/roles ou atacar producao. Fiscal independente confronta candidato e evidencias quando exigido; resultado estrutural do padrao nao certifica seguranca dos consumidores.
+
+## Conexoes funcionais no alcance autorizado
+
+Aplicar o gate por ligacao: testar entrada, contrato, persistencia aplicavel, consumidor e reflexos de edicao/cancelamento, preservando nao autorizados. Botao sem acao, contrato sem chamada e chamada sem efeito reprovam; distinguir simulacao, real, aceite visual e NAO_EXECUTADO. Fonte dona: [conexoes funcionais e rastreabilidade bidirecional](../../references/DOCUMENTACAO.md#conexoes-funcionais-e-rastreabilidade-bidirecional), incluindo estados, auditoria seletiva e cenarios de aceite; nao duplicar esse esquema aqui.
+
+## Paridade e concorrencia
+
+Quando o pedido tocar fontes concorrentes ou publicacao parcial, conferir [paridade da instancia](../prototipo-real/SKILL.md#evidencias-proporcionais-de-paridade) e [grupo de integracao funcional](../construir/SKILL.md#integracao-de-trabalhos-concorrentes). Cobrir conflito, composicao de fontes, residuos e compatibilidade no recorte pertinente; teste textual nao comprova bloqueio mecanico nem runtime.

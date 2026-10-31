@@ -32,3 +32,11 @@ No fechamento: artefato -> identidade/responsabilidade -> mapa/dono -> consumido
 ## Limites e migracao
 
 Migrar texto de AGENTS/CLAUDE usa DE/PARA e preservacao da referencia, com `iniciar-projeto`. Validar destino/link antes de retirar origem; protegido sem autorizacao nao e reduzido. Evolucao global segue `evoluir-padrao`; negocio, guarda, permissao e infraestrutura peculiares permanecem no projeto. Verificar fechamento com `verificar`.
+
+## Conexoes funcionais no alcance autorizado
+
+Manter no dono existente o mapa e os links reversos por capacidade; origem explica fornecimento e consumidor explica uso. Registrar classificacao/estado/prova/escopo por ligacao, invalidando referencias stale sem criar indice ou manual paralelo. Fonte dona: [conexoes funcionais e rastreabilidade bidirecional](../../references/DOCUMENTACAO.md#conexoes-funcionais-e-rastreabilidade-bidirecional), incluindo estados, auditoria seletiva e cenarios de aceite; nao duplicar esse esquema aqui.
+
+## Paridade e concorrencia
+
+Para interface compartilhada, registrar no dono existente a instancia/rota, fontes carregadas/revisao, candidato/aprovado, consumidores e evidencias conforme [fonte ativa verificavel](../prototipo-real/SKILL.md#instancia-e-fonte-ativa-verificaveis); dependencia/publicacao seguem [integracao concorrente](../construir/SKILL.md#integracao-de-trabalhos-concorrentes). Nao duplicar mapa/fila nem promover escrita de skill a correcao executada.

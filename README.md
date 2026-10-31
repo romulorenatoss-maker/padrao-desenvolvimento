@@ -1,9 +1,11 @@
 # Padrao de Desenvolvimento
 
-Versao: 1.0.12
+Versao: 1.0.13
 Repositorio oficial: `romulorenatoss-maker/padrao-desenvolvimento`.
 
 Orienta IAs a trabalhar com o mesmo metodo: criar prototipos visuais com dados e regras simulados, revisar o comportamento com o responsavel e converter o aprovado ao real com documentacao por DNA de ponta a ponta. Modularizacao, contratos/RPCs, analise de impacto, preservacao do visual aprovado e limpeza verificada tornam alteracoes e remocoes rastreaveis; instrucoes de skill nao garantem obediencia perfeita nem ausencia de erros.
+
+A revisao 1.0.13 inclui conexoes funcionais e [fonte ativa verificavel entre IAs](skills/prototipo-real/SKILL.md#instancia-e-fonte-ativa-verificaveis), sem confundir instalacao de politica com correcao dos mecanismos de um consumidor.
 
 ## Entrada obrigatoria — sumario de diretrizes
 Este README e a entrada e o catalogo central; o mapa detalhado por pedido pertence a `analisar`. O AGENTS.md de cada projeto guarda identidade, ambientes, ponte para este indice e protecoes/ponte documental locais; nao copia lista/contagem de skills, comandos de instalacao ou regras gerais. O AGENTS.md da raiz deste repositorio governa somente o padrao, nao e o modelo dos consumidores.
@@ -110,3 +112,5 @@ As praticas foram confrontadas com [qualidade documental DORA](https://dora.dev/
 Entrega 1.0.12. QUEM: Claude, autorizacao 0393 direta do responsavel em 30/10/2026. FEZ: regras de acesso ao banco pela persistencia, contrato da migration, dados no prototipo x real e perfil local em DADOS, com ponteiros em ARQUITETURA, prototipo-real e verificar. CONFERIU: validador central. FALTA: adocao por consumidor. DESFAZER: nova versao revertendo o recorte.
 
 Entrega 1.0.11 — [issue #37](https://github.com/romulorenatoss-maker/padrao-desenvolvimento/issues/37). QUEM: Codex, autorizacao 0393 direta do responsavel; sem delegacao. COMMITS: candidato/PR vinculados a issue. FEZ: reconciliar execucao imediata no prototipo e confirmacao posterior nas skills donas, sem alterar consumidores. CONFERIU: resultados estruturais e limites registrados na PR; nenhuma execucao comportamental ou carga de cliente presumida. FALTA: ensaios comportamentais autorizados e comprovacao de instalacao/recarga por cliente. DESFAZER: nova entrega versionada revertendo o recorte, preservando fila, escopo e trabalho alheio.
+
+Entrega 1.0.13 — Codex, autorizacoes0393 do responsavel para conexoes funcionais e unificacao de fontes/concorrencia. Fonte dona das conexoes em references/DOCUMENTACAO.md; sete skills referenciam classificacao, mapa por ligacao, pergunta nominal e gate de integridade sem recriar confirmacao de inicio do pedido direto. Inclui fontes donas de paridade de instancia, composicao de montagem, residuos e grupos de integracao funcional; reserva textual nao equivale a trava mecanica. Sem alterar consumidores, suas telas, bancos ou AGENTS. Validacao estrutural/testes da distribuicao registrados na entrega; cenarios comportamentais de IA/navegador e recarga da sessao nao presumidos. Rollback por nova versao revertendo apenas este recorte.

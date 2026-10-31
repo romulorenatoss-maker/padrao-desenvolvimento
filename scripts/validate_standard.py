@@ -223,6 +223,14 @@ def validate(root: Path) -> list[str]:
     }.items():
         if any(fragment not in skills.get(name, "") for fragment in fragments):
             errors.append(f"{name}: referencia/gate obrigatorio ausente")
+    # Distribuicao das responsabilidades, nao certificacao de runtime ou obediencia da IA.
+    if "## Instancia e fonte ativa verificaveis" not in skills.get("prototipo-real", ""):
+        errors.append("prototipo-real: fonte dona da paridade ausente")
+    if "## Integracao de trabalhos concorrentes" not in skills.get("construir", ""):
+        errors.append("construir: integracao concorrente ausente")
+    for consumer in ("analisar", "interface", "verificar", "documentacao"):
+        if "../prototipo-real/SKILL.md#" not in skills.get(consumer, ""):
+            errors.append(f"{consumer}: ponte para paridade ausente")
     return errors
 
 

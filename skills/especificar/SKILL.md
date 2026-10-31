@@ -112,3 +112,7 @@ Cenarios obrigatorios ao revisar esta skill (avaliacao de comportamento, nao tes
 - "Reaplicar padrao": preservar peculiaridade aprovada e consultar antes de muda-la.
 
 Na revisao iterativa de prototipo, seguir o fluxo de entrega visual e autorizacao documental de [prototipo-real](../prototipo-real/SKILL.md#revisao-rapida-do-prototipo-e-documentacao-paralela), subordinado ao aceite explicito por item de `interface` secao 6. Essa aprovacao nao equivale a construcao/publicacao real.
+
+## Conexoes funcionais no alcance autorizado
+
+Aplicar a pergunta nominal para conectar outra tela/modulo somente quando houver efeito adicional nao autorizado. Diferenciar evidencia e hipotese; detalhes tecnicos indispensaveis dentro do pedido nao exigem nova autorizacao. Pedido direto continua construindo imediatamente no prototipo, sem pedir para comecar. Fonte dona: [conexoes funcionais e rastreabilidade bidirecional](../../references/DOCUMENTACAO.md#conexoes-funcionais-e-rastreabilidade-bidirecional), incluindo estados, auditoria seletiva e cenarios de aceite; nao duplicar esse esquema aqui.

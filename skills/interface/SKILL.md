@@ -160,3 +160,11 @@ A revisao aprovada substitui a especificacao anterior do trecho no mesmo dono/DN
 Adocao sobre trabalho existente: alteracao sem evidencia de aprovacao fica PENDENTE_DE_REVISAO, nao aprovada retroativamente; preservar codigo/trabalho alheio, mapear o recorte e apresentar. Apos conversao autorizada, retirar apenas o prototipo efetivamente substituido conforme `prototipo-real`; uma nova prototipacao parte do real atual, nunca de copias antigas.
 
 A aprovacao visual nao substitui teste nem autoriza publicacao, mudanca de permissao, banco ou promocao a padrao global. Registrar fatos tecnicos e propostas e permitido, mas nao marca-los como regras aprovadas antes deste aceite. Documentacao e evidencias usam os donos existentes; esta skill nao instala fila executavel, hook ou bloqueio mecanico no cliente.
+
+## Conexoes funcionais no alcance autorizado
+
+A fila visual cobre os locais realmente afetados e autorizados da cadeia; cada tela/modal/estado exige screenshot real e confirmacao propria. Outra tela aprovada permanece intacta; ausencia de navegador nao autoriza prova inventada. Fonte dona: [conexoes funcionais e rastreabilidade bidirecional](../../references/DOCUMENTACAO.md#conexoes-funcionais-e-rastreabilidade-bidirecional), incluindo estados, auditoria seletiva e cenarios de aceite; nao duplicar esse esquema aqui.
+
+## Paridade e concorrencia
+
+Na revisao entre IAs, aplicar [instancia e fonte ativa verificaveis](../prototipo-real/SKILL.md#instancia-e-fonte-ativa-verificaveis): screenshot/identidade e aceite de cada estado, sem recuperar modal antigo por cache/overlay. Preservar candidato pendente; aprovar um item nao aprova outros.
