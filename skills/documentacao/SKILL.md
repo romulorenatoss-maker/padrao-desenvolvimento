@@ -21,6 +21,8 @@ Ao consolidar, aplicar a [marcacao do contexto consolidado](../../references/DOC
 
 Decisao de `especificar` e referencia/peculiaridade de `interface` ficam no dono local; metodo global permanece central. Registrar separadamente pedido/proposta, codigo candidato e revisao aprovada, com fonte/revisao, estados e lacunas: previsto, simulado, construido, testado, publicado. Pedido direto autoriza construir no prototipo conforme `especificar`, mas nao transforma o candidato em aprovado; silencio ou tarefa nova nao encerram o item anterior. Manter [DNA/issue/PR/commit](../../references/DOCUMENTACAO.md#rastreabilidade-dna-issue-pr-e-commit) no item/lote e mapa existentes, com links qualificados; ticket nao substitui regra vigente nem cria outro mapa.
 
+Aplicar o contrato de propriedade/reutilizacao de DOCUMENTACAO no dono vigente. Chat usa links para cadastro, nao copia a especificacao do contato. Manter DE/PARA, regra atual, consumidores e evidencias de retirada; historico nao se torna segunda fonte ativa. Consolidar uma decisao nao comprova migracao aplicada. Fonte: [contrato de propriedade e reutilizacao](../../references/DOCUMENTACAO.md#contrato-documentado-de-propriedade-e-reutilizacao).
+
 ## Projeto, prototipo e reconstrucao
 
 Aplicar [contratos de projeto e reconstrucao](../../references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao): briefing visual, fluxo e TRD nos equivalentes existentes; guia modular referencia codigo/assets, contratos/RPCs/dados/controles, ordem/ambiente, testes e lacunas reais. Nao duplicar esses contratos em cada tela/ajuste, nem depender somente de narrativa para reconstruir o codigo.

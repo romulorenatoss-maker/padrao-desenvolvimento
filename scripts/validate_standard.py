@@ -231,6 +231,15 @@ def validate(root: Path) -> list[str]:
     for consumer in ("analisar", "interface", "verificar", "documentacao"):
         if "../prototipo-real/SKILL.md#" not in skills.get(consumer, ""):
             errors.append(f"{consumer}: ponte para paridade ausente")
+    # Fonte dona de propriedade/retirada de dados e seus encaminhamentos.
+    dados = docs.get("references/DADOS.md", "")
+    for heading in ("## Reutilizacao e propriedade de dados", "## Retirada segura de dados e modulos",
+                    "## Perfil de comunicacao e chat"):
+        if heading not in dados:
+            errors.append(f"references/DADOS.md: secao dona ausente: {heading[3:]}")
+    for consumer in ("analisar", "construir", "verificar", "auditar-projeto"):
+        if "../../references/DADOS.md#re" not in skills.get(consumer, ""):
+            errors.append(f"{consumer}: ponte para propriedade de dados ausente")
     return errors
 
 
