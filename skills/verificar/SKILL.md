@@ -78,6 +78,10 @@ Registrar no dono canonico: escopo/revisao/SHA testado, ambiente, cenario/rota, 
 
 Lote REAL com dados executa, conforme o [perfil local](../../references/DADOS.md#perfil-local-de-dados), o check de formato de toda migration nova e a trava de acesso ao banco fora da persistencia nos arquivos alterados; falha bloqueia a entrega, sem bypass.
 
+Verificar os perfis de DADOS no candidato exato. Testar registro canonico atualizado por consumidor, recusa fora do escopo, preservacao apos retirada do consumidor, historico, conflitos de identidade, integridade e exclusao concorrente. Testar chat com historico acima do limite, retomada, notas internas, anexos compartilhados e invariantes de cadastro. Modelo/regex/check textual nao comprova comportamento do banco ou do executor.
+
+Uma unificacao so pode ser declarada concluida no alcance quando o DE/PARA esta reconciliado, consumidores usam o contrato vigente, dados/permissao/historico permanecem corretos e medicao pertinente nao revela regressao sem decisao. Nao reprovar por numero de tabelas nem aceitar por simples reducao desse numero. Fonte: [perfis de DADOS](../../references/DADOS.md#reutilizacao-e-propriedade-de-dados).
+
 ## Retorno a construcao e publicacao
 Falha corrigivel no alcance retorna a `construir`, corrige causa e retesta; nao encerrar apenas como pendencia. Recurso externo ausente exige impedimento concreto, sem prometer execucao futura. Nao afrouxar teste, esconder requisito, apagar baseline ou aceitar screenshot novo sem aprovacao para passar.
 

@@ -12,6 +12,12 @@ Reutilizar modulo existente quando a responsabilidade pertence a ele. Criar modu
 
 Proposta de organizacao usa DE -> PARA com motivo, responsabilidade, consumidores, documentos, testes, preservacao e recuperacao. Mudanca de caminho reconcilia imports/autoload, rotas, assets, jobs, contratos, IDs, CI e documentacao no mesmo lote. Migrations publicadas e dados historicos nao sao reescritos por organizacao.
 
+Antes de ampliar modulo ou capacidade transversal, aplicar [reutilizacao e propriedade](DADOS.md#reutilizacao-e-propriedade-de-dados). Distinguir dono da informacao de tela de captura, consumidor e origem. Um modulo removivel nao deve ser o unico dono de cadastros necessarios aos demais. Reutilizar o dono existente; nao criar um Core universal apenas para centralizar nomes.
+
+Compartilhamento exige contrato explicito e politica de retirada; nao acesso livre a tabelas internas. Uma capacidade pode compartilhar cadastro e manter eventos operacionais separados. Atendimento/protocolo e canal de chat sao responsabilidades distintas quando outras operacoes dependem do atendimento. Planejar a retirada do consumidor sem desligar a capacidade compartilhada.
+
+Publicacao de mudancas de dono/schema/contrato considera trabalhos concorrentes e versoes de produtores/consumidores. Registrar grupo de integracao quando uma metade nao for compativel com a versao restante. Reservar arquivo nao substitui essa verificacao.
+
 ## Responsabilidades, nao camadas vazias
 Interface -> entrada/transporte/sessao -> normalizacao -> regra/autorizacao -> persistencia/contrato -> integridade no banco. Materializar apenas o necessario, idiomaticamente na stack. Funcao local de UI nao exige backend; efeito oficial nao fica apenas no navegador. Somente a persistencia do modulo dono acessa o banco, conforme [acesso ao banco](DADOS.md#acesso-ao-banco-somente-pela-persistencia-do-modulo).
 

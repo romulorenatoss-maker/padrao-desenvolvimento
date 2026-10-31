@@ -44,6 +44,10 @@ Historico de entregas: toda entrega publicada ganha, no mesmo commit, uma entrad
 
 Nao abrir auditoria global nem refatorar modulo inteiro para corrigir defeito local conhecido.
 
+Implementar a decisao de propriedade/reuso pelo contrato publico do dono e persistencia existente. Capturar contato no chat nao cria automaticamente cadastro paralelo: validar e ligar ao dono canonico, mantendo conteudo de conversa separado. Nao substituir o telefone confirmado por extracao de IA sem regra/autorizacao. Aplicar integridade, escopo e tratamento de concorrencia; uma coluna ID ou vinculo previsto nao prova conexao funcional.
+
+Remocao segue [retirada segura](../../references/DADOS.md#retirada-segura-de-dados-e-modulos): diferenciar vinculo, registro, conteudo, estrutura e modulo; remover apenas o alcance autorizado e preservar compartilhados. Migracao de dono reconcilia contratos, consumidores, documentacao, testes e transicao. Nao contar alteracao como completa para lote enquanto conexao obrigatoria ou compatibilidade estiver pendente.
+
 ## Reconstrucao fiel de modulo
 
 Confirmar origem/revisao, destino e alcance autorizados; consultar o [guia de reconstrucao](../../references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao) e conferir fontes, assets, contratos, dados/RPCs, configuracao e consumidores reais. Reutilizar a implementacao aprovada na ordem de suas dependencias, preservando stack, limites, interface e DNAs da mesma capacidade; nao criar arquitetura paralela nem importar identidade, dados privados ou segredos de outro projeto. Dependencia ausente e lacuna a resolver no dono, nao oportunidade de fabricar substituto.

@@ -72,6 +72,8 @@ Antes de marcar REAL, retire fontes ficticias da cadeia publicada, teste o backe
 
 Dados no prototipo e na conversao seguem [prototipo x real nos dados](../../references/DADOS.md#prototipo-x-real-nos-dados): simulacao com os metodos previstos da persistencia e modelo registrado no dono; migration e persistencia real somente na ordem de construir.
 
+Prototipo demonstra tambem as conexoes de dados pertinentes: alterar contato via chat deve refletir no cadastro local pelo contrato correspondente; limpar conversa local deve preservar contato/vinculo. Simulacao segue as mesmas identidades e formatos previstos, sem gravar no oficial. Na conversao ao real, substituir adaptadores autorizados e comprovar integridade/retirada, sem refazer o modelo por conveniencia. Fonte: [perfil de comunicacao e chat](../../references/DADOS.md#perfil-de-comunicacao-e-chat).
+
 ## Complementos
 Quando o usuario pedir proposta visual no chat, seguir a previa em imagem de `interface`; construir o prototipo interativo somente quando solicitado, reutilizando a proposta aprovada. Pedido direto de simulacao/interacao respeita esse alcance e executa no prototipo; previa explicitamente solicitada e ainda nao aprovada permanece uma decisao pendente. Divergencia da proposta aprovada exige nova aprovacao antes de editar.
 

@@ -195,6 +195,20 @@ class DistributionTests(unittest.TestCase):
             ("skills/construir/SKILL.md", "## Integracao de trabalhos concorrentes", "## Secao retirada"),
         ])
 
+    def test_data_ownership_owner_and_links_required(self):
+        self.assert_mutations_fail([
+            ("references/DADOS.md", "## Reutilizacao e propriedade de dados", "## Secao retirada"),
+            ("references/DADOS.md", "## Retirada segura de dados e modulos", "## Secao retirada"),
+            ("references/DADOS.md", "## Perfil de comunicacao e chat", "## Secao retirada"),
+        ])
+        for consumer in ("analisar", "construir", "verificar", "auditar-projeto"):
+            with self.subTest(consumer=consumer):
+                p = self.root / "skills" / consumer / "SKILL.md"
+                original = p.read_text(encoding="utf-8")
+                p.write_text(original.replace("../../references/DADOS.md#re", "../../references/DADOS.md?re"), encoding="utf-8")
+                self.assertTrue(any("ponte para propriedade de dados ausente" in e for e in validate(self.root)))
+                p.write_text(original, encoding="utf-8")
+
     def test_parity_consumers_keep_owner_links(self):
         for consumer in ("analisar", "interface", "verificar", "documentacao"):
             with self.subTest(consumer=consumer):

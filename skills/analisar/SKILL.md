@@ -67,6 +67,8 @@ Nao alterar a skill durante a propria execucao para autoautorizar um arquivo: mu
 
 Gate cobre arquivos de fonte, testes, docs, configuracoes, scripts, memorias, AGENTS/CLAUDE, assets, temporarios e saidas geradas. Saidas inevitaveis de comandos autorizados precisam de categoria e destinos controlados antes de executar; nao bloquear ferramenta criando a excecao depois. Sem cobertura/controle suficiente, pedir autorizacao ou usar modo somente leitura. Nao prometer controle total sobre escritas internas do host/SO por texto de skill.
 
+Pedido com dados/relacionamentos aciona [reutilizacao e propriedade](../../references/DADOS.md#reutilizacao-e-propriedade-de-dados). Antes de criar, localizar fontes, significado, identidade, cardinalidade, dono, consumidores e ciclo; registrar a decisao de reaproveitamento no dono existente. Pedido de chat/comunicacao aciona tambem seu perfil. Separar evidencia de repo, banco ativo e runtime. Consulta de schema, por si, nao autoriza ler conteudo pessoal nem executar escrita.
+
 ## Organizacao e limites
 Projeto existente para organizar: `auditar-projeto`, [arquitetura](../../references/ARQUITETURA.md) e `documentacao`. Projeto vazio/bootstrap: `iniciar-projeto`. Nao copiar arquitetura de outro sistema nem criar arvore vazia.
 

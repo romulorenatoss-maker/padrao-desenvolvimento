@@ -19,3 +19,5 @@ Primeira passagem somente leitura. "Organizar tudo" permite levantar todo o esco
 Se nao houver sumario, criar somente a entrada minima e os mapas necessarios ao recorte autorizado. Se nao houver AGENTS/CLAUDE, seguir `iniciar-projeto`; para existentes, migracao preserva peculiaridades e exige as autorizacoes locais. Descobrir antes de inicializar.
 
 Auditoria nao autoriza automaticamente commit, push, deploy, acesso ao banco, mudanca destrutiva ou desativacao de guardas. Dependencia desconhecida bloqueia retirada daquele item. Nenhum modulo e separado apenas para corresponder a um nome de pasta.
+
+Em auditoria de dados, produzir inventario nominal e classificar semantica, dono, ciclo e consumidores antes de sugerir fusao. Numeros de tabelas e linhas sao observacoes, nao metas. Separar views/particoes/objetos gerenciados e confirmar vazios quando isso mudar a decisao. Ausencia de dado ou FK nao autoriza remover. Explicar por que cada candidato deve ser reutilizado, estendido, vinculado, separado ou mantido historico. Fonte: [reutilizacao e propriedade](../../references/DADOS.md#reutilizacao-e-propriedade-de-dados).

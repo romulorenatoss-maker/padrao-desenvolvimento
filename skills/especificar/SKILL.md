@@ -73,6 +73,8 @@ Decisao de composicao: tela para tarefa com identidade/fluxo proprio; aba para c
 
 Para criar/alterar a identidade visual, apresente referencia renderizada/prototipo do recorte com `interface` antes de propagar a mudanca. Aprovar a proposta funcional nao aprova automaticamente um visual ainda nao mostrado. Prototipo visual aprovado nao comprova integracao real.
 
+Proposta de capacidade reutiliza primeiro dados e contratos compativeis, conforme DADOS. Nao perguntar ao responsavel qual tabela usar quando isso pode ser descoberto. Perguntar somente decisoes semanticas ausentes: mesma identidade ou papel distinto, finalidade, preservacao historica, retencao e destino de vinculos. Pedido claro continua executando no prototipo; dependencia adicional fora do alcance e apresentada nominalmente antes da escrita. Fonte: [reutilizacao e propriedade](../../references/DADOS.md#reutilizacao-e-propriedade-de-dados).
+
 ## 4. Contrato de utilidade de botoes e elementos
 
 Toda acao criada ou alterada deve responder:

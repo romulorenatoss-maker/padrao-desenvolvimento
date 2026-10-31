@@ -19,6 +19,8 @@ Nunca exponha segredos em resposta, commit, log ou documentacao.
 
 Reutilizar controles centrais por referencia; nao repetir politica generica em cada modulo. Campo do cliente nao comprova permissao, empresa, preco, credito, saldo ou MFA.
 
+Dados compartilhados nao ampliam acesso entre empresas, papeis ou finalidades. Validar escopo na leitura/escrita pelo contrato; avaliar constraints de identidade/empresa e RLS/grants pertinentes. Conta de servico privilegiada nao dispensa verificacao no backend. Retirada/anonimizacao/expurgo exige politica, autorizacao, auditoria e corrida concorrente verificadas; nao registrar telefones, mensagens ou segredos em evidencias publicas. Fonte: [retirada segura](../../references/DADOS.md#retirada-segura-de-dados-e-modulos).
+
 ## Observabilidade compatível e sem vazamento
 
 Operacoes oficiais precisam de evidencia operacional proporcional ao risco: resultado/erro sanitizado, duracao quando pertinente, correlation_id e identidade autorizada de modulo/entidade/usuario/tenant. Reutilizar logs/auditoria existentes; conectar navegador -> action -> service -> repository/API quando o fluxo justificar, sem gravar automaticamente payload, conversa, token ou dado pessoal. Auditoria de negocio e telemetria de diagnostico tem finalidades e retencoes distintas.

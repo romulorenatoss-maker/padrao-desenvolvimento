@@ -50,6 +50,33 @@ Ao converter prototipo, o documento dono liga a revisao/fontes mostradas aos DNA
 
 Metadados nominais de codigo/RPC/consumidores ficam nos mapas/inventario que o projeto ja exige; geracao/conferencia usa instrumentos existentes quando disponiveis. Nao manter copias manuais concorrentes. Regra de negocio/finalidade aprovada precisa de descricao humana no dono; geracao de nomes nao a substitui. Sem instrumento comprovado, conferir o recorte e declarar o limite, nunca alegar rastreio completo por existir um DNA.
 
+### Contrato documentado de propriedade e reutilizacao
+
+No documento dono existente, registrar: significado/granularidade; ID/DNA; dono logico; destinos fisicos; chave/escopo; cardinalidade; fonte canonica; derivados/snapshots; contratos de leitura/escrita; consumidores reais e em construcao; decisao REUTILIZAR/ESTENDER/VINCULAR/SEPARAR/PRESERVAR_SNAPSHOT/CRIAR_COM_JUSTIFICATIVA; regras de equivalencia; acesso/finalidades; ciclo de vida e efeitos da retirada; estrategia de integridade/concorrencia; testes; revisao e estado da evidencia.
+
+Indice aponta ao dono; consumidores registram somente seu uso e link reverso. Nao copiar a regra inteira para cada tela, modulo ou agente. Nao transformar mapa documental em tabela de runtime que registre cada leitura.
+
+Diferenciar PROPOSTO, CONFIRMADO_NO_REPO, CONFIRMADO_NO_BANCO e CONFIRMADO_NO_RUNTIME. Identificar contagem exata versus estimada, escopo e momento. Vazia ou sem grep nao certifica desuso.
+
+Unificacao inclui mapa nominal DE/PARA, IDs e consumidores migrados; regra descartada sai da especificacao ativa, preservando historico. Regra em Markdown nao comprova constraint instalada nem exclusao segura executada.
+
+Modelo enxuto no dono do projeto, preenchido apenas com fatos e propostas claramente marcadas:
+
+```text
+ENTIDADE / DNA:
+SIGNIFICADO E GRANULARIDADE:
+DONO CANONICO / CONTRATO:
+IDENTIDADE, EMPRESA E CARDINALIDADE:
+FONTES FISICAS COMPROVADAS:
+QUEM LE / GRAVA / SOLICITA EXCLUSAO:
+DERIVADOS / SNAPSHOTS / INVALIDACAO:
+DECISAO DE REAPROVEITAMENTO E MOTIVO:
+RETIRAR VINCULO / REGISTRO / MODULO:
+RETENCAO / INTEGRIDADE / CONCORRENCIA:
+DE-PARA / ROLLBACK:
+EVIDENCIAS E LIMITES POR AMBIENTE:
+```
+
 ## Identificacao e documentacao interna do codigo
 
 Codigo escrito a mao identifica arquivo, modulo dono, finalidade curta e documento canonico existente no cabecalho. Reutilizar metadados/convenções exigidos pelo projeto; na falta deles, usar `ARQUIVO_ID: arquivo:<caminho relativo>`, `MODULO_DONO: <modulo>`, `FINALIDADE: <uma frase>` e `DOCUMENTO_CANONICO: <caminho/ancora que resolve>`. Nao escrever placeholders como se fossem cadastro pronto, nem repetir a especificacao de negocio no cabecalho.
