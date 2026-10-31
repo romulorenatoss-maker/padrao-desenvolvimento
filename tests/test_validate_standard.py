@@ -189,6 +189,21 @@ class DistributionTests(unittest.TestCase):
                 path.write_text(text, encoding="utf-8")
         self.assertEqual(validate(self.root), [])
 
+    def test_parity_and_concurrency_owners_are_required(self):
+        self.assert_mutations_fail([
+            ("skills/prototipo-real/SKILL.md", "## Instancia e fonte ativa verificaveis", "## Secao retirada"),
+            ("skills/construir/SKILL.md", "## Integracao de trabalhos concorrentes", "## Secao retirada"),
+        ])
+
+    def test_parity_consumers_keep_owner_links(self):
+        for consumer in ("analisar", "interface", "verificar", "documentacao"):
+            with self.subTest(consumer=consumer):
+                p = self.root / "skills" / consumer / "SKILL.md"
+                original = p.read_text(encoding="utf-8")
+                p.write_text(original.replace("../prototipo-real/SKILL.md#", "../prototipo-real/SKILL.md?"), encoding="utf-8")
+                self.assertTrue(any("ponte para paridade ausente" in e for e in validate(self.root)))
+                p.write_text(original, encoding="utf-8")
+
     def test_motion_package_resources_and_license_required(self):
         paths = ("LICENSE", "workflows/create.md", "workflows/audit.md",
                  "references/motion-cookbook.md", "references/demo-shell.html")

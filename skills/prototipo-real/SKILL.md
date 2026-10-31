@@ -96,3 +96,29 @@ Ao publicar o real de uma tela, aba ou modal prototipado:
 6. A entrada no historico de entregas diz o resultado da comparacao: sem diferenca, ou quais diferencas foram para o andamento.
 
 O fiscal independente exigido pelo projeto confere esse candidato e a revisao aprovada, nao apenas o texto do recibo. Mudanca posterior invalida a evidencia atingida; revisao/documentacao aprovadas nao substituem execucao real ou prova de versao ativa.
+
+## Conexoes funcionais no alcance autorizado
+
+No prototipo, isolar adaptadores/dados simulados e demonstrar apenas a persistencia existente. Na conversao autorizada, reinspecionar contratos reais, dados e consumidores, preservando a fonte unica aprovada; mock/localStorage nao vira REAL_CONECTADO. Fonte dona: [conexoes funcionais e rastreabilidade bidirecional](../../references/DOCUMENTACAO.md#conexoes-funcionais-e-rastreabilidade-bidirecional), incluindo estados, auditoria seletiva e cenarios de aceite; nao duplicar esse esquema aqui.
+
+## Instancia e fonte ativa verificaveis
+
+Esta secao e a fonte dona da paridade de implementacao entre IAs; nao e prova de bloqueio mecanico instalado.
+
+Antes de editar uma interface, conferir o andamento/fila e o resolvedor real da rota. No documento dono existente, identificar host/porta, processo/PID ou identidade de instancia, raiz real/clone, revisao de base e candidata, URL canonica, perfil/dados/viewport e conjunto efetivamente carregado (view, assets, IDs de modal, injetores, aliases e contratos). localhost de maquinas ou containers diferentes nao identifica a mesma instancia. Para revisao compartilhada em rede, usar somente endereco autorizado com autenticacao/restricao; nao expor porta ou banco de teste a internet.
+
+Uma identidade de tela/aba/modal tem um unico conjunto de fontes ativas por ambiente e estado de revisao. HTML/PHP, CSS e JS podem estar separados. Nao criar copia por IA, X2, rota alternativa ou overlay paralelo para contornar conflito. Diferenciar real publicado, prototipo candidato, prototipo aprovado e comparacao historica: historico so em rota explicitamente rotulada, nunca fallback silencioso da rota ativa. Revisao pendente conserva sua identidade/fila; nao apagar nem promover por silencio.
+
+Partir da ultima fonte salva atual. Nao restaurar origin/main, export _real, cache, worktree ou snapshot por conveniencia; Git so restaura historico por pedido explicito, com impacto e nova revisao visual. Antes de usar sincronizador/espelho, conferir se pode sobrescrever a fonte atual: comparacao de bytes ou sintaxe JS nao prova base recente, autoria ou aprovacao. Se houver risco comprovado, suspender somente a integracao afetada pelo mecanismo existente autorizado e preservar as duas revisoes; sem mecanismo disponivel, bloquear essa escrita e informar. Desativacao definitiva, limpeza e reinicio continuam exigindo alcance autorizado.
+
+O resolvedor deve detectar mudanca de composicao de fontes (arquivo novo, removido ou renomeado), invalidar o mapa e atualizar com seguranca o servico/montagem pertinente antes da apresentacao. Nao afirmar revisao carregada porque o arquivo foi salvo. Evitar reinicio desnecessario e preservar dados e formularios nao salvos; quando nao puder recarregar com seguranca, avisar nova revisao. A regra nao cria automaticamente daemon, banco de coordenacao ou infraestrutura: reusar controles existentes e aplicar o gate de arquivos.
+
+Na substituicao autorizada, comparar antes/depois apenas no recorte: criador do modal, DOM/IDs, abertura/fechamento, listeners, validacoes/requests, CSS/assets, imports/injetores, aliases/menu e consumidores. Retirar referencias ativas exclusivas comprovadamente substituidas; ocultar com CSS/flag nao remove a versao antiga. Gerados sao regenerados da fonte canonica, nao editados em dois lugares. Preservar dados, regras aprovadas, consumidores compartilhados, candidatos pendentes, backups e historico. Duvida fica CANDIDATO_A_REMOCAO; nao autoriza limpeza em massa.
+
+### Evidencias proporcionais de paridade
+
+No recorte autorizado, comparar a mesma rota/aba/modal em dois contextos independentes da mesma instancia, com mesmo perfil/estado e condicoes equivalentes. Conferir estrutura, revisao/hash dos recursos e screenshot real; separar diferencas legitimas de dados, localStorage e viewport. HTTP200, nome no disco e screenshot isolado nao provam origem unica.
+
+Ensaiar salvar -> conferir nos dois contextos -> recarregar -> reiniciar somente o servico autorizado sem reset de dados -> conferir novamente. Quando pertinente ao defeito, provar que fonte nova passa a ser servida e que overlay retirado por ordem explicita nao volta apos reload/reinicio/troca de IA; nao criar/remover arquivo artificial ou parar outro trabalho so para preencher checklist.
+
+Comprovar tambem edicoes independentes e conflito no mesmo arquivo sem perda, alem de produtor A/consumidor B: incompatibilidade impede publicacao isolada, compatibilidade exige teste executado. Registrar no dono por item: instancia/rota/contexto, fontes/revisao, diff, screenshot/aceite, paridade, residuos, fluxo e estado real de commit/push/merge/deploy. Resultados PASSOU, FALHOU, NAO_VERIFICADO ou NAO_SE_APLICA; indisponibilidade e motivo ficam explicitos. Teste textual da skill nao comprova paridade de navegador, reserva atomica, limpeza ou runtime.

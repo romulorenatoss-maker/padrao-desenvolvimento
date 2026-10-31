@@ -131,3 +131,66 @@ Classificar cada trecho: identidade/ponte/protecao curta -> AGENTS; metodo globa
 Protecao nao desaparece nem e enfraquecida por mudanca de lugar. Link de protecao deve ser leitura obrigatoria antes da escrita, inclusive por outros agentes. Se qualquer destino estiver indefinido, sem acesso ou ainda nao validado, preservar o trecho original. Nao substituir AGENTS protegido sem autorizacao especifica; mover seu conteudo tambem e alteracao. CLAUDE.md novo e ponte, nao copia de regras.
 
 Proibidos como atalhos: PLANO.md, FINAL.md, V2.md, notas de agente, resumo/memoria paralela e backups documentais. Excecao nao prevista so pelo gate `0393`, sem contornar proibicao local explicita. Historico fica no Git; o estado atual necessario fica no dono canonico.
+
+## Conexoes funcionais e rastreabilidade bidirecional
+
+Fonte dona do mapa de ligacoes; atualizar a cadeia/documento existente do projeto, sem arquivo YAML, indice universal, banco ou skill nova por campo. Aplicar sob demanda a campos, acoes, status, modais, eventos, calculos e contratos novos/alterados. Pedido direto claro continua executavel imediatamente no prototipo no local solicitado; analise/proposta sem ordem nao escreve codigo; REAL expresso nao presume deploy.
+
+Rastrear pedido/regra -> capacidade/DNA -> entradas -> processamento/contrato -> saidas -> consumidores -> testes -> aprovacao, e o percurso inverso do consumidor ate a decisao aprovada. Investigar finalidade, origem, entrada, modulo dono, destino, quem usa, reflexos de editar/excluir/cancelar/recalcular, prova e autorizacao. Buscar sinonimos e simbolos tecnicos em eventos, handlers, rotas, imports, DTOs, queries, tabelas, jobs e chamadas dinamicas; ampliar o recorte conforme evidencias. Busca literal vazia nao comprova ausencia.
+
+| Classificacao da ligacao | Tratamento |
+|---|---|
+| COMPROVADA | Fonte e consumidor localizados no codigo/contrato; reutilizar e testar. A referencia sozinha nao prova funcionamento. |
+| EXIGIDA_PELO_PEDIDO | Necessaria dentro do local autorizado; implementar e testar no mesmo pedido, sem nova autorizacao de detalhe tecnico interno. |
+| INFERIDA_A_CONFIRMAR | Hipotese plausivel, nao fato nem autorizacao; explicar evidencia/motivo e perguntar antes de alterar outro local. |
+| EXISTENTE_NAO_VERIFICADA | Referencia existe, funcionamento ainda nao demonstrado; executar verificacao. |
+| INEXISTENTE | Ausencia limitada ao alcance inspecionado; propor somente se pertinente, sem inventar contrato. |
+| FORA_DO_ESCOPO | Consumidor conhecido e nao autorizado; preservar e registrar impacto/pendencia. |
+| DESCARTADA | Rejeitada explicitamente; nao ressuscitar via historico ou memoria. |
+
+Mapa compacto no dono: ID/DNA estavel; objetivo/regra; fonte da decisao e autorizacao; ambiente e revisao candidata; entrada; fornecedor do dado/calculo e contrato real; saida; consumidores nominais com caminho/ID/DNA, contrato, classificacao e estado; prova executada e aceite por local. Contrato nao encontrado e A_LOCALIZAR, nunca nome ficticio de API. Origem descreve o que fornece; consumidor referencia o que usa. Atualizar ou invalidar os vinculos quando fonte, contrato ou revisao mudar; nao duplicar a especificacao em cada tela.
+
+Pergunta nominal para efeito adicional: "Voce pediu [X] em [A]. Identifiquei [B/contrato C] que [usa ou pode precisar do resultado], porque [evidencia ou hipotese]. Deseja conectar tambem em [B]? O que ja esta aprovado sera preservado." Nao esperar o responsavel descobrir sozinho a ligacao. Agrupar impactos reais e priorizar decisoes, sem entrevistas genericas nem alterar primeiro para perguntar depois. Dependencia tecnica interna indispensavel ao pedido nao e novo local de negocio; se um contrato compartilhado atingir inevitavelmente consumidor nao autorizado, bloquear somente esse trecho, sem copiar a regra para contornar a decisao.
+
+Exemplo ilustrativo: frete em Pedidos exige investigar total, cotacao, endereco, financeiro, entrega/documentos, cancelamento e relatorios; sao candidatos, nao destinos obrigatorios universais. Diferenciar frete cobrado do cliente, custo de transportadora e previsao. Se o contrato do total ja consome o campo, verificar a ligacao; outra tela nao autorizada fica pendente. Novo desconto pede conferir total/pedido/financeiro; novo cancelamento pede conferir detalhe, edicao, notificacoes e relatorios pertinentes. Nenhum exemplo afirma contratos de um projeto real.
+
+### Prova e estados por ligacao
+
+Comprovar interface/evento, calculo/condicoes/recusas, persistencia aplicavel, efeito no consumidor, reflexos de atualizacao/cancelamento e regressao do nao autorizado. PROTOTIPO mostra simulacao isolada com dados de teste; REAL exige contratos/persistencia exercitados no ambiente autorizado. Screenshot nao prova contrato, banco ou acesso. NAO_EXECUTADO exige motivo e mantem o elo pendente.
+
+Estados separados: UI_CONSTRUIDA (nao afirma integracao), CADEIA_PROTO_CONECTADA (simulacao executada), REAL_CONECTADO (contratos/dados reais exercitados), CONSUMIDOR_PENDENTE_DE_AUTORIZACAO, CONEXAO_NAO_VERIFICADA, AGUARDANDO_CONFIRMACAO_VISUAL e CAPACIDADE_APROVADA. Esta ultima exige todas as ligacoes obrigatorias do alcance aprovado implementadas, testadas e aceitas no ambiente correspondente. Botao sem acao, contrato sem chamada, chamada sem efeito e integracao so descrita nao passam. Nao marcar REAL com mocks, fixtures ou localStorage. Entregar parte independente como "trecho local construido; integracao pendente"; nao esconder utilidade nem afirmar completude. Preservar a fila e screenshot real/aceite individual de interface; aprovar uma tela nao aprova as demais. Cinco alteracoes so contam para salvamento quando integralmente aprovadas, conforme construir.
+
+### Auditoria seletiva de capacidades orfas
+
+Somente no modulo/capacidade indicado: partir da rota/elemento/DNA e rastrear origem e destino. Classificar ATIVA_E_CONECTADA, PARCIAL, SEM_CONSUMIDOR_COMPROVADO, REFERENCIA_OBSOLETA, INFERIDA_A_CONFIRMAR ou NAO_VERIFICADA. Mostrar antes, ligacao proposta/destino, motivo, risco e teste. Perguntar por locais adicionais, registrar a resposta na fila e executar apenas o autorizado. Nao apagar automaticamente unidade aparentemente orfa nem migrar consumidores por esta regra; chamadas dinamicas podem existir. Correcao exige teste do ciclo e aceite dos locais afetados.
+
+### Cenarios de aceitacao da regra
+
+Matriz para avaliacao, nao recibo de execucao comportamental de IA. Testes de texto/links verificam distribuicao; navegador, comportamento e ativacao de plugin/sessao exigem evidencias proprias. Quando indisponiveis, registrar NAO_EXECUTADO e motivo.
+
+| Caso | Cenario e resultado exigido |
+|---|---|
+| C01 | Frete em Pedidos: descobrir fornecedor e consumidores, nao concluir pelo campo. |
+| C02 | Total ja consome frete: executar fluxo e conferir exibicao. |
+| C03 | Financeiro candidato: perguntar antes de alterar a tela. |
+| C04 | Financeiro nao autorizado: manter pendencia sem bloquear Pedidos independente. |
+| C05 | Financeiro autorizado: conectar, testar e apresentar para aceite proprio. |
+| C06 | Custo logistico e cobranca distintos: nao misturar sem decisao. |
+| C07 | Adicione X: entendimento de ate tres linhas e construcao imediata no prototipo. |
+| C08 | So analise X: nao escrever codigo. |
+| C09 | Real expresso: respeitar ambiente/controles, sem deploy presumido. |
+| C10 | Botao sem acao: reprovar conclusao funcional. |
+| C11 | Contrato sem chamada: registrar ligacao faltante. |
+| C12 | Chamada sem efeito: falha, nunca PASSOU. |
+| C13 | Consumidor dinamico: busca vazia nao autoriza ausencia/remocao. |
+| C14 | Componente compartilhado: mapear consumidores e obter escopo adicional. |
+| C15 | Outra tela aprovada: preservar; nova revisao somente se afetada. |
+| C16 | Tres locais autorizados: tres provas visuais e aceites separados. |
+| C17 | Sem screenshot/navegador: nao inventar prova, manter aceite pendente. |
+| C18 | Mudanca de local: decidir manter ou remover o anterior conforme interface. |
+| C19 | Conversao real: reinspecionar contratos, dados e consumidores. |
+| C20 | Regra descartada: nao usar historico como fonte ativa. |
+| C21 | Orfa aparente: auditoria seletiva, sem remocao ou alteracao automatica. |
+| C22 | Cinco aprovados: commit/push do lote aprovado, sem segredo ou deploy de prototipo. |
+| C23 | Consulta contextual: IDs/referencias do recorte, sem carregar projeto inteiro. |
+| C24 | Inferencia: explicar hipotese, nao registrar como comprovada. |

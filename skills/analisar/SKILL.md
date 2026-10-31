@@ -71,3 +71,11 @@ Gate cobre arquivos de fonte, testes, docs, configuracoes, scripts, memorias, AG
 Projeto existente para organizar: `auditar-projeto`, [arquitetura](../../references/ARQUITETURA.md) e `documentacao`. Projeto vazio/bootstrap: `iniciar-projeto`. Nao copiar arquitetura de outro sistema nem criar arvore vazia.
 
 Consultar, planejar, prototipar, construir, conceder acesso, migrar banco, commitar, publicar e remover dados sao operacoes distintas. Bootstrap/instalacao autorizados nao autorizam mexer no produto. Respeitar instrucoes obrigatorias do host/administrador; recursos auxiliares nunca ampliam permissao de escrita. Revisao final segue `verificar`.
+
+## Conexoes funcionais no alcance autorizado
+
+Descobrir fornecedor, destino, consumidores comprovados/dinamicos e hipoteses por sinonimos e simbolos. Classificar cada ligacao e manter mapa de impacto pequeno, expandindo somente por evidencia; nao substituir investigacao por suposicao. Fonte dona: [conexoes funcionais e rastreabilidade bidirecional](../../references/DOCUMENTACAO.md#conexoes-funcionais-e-rastreabilidade-bidirecional), incluindo estados, auditoria seletiva e cenarios de aceite; nao duplicar esse esquema aqui.
+
+## Paridade e concorrencia
+
+Antes da escrita, descobrir tambem a instancia/resolvedor efetivamente usados e o trabalho concorrente por fontes e contratos; seguir [fonte ativa verificavel](../prototipo-real/SKILL.md#instancia-e-fonte-ativa-verificaveis) e [integracao concorrente](../construir/SKILL.md#integracao-de-trabalhos-concorrentes). Nao confundir localhost em hosts diferentes nem reserva documental com exclusao mutua.
