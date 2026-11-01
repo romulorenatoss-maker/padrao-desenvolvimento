@@ -221,3 +221,9 @@ Matriz para avaliacao, nao recibo de execucao comportamental de IA. Testes de te
 | C22 | Cinco aprovados: commit/push do lote aprovado, sem segredo ou deploy de prototipo. |
 | C23 | Consulta contextual: IDs/referencias do recorte, sem carregar projeto inteiro. |
 | C24 | Inferencia: explicar hipotese, nao registrar como comprovada. |
+
+### Registro obrigatório de Issue, PR e histórico (emenda 2026-10-31)
+
+Em cada issue funcional, registrar DNA_IDs existentes e links para os documentos donos; quando ainda desconhecidos, usar DNA_PENDENTE com motivo, nunca fabricar identidade. A mesma issue pode envolver múltiplos DNAs e um DNA pode aparecer em várias issues. No PR, relacionar todas as issues pertinentes, DNAs efetivamente alterados, documentos donos, migrations, consumidores, testes e riscos. Usar o template de PR existente, se houver. Sem DNA funcional (ex.: manutenção exclusiva de CI), usar SEM_DNA_FUNCIONAL e explicar. Não exigir ID fictício para mudanças exclusivamente documentais.
+
+O inventário histórico é retrospectivo e não modifica issues/PRs encerrados: recuperar número, URL, título, estado e merge SHA comprovados; classificar DNA como CONFIRMADO, INFERIDO_A_CONFIRMAR ou NAO_IDENTIFICADO. Nunca converter título, número de PR ou hipótese em DNA confirmado. Preservar a especificação vigente no documento dono e o histórico no Git, sem criar cadastro paralelo obrigatório nos projetos consumidores. Ao alterar documento dono, adicionar links qualificados comprovados ao registro de entrega pertinente. Uma automação pode validar a presença dos campos, mas não comprova que o DNA corresponde ao código; branch protection requer configuração separada e ensaio.
