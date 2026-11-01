@@ -130,3 +130,7 @@ Aplicar o gate por ligacao: testar entrada, contrato, persistencia aplicavel, co
 ## Paridade e concorrencia
 
 Quando o pedido tocar fontes concorrentes ou publicacao parcial, conferir [paridade da instancia](../prototipo-real/SKILL.md#evidencias-proporcionais-de-paridade) e [grupo de integracao funcional](../construir/SKILL.md#integracao-de-trabalhos-concorrentes). Cobrir conflito, composicao de fontes, residuos e compatibilidade no recorte pertinente; teste textual nao comprova bloqueio mecanico nem runtime.
+
+### Rastreabilidade de entrega — complemento
+
+Aplicar [registro obrigatório de Issue, PR e histórico](../../references/DOCUMENTACAO.md#registro-obrigatorio-de-issue-pr-e-historico-emenda-2026-10-31). Conferir IDs existentes, não inventar DNA, registrar pendências e evidências, e conciliar o diff real antes da integração.
