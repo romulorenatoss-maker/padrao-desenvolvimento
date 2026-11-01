@@ -146,3 +146,7 @@ Mapear impacto entre arquivos e pedidos, inclusive dados/eventos/API/queries/est
 A cada mudanca de arquivos, contratos, revisao candidata, fase, erro ou publicacao, atualizar o andamento/fila compartilhados existentes com executor, pedido, caminhos/trechos, hashes/revisao e dependencias; nao esperar o fim da conversa. Antes de assumir um arquivo, a outra IA consulta esse estado e o diff atual; conflito exige passagem explicita e confirmacao da revisao relida. Usar canal de coordenacao entre agentes ja disponivel/autorizado para avisar alteracao que afete o outro. Sem canal ativo, declarar que nao ha notificacao automatica e manter a passagem no registro compartilhado, sem alegar que a outra sessao leu ou recarregou a skill.
 
 Um coordenador controla staging/indice do grupo. Preservar candidatos de outros executores; nao git add -A nem reset/force/stash destrutivo para esconder conflito. Cinco alteracoes so contam quando integralmente aprovadas e verificadas; nao autorizam deploy de prototipo. Paridade, espelhos, composicao de fontes e residuos seguem a fonte dona [instancia e fonte ativa verificaveis](../prototipo-real/SKILL.md#instancia-e-fonte-ativa-verificaveis).
+
+### Rastreabilidade de entrega — complemento
+
+Aplicar [registro obrigatório de Issue, PR e histórico](../../references/DOCUMENTACAO.md#registro-obrigatorio-de-issue-pr-e-historico-emenda-2026-10-31). Conferir IDs existentes, não inventar DNA, registrar pendências e evidências, e conciliar o diff real antes da integração.
