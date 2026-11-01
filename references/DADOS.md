@@ -115,6 +115,32 @@ Troca do perfil em Integracoes ou equivalente exige inventario de objetos e refe
 ## Desempenho e prova de consolidacao
 Revalidar no servidor preco, desconto, credito, pagamento, saldo, estoque, capacidade, propriedade e transicoes criticas.
 
+### Onde calcular: frontend, backend e banco
+
+| Camada | Responsabilidade e limite |
+|---|---|
+| Frontend | Formatar moeda/data, controlar a interface e calcular previas com os campos autorizados ja carregados. Previa nao e valor oficial nem autoriza gravacao; nao baixar historico/cadastro inteiro para calcular, contar ou filtrar localmente. |
+| Backend/service dono | Validar entrada, sessao, permissao, empresa, regras e transicoes; resolver precos e condicoes pelas fontes/contratos vigentes e coordenar a persistencia. Nao aceitar preco, desconto permitido, saldo ou total enviados pelo navegador como verdade. |
+| Banco, pela persistencia do dono | Calcular/consolidar valores oficiais do pedido/fatura, saldos e movimentos; agregar, filtrar, ordenar e paginar conjuntos de registros. Usar SQL/RPC compativeis com a stack e confirmar valores e efeitos relacionados na mesma transacao, com constraints e controle de concorrencia. |
+
+No pedido, quantidade, preco aplicavel, descontos, frete e tributos pertinentes devem produzir um total oficial conferido ao gravar, usando os dados/revisoes autorizados para aquela operacao. A previa do navegador e substituida pelo resultado confirmado. Definir decimais/unidades, precisao, arredondamento, idempotencia e tratamento de alteracao concorrente; calcular no banco nao torna uma formula incorreta em correta. Nao recalcular todo o historico a cada abertura: saldo/total derivado mantido por movimento so quando justificado, com atualizacao consistente, estorno e reconciliacao/reconstrucao verificaveis.
+
+### Prioridade de abertura, badges e alertas
+
+Classificar no documento da pagina existente o essencial para operar, os complementos adiaveis e os detalhes sob demanda. Primeiro validar sessao/escopo/permissao e entregar estrutura e primeira pagina de dados necessarios; nao preparar todas as abas, modais e detalhes antes de tornar a pagina utilizavel. Reutilizar verificacoes equivalentes na mesma requisicao, sem transformar isso em autorizacao antiga entre requisicoes.
+
+Badges, contadores de menu e alertas informativos auxiliares carregam depois, de forma assincrona e independente da abertura. O frontend apresenta o resultado; a contagem vem de consulta agregada no banco, restrita ao usuario/empresa permitidos, sem montar os objetos completos nem fazer uma consulta por item. Atraso/falha nessa consulta nao bloqueia navegacao ou formulario. Alerta que determina permissao, manutencao, credito, saldo ou outra recusa critica continua validado no servidor antes da operacao; adiar o badge nao adia essa protecao.
+
+Enquanto nao houver resultado, nao inventar numero nem confundir indisponibilidade com zero. Se houver cache existente autorizado, isolar por identidade/empresa/escopo, definir validade e invalidacao e distinguir dado anterior de confirmado. Remover o badge quando a consulta confirmar zero; descartar resposta atrasada de outro contexto. Nao compartilhar contagens privadas nem deixar cache conceder acesso.
+
+Atualizar contagens afetadas depois de uma acao confirmada ou por mecanismo existente compativel com a necessidade de atualidade. Evitar consultas duplicadas, polls sobrepostos e repeticao agressiva em erro; limitar frequencia/concorrencia e pausar atualizacoes auxiliares de pagina oculta quando aplicavel. Nao criar um endpoint por badge ou infraestrutura nova por rotina.
+
+### Verificacao por pagina
+
+Medir abertura util, consultas/idas ao banco, bytes, espera de rede/backend e processamento/renderizacao no navegador com cardinalidade representativa; distinguir primeiro acesso e cache aquecido. Conferir planos/indices das consultas custosas, consultas por linha e agregados repetidos. Mover trabalho pesado para JavaScript pode apenas trocar a espera de rede por travamento da interface. Registrar orcamento de tempo pertinente ao fluxo, sem prometer velocidade por contagem de tabelas ou teste com banco vazio.
+
+No recorte alterado, testar que badge lento/com erro nao prende a pagina nem falsifica zero; troca de usuario/empresa nao reaproveita resultado indevido; previa adulterada nao muda o total oficial; gravacao concorrente/repetida preserva os valores e efeitos relacionados. Registrar evidencia e limites no dono da pagina; ensaio textual do padrao nao certifica tempo, integridade ou comportamento de consumidor.
+
 Nao carregar cadastro/historico inteiro para pagina, resumo ou detalhe. Filtrar escopo e selecionar campos no backend; evitar `SELECT *` em listagens e consultas por linha quando lote resolve. Paginacao/limites no servidor; ordenacao dinamica por lista permitida. Calculo oficial tem dono, unidade, precisao e arredondamento.
 
 Cache nao cria autorizacao nem confirma operacao. Nao persistir dado privado no navegador por conveniencia. Nao criar cache, fila, worker, indice ou infraestrutura para esconder desenho ruim.
