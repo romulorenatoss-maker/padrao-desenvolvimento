@@ -42,3 +42,7 @@ Manter no dono existente o mapa e os links reversos por capacidade; origem expli
 ## Paridade e concorrencia
 
 Para interface compartilhada, registrar no dono existente a instancia/rota, fontes carregadas/revisao, candidato/aprovado, consumidores e evidencias conforme [fonte ativa verificavel](../prototipo-real/SKILL.md#instancia-e-fonte-ativa-verificaveis); dependencia/publicacao seguem [integracao concorrente](../construir/SKILL.md#integracao-de-trabalhos-concorrentes). Nao duplicar mapa/fila nem promover escrita de skill a correcao executada.
+
+### Rastreabilidade de entrega — complemento
+
+Aplicar [registro obrigatório de Issue, PR e histórico](../../references/DOCUMENTACAO.md#registro-obrigatorio-de-issue-pr-e-historico-emenda-2026-10-31). Conferir IDs existentes, não inventar DNA, registrar pendências e evidências, e conciliar o diff real antes da integração.
