@@ -58,6 +58,7 @@ Esta tabela e consumida pelo gate de `analisar`. E previsao de tipos/destinos, n
 | Migration/contrato persistente | construir e seguranca | Mudanca de dados necessaria e autorizacao da operacao; criar SQL nao autoriza aplica-lo. |
 | Alteracao da distribuicao central | evoluir-padrao | Pedido de evolucao do metodo; skill/reference/template/manifests e verificacoes diretamente afetados, sem fabrica de arquivos. |
 | Saidas de build, testes e instalacao autorizados | verificar; iniciar-projeto para bootstrap | Comando conhecido, destino gerado/cache/temp identificado, dados controlados e descarte/retencao definida. Inclui relatórios e screenshots pertinentes; nao permite notas paralelas. |
+| Pasta `temp/` de perguntas e fila temporarias | construir | Duvida de criacao/comportamento a perguntar ao responsavel; somente `temp/` dentro da pasta privada nao versionada do projeto (ex.: `backup/temp/`), conforme [pasta temp](../skills/construir/SKILL.md#pasta-temp-de-perguntas-e-fila-temporarias); excluida ao terminar sem pendencias. |
 | Copia de trabalho para analise/teste | analisar | Fonte/ref confirmados, destino descartavel delimitado e separado do projeto; copia nao e nova fonte canonica nem autorizacao de sobrescrita. |
 | Configuracao de qualidade, testes, telemetria ou CI | verificar; seguranca para dados/integração | Perfil compativel e adocao autorizados, reutilizar ferramentas/comandos e destinos existentes; gasto, contas, dados enviados e novas dependencias precisam de escopo especifico. |
 

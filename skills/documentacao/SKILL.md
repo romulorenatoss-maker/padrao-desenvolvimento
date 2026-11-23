@@ -5,7 +5,7 @@ description: "Use quando mudar comportamento, estrutura, contrato, regra, dado, 
 
 # Documentacao
 
-Documentacao explica responsabilidade, comportamento e vinculos; nao reescreve codigo em prosa. Consultar `analisar` e [destinos/conteudo](../../references/DOCUMENTACAO.md), fonte dona do formato e da manutencao. Decisao respondida vive no modulo dono; perguntas/fila guardam so o aberto conforme `construir`.
+Documentacao explica responsabilidade, comportamento e vinculos; nao reescreve codigo em prosa. Consultar `analisar` e [destinos/conteudo](../../references/DOCUMENTACAO.md), fonte dona do formato e da manutencao. Decisao construida vive no modulo dono; pergunta aberta e resposta a construir ficam somente na [pasta temp](../construir/SKILL.md#pasta-temp-de-perguntas-e-fila-temporarias), nunca no documento.
 
 Atualizar o dono existente; documento novo somente por responsabilidade real sem equivalente, necessidade/autorizacao e previsao no gate. Nao criar um por agente, arquivo, funcao, botao, linha ou execucao, nem arvore vazia/PLANO/FINAL/V2/backup/memoria/certificado paralelo. Mapas nominais e evidencias exigidos por instrumentos locais permanecem. Mudanca interna sem conhecimento novo nao exige narrativa artificial, salvo registro local obrigatorio.
 
