@@ -35,6 +35,10 @@ Quando o responsavel pedir comparacao de abordagens, preparar previas isoladas d
 
 Escolha aprovada fixa a referencia daquele projeto. Novas telas reutilizam tokens/componentes; tela antiga muda somente no lote autorizado, preservando regras, DNAs e peculiaridades. Nao carregar varias skills de gosto simultaneamente como ordens concorrentes nem obrigar uma comparacao A/B a cada ajuste. Reusar verificacoes aprovadas; corrigir falha e retestar somente o efeito atingido.
 
+### Plugins de design na construcao e revisao
+
+Quando estiverem instalados: (1) usar o plugin frontend-design apenas para acabamento visual (espacamento, hierarquia, estados, consistencia), sempre preso ao molde/briefing e aos componentes ja existentes do projeto, sem inventar estetica nova nem trocar o padrao aprovado; (2) antes de mostrar qualquer tela nova ou alterada ao responsavel (secao 6), passar pela revisao do plugin UI Design Review (skills ui-review e ui-polish) na tela renderizada em celular e desktop, corrigir dentro do padrao do projeto o que for apontado como importante e so entao mostrar. A revisao nao substitui a aprovacao do responsavel nem autoriza mudar estrutura aprovada. Sem os plugins, declarar o limite e seguir a revisao visual ja prevista (secao 5). Nao usar outros plugins de design para este fim.
+
 ## 2. Uma fonte implementada, varios consumidores
 
 Buscar componente/token/variante antes de criar. Reutilizar; estender quando semanticamente compativel; criar somente responsabilidade distinta necessaria. Nao criar Botao2, copias de modal ou um componente unico com dezenas de flags contraditorias.
@@ -135,7 +139,7 @@ Antes de modificar local adicional, inclusive consumidor de componente compartil
 
 Fluxo por item: REGISTRADO -> EM_CONSTRUCAO_PROTO (ou EM_CONSTRUCAO no real expressamente pedido) -> IMPLEMENTADO_NAO_APRESENTADO -> AGUARDANDO_CONFIRMACAO_VISUAL -> APROVADO. Correcao usa EM_REVISAO e repete apresentacao; impedimento usa BLOQUEADO com motivo. Adiamento, cancelamento ou substituicao exigem decisao do responsavel e nao contam como aprovacao.
 
-Depois de implementar e verificar, salvar a fonte e abrir a rota/aba/selecao correta na mesma aba acessivel ao responsavel, sem perder edicoes nao salvas. Abrir o modal quando a mudanca estiver nele e posicionar o elemento visivelmente. Confirmar que a revisao servida e a atual. URL enviada ou navegador oculto nao comprovam que o usuario viu a tela.
+Depois de implementar, verificar e passar pela [revisao dos plugins de design](#plugins-de-design-na-construcao-e-revisao) quando instalados, salvar a fonte e abrir a rota/aba/selecao correta na mesma aba acessivel ao responsavel, sem perder edicoes nao salvas. Abrir o modal quando a mudanca estiver nele e posicionar o elemento visivelmente. Confirmar que a revisao servida e a atual. URL enviada ou navegador oculto nao comprovam que o usuario viu a tela.
 
 Capturar e apresentar screenshot REAL da implementacao de cada tela/modal/estado alterado, com pedido/item, local, revisao e descricao do delta. Mostrar antes/depois quando necessario para entender movimento/remocao. Usar destino de evidencia ja previsto, dados controlados e nenhuma credencial/dado privado em print ou Git. Imagem gerada e previa, nunca screenshot de implementacao. Captura nao substitui testes de clique, regra, acesso ou persistencia.
 
