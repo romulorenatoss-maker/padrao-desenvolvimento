@@ -252,6 +252,7 @@ def validate(root: Path) -> list[str]:
         "templates/PADRAO_VISUAL.md": ("## Matriz de cobertura", "## Ficha de peca",
                                      "## Diferencas e excecoes", "## Cobertura e conferencia"),
         "skills/interface/SKILL.md": ("### Catalogo local e promocao de uma peca",
+                                     "### Ciclo de vida de uma peca",
                                      "### Desktop e mobile no mesmo padrao",
                                      "### Contrato de listas e carregamento"),
         "skills/verificar/SKILL.md": ("## Conferencia obrigatoria do fiscal",),

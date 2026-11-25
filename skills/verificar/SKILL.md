@@ -59,8 +59,21 @@ Ler o diff completo, arquivos novos/nao rastreados pertinentes e os donos/consum
 | Componentes e hooks | Dono local/comum, contrato, estado/efeitos, convencao e verificacoes da stack adotada; sem dependencias ou tecnologia introduzidas pelo exemplo. |
 | Documentacao | Documento dono atualizado junto do codigo, sumario/IDs/links corretos, origem da decisao, exemplos reais e nenhuma regra contraditoria/duplicada. |
 | Interface | Catalogo/revisao, tokens/implementacao compartilhados, estados/carregamento, desktop/mobile e efeitos indiretos em consumidores. |
-| Diferencas | Base/variante/configuracao/excecao/divergencia classificadas, propriedades e modos delimitados, origem verdadeira; sem aprovacao inventada. |
+| Diferencas | Base/variante/configuracao/excecao/divergencia classificadas, propriedades e modos delimitados, origem verdadeira; sem aprovacao inventada. Excecao com os tres vinculos (`E##` no catalogo, `PADRAO_EXCECAO` abaixo do DNA, linha na tela); faltando um, reprova. |
+| Paridade | A mesma peca nas telas tocadas e nas vizinhas tem a mesma forma; diferenca sem excecao/variante registrada reprova ou vira `D##`. ID de peca sem nome de modulo; um icone por significado. |
 | Cobertura e aceite | Alcance da migracao, consumidores realmente conferidos, evidencias de teste/apresentacao/aceite e pendencias preservadas. |
+
+Arvore do fiscal para cada diferenca visual:
+
+```text
+diferenca encontrada
++-- ha E## registrado com os tres vinculos? -> sim: PASSOU nesse ponto
++-- ha variante aprovada para o modo? -> sim: PASSOU
++-- nao: estado da peca no catalogo
+    +-- APROVADO -> FALHOU; volta ao construtor para seguir a peca
+    +-- OBSERVADO/A_DEFINIR -> registrar D## e perguntar ao responsavel, uma por vez
+    +-- PROPOSTO -> a forma reutilizada deve ser a mesma; outra forma FALHOU
+```
 
 Fontes donas: [padrao tecnico local](../../references/ARQUITETURA.md#padrao-tecnico-local), [padroes locais preenchiveis](../../references/DOCUMENTACAO.md#padroes-locais-preenchiveis) e [catalogo de interface](../interface/SKILL.md#catalogo-local-e-promocao-de-uma-peca). Corrigir um arquivo tambem deve respeitar seu perfil; nao exigir reorganizar todo legado por um ajuste local. Desvio preexistente fora do alcance e declarado com local/evidencia e nao confundido com nova excecao aprovada.
 
@@ -141,6 +154,12 @@ Conferir os encaminhamentos de `especificar`, `interface` e `prototipo-real`, in
 | 22. Modulo financeiro em React autorizado | Seguir perfil local ou exemplo condicional, contratos, nomes e documentacao; fiscal confere arquivos realmente criados. |
 | 23. Catalogo/TRD existente | Completar equivalente e manter IDs; nao criar segunda fonte ou reabrir escolha aprovada. |
 | 24. Codigo funciona, mas nome/pasta/documentacao violam contrato | Fiscal reprova o desvio no alcance, devolve para correcao e reconfere; funcionamento sozinho nao fecha a entrega. |
+| 25. Mude o botao X nesta tela (peca APROVADA) | Listar consumidores e perguntar "troca em todas ou excecao so desta tela?"; nao alterar a peca comum sem a resposta. |
+| 26. Responsavel: "so aqui" | Proximo `E##`, marcador abaixo do DNA e linha na tela no mesmo lote; restante herda o padrao. |
+| 27. Responsavel: "em todas" | Nova revisao da peca e todos os consumidores no mesmo lote; sem perguntar de novo. |
+| 28. Diferenca achada sem pedido | "Nao esta no padrao (`<id>` Rn)"; sem excecao: APROVADO corrige, OBSERVADO/A_DEFINIR vira `D##` com pergunta unica. |
+| 29. Peca nova aceita sem resposta a "Esta bom para gravar como padrao?" | Fica PROPOSTO; a proxima tela reutiliza a mesma forma e retoma a pergunta. |
+| 30. Mesma peca diferente em duas telas | Fiscal reprova ou registra `D##`; nunca aceita as duas formas sem excecao/variante. |
 
 Sem execucao observada, marcar CENARIOS_DO_METODO/ACEITE_FUNCIONAL como NAO_EXECUTADO e distinguir da VALIDACAO_ESTRUTURAL. ACEITE_VISUAL e NAO_SE_APLICA em patch exclusivo do padrao; ensaio de consumidor continua pendente no seu proprio alcance autorizado.
 

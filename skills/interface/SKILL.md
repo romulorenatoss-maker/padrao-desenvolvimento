@@ -35,7 +35,18 @@ Se o responsavel ja disser "use esta lista como padrao em todo o sistema", regis
 
 Com alcance global autorizado, varrer o sistema conforme secao 5 e migrar os equivalentes compativeis em lotes, sem pedir novamente permissao de construir por tela. Se so a definicao futura foi aprovada, aplicar nos novos usos e registrar a migracao antiga como nao autorizada. Decisao ausente, efeito fora do alcance, mudanca de regra/stack e propriedade de excecao protegida exigem resolver somente esse ponto. Nao bloquear partes independentes ja autorizadas.
 
-O padrao vigente continua obrigatorio nas proximas criacoes/correcoes. Alteracao posterior, direta ou indireta por token/CSS/componente/dependencia, exige confrontar a revisao aprovada e os consumidores. Registrar nova decisao quando o responsavel mudar o padrao; nao substituir referencia para encobrir regressao. Historico fica no Git, e a atualizacao da skill central nao troca valores locais.
+O padrao vigente continua obrigatorio nas proximas criacoes/correcoes. Alteracao posterior, direta ou indireta por token/CSS/componente/dependencia, exige confrontar a revisao aprovada e os consumidores. Registrar nova decisao quando o responsavel mudar o padrao; nao substituir referencia para encobrir regressao. Historico fica no Git, e a atualizacao da skill central nao troca valores locais. Pedido de mudar peca APROVADA: listar os consumidores e perguntar "A peca `<id>` (Rn) e usada em [telas]. Troca o padrao em todas ou excecao so desta tela?", salvo se o responsavel ja disse "em todas" ou "so aqui"; o efeito segue o [ciclo de vida](#ciclo-de-vida-de-uma-peca).
+
+### Ciclo de vida de uma peca
+
+1. Catalogo na primeira interface: a primeira tela do projeto ja cria o catalogo local conforme [PADRAO_VISUAL.md](../../templates/PADRAO_VISUAL.md), com as pecas que ela usa.
+2. Pergunta de gravar: peca nova aceita pelo responsavel recebe "Esta bom para gravar como padrao?", nomeando cada peca, tela, revisao e modos vistos.
+3. Sim = APROVADO R1. Nao ou sem resposta = PROPOSTO; a proxima tela que precisar reutiliza essa mesma forma (nunca outra) e retoma a pergunta.
+4. Heranca: toda tela usa a revisao vigente da peca; nova revisao vale para todos os consumidores.
+5. Troca x excecao: troca = nova revisao (Rn+1) no catalogo e todos os consumidores no mesmo lote; excecao = proximo `E##` (numero nunca reaproveitado) com tres vinculos no mesmo lote: linha na tabela de excecoes do catalogo; marcador `PADRAO_EXCECAO: E## <peca>` em comentario na linha abaixo do DNA da unidade alterada; linha `PADRAO_EXCECAO: E## <peca>` com link ao catalogo no documento da tela, fora do bloco estruturado ([documentacao](../../references/DOCUMENTACAO.md#padroes-locais-preenchiveis)).
+6. Diferenca sem pedido: dizer "nao esta no padrao (`<id>` Rn)" e procurar excecao registrada. Sem excecao: peca APROVADA e corrigida no lote autorizado; peca OBSERVADO/A_DEFINIR vira divergencia `D##` e a pergunta vai ao responsavel uma por vez, pela pasta temp.
+
+Paridade entre telas: a mesma peca com forma diferente em duas telas e defeito, salvo excecao ou variante registrada. ID de peca e neutro, sem nome de modulo; tela citada numa peca e so referencia. Icones: um icone por significado, mesma origem, desenho e tamanho; tela nova usa o do catalogo; icone novo e peca nova e pergunta ao responsavel.
 
 ### Desktop e mobile no mesmo padrao
 

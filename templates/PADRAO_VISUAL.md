@@ -33,7 +33,19 @@ Preencher progressivamente ID/link dono, estado da definicao e implementacao. Es
 | Etapas e linha do tempo | Andamento, ordem, estado, eventos e rastro conforme a capacidade. |
 | Mapa | Pinos, agrupamento, cores, numeracao, legenda e selecao. |
 | Formatos | Data, hora/fuso, numero, moeda, unidade/quantidade e percentual conforme finalidade. |
-| Impressao | Ordem de carregamento, recibo, etiqueta, tamanho, cortes e dados pertinentes. |
+| Selecao em lote | Marcacao, barra de acoes do lote, contagem e limpeza. |
+| Ordenacao | Gatilho, indicador de direcao, ordem inicial e preservacao. |
+| Icones | Origem unica, um icone por significado, desenho, tamanho e nome acessivel. |
+| Valores financeiros | Sinal, cor de entrada/saida, zero, casas decimais e preco sem sinal. |
+| Topo da tela | Ordem de titulo, visoes, criar, paineis, navegacao e configuracao. |
+| Configuracao pendente | Indicador, contagem, onde aparece e quem pode resolver. |
+| Atalhos de teclado | Teclas adotadas, escopo e conflito com campos. |
+| Offline | Indicacao sem conexao, o que continua disponivel e sincronizacao. |
+| Notificacoes | Onde aparecem, contagem, leitura e destino. |
+| Permissao e sem acesso | Acao indisponivel com motivo, tela sem acesso e o que fica visivel. |
+| Senha e confirmacao forte | Quando pedir, formato e falha. |
+| Cancelar x apagar | Quando cancelar, quando apagar, texto do verbo, motivo e rastro. |
+| Impressao e exportar | Ordem de carregamento, recibo, etiqueta, tamanho, cortes, exportacao do filtrado e dados pertinentes. |
 | Movimento | Finalidade, duracao adotada, reducao de movimento e preservacao da operacao. |
 
 Nao limitar a quantidade de pecas a esta tabela: cada responsabilidade reutilizavel necessaria ganha entrada; varias variantes podem pertencer a mesma peca. Familia nao usada nao exige implementacao futura.
@@ -84,6 +96,27 @@ Exemplo de estrutura, sem escolher valores ou declarar aprovacao por antecipacao
 | Protecao | Limite de alteracao, dependencia compartilhada e evidencia/revisao pertinente. |
 
 Variante responsiva aprovada pertence ao padrao. Sem origem nao escrever "a pedido". Uma solicitacao local nao muda todos os consumidores nem autoriza alterar propriedades adicionais.
+
+Tabelas do dono, conforme o [ciclo de vida](../skills/interface/SKILL.md#ciclo-de-vida-de-uma-peca). Numeros `E##`, `V##` e `D##` nunca sao reaproveitados.
+
+### Excecoes registradas
+
+| ID | Peca (rev.) | Escopo | Diferenca exata | Origem | Aplicado em (arquivo + DNA) | Tela (doc) | Estado |
+|---|---|---|---|---|---|---|---|
+
+Estado: VIGENTE, AGUARDANDO_DONO ou ENCERRADA. Cada linha exige o marcador `PADRAO_EXCECAO: E## <peca>` em comentario abaixo do DNA e a linha correspondente no documento da tela.
+
+### Variantes aprovadas
+
+| ID | Peca | Modo | Diferenca | Origem | Estado |
+|---|---|---|---|---|---|
+
+### Divergencias
+
+| ID | Assunto | Detalhe | Situacao | Perguntado em |
+|---|---|---|---|---|
+
+Situacao: FALTA_APLICAR (peca APROVADA, corrigir), AGUARDANDO_DONO (peca OBSERVADO/A_DEFINIR, uma pergunta por vez pela pasta temp) ou ENCERRADA.
 
 ## Cobertura e conferencia
 
