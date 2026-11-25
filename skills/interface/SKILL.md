@@ -23,6 +23,28 @@ Padrao GLOBAL significa identidade compartilhada dentro daquele projeto, nao mes
 
 Sem referencia suficiente: apresentar proposta visual do recorte, aprovar e implementar so os tokens/componentes necessarios. Nao construir catalogo inteiro para uma unica funcao. Com referencia aprovada: reutilizar, sem reabrir perguntas resolvidas.
 
+### Catalogo local e promocao de uma peca
+
+Desde a primeira UI, materializar o catalogo DENTRO do projeto conforme [padroes locais preenchiveis](../../references/DOCUMENTACAO.md#padroes-locais-preenchiveis), usando [PADRAO_VISUAL.md](../../templates/PADRAO_VISUAL.md) para completar o equivalente existente. Sem equivalente, usar o destino documental previsto. O modelo central lista o que decidir; o projeto guarda sua identidade, valores, comportamento, implementacao e aprovacoes. Nao copiar a identidade de outro produto nem criar catalogo concorrente ao ja usado.
+
+Antes de criar OU alterar, consultar as pecas pertinentes, variantes desktop/mobile, estados, excecoes e consumidores, e conferir a fonte implementada. Cadastrar progressivamente cada peca nova com ID estavel, finalidade, contrato, implementacao, revisao e origem; lacunas ficam A_DEFINIR/PROPOSTO, sem assumir aprovacao. Preservar IDs e definicoes parciais existentes, completando somente o que falta. A quantidade de pecas nao e fixa.
+
+Quando o responsavel aprovar uma peca nova ou escolher um exemplo existente e ainda faltar decidir sua promocao, perguntar uma vez: "Posso salvar esta [peca, tela e revisao] como padrao para os usos equivalentes em todo o sistema, com estas versoes desktop/mobile?". Mostrar as variantes que realmente existem; nao atribuir aprovacao mobile a uma previa so desktop. Nao repetir essa pergunta por cada uso de um padrao ja adotado. "Esta bom" confirma o item mostrado conforme a secao 6, mas sozinho nao promove toda a tela nem autoriza migracao global.
+
+Se o responsavel ja disser "use esta lista como padrao em todo o sistema", registrar essa decisao expressa sem outra pergunta de inicio. Identificar exatamente a peca/propriedades e os equivalentes abrangidos; registrar referencia/revisao aprovada, variantes confirmadas e alcance da migracao. A aprovacao de um menu nao aprova automaticamente titulos, graficos e campos da mesma tela. Separar os fatos: aprovacao da peca como padrao, autorizacao de migracao, implementacao por consumidor, verificacao, apresentacao e aceite de cada resultado.
+
+Com alcance global autorizado, varrer o sistema conforme secao 5 e migrar os equivalentes compativeis em lotes, sem pedir novamente permissao de construir por tela. Se so a definicao futura foi aprovada, aplicar nos novos usos e registrar a migracao antiga como nao autorizada. Decisao ausente, efeito fora do alcance, mudanca de regra/stack e propriedade de excecao protegida exigem resolver somente esse ponto. Nao bloquear partes independentes ja autorizadas.
+
+O padrao vigente continua obrigatorio nas proximas criacoes/correcoes. Alteracao posterior, direta ou indireta por token/CSS/componente/dependencia, exige confrontar a revisao aprovada e os consumidores. Registrar nova decisao quando o responsavel mudar o padrao; nao substituir referencia para encobrir regressao. Historico fica no Git, e a atualizacao da skill central nao troca valores locais.
+
+### Desktop e mobile no mesmo padrao
+
+Definir duas apresentacoes quando a tarefa pedir adaptacao: composicao, prioridade de campos, navegacao, acoes, filtros, largura/altura, toque, teclado e condicao concreta de troca. Desktop pode usar tabela e mobile cartoes; ambos pertencem a mesma peca/contrato com variantes nomeadas. Nao duplicar fonte de dados ou regra de negocio para trocar a apresentacao.
+
+Documentar breakpoints ou condicoes de container conforme a implementacao aprovada, sem valores universais inventados. Registrar o que muda e o que permanece: dados, identidade, permissoes, acoes essenciais e contexto. Ocultar coluna no celular precisa preservar acesso a informacao necessaria e as tarefas. Conferir tambem larguras intermediarias, conteudo longo e troca de modo quando afetados.
+
+Variante responsiva aprovada nao e excecao por tela. Uma diferenca exclusiva solicitada para o mobile de uma tela e excecao apenas nesse modo/propriedades; desktop e demais propriedades continuam herdados. Proposta/implementacao/verificacao/aceite de cada modo ficam distintos, sem aprovar automaticamente o modo nao apresentado.
+
 ### Entrevista inicial e escolha de ferramentas
 
 No inicio da primeira interface ou de um novo padrao visual solicitado, conferir o briefing existente e perguntar UMA decisao ausente por vez: usuario/tarefa e dispositivos; direcao e referencias; cores e tipografia; botoes, cantos, espacamentos/densidade; estados, movimento e peculiaridades protegidas. A ordem segue a lacuna real, nao um questionario fixo; neste fluxo, nao agrupar varias escolhas na mesma pergunta, mesmo se outro roteiro sugerir agrupa-las. Nao repetir respostas ja dadas nem entrevistar de novo por um bug ou edicao pontual.
@@ -43,11 +65,12 @@ Quando estiverem instalados: (1) usar o plugin frontend-design apenas para acaba
 
 Buscar componente/token/variante antes de criar. Reutilizar; estender quando semanticamente compativel; criar somente responsabilidade distinta necessaria. Nao criar Botao2, copias de modal ou um componente unico com dezenas de flags contraditorias.
 
-Similaridade exige investigar e reutilizar o equivalente compativel; nao exige perguntar novamente quando o pedido e a referencia ja determinam a escolha. Antes de construir qualquer tela, modal, lista, campo, menu ou acao, procurar no projeto o que ja faz algo parecido (mesmo assunto, mesmo tipo de dado, mesma acao: garantia, anexo, lancamento pai/filhos, valor em moeda, selecao em lista, cor de menu, forma de carregar) por nome, rota, classe e DNA. Se houver alternativas com diferenca indispensavel ainda nao decidida, perguntar somente essa escolha. Quando o equivalente ja atende ao pedido, reutilizar sem segunda autorizacao. A implementacao usa componente compartilhado (um arquivo, uma fonte de estilo) e cada tela so informa de onde le e onde grava. Reutilizacao nao autoriza alterar todos os consumidores: mapear cada local atingido, pedir autorizacao para os locais adicionais e obter a confirmacao visual individual conforme a secao 6. Se nao for possivel limitar o efeito ao alcance autorizado, bloquear a escrita dependente e explicar, sem duplicar o componente para contornar a decisao. Proibido copiar markup/CSS de outra tela, recriar uma variante "parecida" ou dar cor/letra/espacamento proprios a um elemento que ja tem padrao no projeto. Valor em moeda usa a mascara compartilhada do projeto; lista de lancamentos segue a tela de referencia aprovada.
+Similaridade exige investigar e reutilizar o equivalente compativel; nao exige perguntar novamente quando o pedido e a referencia ja determinam a escolha. Antes de construir qualquer tela, modal, lista, campo, menu ou acao, procurar no projeto o que ja faz algo parecido (mesmo assunto, mesmo tipo de dado, mesma acao: garantia, anexo, lancamento pai/filhos, valor em moeda, selecao em lista, cor de menu, forma de carregar) por nome, rota, classe e DNA. Se houver alternativas com diferenca indispensavel ainda nao decidida, perguntar somente essa escolha. Quando o equivalente ja atende ao pedido, reutilizar sem segunda autorizacao. A implementacao usa componente compartilhado (um arquivo, uma fonte de estilo) e cada tela so informa de onde le e onde grava. Reutilizacao em pedido local nao amplia alcance: mapear cada local atingido e pedir autorizacao apenas para consumidores fora do escopo ja autorizado. Padronizacao global expressa cobre os equivalentes desse escopo conforme a secao 1, sem repetir permissao por local; a confirmacao visual individual do resultado continua conforme a secao 6. Se nao for possivel limitar o efeito ao alcance autorizado, bloquear a escrita dependente e explicar, sem duplicar o componente para contornar a decisao. Proibido copiar markup/CSS de outra tela, recriar uma variante "parecida" ou dar cor/letra/espacamento proprios a um elemento que ja tem padrao no projeto. Valor em moeda usa a mascara compartilhada do projeto; lista de lancamentos segue a tela de referencia aprovada.
 
 | Parte | Contrato visual que deve vir da fonte aprovada |
 |---|---|
 | Tema e tipografia | Cores semanticas, contraste, hierarquia, fontes, formatos de data/moeda/unidade. |
+| Titulos e secoes | Hierarquia semantica, tamanho/peso, distancia e relacao com acoes; nao derivar cada titulo por gosto. |
 | Layout | Densidade, largura, espacamento, alinhamento, breakpoints e composicoes por tarefa. |
 | Botoes | Variantes semanticas, tamanhos, rotulo, icone, alinhamento e estados. |
 | Icones | Familia coerente, dimensoes renderizadas e espessura; icone pequeno nao exige alvo clicavel pequeno. |
@@ -56,7 +79,10 @@ Similaridade exige investigar e reutilizar o equivalente compativel; nao exige p
 | Abas e navegacao | Selecao, contexto, teclado, URL/retorno quando pertinente; sem abas vazias. |
 | Modal/drawer | Contexto, dimensoes, cabecalho, acoes, foco/retorno de foco e fechamento seguro. |
 | Mensagens e estados | Carregando, vazio, erro recuperavel, sucesso, indisponivel e sem permissao quando aplicaveis. |
-| Responsividade | Prioridade do conteudo, navegacao adaptada, reflow e overflow deliberado, sem ocultar tarefa essencial. |
+| Responsividade | Variantes desktop/mobile e condicao de troca; prioridade, navegacao, reflow e overflow deliberado. |
+| Ajuda, selos e avisos | Icone/texto, tooltip, estados, semantica de cores e acessibilidade. |
+| Graficos, etapas, linha do tempo e mapa | Paleta/legenda, marcadores, estados/ordem e informacao equivalente acessivel; somente quando usados. |
+| Impressao e formatos | Recibo/etiqueta/ordem, unidades, data/hora/fuso, numeros, quantidade e percentual conforme finalidade. |
 
 Valores de identidade visual pertencem a tokens e componentes. CSS de composicao local pode existir, consumindo esses contratos sem redefinir arbitrariamente fontes, cores, botoes e medidas. Valores dinamicos de layout/graficos nao sao automaticamente violacao. Nao impor "zero CSS local" nem transformar toda variacao em token global.
 
@@ -80,6 +106,20 @@ Progresso determinado usa medicao real; sem total conhecido, usar indicador inde
 
 Para criar ou revisar movimento, consultar `motion-principles`; carregar somente o workflow e referencias pertinentes ao recorte. A skill inclui o pacote completo importado, mas este padrao define preservacao, escopo, arquitetura e autorizacao. CSS/JavaScript nativos em projetos PHP puro; exemplo React/Framer Motion nao permite framework novo. Aplicar novos estados/movimentos de modo incremental nas tarefas autorizadas; nao animar/redesenhar telas aprovadas em massa.
 
+### Contrato de listas e carregamento
+
+Cada tipo de lista compartilhada define aparencia E comportamento, independentemente dos dados/colunas do modulo. Registrar no catalogo e implementar no dono comum:
+
+- entrada inicial: gatilho da consulta, prioridade de dados, indicador pertinente e termino em resultado/erro; nunca mostrar "vazio" antes da resposta;
+- atualizacao com dados ja visiveis: indicador sem apagar contexto/foco, tratamento de dados anteriores e estado confirmado;
+- busca, filtros e ordenacao: gatilho, atraso quando necessario, combinacao/reset e tratamento de respostas fora de ordem; valores concretos pertencem ao projeto;
+- paginacao ou outro modo de navegacao aprovado: posicao, tamanho/contagem quando disponiveis, mudanca de pagina e ajuste apos exclusao;
+- estados distintos: sem registros, sem resultado do filtro, erro com nova tentativa, indisponivel/sem permissao conforme contrato; erro nunca vira lista vazia silenciosa;
+- apos criar/editar/excluir: atualizacao/invalidation pertinente, preservacao ou reset deliberado de filtros, ordem, pagina, selecao, rolagem e retorno de foco;
+- desktop/mobile: apresentacoes e acesso as mesmas tarefas, preservacao do contexto na troca e variantes aprovadas.
+
+Consumidor informa contratos de dados, colunas, rotulos e acoes permitidas; isso nao autoriza reinventar carregamento, botao, fonte ou espacamento. Diferenca funcional necessaria (por exemplo atualizacao continua em painel operacional) precisa de variante/contrato documentado e justificativa, nao flags contraditorias numa lista universal. Infraestrutura de consultas pode variar por fonte/volume, preservando o comportamento aprovado; registrar limitacoes e nao prometer que padronizar UI torna APIs identicas. Conferir as [prioridades de abertura](../../references/DADOS.md#prioridade-de-abertura-badges-e-alertas) quando houver dados reais.
+
 ## 4. Peculiaridade protegida, clara na propria tela
 
 Padrao aprovado e obrigatorio, salvo excecao explicitamente aprovada. Se criar/alterar a excecao ja foi expressamente pedido, informar diferenca/motivo e executar nesse alcance. Excecao adicional nao pedida exige apresentar diferenca, motivo, alcance e impacto e obter autorizacao antes dessa parte. Preservar o aprovado fora da mudanca autorizada; peculiaridade registrada torna a protecao mais precisa, mas ausencia de marca especial nao autoriza reorganizar o existente. Uma peculiaridade nao vira padrao global sem decisao separada.
@@ -96,7 +136,9 @@ A apresentacao e confirmacao da implementacao da secao 6 continuam obrigatorias,
 
 Depois da edicao, confrontar o recorte com a referencia anterior e conferir as propriedades que deveriam permanecer. Mudanca fora do pedido e regressao a corrigir, nao melhoria presumida; nao alterar a referencia apenas para aceitar o desvio.
 
-No mapa canonico da tela/componente, registrar: identificador estavel existente ou minimo necessario, escopo nominal (tela/aba/elemento), propriedade/comportamento protegido, motivo, referencia base, aprovador/fonte, revisao e limite de alteracao. Nao copiar esse cadastro manualmente para varios arquivos.
+No mapa canonico da tela/componente, registrar: identificador estavel, escopo nominal (tela/aba/elemento e desktop/mobile), propriedades/comportamentos que diferem, referencia base, motivo conhecido, aprovador/fonte do pedido, revisao e limite de alteracao. Pedido expresso sem motivo adicional recebe "pedido expresso do responsavel; motivo adicional nao informado". Nunca inventar a justificativa ou dizer "a pedido" sem evidencia. Nao copiar esse cadastro manualmente para varios arquivos.
+
+Excecao sobrepoe SOMENTE as propriedades e os modos nomeados; todo o restante continua herdando o padrao. Classificar diferencas como PADRAO_BASE, VARIANTE_APROVADA, CONFIGURACAO_PERMITIDA, EXCECAO_A_PEDIDO ou DIVERGENCIA_NAO_ESCLARECIDA. Dados, colunas e textos previstos pelo contrato sao configuracao permitida; desktop/mobile aprovados sao variantes. Diferenca sem origem comprovada nao e excecao aprovada. Cada consumidor aponta a classificacao e o dono, sem duplicar valores.
 
 Quando houver peculiaridade, a propria tela deve permitir identifica-la: indicador discreto "Padrao especial aprovado" com detalhes, pelo mecanismo de administracao/revisao apropriado. Visibilidade respeita permissoes; usuario operacional nao precisa ver metadados tecnicos. Nao criar nova configuracao/toggle somente para esta finalidade se ja ha modo de revisao.
 
@@ -106,7 +148,11 @@ Diferenca antiga sem registro: investigar; se origem/intentionalidade continuar 
 
 ## 5. Migracao e verificacao visual
 
-Padronizacao ampla autorizada: inventariar telas e consumidores reais, classificar conforme/desvio/peculiaridade/nao verificado, aprovar referencia e lotes; migrar de forma coerente. Nao declarar sistema inteiro padronizado por alterar um CSS. Pedido local: limitar a cadeia, salvo dependencia compartilhada comprovada e autorizada.
+Padronizacao ampla autorizada: varrer todos os modulos/rotas/telas/modais e consumidores reais do escopo, incluindo estilos inline, tokens, componentes, variantes, estados e chamadas/carregamentos. Confrontar busca no codigo, documentos e renderizacao quando acessivel; busca textual sozinha nao prova comportamento nem ausencia de uso dinamico. Inventario usa dono existente, com local/DNA, peca/revisao, implementacao, modo, classificacao da secao 4, diferenca concreta, origem e cobertura. Inacessivel fica NAO_VERIFICADO.
+
+A referencia explicitamente escolhida rege os equivalentes compativeis; a mais frequente nao vira padrao automaticamente. Manter DE/PARA e lotes de migracao com dependencias e preservacao. Alcance global ja autorizado dispensa repetir autorizacao de construcao por consumidor/lote; apresentar os resultados e obter aceite conforme secao 6. Divergencia de origem incerta e excecao protegida seguem secao 4. Pedido local permanece limitado a sua cadeia.
+
+Depois da migracao, repetir a busca pelos usos atingidos para localizar copias, overrides e fontes paralelas; reconciliar codigo/documentacao e retirar somente residuos comprovados e autorizados. Distinguir encontrado, implementado, verificado, apresentado e aprovado por consumidor/modo. Nao declarar sistema inteiro padronizado por alterar um CSS, nem certificar locais nao conferidos. O fiscal confronta esta cobertura com o diff real conforme `verificar`.
 
 Para o recorte e consumidores afetados:
 1. Renderizar no navegador; comparar com referencia aprovada no mesmo viewport, tema e dados controlados.
@@ -125,7 +171,7 @@ Esta secao e a fonte dona da fila e da confirmacao visual em PROTOTIPO e REAL. A
 
 ### Registrar e delimitar antes de construir
 
-Registrar cada pedido antes da escrita no andamento/fila canonico ja existente. Na falta de fila separada, usar uma secao no documento dono existente, nao criar arquivo de memoria, modal de aprovacao, painel, banco ou sistema paralelo por rotina. Persistir o estado a cada transicao; chat e memoria do agente nao sao a unica copia. Reutilizar IDs/DNAs, inclusive a identidade propria de cada modal, sem criar outro modal ou copia por revisao.
+Registrar cada pedido antes da escrita no andamento/fila existente. Perguntas abertas, respostas a construir e confirmacoes pendentes seguem exclusivamente a [pasta temp](../construir/SKILL.md#pasta-temp-de-perguntas-e-fila-temporarias), sem fallback para documento de tela/modulo versionado. O dono canonico recebe a decisao construida; o registro de trabalho aponta para ela sem duplicar a regra. Persistir transicoes e preservar o aberto; chat/memoria nao sao a unica copia. Reutilizar IDs/DNAs de tela/modal, sem criar painel, banco ou sistema de aprovacao paralelo.
 
 O pedido guarda finalidade/motivo, solicitacao, plano PROTOTIPO/REAL, local exato (rota/tela/aba/modal/elemento), revisao base, revisao em analise, dependencias, itens de impacto, status, referencia da evidencia e resposta de aprovacao com data/origem. Cada local/estado alterado e um item filho identificavel do mesmo pedido. Uma funcao em varias telas nao recebe aceite em bloco por aprovar so uma delas. O registro aponta para a regra no dono; nao a duplica.
 
@@ -133,7 +179,7 @@ Para proposta de capacidade/fluxo ou redesenho, apresentar **Entendimento** (ate
 
 Somente para proposta solicitada ou decisao indispensavel, encerrar com "Confirma que entendi corretamente e posso construir dessa forma?". Nunca usar essa pergunta para interromper pedido direto claro. Nao repetir autorizacao do mesmo escopo ja explicitamente dada. Isso autoriza construir a revisao, nao aprova o resultado ainda nao mostrado. Ambiente omitido segue PROTOTIPO conforme `prototipo-real`; contradicao concreta bloqueia apenas a parte dependente, sem trocar ambiente por silencio.
 
-Antes de modificar local adicional, inclusive consumidor de componente compartilhado ou tela fora da visualizacao atual, perguntar: "Esse pedido tambem afeta [tela/modal/local]: [alteracao e motivo]. Deseja que eu altere la tambem?". Somente locais expressamente autorizados entram em construcao. Impacto descoberto depois volta a essa autorizacao. Registrar o local adicional como AGUARDANDO_AUTORIZACAO_DE_ESCOPO; construir o trecho independente do local pedido enquanto aguarda. Se impossivel isolar, bloquear somente a dependencia, sem duplicar o componente para contornar. Nao aproveitar o pedido para redesenhar o restante, adicionar campos/regras ou recuperar elementos descartados.
+Antes de modificar local FORA do alcance ja autorizado, inclusive consumidor compartilhado, perguntar: "Esse pedido tambem afeta [tela/modal/local]: [alteracao e motivo]. Deseja que eu altere la tambem?". Locais nomeados ou abrangidos por padronizacao global expressa dos equivalentes entram em construcao. Consumidor equivalente descoberto depois continua coberto por esse alcance; efeito adicional nao abrangido volta a autorizacao. Nao repetir essa pergunta por tela quando o responsavel ja autorizou a migracao global. Registrar o local adicional como AGUARDANDO_AUTORIZACAO_DE_ESCOPO; construir o trecho independente do local pedido enquanto aguarda. Se impossivel isolar, bloquear somente a dependencia, sem duplicar o componente para contornar. Nao aproveitar o pedido para redesenhar o restante, adicionar campos/regras ou recuperar elementos descartados.
 
 ### Mostrar uma tela ou modal por vez
 
@@ -163,7 +209,7 @@ A revisao aprovada substitui a especificacao anterior do trecho no mesmo dono/DN
 
 Adocao sobre trabalho existente: alteracao sem evidencia de aprovacao fica PENDENTE_DE_REVISAO, nao aprovada retroativamente; preservar codigo/trabalho alheio, mapear o recorte e apresentar. Apos conversao autorizada, retirar apenas o prototipo efetivamente substituido conforme `prototipo-real`; uma nova prototipacao parte do real atual, nunca de copias antigas.
 
-A aprovacao visual nao substitui teste nem autoriza publicacao, mudanca de permissao, banco ou promocao a padrao global. Registrar fatos tecnicos e propostas e permitido, mas nao marca-los como regras aprovadas antes deste aceite. Documentacao e evidencias usam os donos existentes; esta skill nao instala fila executavel, hook ou bloqueio mecanico no cliente.
+A aprovacao visual nao substitui teste nem autoriza publicacao, mudanca de permissao ou banco. Promocao a padrao global segue a decisao expressa e o alcance registrados na secao 1; aceite local sozinho nao basta. Registrar fatos tecnicos e propostas e permitido, mas nao marca-los como regras aprovadas antes deste aceite. Documentacao e evidencias usam os donos existentes; esta skill nao instala fila executavel, hook ou bloqueio mecanico no cliente.
 
 ## Conexoes funcionais no alcance autorizado
 

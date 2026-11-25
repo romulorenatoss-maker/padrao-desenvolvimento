@@ -8,6 +8,7 @@ A skill dona e `documentacao`. Descobrir destinos canonicos antes de criar. Pres
 | Entrada geral | `docs/SUMARIO.md` | Finalidade/stack em resumo, modulos reais e links para donos; sem catalogo de skills central. |
 | Entrada do modulo | `docs/modulos/<modulo>/SUMARIO.md` | Capacidades, telas, dados, contratos e consumidores existentes; somente links que resolvem. |
 | Briefing visual | `docs/architecture/BRIEFING_DESIGN.md` | Decisoes visuais aprovadas e referencias aos tokens/componentes; consultar antes de criar/alterar UI. |
+| Catalogo de interface | `docs/architecture/componentes/sistema.padrao_visual.md` | Pecas com ID, revisao, contrato de aparencia/comportamento, variantes desktop/mobile, implementacao, consumidores e excecoes. Reutilizar catalogo/briefing equivalente; modelo central abaixo. |
 | Fluxo do app | `docs/architecture/FLUXO_APP.md` | Jornadas entre telas, cliques e transicoes; regra detalhada continua no documento dono. |
 | TRD | `docs/architecture/TRD.md` | Composicao tecnica aprovada, limites, contratos, dados, ambiente e entrega; nao substitui mapas do modulo. |
 | Motivo/limites de modulo | `docs/modulos/<modulo>/PORQUE.md` | Quando a justificativa/relacoes excederem o sumario: dono, limites, USA/USADO_POR, decisoes. Nao criar texto vazio. |
@@ -21,13 +22,23 @@ A skill dona e `documentacao`. Descobrir destinos canonicos antes de criar. Pres
 
 Todos os subdiretorios sao relativos ao modulo real; criar somente com documento util. Projeto com convencao equivalente nao recebe copia desta arvore. Documento por responsabilidade, nao por arquivo, funcao, botao, elemento decorativo ou execucao.
 
+## Padroes locais preenchiveis
+
+O sumario do projeto aponta para o padrao tecnico e o visual; cada tela/modulo referencia o trecho/ID pertinente. Usar [PADRAO_TECNICO.md](../templates/PADRAO_TECNICO.md) para completar o TRD ou equivalente, e [PADRAO_VISUAL.md](../templates/PADRAO_VISUAL.md) para completar o catalogo de interface. Os templates sao estruturas de preenchimento distribuidas no pacote completo, nao documentos adicionais obrigatorios. Adotar secoes necessarias sem sobrescrever conteudo/IDs existentes; na ausencia comprovada do dono, usar os destinos da tabela. Resolver links relativos no destino e nao salvar placeholders como fatos.
+
+A primeira capacidade materializa as decisoes necessarias nos mesmos donos; completar conforme novas pecas/convencoes sejam implementadas e conferidas. Registrar lacuna como A_DEFINIR, observacao como OBSERVADO e proposta como PROPOSTO, sem falsa aprovacao. Perguntas abertas e respostas a construir ficam somente na [pasta temp](../skills/construir/SKILL.md#pasta-temp-de-perguntas-e-fila-temporarias); o catalogo nao vira questionario/fila. Decisao de uma peca ja construida pode ser vigente enquanto a migracao dos consumidores continua aberta: registrar separadamente aprovacao do padrao, implementacao e cobertura. Decisao entregue nao permanece apenas no chat/temp.
+
+O padrao tecnico descreve stack por escopo, estrutura real, convencoes de cada linguagem/tipo de arquivo, interfaces publicas, exemplos conferidos e comandos de verificacao conforme [arquitetura](ARQUITETURA.md#padrao-tecnico-local). Regras visuais e sua promocao pertencem a [interface](../skills/interface/SKILL.md#catalogo-local-e-promocao-de-uma-peca). Nao repetir valores de tokens entre briefing, catalogo e paginas: definir um dono para cada valor e apontar os consumidores para ele.
+
+Diferenca registra classificacao, propriedades e modos abrangidos, referencia base, motivo conhecido, origem/fonte do pedido ou decisao, revisao e limite. Pedido sem justificativa adicional usa "pedido expresso do responsavel; motivo adicional nao informado". Nunca atribuir ao responsavel uma escolha sem evidencia. Variante responsiva aprovada e configuracao permitida sao partes do contrato; excecao altera somente propriedades nomeadas. Divergencia sem origem continua visivel como tal, sem reescrever o padrao para esconder o desvio. Historico de decisoes substituidas fica no Git; somente uma definicao vigente por escopo.
+
 ## Contratos de projeto e reconstrucao
 
 Reutilizar fontes equivalentes e vincula-las no sumario; um documento existente pode ter secoes para estas responsabilidades. Nao impor tres arquivos vazios, repetir TELA.md nem escrever um manual novo por bug. Registrar decisoes suficientes ao recorte antes da primeira interface definitiva; completar os mesmos donos conforme as respostas. O metodo vale para pessoas e IAs, sem substituir responsabilidades e instrumentos locais.
 
 - Briefing visual: cores semanticas, fontes/tamanhos/pesos, botoes e estados, cantos, espacamentos/densidade, variantes por tarefa, responsividade e acessibilidade. Valores aprovados ou referencia concreta aos tokens/componentes implementados; excecoes nominais e origem da aprovacao. Referencia renderizada acompanha a decisao. Padrao novo nao autoriza mudar a tela aprovada por iniciativa propria.
 - Fluxo do app: tarefa/usuario -> entrada -> telas/cliques -> resultado e retorno; condicoes, estados de sucesso/erro/vazio/acesso e efeitos pertinentes. Referenciar DNAs, paginas e contratos donos, sem copiar campos/regras em todas as jornadas.
-- TRD: stack e versoes permitidas, modulos/donos, dependencias e contratos, persistencia/RPCs, seguranca, operacao/entrega e o que fica fora do alcance. Vincular guias tecnicos existentes; configuracoes por nome/finalidade, nunca segredos ou dados privados. Proposta tecnica nao vira implementacao comprovada.
+- TRD: stack e versoes permitidas por escopo, padrao tecnico local e exemplos de criacao/correcao de arquivos conforme os modelos acima, modulos/donos, dependencias e contratos, persistencia/RPCs, seguranca, operacao/entrega e o que fica fora do alcance. Vincular guias tecnicos existentes; configuracoes por nome/finalidade, nunca segredos ou dados privados. Proposta tecnica nao vira implementacao comprovada.
 
 O briefing visual tem uma fonte dona por projeto: reutilizar documento equivalente; na falta, `docs/architecture/BRIEFING_DESIGN.md`, ligado ao sumario. Uma colecao externa chamada DESIGN.md e referencia de proposta, nao segunda fonte da verdade. Tela/aba referencia o briefing e descreve apenas sua composicao/peculiaridade local; o padrao de entrevista e comparacao pertence a interface.
 
@@ -189,7 +200,7 @@ Estados separados: UI_CONSTRUIDA (nao afirma integracao), CADEIA_PROTO_CONECTADA
 
 ### Auditoria seletiva de capacidades orfas
 
-Somente no modulo/capacidade indicado: partir da rota/elemento/DNA e rastrear origem e destino. Classificar ATIVA_E_CONECTADA, PARCIAL, SEM_CONSUMIDOR_COMPROVADO, REFERENCIA_OBSOLETA, INFERIDA_A_CONFIRMAR ou NAO_VERIFICADA. Mostrar antes, ligacao proposta/destino, motivo, risco e teste. Perguntar por locais adicionais, registrar a resposta na fila e executar apenas o autorizado. Nao apagar automaticamente unidade aparentemente orfa nem migrar consumidores por esta regra; chamadas dinamicas podem existir. Correcao exige teste do ciclo e aceite dos locais afetados.
+Somente no modulo/capacidade indicado: partir da rota/elemento/DNA e rastrear origem e destino. Classificar ATIVA_E_CONECTADA, PARCIAL, SEM_CONSUMIDOR_COMPROVADO, REFERENCIA_OBSOLETA, INFERIDA_A_CONFIRMAR ou NAO_VERIFICADA. Mostrar antes, ligacao proposta/destino, motivo, risco e teste. Perguntar somente por locais fora do alcance ja autorizado, registrar a resposta na fila e executar apenas o autorizado. Nao apagar automaticamente unidade aparentemente orfa nem migrar consumidores por esta regra; chamadas dinamicas podem existir. Correcao exige teste do ciclo e aceite dos locais afetados.
 
 ### Cenarios de aceitacao da regra
 
@@ -210,7 +221,7 @@ Matriz para avaliacao, nao recibo de execucao comportamental de IA. Testes de te
 | C11 | Contrato sem chamada: registrar ligacao faltante. |
 | C12 | Chamada sem efeito: falha, nunca PASSOU. |
 | C13 | Consumidor dinamico: busca vazia nao autoriza ausencia/remocao. |
-| C14 | Componente compartilhado: mapear consumidores e obter escopo adicional. |
+| C14 | Componente compartilhado: mapear consumidores e obter somente o escopo ainda nao autorizado; padronizacao global expressa segue interface. |
 | C15 | Outra tela aprovada: preservar; nova revisao somente se afetada. |
 | C16 | Tres locais autorizados: tres provas visuais e aceites separados. |
 | C17 | Sem screenshot/navegador: nao inventar prova, manter aceite pendente. |

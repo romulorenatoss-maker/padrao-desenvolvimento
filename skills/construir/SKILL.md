@@ -11,6 +11,8 @@ Fluxo: pedido/decisao -> impacto -> implementacao -> documentacao canonica ating
 
 Preserve a arquitetura real. Quando o projeto usa separacao equivalente, respeite responsabilidades de interface/entrada, normalizacao, regra/autorizacao, persistencia/contrato e integridade de banco. Nao crie camada vazia apenas para satisfazer nomes.
 
+Consultar e aplicar os [padroes locais](../../references/DOCUMENTACAO.md#padroes-locais-preenchiveis) em cada criacao/correcao, atualizando o dono pertinente junto da implementacao, com exemplos e consumidores reais. A conferencia obrigatoria do fiscal em `verificar` abrange codigo e documentacao do candidato, nao apenas o funcionamento.
+
 Reutilize antes de criar. Arquivo novo exige responsabilidade nova ou separacao tecnicamente necessaria e consumidor real. Nao fabrique CRUD completo, dashboard, configuracao, exportacao ou abstracao para o futuro.
 
 Bug: reproduzir/evidenciar -> localizar menor cadeia responsavel -> corrigir causa -> repetir cenario -> verificar dependencia direta.
@@ -66,7 +68,7 @@ Criar/aplicar banco, instalar dependencias e publicar sao autorizacoes distintas
 ## Entrada obrigatoria e construcao conectada
 Antes de criar/alterar, consultar `especificar` e a revisao aprovada aplicavel; efeito de interface chama `interface`. Correcao fiel ao contrato usa o caminho curto dessas skills, nao dispensa leitura. Pedido direto claro ja autoriza construir no prototipo conforme `especificar` e `prototipo-real`; informar entendimento curto e executar na mesma sessao, sem parar em promessa/pergunta de inicio. Decisao indispensavel ou autorizacao especifica ausente bloqueia somente a parte dependente, nao o trecho independente pedido. Confirmacao visual do resultado continua posterior e obrigatoria.
 
-Toda alteracao visual/interativa, inclusive indireta em consumidor compartilhado, entra na fila persistente de `interface` secao 6. Autorizar locais adicionais antes da escrita e mostrar uma tela/modal por vez depois da implementacao, com print real e confirmacao explicita. Nao encerrar o pedido nem promover regra pendente antes de conferir todos os locais atingidos. Verificacao tecnica nao substitui a resposta do responsavel.
+Toda alteracao visual/interativa, inclusive indireta em consumidor compartilhado, entra na fila persistente de `interface` secao 6. Autorizar antes da escrita somente locais fora do alcance vigente; migracao global expressa dos equivalentes dispensa nova permissao por tela conforme `interface`. Mostrar uma tela/modal por vez depois da implementacao, com print real e confirmacao explicita. Nao encerrar o pedido nem promover regra pendente antes de conferir todos os locais atingidos. Verificacao tecnica nao substitui a resposta do responsavel.
 
 Cada elemento novo/alterado precisa da tarefa e do efeito definidos no contrato de utilidade. Nao fabricar botoes, abas, campos ou funcoes para parecer completo. Preserve requisito aprovado: remover/esconder um botao necessario nao corrige sua implementacao.
 
