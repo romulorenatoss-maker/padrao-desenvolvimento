@@ -240,6 +240,57 @@ class DistributionTests(unittest.TestCase):
             ("skills/iniciar-projeto/SKILL.md", "../../templates/CLAUDE.md", "../../README.md"),
         ])
 
+    def test_project_pattern_templates_must_be_distributed(self):
+        for name in ("PADRAO_TECNICO.md", "PADRAO_VISUAL.md"):
+            with self.subTest(template=name):
+                path = self.root / "templates" / name
+                original = path.read_bytes()
+                path.unlink()
+                errors = validate(self.root)
+                self.assertTrue(any(f"templates/{name}: ausente" in e for e in errors))
+                path.write_bytes(original)
+        self.assertEqual(validate(self.root), [])
+
+    def test_project_pattern_owner_sections_required(self):
+        self.assert_mutations_fail([
+            ("references/ARQUITETURA.md", "## Padrao tecnico local", "## Secao retirada"),
+            ("references/ARQUITETURA.md", "### Exemplos de modulo financeiro por stack", "### Secao retirada"),
+            ("references/DOCUMENTACAO.md", "## Padroes locais preenchiveis", "## Secao retirada"),
+            ("templates/PADRAO_TECNICO.md", "## Referencias por linguagem", "## Secao retirada"),
+            ("templates/PADRAO_VISUAL.md", "## Ficha de peca", "## Secao retirada"),
+            ("templates/PADRAO_VISUAL.md", "## Diferencas e excecoes", "## Secao retirada"),
+            ("skills/interface/SKILL.md", "### Desktop e mobile no mesmo padrao", "### Secao retirada"),
+            ("skills/interface/SKILL.md", "### Contrato de listas e carregamento", "### Secao retirada"),
+            ("skills/verificar/SKILL.md", "## Conferencia obrigatoria do fiscal", "## Secao retirada"),
+        ])
+
+    def test_project_pattern_entry_and_owner_routes_required(self):
+        for name, owner in (("PADRAO_TECNICO.md", "references/ARQUITETURA.md"),
+                            ("PADRAO_VISUAL.md", "skills/interface/SKILL.md")):
+            for consumer in ("skills/iniciar-projeto/SKILL.md", "references/DOCUMENTACAO.md", owner):
+                with self.subTest(template=name, consumer=consumer):
+                    path = self.root / consumer
+                    original = path.read_text(encoding="utf-8")
+                    self.edit(consumer, f"templates/{name})", f"templates/{name}?retirado)")
+                    self.assertTrue(any(f"ponte para {name} ausente" in e for e in validate(self.root)))
+                    path.write_text(original, encoding="utf-8")
+
+    def test_project_patterns_required_for_creation_and_correction(self):
+        for consumer in ("analisar", "iniciar-projeto", "construir", "verificar"):
+            with self.subTest(consumer=consumer):
+                path = self.root / "skills" / consumer / "SKILL.md"
+                original = path.read_text(encoding="utf-8")
+                self.edit(f"skills/{consumer}/SKILL.md",
+                          "../../references/DOCUMENTACAO.md#padroes-locais-preenchiveis)",
+                          "../../references/DOCUMENTACAO.md)")
+                self.assertTrue(any(f"{consumer}: consulta aos padroes locais ausente" == e for e in validate(self.root)))
+                path.write_text(original, encoding="utf-8")
+
+    def test_project_template_links_are_validated(self):
+        self.edit("templates/PADRAO_TECNICO.md",
+                  "../references/ARQUITETURA.md#", "../references/NAO_EXISTE.md#")
+        self.assertTrue(any("templates/PADRAO_TECNICO.md: link local invalido" in e for e in validate(self.root)))
+
     def test_symlink_outside_root_fails(self):
         path = self.root / "skills/interface/SKILL.md"
         path.unlink()

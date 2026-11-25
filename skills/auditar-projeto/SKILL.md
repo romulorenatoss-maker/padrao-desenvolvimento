@@ -18,6 +18,10 @@ Primeira passagem somente leitura. "Organizar tudo" permite levantar todo o esco
 
 Se nao houver sumario, criar somente a entrada minima e os mapas necessarios ao recorte autorizado. Se nao houver AGENTS/CLAUDE, seguir `iniciar-projeto`; para existentes, migracao preserva peculiaridades e exige as autorizacoes locais. Descobrir antes de inicializar.
 
+Para padronizacao visual/tecnica do sistema inteiro expressamente solicitada, incluir todos os modulos, rotas/telas, modais, componentes compartilhados, hooks quando houver, estilos/tokens, documentos e perfis de linguagem. Confrontar codigo e donos existentes; comportamento/renderizacao exigem evidencias proprias. Manter matriz de cobertura no dono de inventario existente, incluindo inacessiveis e dinamicos nao comprovados. Inventario parcial nao e varredura completa.
+
+Classificar diferencas de UI e conduzir escolha/migracao conforme [catalogo e migracao de interface](../interface/SKILL.md#5-migracao-e-verificacao-visual); convencoes tecnicas seguem [padrao tecnico local](../../references/ARQUITETURA.md#padrao-tecnico-local). Autorizacao global ja dada cobre equivalentes compativeis no alcance indicado, sem pedir inicio novamente por modulo; nao cobre mudanca de negocio, stack ou excecao protegida fora do pedido. Conferencia do fiscal segue `verificar` em cada lote.
+
 Auditoria nao autoriza automaticamente commit, push, deploy, acesso ao banco, mudanca destrutiva ou desativacao de guardas. Dependencia desconhecida bloqueia retirada daquele item. Nenhum modulo e separado apenas para corresponder a um nome de pasta.
 
 Em auditoria de dados, produzir inventario nominal e classificar semantica, dono, ciclo e consumidores antes de sugerir fusao. Numeros de tabelas e linhas sao observacoes, nao metas. Separar views/particoes/objetos gerenciados e confirmar vazios quando isso mudar a decisao. Ausencia de dado ou FK nao autoriza remover. Explicar por que cada candidato deve ser reutilizado, estendido, vinculado, separado ou mantido historico. Fonte: [reutilizacao e propriedade](../../references/DADOS.md#reutilizacao-e-propriedade-de-dados).

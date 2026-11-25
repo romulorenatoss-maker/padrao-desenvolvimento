@@ -46,6 +46,26 @@ Reconciliar cada arquivo criado/alterado/removido/renomeado no candidato e os no
 
 Confirmar sumario central consultado, fontes coerentes na mesma revisao e destinations canonicos. Bootstrap/migracao: AGENTS local minimo sem catalogo duplicado, ponte CLAUDE pertinente, nenhuma peculiaridade/guarda perdida, links de destino validos e autorizacao para alterar protegido. Nao afirmar que mudar o arquivo carregou o plugin/sessao.
 
+## Conferencia obrigatoria do fiscal
+
+Toda criacao, modificacao, correcao, remocao ou reorganizacao passa pelo fiscal antes de encerrar o lote. Seu trabalho e confrontar o pedido e TODAS as exigencias pertinentes das skills com o candidato real e os padroes locais, incluindo codigo, criacao de arquivos e documentacao. Nao limitar a revisao a "funciona" nem confiar apenas no resumo do construtor. Revisao independente quando disponivel/exigida; sem capacidade, separar os papeis conforme iniciar-projeto e declarar o limite, nunca simular outro revisor.
+
+Ler o diff completo, arquivos novos/nao rastreados pertinentes e os donos/consumidores atingidos. Registrar no mecanismo de revisao existente requisito/fonte, alcance/arquivos, evidencia e PASSOU/FALHOU/NAO_EXECUTADO/NAO_SE_APLICA justificado. Nao criar certificado paralelo ou copiar todas as skills para um checklist permanente.
+
+| Efeito | O fiscal precisa confrontar |
+|---|---|
+| Linguagem e arquivo | Stack permitida por escopo; perfil e exemplo de cada tipo; extensao, nome, estrutura interna, imports/exports, finalidade e consumidor real. |
+| Pastas e modulo | Raiz aprovada, responsabilidade, fronteiras/contratos publicos, reutilizacao e ausencia de copias/camadas vazias. |
+| Componentes e hooks | Dono local/comum, contrato, estado/efeitos, convencao e verificacoes da stack adotada; sem dependencias ou tecnologia introduzidas pelo exemplo. |
+| Documentacao | Documento dono atualizado junto do codigo, sumario/IDs/links corretos, origem da decisao, exemplos reais e nenhuma regra contraditoria/duplicada. |
+| Interface | Catalogo/revisao, tokens/implementacao compartilhados, estados/carregamento, desktop/mobile e efeitos indiretos em consumidores. |
+| Diferencas | Base/variante/configuracao/excecao/divergencia classificadas, propriedades e modos delimitados, origem verdadeira; sem aprovacao inventada. |
+| Cobertura e aceite | Alcance da migracao, consumidores realmente conferidos, evidencias de teste/apresentacao/aceite e pendencias preservadas. |
+
+Fontes donas: [padrao tecnico local](../../references/ARQUITETURA.md#padrao-tecnico-local), [padroes locais preenchiveis](../../references/DOCUMENTACAO.md#padroes-locais-preenchiveis) e [catalogo de interface](../interface/SKILL.md#catalogo-local-e-promocao-de-uma-peca). Corrigir um arquivo tambem deve respeitar seu perfil; nao exigir reorganizar todo legado por um ajuste local. Desvio preexistente fora do alcance e declarado com local/evidencia e nao confundido com nova excecao aprovada.
+
+Falha corrigivel no alcance devolve ao construtor com criterio violado, local e correcao necessaria; depois o fiscal confere o candidato corrigido e o efeito nas dependencias. Nao encerrar como conforme enquanto requisito aplicavel estiver falho ou sem verificacao indispensavel. Se houver impedimento, declarar entrega parcial/bloqueada e o ponto concreto. "Conforme" vale somente para revisao/alcance verificados, nao e certificacao de todo o sistema, garantia de obediencia futura ou substituto do aceite humano visual.
+
 ## Aceite por efeito
 - Docs: DNAs explicam para que, por que e para quem; links/donos e consumidores compartilhados correspondem aos fatos, sem duplicar a regra.
 - Bug: cenario que falhava passa; dependencia compartilhada permanece valida.
@@ -101,7 +121,7 @@ Conferir os encaminhamentos de `especificar`, `interface` e `prototipo-real`, in
 | 2. Adicione campo X no modal Y | Reutilizar modal atual, construir e apresentar aberto para confirmacao. |
 | 3. Sugira uma tela | Apenas proposta; nenhuma construcao. |
 | 4. Faca direto no real | Respeitar REAL e protecoes; nao presumir deploy. |
-| 5. Mude X em A com impacto em B | Construir A se independente; autorizar B antes de alterar, ou bloquear a dependencia inseparavel. |
+| 5. Mude X em A com impacto em B | Construir A se independente; autorizar B somente se fora do alcance vigente, ou bloquear a dependencia inseparavel. |
 | 6. Tres telas autorizadas | Tres apresentacoes/aceites individuais, uma por vez. |
 | 7. Novo pedido sem responder ao print | Manter primeiro item pendente; registrar/executar novo alcance autorizado. |
 | 8. Corrija modal mostrado | Mesmo modal/DNA, nova candidata e confirmacao reaberta. |
@@ -111,6 +131,16 @@ Conferir os encaminhamentos de `especificar`, `interface` e `prototipo-real`, in
 | 12. Navegador indisponivel | Construir recorte independente se possivel; IMPLEMENTADO_NAO_APRESENTADO, sem screenshot/aceite ficticio. |
 | 13. Prototipo aprovado | Nao construir/publicar real automaticamente. |
 | 14. Sessao reaberta | Recuperar fila/fonte atual; nao ressuscitar descartados nem presumir plugin recarregado. |
+| 15. Esta lista ficou boa | Confirmar somente a revisao mostrada; perguntar se deve virar padrao quando a promocao ainda nao foi decidida. |
+| 16. Use esta lista como padrao em todas as equivalentes | Registrar peca/revisao e alcance; varrer/migrar equivalentes sem nova permissao por tela; aceite dos resultados continua individual. |
+| 17. Tabela desktop e cartoes mobile aprovados | Duas variantes da mesma peca, com contrato comum; nao excecoes arbitrarias nem aceite presumido do modo nao mostrado. |
+| 18. Somente o menu mobile da tela X deve diferir | Registrar pedido, modo/propriedades e motivo conhecido; restante herda o padrao. |
+| 19. Diferenca antiga sem origem | Investigar/classificar; nao inventar que foi a pedido nem substitui-la sem resolver o alcance e a intencionalidade incerta. |
+| 20. Projeto sem pastas/documentacao | Materializar donos/perfis da primeira capacidade; criar somente arquivos usados, completar conforme as decisoes. |
+| 21. Projeto PHP; exemplo React no pacote | Seguir o perfil PHP; exemplo nao autoriza trocar stack nem criar hooks. |
+| 22. Modulo financeiro em React autorizado | Seguir perfil local ou exemplo condicional, contratos, nomes e documentacao; fiscal confere arquivos realmente criados. |
+| 23. Catalogo/TRD existente | Completar equivalente e manter IDs; nao criar segunda fonte ou reabrir escolha aprovada. |
+| 24. Codigo funciona, mas nome/pasta/documentacao violam contrato | Fiscal reprova o desvio no alcance, devolve para correcao e reconfere; funcionamento sozinho nao fecha a entrega. |
 
 Sem execucao observada, marcar CENARIOS_DO_METODO/ACEITE_FUNCIONAL como NAO_EXECUTADO e distinguir da VALIDACAO_ESTRUTURAL. ACEITE_VISUAL e NAO_SE_APLICA em patch exclusivo do padrao; ensaio de consumidor continua pendente no seu proprio alcance autorizado.
 

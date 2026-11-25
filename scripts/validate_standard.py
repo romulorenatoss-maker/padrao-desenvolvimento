@@ -24,7 +24,8 @@ ROUTES = {
 }
 DOCS = ("README.md", "INSTALL.md", "AGENTS.md", "templates/AGENTS.md", "templates/CLAUDE.md",
         "references/ARQUITETURA.md", "references/DOCUMENTACAO.md", "references/DADOS.md",
-        "references/SEGURANCA.md", "references/PROTOTIPO_REAL.md")
+        "references/SEGURANCA.md", "references/PROTOTIPO_REAL.md",
+        "templates/PADRAO_TECNICO.md", "templates/PADRAO_VISUAL.md")
 
 
 def unique_object(pairs: list[tuple[str, object]]) -> dict:
@@ -240,6 +241,33 @@ def validate(root: Path) -> list[str]:
     for consumer in ("analisar", "construir", "verificar", "auditar-projeto"):
         if "../../references/DADOS.md#re" not in skills.get(consumer, ""):
             errors.append(f"{consumer}: ponte para propriedade de dados ausente")
+    # Contratos de preenchimento e suas fontes donas devem viajar no pacote.
+    # Presenca/roteamento textual nao valida valores locais ou obediencia do fiscal.
+    local_contracts = {
+        "references/ARQUITETURA.md": ("## Padrao tecnico local",
+                                    "### Exemplos de modulo financeiro por stack"),
+        "references/DOCUMENTACAO.md": ("## Padroes locais preenchiveis",),
+        "templates/PADRAO_TECNICO.md": ("## Stack por escopo", "## Estrutura e nomes",
+                                      "## Referencias por linguagem", "## Verificacao e fiscal"),
+        "templates/PADRAO_VISUAL.md": ("## Matriz de cobertura", "## Ficha de peca",
+                                     "## Diferencas e excecoes", "## Cobertura e conferencia"),
+        "skills/interface/SKILL.md": ("### Catalogo local e promocao de uma peca",
+                                     "### Desktop e mobile no mesmo padrao",
+                                     "### Contrato de listas e carregamento"),
+        "skills/verificar/SKILL.md": ("## Conferencia obrigatoria do fiscal",),
+    }
+    for relative, headings in local_contracts.items():
+        for heading in headings:
+            if heading not in texts.get(relative, "").splitlines():
+                errors.append(f"{relative}: contrato local ausente: {heading.lstrip('# ')}")
+    for template_name, owner in (("PADRAO_TECNICO.md", "references/ARQUITETURA.md"),
+                                  ("PADRAO_VISUAL.md", "skills/interface/SKILL.md")):
+        for consumer in ("skills/iniciar-projeto/SKILL.md", "references/DOCUMENTACAO.md", owner):
+            if f"templates/{template_name})" not in texts.get(consumer, ""):
+                errors.append(f"{consumer}: ponte para {template_name} ausente")
+    for consumer in ("analisar", "iniciar-projeto", "construir", "verificar"):
+        if "../../references/DOCUMENTACAO.md#padroes-locais-preenchiveis)" not in skills.get(consumer, ""):
+            errors.append(f"{consumer}: consulta aos padroes locais ausente")
     return errors
 
 
