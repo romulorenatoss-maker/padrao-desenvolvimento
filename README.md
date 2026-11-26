@@ -1,6 +1,6 @@
 # Padrao de Desenvolvimento
 
-Versao: 1.0.20
+Versao: 1.0.21
 Repositorio oficial: `romulorenatoss-maker/padrao-desenvolvimento`.
 
 Orienta IAs a trabalhar com o mesmo metodo: criar prototipos visuais com dados e regras simulados, revisar o comportamento com o responsavel e converter o aprovado ao real com documentacao por DNA de ponta a ponta. Modularizacao, contratos/RPCs, analise de impacto, preservacao do visual aprovado e limpeza verificada tornam alteracoes e remocoes rastreaveis; instrucoes de skill nao garantem obediencia perfeita nem ausencia de erros.
@@ -78,6 +78,8 @@ Correcao fiel: DNA -> trecho vigente no dono -> codigo/consumidores -> teste ati
 
 A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOTIPO, DNAs, regras, revisao/fontes e simulacoes/contratos a integrar. Conversao atualiza a mesma fonte e verifica prototipo x real, sem refazer entendimento nem duplicar manual. Falta indispensavel e resolvida antes da implementacao dependente; a entrega visual local continua rapida conforme `prototipo-real`.
 
+Migracao 1.0.21: uso obrigatorio de todos os plugins do setup em todo lote (Ponytail e `ponytail-review` no codigo; frontend-design e UI Design Review em celular e desktop em toda tela criada ou alterada, antes de mostrar), com a lista `plugin -> skill -> tela/arquivo -> resultado` entregue ao fiscal, que reprova falta de uso ou uso sem evidencia. Publicar nao migra telas dos consumidores.
+
 Migracao 1.0.20: o [setup](INSTALL.md) passa a instalar, quando ausentes e autorizados, os plugins de tela frontend-design e UI Design Review junto do Ponytail; Figma e code-map ficam fora. Instalar nao altera telas dos consumidores.
 
 Migracao 1.0.19: no catalogo local, criar as tabelas Excecoes registradas, Variantes aprovadas e Divergencias do [modelo](templates/PADRAO_VISUAL.md#diferencas-e-excecoes), renumerando excecoes/divergencias existentes sem perder o historico; ligar cada excecao vigente aos tres vinculos (`E##`, `PADRAO_EXCECAO` abaixo do DNA, linha na tela). Seguir o [ciclo de vida da peca](skills/interface/SKILL.md#ciclo-de-vida-de-uma-peca): pergunta "troca em todas ou excecao so desta tela?" ao mudar peca APROVADA, "Esta bom para gravar como padrao?" para peca nova, ID neutro e paridade entre telas no fiscal. Publicar este pacote nao migra telas nem marca codigo dos consumidores.
@@ -125,6 +127,8 @@ As praticas foram confrontadas com [qualidade documental DORA](https://dora.dev/
 Entrega 1.0.12. QUEM: Claude, autorizacao 0393 direta do responsavel em 30/10/2026. FEZ: regras de acesso ao banco pela persistencia, contrato da migration, dados no prototipo x real e perfil local em DADOS, com ponteiros em ARQUITETURA, prototipo-real e verificar. CONFERIU: validador central. FALTA: adocao por consumidor. DESFAZER: nova versao revertendo o recorte.
 
 Entrega 1.0.11 — [issue #37](https://github.com/romulorenatoss-maker/padrao-desenvolvimento/issues/37). QUEM: Codex, autorizacao 0393 direta do responsavel; sem delegacao. COMMITS: candidato/PR vinculados a issue. FEZ: reconciliar execucao imediata no prototipo e confirmacao posterior nas skills donas, sem alterar consumidores. CONFERIU: resultados estruturais e limites registrados na PR; nenhuma execucao comportamental ou carga de cliente presumida. FALTA: ensaios comportamentais autorizados e comprovacao de instalacao/recarga por cliente. DESFAZER: nova entrega versionada revertendo o recorte, preservando fila, escopo e trabalho alheio.
+
+Entrega 1.0.21 — Claude, autorizacao 0393 direta do responsavel em 26/11/2026. FEZ: uso obrigatorio dos plugins do setup em interface e linha Plugins usados no fiscal de erificar; README e manifests em 1.0.21. CONFERIU: validador central e testes. FALTA: aplicar nos consumidores. DESFAZER: nova versao revertendo o recorte.
 
 Entrega 1.0.20 — Claude, autorizacao 0393 direta do responsavel em 26/11/2026. FEZ: plugins de tela (frontend-design e UI Design Review) no setup do INSTALL.md; README e manifests em 1.0.20. CONFERIU: validador central. FALTA: instalar/recarregar nos clientes. DESFAZER: nova versao revertendo o recorte.
 
