@@ -34,6 +34,15 @@ claude plugin install ponytail@ponytail
 ```
 Confirmar modo full e hooks pelo mecanismo suportado. Nao ativar ultra nem confiar indiscriminadamente em hooks.
 
+Plugins de tela (padrao do setup desde 1.0.20), apenas se ausentes e autorizados; usados conforme os [plugins de design](skills/interface/SKILL.md#plugins-de-design-na-construcao-e-revisao):
+- frontend-design (Anthropic): acabamento visual preso ao molde.
+```sh
+claude plugin install frontend-design@claude-plugins-official
+```
+- UI Design Review (UXKIN, skills ui-review, ui-polish e ui-compare): revisao em celular e desktop antes de mostrar ao responsavel. Esta no Anthropic Directory, sem repositorio publico: habilitar pelo catalogo de plugins do aplicativo/claude.ai na mesma conta; o servidor UXKIN e opcional e pede autorizacao propria.
+
+Figma, code-map e outros plugins de design nao entram no setup padrao. Confirmar cada um na lista de skills da sessao; sem eles, declarar o limite e seguir a revisao visual prevista. No Codex, instalar so os que o gerenciador da superficie comprovar disponiveis.
+
 ## Codex — marketplace e instalacao na superficie correta
 Comandos do catalogo documentados; executar somente os disponiveis no cliente:
 ```sh
