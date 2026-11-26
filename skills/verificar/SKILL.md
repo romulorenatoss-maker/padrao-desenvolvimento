@@ -61,6 +61,7 @@ Ler o diff completo, arquivos novos/nao rastreados pertinentes e os donos/consum
 | Interface | Catalogo/revisao, tokens/implementacao compartilhados, estados/carregamento, desktop/mobile e efeitos indiretos em consumidores. |
 | Diferencas | Base/variante/configuracao/excecao/divergencia classificadas, propriedades e modos delimitados, origem verdadeira; sem aprovacao inventada. Excecao com os tres vinculos (`E##` no catalogo, `PADRAO_EXCECAO` abaixo do DNA, linha na tela); faltando um, reprova. |
 | Paridade | A mesma peca nas telas tocadas e nas vizinhas tem a mesma forma; diferenca sem excecao/variante registrada reprova ou vira `D##`. ID de peca sem nome de modulo; um icone por significado. |
+| Plugins usados | Lista `plugin -> skill -> tela/arquivo -> resultado` do construtor conferida contra a evidencia real (chamada da skill, achados, correcoes): Ponytail com `ponytail-review` no codigo; frontend-design e UI Design Review (celular e desktop) em toda tela/aba/modal criado ou alterado, antes de mostrar. Falta de uso, uso sem evidencia ou achado importante ignorado sem motivo reprova e volta ao construtor; plugin ausente so passa com o limite declarado. Ver [plugins de design](../interface/SKILL.md#plugins-de-design-na-construcao-e-revisao). |
 | Cobertura e aceite | Alcance da migracao, consumidores realmente conferidos, evidencias de teste/apresentacao/aceite e pendencias preservadas. |
 
 Arvore do fiscal para cada diferenca visual:
