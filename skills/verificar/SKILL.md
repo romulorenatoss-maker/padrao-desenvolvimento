@@ -52,6 +52,8 @@ Toda criacao, modificacao, correcao, remocao ou reorganizacao passa pelo fiscal 
 
 Ler o diff completo, arquivos novos/nao rastreados pertinentes e os donos/consumidores atingidos. Registrar no mecanismo de revisao existente requisito/fonte, alcance/arquivos, evidencia e PASSOU/FALHOU/NAO_EXECUTADO/NAO_SE_APLICA justificado. Nao criar certificado paralelo ou copiar todas as skills para um checklist permanente.
 
+Antes de aceitar alegacao de entrega/aprovacao visual ou elegibilidade para publicacao, aplicar a [trava de encerramento da revisao visual](../interface/SKILL.md#trava-de-encerramento-da-revisao-visual). Confrontar pergunta efetivamente enviada, resposta original do responsavel e evidencia da candidata com pedido/item, ambiente e revisao; status ou resumo do executor nao bastam. Alegacao de conclusao/aceite sem essa cadeia e FALHOU e volta para a correcao prevista no dono. Registro honesto de espera nao e alegacao falsa nem aceite: preservar a pendencia, sem liberar o item para fechamento/publicacao.
+
 | Efeito | O fiscal precisa confrontar |
 |---|---|
 | Linguagem e arquivo | Stack permitida por escopo; perfil e exemplo de cada tipo; extensao, nome, estrutura interna, imports/exports, finalidade e consumidor real. |
@@ -174,6 +176,9 @@ Conferir os encaminhamentos de `especificar`, `interface` e `prototipo-real`, in
 | 35. Nova regra visual escolhida, codigo ainda nao alterado | Definicao salva imediatamente no dono; implementacao, apresentacao, aceite e cobertura continuam pendentes. |
 | 36. Excecao de largura mobile numa tela com tres vinculos | Conferir somente esse delta/condicao autorizados; mudanca adicional de cor, fonte ou desktop continua sendo desvio. |
 | 37. Nova lista com outras colunas ou mais registros | Configuracao do dominio muda; matriz, densidade e comportamento comuns permanecem, respeitando conteudo longo e variantes. |
+| 38. Tela mostrada, pergunta apenas escrita na fila, executor declara entregue | Fiscal reprova a alegacao; retomar a candidata, reapresentar e enviar a pergunta conforme a trava de encerramento. |
+| 39. Resposta usada pertence a outro item, ambiente ou candidata anterior alterada | Nao fechar com esse aceite; preservar o mesmo pedido/item e resolver a confirmacao da revisao correspondente. |
+| 40. Cadeia de apresentacao, pergunta e aceite ja comprovada para a candidata atual | Reconhecer o aceite existente sem nova entrevista; conferir cobertura e demais requisitos aplicaveis. |
 
 Sem execucao observada, marcar CENARIOS_DO_METODO/ACEITE_FUNCIONAL como NAO_EXECUTADO e distinguir da VALIDACAO_ESTRUTURAL. ACEITE_VISUAL e NAO_SE_APLICA em patch exclusivo do padrao; ensaio de consumidor continua pendente no seu proprio alcance autorizado.
 
