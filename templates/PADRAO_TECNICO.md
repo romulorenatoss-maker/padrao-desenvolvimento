@@ -48,6 +48,46 @@ Para cada tipo adotado, apontar arquivo/simbolo e revisao exemplares, por que se
 
 Quando ainda nao houver referencia real, documentar a convencao necessaria, construir a primeira capacidade e conferir antes de aponta-la como exemplo. Atualizar a referencia se o arquivo mudar; historico nao e contrato vigente automaticamente.
 
+## Execucao web mobile e desempenho
+
+Preencher desde a primeira capacidade de app, usando [desempenho-mobile](../skills/desempenho-mobile/SKILL.md). Em legado, aplicar ao recorte autorizado e preservar decisoes/guardas. O perfil pertence a este dono; TELA/contratos/reconstrucao referenciam os trechos correspondentes. Exemplos de budget sao propostas ate adaptacao e decisao registradas.
+
+### Abertura e resposta
+
+| Campo | Definicao verificavel do projeto |
+|---|---|
+| Plataforma e dispositivo | Web/PWA/APK hibrido/nativo; aparelho/modelo/RAM/SO/browser/WebView e versoes; build release/producao. |
+| Primeira acao utilizavel | Acao real que o usuario consegue executar e marcos de inicio/fim; separar splash, dados locais, handlers, commit local e aceite remoto. |
+| Entradas e volume | Primeiro acesso, abertura fria provisionada, retomada e troca de rota; cardinalidade/distribuicao, fila e anexos representativos. |
+| Prioridades | Essencial para operar, adiado e sob demanda; quais arquivos/chunks/consultas entram em cada etapa. |
+| Limites de trabalho | Bytes JS/CSS/dados/ponte, itens processados, consultas, DOM, concorrencia e memoria; paginacao de ponta a ponta. |
+| Orcamentos | Metrica/unidade, cenario, dispositivo/rede/cache/dataset, percentil/numero de amostras, teto absoluto e regressao permitida, origem da decisao. |
+| Evidencias | Comandos/instrumentacao, baseline/candidato/SHA/artefato, traces recuperaveis e limites NAO_EXECUTADO; nao usar print como medicao. |
+
+### Offline e sincronizacao
+
+| Campo | Definicao verificavel do projeto |
+|---|---|
+| Acao e disponibilidade | Permitida offline, rascunho, leitura ou exclusivamente online; autoridade oficial e estados exibidos. |
+| Contexto e validade | Usuario/tenant/ambiente, concessao offline/prazo/relogio/expiracao, troca de conta e revalidacao online. |
+| Persistencia | Adaptador web/nativo, projecoes/indices, limites/quota/retencao, schema/migrations e anexos; sem segredo no documento. |
+| Escrita | Transacao dados + outbox, ID de operacao, idempotencia no servidor, dependencias, ordem por entidade, recibo local e confirmacao remota. |
+| Recebimento | Cursor/snapshot, pagina e cursor atomicos, exclusoes, conflito, cursor expirado e preservacao de pendencias. |
+| Agendamento | Gatilhos de inicio/retomada/conexao, lock/lease entre instancias, limites de lote/CPU/IO, retry/backoff e limites do SO. |
+| Recuperacao | Processo encerrado, quota/erro, migration interrompida, fila legada, conta expirada e procedimentos sem apagar pendencias. |
+
+### Atualizacao e pacote
+
+| Campo | Definicao verificavel do projeto |
+|---|---|
+| Canal | Web/PWA, APK direto, loja ou MDM comprovado; diferenciar dados, assets, schema e binario. |
+| Atualizador | Implementacao/versao/manutencao, checagem depois da abertura, downloads limitados, origem/autenticidade/integridade e estados reais. |
+| Compatibilidade | Shell/bridge/plugins/API/schema, versoes suportadas, pendencias e migrations; alteracao nativa requer binario. |
+| Ativacao | Ponto seguro, rascunho salvo, transacoes/abas, reinicio/confirmacao quando exigidos e verificacao da primeira acao. |
+| Recuperacao de update | Versao saudavel/candidata, rollback compativel com dados, quarentena de falha e recuperacao sem descartar fila. |
+| Build e distribuicao | Toolchain/lockfile/wrapper, assets locais, appId/versionCode, comandos, assinatura por referencia segura, artefato/hash e pipeline autorizado. |
+| Prova e alcance | CODIGO_CONSTRUIDO, BUILD_GERADO, OFFLINE_VERIFICADO, DESEMPENHO_MEDIDO, ATUALIZACAO_VERIFICADA e PUBLICADO, cada qual com estado/revisao/evidencia. |
+
 ## Decisoes e excecoes
 
 Cada decisao implementada guarda escopo, propriedades, justificativa conhecida, fonte/data, revisao e consumidores. Excecao nomeia exatamente arquivos/modulos e aspectos diferentes; o restante herda o padrao. Mudanca de stack/convencao nao e correcao cosmetica. Observacao sem origem comprovada nao vira "aprovado pelo responsavel".

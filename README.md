@@ -1,6 +1,6 @@
 # Padrao de Desenvolvimento
 
-Versao: 1.0.23
+Versao: 1.0.24
 Repositorio oficial: `romulorenatoss-maker/padrao-desenvolvimento`.
 
 Orienta IAs a trabalhar com o mesmo metodo: criar prototipos visuais com dados e regras simulados, revisar o comportamento com o responsavel e converter o aprovado ao real com documentacao por DNA de ponta a ponta. Modularizacao, contratos/RPCs, analise de impacto, preservacao do visual aprovado e limpeza verificada tornam alteracoes e remocoes rastreaveis; instrucoes de skill nao garantem obediencia perfeita nem ausencia de erros.
@@ -32,6 +32,7 @@ A tabela e tambem o catalogo nominal conferido pelo validador. Nao repetir uma c
 | [interface](skills/interface/SKILL.md) | Qualquer efeito visual/interativo | Referencia aprovada, componentes, CSS, peculiaridades, fila e confirmacao visual por item. |
 | [motion-principles](skills/motion-principles/SKILL.md) | Criar/revisar movimento no recorte de interface autorizado | Pacote completo Design Motion Principles, acessibilidade e movimento com finalidade na stack aprovada. |
 | [construir](skills/construir/SKILL.md) | Construcao, alteracao ou bug autorizado | Cadeia funcional completa, correcao com reteste e salvamento dos lotes aprovados. |
+| [desempenho-mobile](skills/desempenho-mobile/SKILL.md) | Criar app web/mobile, corrigir lentidao, offline, APK ou atualizacao automatica | Receita de abertura/resposta, persistencia/sync, atualizacao segura, build e aceite por medicao. |
 | [seguranca](skills/seguranca/SKILL.md) | Entrada, acesso, dados, banco, integracao ou efeito critico | Controles no runtime, autorizacao e integridade. |
 | [documentacao](skills/documentacao/SKILL.md) | Conhecimento canonico alterado | Destinos, nomes e vinculos documentais sem duplicacao. |
 | [prototipo-real](skills/prototipo-real/SKILL.md) | Prototipo convertido/integrado/comparado ao real | Preservar proposta e trocar simulacao por contratos reais. |
@@ -77,6 +78,8 @@ Executar `python3 scripts/validate_standard.py` e `python3 -m unittest discover 
 Correcao fiel: DNA -> trecho vigente no dono -> codigo/consumidores -> teste atingido. Evolucao: briefing visual, fluxo do app e TRD pertinentes; reconstrucao: revisao exata de fontes/assets e guia modular com contratos/RPCs/dados/seguranca/ordem/aceite. Conteudo e destinos em [references/DOCUMENTACAO.md](references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao); implementacao e limpeza em `construir`, verificacao/fiscal em `verificar`. Resumo rapido e referencia ao detalhe, sem retirar mapas nominais ou checks locais.
 
 A tela do prototipo aprovado ja e documentada no dono vigente, com estado PROTOTIPO, DNAs, regras, revisao/fontes e simulacoes/contratos a integrar. Conversao atualiza a mesma fonte e verifica prototipo x real, sem refazer entendimento nem duplicar manual. Falta indispensavel e resolvida antes da implementacao dependente; a entrega visual local continua rapida conforme `prototipo-real`.
+
+Migracao 1.0.24: aplicar [desempenho-mobile](skills/desempenho-mobile/SKILL.md) desde a primeira capacidade de app web/mobile e nos recortes autorizados de lentidao, offline, APK e atualizacao. Completar o [perfil tecnico existente](templates/PADRAO_TECNICO.md#execucao-web-mobile-e-desempenho), definir primeira acao utilizavel e medir o caminho critico; nao ler/montar toda a base antes de paginar. Preservar stack e seguranca, distinguir recibo local de efeito oficial e implementar atualizacao segura pelo canal real. Migracao de fila/schema preserva pendencias e dados. O avaliador distribuido confere resultados/evidencias fornecidos, nao mede o app nem certifica relatos. Publicar esta versao nao converte telas, nao acelera consumidores, nao gera/instala APK e nao ativa atualizador. Instalacao/recarga segue [INSTALL](INSTALL.md); manter decisoes, referencias e evidencias anteriores. Rollback por nova versao do padrao; rollback de app/schema depende do contrato local.
 
 Migracao 1.0.23: aplicar a [trava de encerramento da revisao visual](skills/interface/SKILL.md#trava-de-encerramento-da-revisao-visual) na fila existente, preservando pedidos/itens e vinculando candidata, apresentacao, renderizacao, pergunta efetivamente enviada e resposta explicita. Completar somente a evidencia recuperavel; ausencia continua pendente, sem aprovacao retroativa nem entrevista repetida para aceite valido. Pergunta omitida exige reapresentacao e envio real; correcao conserva o pedido/item e atualiza candidata/evidencia. Reconciliar pontes locais no alcance autorizado, sem copiar a regra inteira. Atualizar/instalar/recarregar pelo [procedimento suportado](INSTALL.md) e comprovar a versao na sessao nova; publicacao do pacote nao faz isso nem aprova revisoes de consumidores. Rollback por nova versao revertendo apenas este recorte, sem apagar fila, decisoes, evidencias ou trabalho alheio. A guarda estrutural verifica distribuicao/roteamento, nao implementa bloqueio mecanico de fechamento/publicacao.
 

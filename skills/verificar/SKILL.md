@@ -59,6 +59,8 @@ Antes de aceitar alegacao de entrega/aprovacao visual ou elegibilidade para publ
 | Linguagem e arquivo | Stack permitida por escopo; perfil e exemplo de cada tipo; extensao, nome, estrutura interna, imports/exports, finalidade e consumidor real. |
 | Pastas e modulo | Raiz aprovada, responsabilidade, fronteiras/contratos publicos, reutilizacao e ausencia de copias/camadas vazias. |
 | Componentes e hooks | Dono local/comum, contrato, estado/efeitos, convencao e verificacoes da stack adotada; sem dependencias ou tecnologia introduzidas pelo exemplo. |
+| Abertura e resposta de app | Perfil, primeira acao utilizavel, custo limitado da consulta ate a UI, payload/ponte e amostras no dispositivo/volume/rede do contrato. Aplicar [desempenho-mobile](../desempenho-mobile/SKILL.md); score, screenshot, linguagem ou build nao provam velocidade. |
+| Offline e atualizacao | Transacao local + outbox, isolamento, idempotencia, cursor/conflito/retomada, compatibilidade e ativacao/rollback ensaiados. Distinguir dados, assets web e binario; deploy web nao atualiza automaticamente APK embarcado. |
 | Documentacao | Documento dono atualizado junto do codigo, sumario/IDs/links corretos, origem da decisao, exemplos reais e nenhuma regra contraditoria/duplicada. |
 | Interface | Catalogo/revisao, matriz de composicao, medidas/condicoes, tokens/implementacao compartilhados, estados/carregamento, desktop/mobile e efeitos indiretos em consumidores. |
 | Diferencas | Base/variante/configuracao/excecao/divergencia classificadas, propriedades e modos delimitados, origem verdadeira; sem aprovacao inventada. Excecao aplicada com os tres vinculos (`E##` no catalogo, `PADRAO_EXCECAO` abaixo do DNA, linha na tela); faltando um, reprova a aplicacao. Definicao ainda nao implementada nao certifica conformidade. |
@@ -89,6 +91,7 @@ Fontes donas: [padrao tecnico local](../../references/ARQUITETURA.md#padrao-tecn
 Falha corrigivel no alcance devolve ao construtor com criterio violado, local e correcao necessaria; depois o fiscal confere o candidato corrigido e o efeito nas dependencias. Nao encerrar como conforme enquanto requisito aplicavel estiver falho ou sem verificacao indispensavel. Se houver impedimento, declarar entrega parcial/bloqueada e o ponto concreto. "Conforme" vale somente para revisao/alcance verificados, nao e certificacao de todo o sistema, garantia de obediencia futura ou substituto do aceite humano visual.
 
 ## Aceite por efeito
+- App web/mobile, offline, APK ou update: executar a [matriz de desempenho e recuperacao](../desempenho-mobile/references/medicao-aceite.md#cenarios-de-aceite), no alcance aplicavel. Exigir baseline/candidato, perfis/artefatos e traces reais antes de aprovar velocidade; sem aparelho ou evidencia marcar NAO_EXECUTADO. Avaliador de JSON confere amostras/limites, nao autentica medicao; nao alterar budget para aprovar candidato lento.
 - Docs: DNAs explicam para que, por que e para quem; links/donos e consumidores compartilhados correspondem aos fatos, sem duplicar a regra.
 - Bug: cenario que falhava passa; dependencia compartilhada permanece valida.
 - Backend/acesso: efeito/contrato real e caminho permitido/recusa pertinentes.
