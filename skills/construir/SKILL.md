@@ -25,6 +25,10 @@ Em criacao ou separacao de JavaScript autorizada, aplicar [responsabilidades, no
 
 Aplique seguranca quando houver superficie de seguranca e documentacao quando o conhecimento canonico mudar. Termine com verificar.
 
+## Construcao de app e velocidade de uso
+
+Criar app web/mobile ou alterar abertura, resposta, offline, APK ou atualizacao exige [desempenho-mobile](../desempenho-mobile/SKILL.md) desde a primeira capacidade. Aplicar sua receita de arquivos, caminho critico e medicao, mantendo a stack autorizada e os donos existentes. Preparar shell e primeira pagina utilizavel antes de sync/update/recursos auxiliares; pagina limitada no DOM com leitura/validacao integral previa nao cumpre. Implementar atualizacao no canal escolhido e medir o artefato; nao encerrar com promessa de otimizar depois.
+
 ## Modulos, limites e remocao
 Modulo novo so nasce quando a responsabilidade foi aprovada e nao pertence a modulo existente; criar somente arquivos usados pela primeira capacidade. Nao acessar tabela interna de outro modulo para contornar seu contrato. Nao copiar modulo para criar outro.
 
@@ -78,7 +82,7 @@ Classifique a acao: LOCAL, NAVEGACAO, CONSULTA ou MUTACAO. Fechar modal/trocar a
 
 Localize contratos/dados/consumidores reais antes de conectar. Capacidade ausente nasce no dono correto com necessidade aprovada, nao como modulo paralelo. Reutilize componentes/validacao/controle de acesso e preserve compatibilidade dos consumidores.
 
-Sucesso persistente so apos confirmacao oficial; resultado incerto por falha de rede exige reconciliacao antes de repetir mutacao critica. Defina queries/dados/consumidores a atualizar, inclusive outras sessoes quando a regra exigir. Invalidacao de cache nao garante sincronizacao universal. Planeje erro, timeout, recuperacao, repeticao/concorrencia e estados pertinentes com `seguranca`.
+Sucesso do efeito oficial so apos confirmacao oficial; resultado incerto por falha de rede exige reconciliacao antes de repetir mutacao critica. Operacao offline autorizada pode confirmar "salvo neste aparelho; envio pendente" apos commit local duravel de dados + outbox, conforme [contrato offline](../desempenho-mobile/references/offline-atualizacao.md#operacao-e-sincronizacao); isso nao confirma o efeito no servidor. Defina queries/dados/consumidores a atualizar, inclusive outras sessoes quando a regra exigir. Invalidacao de cache nao garante sincronizacao universal. Planeje erro, timeout, recuperacao, repeticao/concorrencia e estados pertinentes com `seguranca`.
 
 Execute integracao real em ambiente autorizado com dados de teste controlados. Nao usar operacao real de cliente em producao para demonstracao. Fixture isolada de teste nao e fallback de producao.
 

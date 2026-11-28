@@ -1,0 +1,4 @@
+interface:
+  display_name: "Desempenho Web e Mobile"
+  short_description: "Apps rapidos, offline, APK e atualizacao segura"
+  default_prompt: "Use $desempenho-mobile para construir este app com abertura local rapida, resposta imediata, sincronizacao e atualizacao segura."

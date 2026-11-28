@@ -81,6 +81,8 @@ Compartilhamento exige contrato explicito e politica de retirada; nao acesso liv
 Publicacao de mudancas de dono/schema/contrato considera trabalhos concorrentes e versoes de produtores/consumidores. Registrar grupo de integracao quando uma metade nao for compativel com a versao restante. Reservar arquivo nao substitui essa verificacao.
 
 ## Responsabilidades, nao camadas vazias
+Perfil de app web/mobile, inclusive preparo para APK, usa a [receita de construcao](../skills/desempenho-mobile/references/construcao.md#perfil-e-estrutura): UI, casos de uso, contratos, persistencia local, transporte, sync e atualizador com limites explicitos. Reutilizar as raizes reais; TypeScript/Capacitor sao perfis condicionais, nao migracao automatica do legado. Fonte do fluxo e aceite: [desempenho-mobile](../skills/desempenho-mobile/SKILL.md).
+
 Interface -> entrada/transporte/sessao -> normalizacao -> regra/autorizacao -> persistencia/contrato -> integridade no banco. Materializar apenas o necessario, idiomaticamente na stack. Funcao local de UI nao exige backend; efeito oficial nao fica apenas no navegador. Somente a persistencia do modulo dono acessa o banco, conforme [acesso ao banco](DADOS.md#acesso-ao-banco-somente-pela-persistencia-do-modulo).
 
 ## JavaScript por responsabilidade e tamanho
@@ -123,5 +125,6 @@ Esta tabela e consumida pelo gate de `analisar`. E previsao de tipos/destinos, n
 | Pasta `temp/` de perguntas e fila temporarias | construir | Pergunta ou trabalho/aceite pendente no alcance autorizado; somente `temp/` dentro da pasta privada nao versionada do projeto (ex.: `backup/temp/`), conforme [pasta temp](../skills/construir/SKILL.md#pasta-temp-de-perguntas-e-fila-temporarias); definicao visual escolhida fica no dono e a fila a referencia; excluida ao terminar sem pendencias. |
 | Copia de trabalho para analise/teste | analisar | Fonte/ref confirmados, destino descartavel delimitado e separado do projeto; copia nao e nova fonte canonica nem autorizacao de sobrescrita. |
 | Configuracao de qualidade, testes, telemetria ou CI | verificar; seguranca para dados/integração | Perfil compativel e adocao autorizados, reutilizar ferramentas/comandos e destinos existentes; gasto, contas, dados enviados e novas dependencias precisam de escopo especifico. |
+| Perfil, adaptador local, sync, atualizador e pacote mobile | desempenho-mobile e construir; seguranca para sessao/dados/bridge/update | Primeira capacidade ou migracao web/mobile autorizada; destinos existentes ou receita da skill, responsabilidades e consumidores reais. Perfil/budgets completam TRD; evidencia/JSON e build no destino controlado do runner, sem segredos, certificados paralelos ou APK versionado como fonte. |
 
 Pasta so com conteudo necessario. Nome previsto sem necessidade nao autoriza criar. Nova dependencia, recurso externo, lockfile ou scaffolder exige avaliar todos os arquivos e efeitos produzidos antes de executar. Nao usar comando de terceiro para contornar a regra.

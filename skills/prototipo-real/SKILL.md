@@ -7,6 +7,8 @@ description: Use na revisao visual iterativa de prototipos e quando uma interfac
 
 Prototipo especifica a mudanca aprovada; nao comprova backend, persistencia, seguranca ou publicacao.
 
+App web/mobile aplica [desempenho-mobile](../desempenho-mobile/SKILL.md) desde a composicao do prototipo: shell e carregamento modular reutilizaveis, contratos locais/remotos e estados honestos. Conversao para offline/APK troca adaptadores/simulacoes por implementacoes verificadas; empacotar HTML/PHP remoto nao comprova abertura local. Medicao de mock ou computador desktop nao certifica velocidade, durabilidade ou atualizacao no celular.
+
 Desde a criacao, aplicar a [divisao JavaScript por responsabilidade](../../references/ARQUITETURA.md#javascript-por-responsabilidade-e-tamanho) e a [identificacao interna por DNA](../../references/DOCUMENTACAO.md#identificacao-e-documentacao-interna-do-codigo). Usar fontes e interfaces reutilizaveis no real; manter simulacao separada e substituir somente o adaptador/contrato necessario na conversao autorizada, preservando IDs e interface. Isso reduz reescrita, sem fingir backend pronto nem importar dados ficticios.
 
 ## Ambiente padrao e limites

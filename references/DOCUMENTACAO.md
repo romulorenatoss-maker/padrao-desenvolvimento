@@ -36,6 +36,8 @@ Diferenca registra classificacao, propriedades e modos abrangidos, referencia ba
 
 ## Contratos de projeto e reconstrucao
 
+App web/mobile, offline, APK e atualizacao seguem os [donos definidos em desempenho-mobile](../skills/desempenho-mobile/SKILL.md#documentos-e-arquivos-desde-a-primeira-capacidade). TRD guarda perfil/arquitetura/budgets; TELA guarda primeira acao, prioridades e estados; contratos guardam sync/idempotencia; reconstrucao/processo guarda build, assinatura por referencia segura e canal/compatibilidade/recuperacao. Evidencias de aparelho/trace ficam no registro do lote/runner com revisao e alcance. Completar os mesmos donos desde a primeira capacidade, sem duplicar manual nem transformar proposta em resultado medido.
+
 Reutilizar fontes equivalentes e vincula-las no sumario; um documento existente pode ter secoes para estas responsabilidades. Nao impor tres arquivos vazios, repetir TELA.md nem escrever um manual novo por bug. Registrar decisoes suficientes ao recorte antes da primeira interface definitiva; completar os mesmos donos conforme as respostas. O metodo vale para pessoas e IAs, sem substituir responsabilidades e instrumentos locais.
 
 - Briefing visual: cores semanticas, fontes/tamanhos/pesos, botoes e estados, cantos, espacamentos/densidade, variantes por tarefa, responsividade e acessibilidade. Valores aprovados ou referencia concreta aos tokens/componentes implementados; excecoes nominais e origem da aprovacao. Referencia renderizada acompanha a decisao. Padrao novo nao autoriza mudar a tela aprovada por iniciativa propria.

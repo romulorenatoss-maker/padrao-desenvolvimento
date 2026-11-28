@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "profile_id": "operacao-mobile-exemplo",
+  "state": "PROPOSTO",
+  "decision_ref": "ADAPTAR ao dono tecnico e registrar decisao real antes de aprovar",
+  "require_physical_device": true,
+  "environment": {
+    "device": "DEFINIR modelo, RAM e armazenamento",
+    "os": "DEFINIR sistema e versao",
+    "runtime": "DEFINIR browser ou WebView/runtime e versao",
+    "physical_device": true
+  },
+  "max_regression_pct": 10,
+  "baseline": {
+    "policy": "initial",
+    "reason": "DEFINIR motivo da primeira medicao; otimizacao de legado exige baseline vinculado"
+  },
+  "required_checks": [
+    "abertura_sem_rede",
+    "primeira_acao_operante",
+    "base_operacional_grande",
+    "encerrar_reabrir_pendencias",
+    "reenvio_idempotente",
+    "isolamento_usuario_empresa",
+    "update_preserva_fila",
+    "update_falha_recupera"
+  ],
+  "budgets": [
+    {
+      "id": "abertura_local_fria",
+      "unit": "ms",
+      "stat": "p95",
+      "limit": 1500,
+      "min_samples": 30,
+      "scenario": "processo-encerrado-dados-provisionados-primeira-acao-operante",
+      "network": "offline",
+      "dataset": "DEFINIR volume, distribuicao e fila representativos",
+      "cache": "processo-frio-armazenamento-local-preparado"
+    },
+    {
+      "id": "retomada_local",
+      "unit": "ms",
+      "stat": "p95",
+      "limit": 700,
+      "min_samples": 30,
+      "scenario": "retomada-da-tela-ate-acao-operante",
+      "network": "offline",
+      "dataset": "DEFINIR volume, distribuicao e fila representativos",
+      "cache": "processo-aquecido"
+    },
+    {
+      "id": "resposta_toque",
+      "unit": "ms",
+      "stat": "p95",
+      "limit": 100,
+      "min_samples": 30,
+      "scenario": "toque-ate-feedback-visual",
+      "network": "offline",
+      "dataset": "DEFINIR volume, distribuicao e fila representativos",
+      "cache": "processo-aquecido"
+    },
+    {
+      "id": "gravacao_local",
+      "unit": "ms",
+      "stat": "p95",
+      "limit": 200,
+      "min_samples": 30,
+      "scenario": "toque-ate-commit-de-acao-simples-e-outbox",
+      "network": "offline",
+      "dataset": "DEFINIR volume, distribuicao e fila representativos",
+      "cache": "processo-aquecido"
+    },
+    {
+      "id": "rede_aguardada_na_abertura_local",
+      "unit": "count",
+      "stat": "max",
+      "limit": 0,
+      "min_samples": 30,
+      "scenario": "dependencias-de-rede-no-caminho-critico",
+      "network": "api-indisponivel",
+      "dataset": "DEFINIR volume, distribuicao e fila representativos",
+      "cache": "processo-frio-armazenamento-local-preparado"
+    }
+  ]
+}

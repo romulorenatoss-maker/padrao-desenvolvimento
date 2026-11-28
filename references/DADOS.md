@@ -12,7 +12,9 @@ Ensaiar transformacao destrutiva no ambiente permitido antes do oficial. Nao apl
 
 ## Acesso ao banco: somente pela persistencia do modulo
 
-Consulta, comando SQL, RPC ou chamada ao cliente do banco ficam somente na camada de persistencia do modulo dono (repository, DAO, gateway ou equivalente idiomatico da stack). Service/regra decide e chama a persistencia; view, controller/action, job, rota e frontend nunca acessam o banco diretamente. Outro modulo le ou grava pelo contrato publico do dono, nunca pela tabela interna.
+Consulta, comando SQL, RPC ou chamada ao cliente do banco central ficam somente na camada de persistencia do modulo dono (repository, DAO, gateway ou equivalente idiomatico da stack). Service/regra decide e chama a persistencia; view, controller/action, job, rota e frontend nunca acessam o banco central diretamente. Outro modulo le ou grava pelo contrato publico do dono, nunca pela tabela interna.
+
+Persistencia local autorizada no cliente e outro alcance: IndexedDB/SQLite fica atras do repositorio/adaptador local, sem SQL/acesso ao storage espalhados na UI. Aplicar [contrato offline](../skills/desempenho-mobile/references/offline-atualizacao.md#persistencia-e-sessao-local), com escopo, quota, migrations e fila; dado local/recibo pendente nao concede permissao nem confirma efeito no banco central.
 
 Para dar velocidade: um metodo por pergunta/efeito de negocio, nomeado pela tarefa (`listarAbertosDoCliente`, `registrarBaixa`), reutilizado pelas proximas telas; sem repository generico, query builder proprio, ORM ou framework novo. Filtro de tenant/empresa e permissao de dado ficam no metodo, nao repetidos em cada chamador.
 
@@ -128,6 +130,8 @@ No pedido, quantidade, preco aplicavel, descontos, frete e tributos pertinentes 
 ### Prioridade de abertura, badges e alertas
 
 Classificar no documento da pagina existente o essencial para operar, os complementos adiaveis e os detalhes sob demanda. Primeiro validar sessao/escopo/permissao e entregar estrutura e primeira pagina de dados necessarios; nao preparar todas as abas, modais e detalhes antes de tornar a pagina utilizavel. Reutilizar verificacoes equivalentes na mesma requisicao, sem transformar isso em autorizacao antiga entre requisicoes.
+
+No perfil offline, a abertura usa concessao local valida e projecao autorizada conforme [desempenho-mobile](../skills/desempenho-mobile/SKILL.md), sem aguardar rede/sync/update regular; a operacao oficial continua revalidada no servidor. Limitar tambem consultas, integridade, transformacao e serializacao locais a primeira pagina/projecao segura. Percorrer todo o catalogo em blocos e depois recortar em memoria nao e paginacao de ponta a ponta.
 
 Badges, contadores de menu e alertas informativos auxiliares carregam depois, de forma assincrona e independente da abertura. O frontend apresenta o resultado; a contagem vem de consulta agregada no banco, restrita ao usuario/empresa permitidos, sem montar os objetos completos nem fazer uma consulta por item. Atraso/falha nessa consulta nao bloqueia navegacao ou formulario. Alerta que determina permissao, manutencao, credito, saldo ou outra recusa critica continua validado no servidor antes da operacao; adiar o badge nao adia essa protecao.
 

@@ -382,6 +382,41 @@ class DistributionTests(unittest.TestCase):
         bad = subprocess.run(command, capture_output=True, text=True, timeout=10)
         self.assertEqual(bad.returncode, 1, bad.stdout + bad.stderr)
 
+    def test_mobile_method_requires_owners_and_profile(self):
+        self.assert_mutations_fail([
+            ("skills/desempenho-mobile/SKILL.md", "## Procedimento obrigatorio", "## Retirado"),
+            ("skills/desempenho-mobile/references/construcao.md", "## Sequencia de abertura", "## Retirado"),
+            ("skills/desempenho-mobile/references/offline-atualizacao.md",
+             "## Atualizacao automatica desde a primeira versao", "## Retirado"),
+            ("skills/desempenho-mobile/references/medicao-aceite.md", "## Cenarios de aceite", "## Retirado"),
+            ("templates/PADRAO_TECNICO.md", "### Abertura e resposta", "### Retirado"),
+            ("templates/PADRAO_TECNICO.md", "### Offline e sincronizacao", "### Retirado"),
+            ("templates/PADRAO_TECNICO.md", "### Atualizacao e pacote", "### Retirado"),
+            ("skills/desempenho-mobile/assets/perfil-desempenho.exemplo.json",
+             '"state": "PROPOSTO"', '"state": "APROVADO"'),
+        ])
+
+    def test_mobile_route_cannot_be_replaced_by_generic_link(self):
+        self.assert_mutations_fail([
+            ("skills/verificar/SKILL.md",
+             "../desempenho-mobile/references/medicao-aceite.md#cenarios-de-aceite",
+             "../desempenho-mobile/SKILL.md"),
+            ("references/DADOS.md",
+             "../skills/desempenho-mobile/references/offline-atualizacao.md#persistencia-e-sessao-local",
+             "../skills/desempenho-mobile/SKILL.md"),
+        ])
+
+    def test_mobile_missing_resource_or_evaluator_fails(self):
+        for relative in ("skills/desempenho-mobile/references/offline-atualizacao.md",
+                         "skills/desempenho-mobile/scripts/verificar_desempenho.py",
+                         "skills/desempenho-mobile/assets/perfil-desempenho.exemplo.json"):
+            with self.subTest(relative=relative):
+                path = self.root / relative
+                original = path.read_bytes()
+                path.unlink()
+                self.assertTrue(validate(self.root))
+                path.write_bytes(original)
+
     def test_legacy_installer_is_read_only_and_rejects_write_modes(self):
         bash = shutil.which("bash")
         if sys.platform == "win32" and shutil.which("git"):

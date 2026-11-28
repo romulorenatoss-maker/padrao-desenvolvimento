@@ -14,11 +14,12 @@ SKILL_NAME = r"[a-z0-9]+(?:-[a-z0-9]+)*"
 SKILL_REF = re.compile(r"(?:skills/|\.\./)(" + SKILL_NAME + r")/SKILL\.md")
 ROUTES = {
     "especificar": ("analisar", "interface", "prototipo-real", "verificar"),
-    "analisar": ("especificar", "interface", "verificar", "backup-recuperacao"),
-    "construir": ("analisar", "especificar", "interface", "verificar"),
-    "verificar": ("analisar", "especificar", "interface", "construir", "backup-recuperacao"),
-    "iniciar-projeto": ("analisar", "especificar", "interface", "construir", "backup-recuperacao"),
-    "prototipo-real": ("especificar", "interface", "verificar"),
+    "analisar": ("especificar", "interface", "verificar", "backup-recuperacao", "desempenho-mobile"),
+    "construir": ("analisar", "especificar", "interface", "verificar", "desempenho-mobile"),
+    "verificar": ("analisar", "especificar", "interface", "construir", "backup-recuperacao", "desempenho-mobile"),
+    "iniciar-projeto": ("analisar", "especificar", "interface", "construir", "backup-recuperacao", "desempenho-mobile"),
+    "prototipo-real": ("especificar", "interface", "verificar", "desempenho-mobile"),
+    "desempenho-mobile": ("analisar", "construir", "documentacao", "seguranca", "verificar", "interface"),
     "documentacao": ("analisar", "especificar", "interface"),
     "auditar-projeto": ("analisar", "especificar", "interface"),
 }
@@ -294,6 +295,46 @@ def validate(root: Path) -> list[str]:
         for target in targets:
             if f"]({target})" not in texts.get(consumer, ""):
                 errors.append(f"{consumer}: ponte para contrato visual ausente: {target.split('#', 1)[1]}")
+    # O pacote deve distribuir a receita e os instrumentos, sem certificar apps.
+    mobile_root = "skills/desempenho-mobile"
+    mobile_contracts = {
+        f"{mobile_root}/SKILL.md": ("## Procedimento obrigatorio", "## Perfis de tecnologia",
+                                  "## Documentos e arquivos desde a primeira capacidade",
+                                  "## Conferencia e estados de entrega"),
+        f"{mobile_root}/references/construcao.md": ("## Perfil e estrutura", "## Sequencia de abertura",
+                                                   "## Preparacao do APK"),
+        f"{mobile_root}/references/offline-atualizacao.md": ("## Persistencia e sessao local",
+                                                            "## Operacao e sincronizacao",
+                                                            "## Atualizacao automatica desde a primeira versao",
+                                                            "## Canais de distribuicao"),
+        f"{mobile_root}/references/medicao-aceite.md": ("## Contrato de medicao", "## Orcamentos iniciais",
+                                                       "## Cenarios de aceite", "## Avaliador de evidencias"),
+        "templates/PADRAO_TECNICO.md": ("## Execucao web mobile e desempenho", "### Abertura e resposta",
+                                      "### Offline e sincronizacao", "### Atualizacao e pacote"),
+    }
+    for relative, headings in mobile_contracts.items():
+        for heading in headings:
+            if heading not in texts.get(relative, "").splitlines():
+                errors.append(f"{relative}: contrato mobile ausente: {heading.lstrip('# ')}")
+    mobile_routes = {
+        "references/ARQUITETURA.md": "../skills/desempenho-mobile/references/construcao.md#perfil-e-estrutura",
+        "references/DADOS.md": "../skills/desempenho-mobile/references/offline-atualizacao.md#persistencia-e-sessao-local",
+        "references/DOCUMENTACAO.md": "../skills/desempenho-mobile/SKILL.md#documentos-e-arquivos-desde-a-primeira-capacidade",
+        "templates/PADRAO_TECNICO.md": "../skills/desempenho-mobile/SKILL.md",
+        "skills/construir/SKILL.md": "../desempenho-mobile/references/offline-atualizacao.md#operacao-e-sincronizacao",
+        "skills/verificar/SKILL.md": "../desempenho-mobile/references/medicao-aceite.md#cenarios-de-aceite",
+    }
+    for consumer, target in mobile_routes.items():
+        if f"]({target})" not in texts.get(consumer, ""):
+            errors.append(f"{consumer}: ponte para contrato mobile ausente")
+    try:
+        if not read(f"{mobile_root}/scripts/verificar_desempenho.py").strip():
+            raise ValueError("avaliador vazio")
+        profile = load(f"{mobile_root}/assets/perfil-desempenho.exemplo.json")
+        if profile.get("state") != "PROPOSTO" or not profile.get("budgets") or not profile.get("required_checks"):
+            raise ValueError("exemplo nao pode simular perfil aprovado")
+    except (OSError, UnicodeError, ValueError):
+        errors.append("desempenho-mobile: avaliador/perfil de exemplo ausente ou invalido")
     return errors
 
 
