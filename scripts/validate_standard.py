@@ -249,13 +249,19 @@ def validate(root: Path) -> list[str]:
         "references/DOCUMENTACAO.md": ("## Padroes locais preenchiveis",),
         "templates/PADRAO_TECNICO.md": ("## Stack por escopo", "## Estrutura e nomes",
                                       "## Referencias por linguagem", "## Verificacao e fiscal"),
-        "templates/PADRAO_VISUAL.md": ("## Matriz de cobertura", "## Ficha de peca",
+        "templates/PADRAO_VISUAL.md": ("## Setup e decisoes vigentes", "## Matriz de cobertura",
+                                     "## Ficha de peca", "## Matriz de composicao",
+                                     "## Medidas e evidencia", "### Densidade de listas e tabelas",
                                      "## Diferencas e excecoes", "## Cobertura e conferencia"),
         "skills/interface/SKILL.md": ("### Catalogo local e promocao de uma peca",
                                      "### Ciclo de vida de uma peca",
+                                     "### Setup visual por referencia",
+                                     "### Registro progressivo das decisoes visuais",
+                                     "### Matriz de composicao e medidas verificaveis",
                                      "### Desktop e mobile no mesmo padrao",
                                      "### Contrato de listas e carregamento"),
-        "skills/verificar/SKILL.md": ("## Conferencia obrigatoria do fiscal",),
+        "skills/verificar/SKILL.md": ("## Conferencia obrigatoria do fiscal",
+                                     "### Conferencia da composicao e das medidas"),
     }
     for relative, headings in local_contracts.items():
         for heading in headings:
@@ -269,6 +275,23 @@ def validate(root: Path) -> list[str]:
     for consumer in ("analisar", "iniciar-projeto", "construir", "verificar"):
         if "../../references/DOCUMENTACAO.md#padroes-locais-preenchiveis)" not in skills.get(consumer, ""):
             errors.append(f"{consumer}: consulta aos padroes locais ausente")
+    # As entradas apontam para os contratos donos, sem duplicar regras no bootstrap/fiscal.
+    # Esta guarda detecta perda de distribuicao; nao mede pixels nem avalia decisoes de um agente.
+    visual_routes = {
+        "skills/iniciar-projeto/SKILL.md": ("../interface/SKILL.md#setup-visual-por-referencia",),
+        "skills/construir/SKILL.md": ("../interface/SKILL.md#registro-progressivo-das-decisoes-visuais",),
+        "skills/documentacao/SKILL.md": ("../interface/SKILL.md#registro-progressivo-das-decisoes-visuais",),
+        "skills/verificar/SKILL.md": ("../interface/SKILL.md#matriz-de-composicao-e-medidas-verificaveis",
+                                     "../interface/SKILL.md#registro-progressivo-das-decisoes-visuais"),
+        "references/DOCUMENTACAO.md": ("../skills/interface/SKILL.md#registro-progressivo-das-decisoes-visuais",
+                                       "../skills/interface/SKILL.md#matriz-de-composicao-e-medidas-verificaveis"),
+        "templates/PADRAO_VISUAL.md": ("../skills/interface/SKILL.md#setup-visual-por-referencia",
+                                      "../skills/interface/SKILL.md#registro-progressivo-das-decisoes-visuais"),
+    }
+    for consumer, targets in visual_routes.items():
+        for target in targets:
+            if f"]({target})" not in texts.get(consumer, ""):
+                errors.append(f"{consumer}: ponte para contrato visual ausente: {target.split('#', 1)[1]}")
     return errors
 
 

@@ -40,10 +40,10 @@ O padrao vigente continua obrigatorio nas proximas criacoes/correcoes. Alteracao
 ### Ciclo de vida de uma peca
 
 1. Catalogo na primeira interface: a primeira tela do projeto ja cria o catalogo local conforme [PADRAO_VISUAL.md](../../templates/PADRAO_VISUAL.md), com as pecas que ela usa.
-2. Pergunta de gravar: peca nova aceita pelo responsavel recebe "Esta bom para gravar como padrao?", nomeando cada peca, tela, revisao e modos vistos.
-3. Sim = APROVADO R1. Nao ou sem resposta = PROPOSTO; a proxima tela que precisar reutiliza essa mesma forma (nunca outra) e retoma a pergunta.
-4. Heranca: toda tela usa a revisao vigente da peca; nova revisao vale para todos os consumidores.
-5. Troca x excecao: troca = nova revisao (Rn+1) no catalogo e todos os consumidores no mesmo lote; excecao = proximo `E##` (numero nunca reaproveitado) com tres vinculos no mesmo lote: linha na tabela de excecoes do catalogo; marcador `PADRAO_EXCECAO: E## <peca>` em comentario na linha abaixo do DNA da unidade alterada; linha `PADRAO_EXCECAO: E## <peca>` com link ao catalogo no documento da tela, fora do bloco estruturado ([documentacao](../../references/DOCUMENTACAO.md#padroes-locais-preenchiveis)).
+2. Promocao: perguntar "Esta bom para gravar como padrao?" somente se esse alcance ainda nao foi decidido, nomeando peca, tela, revisao e modos vistos. Pedido expresso de padrao ja autoriza salvar a definicao, sem nova confirmacao.
+3. Escolha explicita = definicao APROVADA na revisao identificada, preservando ID e revisoes existentes. Sem resposta, a candidata continua PROPOSTO, sem virar heranca obrigatoria; conservar a base aprovada, se houver, e resolver somente a dependencia. Recusa de promocao conserva o aceite local que existir; rejeicao da forma retira essa candidata dos usos futuros. Nao ressuscitar proposta recusada.
+4. Heranca: novas criacoes/correcoes consultam a definicao vigente; registrar separadamente qual revisao cada consumidor efetivamente implementa. Aprovar a definicao nao comprova nem autoriza por si a migracao de todos.
+5. Troca x excecao: troca = nova revisao (Rn+1) no catalogo e migracao dos equivalentes no alcance e lotes autorizados, com cobertura explicita; excecao = proximo `E##` (numero nunca reaproveitado) com tres vinculos no mesmo lote de aplicacao: linha na tabela de excecoes do catalogo; marcador `PADRAO_EXCECAO: E## <peca>` em comentario na linha abaixo do DNA da unidade alterada; linha `PADRAO_EXCECAO: E## <peca>` com link ao catalogo no documento da tela, fora do bloco estruturado ([documentacao](../../references/DOCUMENTACAO.md#padroes-locais-preenchiveis)). Antes de aplicar, registrar a definicao autorizada e deixar implementacao/marcador pendentes, sem inventar caminho ou evidencia.
 6. Diferenca sem pedido: dizer "nao esta no padrao (`<id>` Rn)" e procurar excecao registrada. Sem excecao: peca APROVADA e corrigida no lote autorizado; peca OBSERVADO/A_DEFINIR vira divergencia `D##` e a pergunta vai ao responsavel uma por vez, pela pasta temp.
 
 Paridade entre telas: a mesma peca com forma diferente em duas telas e defeito, salvo excecao ou variante registrada. ID de peca e neutro, sem nome de modulo; tela citada numa peca e so referencia. Icones: um icone por significado, mesma origem, desenho e tamanho; tela nova usa o do catalogo; icone novo e peca nova e pergunta ao responsavel.
@@ -58,9 +58,24 @@ Variante responsiva aprovada nao e excecao por tela. Uma diferenca exclusiva sol
 
 ### Entrevista inicial e escolha de ferramentas
 
-No inicio da primeira interface ou de um novo padrao visual solicitado, conferir o briefing existente e perguntar UMA decisao ausente por vez: usuario/tarefa e dispositivos; direcao e referencias; cores e tipografia; botoes, cantos, espacamentos/densidade; estados, movimento e peculiaridades protegidas. A ordem segue a lacuna real, nao um questionario fixo; neste fluxo, nao agrupar varias escolhas na mesma pergunta, mesmo se outro roteiro sugerir agrupa-las. Nao repetir respostas ja dadas nem entrevistar de novo por um bug ou edicao pontual.
+Aplicar o [setup visual por referencia](#setup-visual-por-referencia) e o [registro progressivo](#registro-progressivo-das-decisoes-visuais) abaixo. O roteiro de descoberta e as fichas preenchiveis ficam no [modelo visual](../../templates/PADRAO_VISUAL.md); escolhas de um projeto nao se tornam defaults do metodo central.
 
-Salvar cada decisao vigente no dono do briefing previsto em [documentacao](../../references/DOCUMENTACAO.md#contratos-de-projeto-e-reconstrucao). Proposta recebe PROPOSTO; somente a escolha explicita vira APROVADO. Depois, telas e TELA.md consultam esse dono e suas excecoes, sem copiar outra especificacao visual. Valores concretos e referencia renderizada ligam a escolha aos tokens/componentes implementados; apenas dizer "bonito" ou citar uma skill nao define um padrao.
+### Setup visual por referencia
+
+1. Localizar o catalogo/briefing, os pedidos explicitos ja dados e as telas/componentes aprovados antes de perguntar. Materializar ou completar somente o dono previsto, ligado ao sumario; "DNA visual" e o contrato local com identidade estavel, nao outro arquivo concorrente nem DNA funcional por pixel.
+2. Escolher a referencia por tarefa (lista, formulario, detalhe ou operacao) no alcance ja aprovado. Examinar fonte, revisao e renderizacao disponiveis; identificar o que a referencia realmente define e o que falta. Uma tela aprovada pode fornecer composicao e pecas, sem impor seus campos/dados a outro modulo.
+3. Perguntar UMA decisao ausente por vez, com exemplo/recorte concreto, opcoes pertinentes, recomendacao e o motivo pratico: efeito em densidade, legibilidade, espaco ou operacao. Se nao houver referencia, propor uma composicao minima identificada como PROPOSTO. Nao pedir ao responsavel numeros que podem ser extraidos da fonte aprovada, nem agrupar varias escolhas na mesma pergunta.
+4. Registrar cada escolha conforme a secao seguinte e continuar o trecho ja autorizado. Nao aguardar um catalogo completo; lacuna bloqueia somente a parte que depende dela. Familias ainda nao usadas ficam A_DEFINIR ou NAO_APLICAVEL justificado. Reabrir apenas decisao nova ou contradicao indispensavel; bug, tela semelhante e escolha ja expressa nao repetem a entrevista.
+
+### Registro progressivo das decisoes visuais
+
+Salvar imediatamente cada definicao visual expressamente escolhida no dono persistente, mesmo antes de construir. Registrar ID/revisao, regra concreta, fonte/data da decisao, motivo conhecido, referencia e alcance: padrao do projeto, variante ou excecao nominal. Motivo tecnico sugerido pela IA fica identificado como sugestao; nao atribui-lo ao responsavel. Proposta ainda nao escolhida permanece PROPOSTO, nunca APROVADO por existir codigo ou silencio.
+
+Separar definicao aprovada, autorizacao de aplicacao, implementacao, verificacao, apresentacao, aceite visual e cobertura. Por exemplo, uma regra de posicao pode estar APROVADA e sua implementacao NAO_IMPLEMENTADA; isso nao aprova a futura tela. Perguntas abertas, trabalho a executar e aceite pendente ficam na [pasta temp](../construir/SKILL.md#pasta-temp-de-perguntas-e-fila-temporarias), apontando para ID/revisao, sem duplicar a regra nem adiar seu registro. Esta distincao prevalece sobre a antiga restricao de guardar a decisao somente depois da construcao.
+
+Pedido que declare "padrao", "sempre" ou equivalencia abrangida atualiza o trecho comum do projeto. Pedido "somente nesta tela" registra a peculiaridade no TELA.md/dono com os vinculos da secao 4. Se o alcance de uma mudanca ainda for ambiguo, conservar o padrao vigente e perguntar apenas se e geral ou local; nao generalizar toda aprovacao pontual. Registrar cada incremento na mesma ficha, preservando escolhas nao alteradas. Revogar/substituir somente o trecho decidido e manter historico no Git.
+
+### Escolha e comparacao de ferramentas
 
 Escolher recursos pelo efeito: direcao estetica/colecao de DESIGN.md ajuda a propor; image-to-code exige alvo visual escolhido e ajuda a reproduzir; guidelines revisam acessibilidade/usabilidade/performance; navegador/Playwright conferem renderizacao e regressao, nao decidem gosto nem editam layout por si. Confirmar fonte, revisao, compatibilidade e ferramentas realmente disponiveis. Nenhum recurso externo autoriza framework, dependencia, instalacao, troca de fonte canonica ou reforma de tela aprovada.
 
@@ -99,6 +114,20 @@ Valores de identidade visual pertencem a tokens e componentes. CSS de composicao
 
 Nao corrigir defeito local com seletor global abrangente, `!important` em cascata ou redefinicao de `svg`, `button`, `table` para todo o sistema. Causa compartilhada comprovada pode exigir correcao na fonte compartilhada, com impacto e consumidores verificados. Nunca trocar framework ou biblioteca de componentes so para padronizar.
 
+### Matriz de composicao e medidas verificaveis
+
+Registrar no mesmo catalogo a matriz aprovada para cada tipo de tela realmente usado, conforme as [fichas de composicao e medidas](../../templates/PADRAO_VISUAL.md#matriz-de-composicao). Identificar regioes e seus componentes compartilhados: menu, topo, titulo, abas, contexto/empresa, configuracao, ajuda, barra de busca/filtros/acoes, conteudo e rodape. Definir ordem, alinhamento relativo a qual container, distancia entre bordas, condicao de presenca e regra de quebra/rolagem. Ausencia de uma acao nao autoriza cria-la nem preencher seu espaco com decoracao.
+
+Uma posicao precisa de condicao: "centralizado" informa centro de qual area; "a direita" informa regiao e comportamento quando falta espaco; configuracao informa quando existe para o contexto/aba e quem pode acessa-la. Se o pedido definir que o conjunto de abas desce uma linha, registrar o gatilho e o alinhamento na segunda linha; nao trocar por abas espremidas ou centralizar apenas no espaco sobrando. Esses sao exemplos de detalhamento de escolhas locais, nao defaults para todos os projetos.
+
+Para cada medida pertinente, ligar propriedade/regra aprovada ao token/componente e registrar unidade, tipo (fixa, minima, maxima, fluida ou derivada), condicao/modo e origem/revisao. Distinguir valor declarado no CSS, estilo computado, caixa renderizada e alvo aprovado. Usar CSS px para dimensoes medidas; manter unidade/formula original de rem, %, clamp ou conteudo e o contexto de conversao. Registro de medicao e evidencia datada, nao uma segunda lista manual de tokens. Screenshot sem escala/fonte conferida permite observacao ou estimativa identificada, nunca certificar px CSS, familia de fonte ou token exato.
+
+Conferir fonte realmente carregada, peso, entrelinha, padding, gap, borda, box-sizing, min/max, tema, seletores vencedores, heranca e ordem dos estilos no elemento real. A soma dessas propriedades pode alterar a altura mesmo com o mesmo token nominal. Classes iguais e `base.css` existente nao provam fonte unica em uso. Divergencia pede localizar a regra causadora e corrigir o dono apropriado, sem acumular overrides ou assumir que CSS antigo e aprovado.
+
+Pedido de ampliar somente largura preserva tipografia, densidade, altura de controles/linhas, espacamentos internos, cores, bordas, raios e comportamento aprovados. Distribuir largura disponivel conforme a matriz; quebra necessaria segue a variante existente. Se ela nao resolver uma colisao, esclarecer somente esse ponto. Nao escalar toda a interface, aumentar a fonte para preencher espaco nem aceitar padding/altura herdados do destino. Na conversao de HTML/prototipo ao real, manter a mesma matriz, pecas e revisao; adaptar dados/contratos sem reinterpretar a aparencia.
+
+Consumidor referencia matriz e pecas por ID/revisao, configura seus dados/colunas/acoes e registra apenas composicao ou excecao local autorizadas. Reusar shell/partial/componente e fonte de estilo reais; nao colar uma versao "parecida" em cada tela. Antes de entregar, comparar invariantes e deltas do pedido contra a referencia na revisao conferida, conforme secao 5.
+
 ## 3. Botoes com sentido e comportamento previsivel
 
 Use o contrato de utilidade de `especificar`. Rotulo diz a acao/resultado, nao "Clique aqui". Hierarquia reflete importancia, nao decoracao. Agrupe acoes secundarias sem esconder a essencial; mantenha destrutivas distintas. Nao fabrique botoes para preencher cards.
@@ -121,6 +150,7 @@ Para criar ou revisar movimento, consultar `motion-principles`; carregar somente
 
 Cada tipo de lista compartilhada define aparencia E comportamento, independentemente dos dados/colunas do modulo. Registrar no catalogo e implementar no dono comum:
 
+- densidade: fonte/peso/entrelinha, altura ou altura minima de cabecalho/linha, padding de celulas, espaco entre colunas, bordas, selecao, selos, icones e acoes; usar a [ficha de densidade](../../templates/PADRAO_VISUAL.md#densidade-de-listas-e-tabelas), distinguindo altura declarada de altura efetiva;
 - entrada inicial: gatilho da consulta, prioridade de dados, indicador pertinente e termino em resultado/erro; nunca mostrar "vazio" antes da resposta;
 - atualizacao com dados ja visiveis: indicador sem apagar contexto/foco, tratamento de dados anteriores e estado confirmado;
 - busca, filtros e ordenacao: gatilho, atraso quando necessario, combinacao/reset e tratamento de respostas fora de ordem; valores concretos pertencem ao projeto;
@@ -166,8 +196,8 @@ A referencia explicitamente escolhida rege os equivalentes compativeis; a mais f
 Depois da migracao, repetir a busca pelos usos atingidos para localizar copias, overrides e fontes paralelas; reconciliar codigo/documentacao e retirar somente residuos comprovados e autorizados. Distinguir encontrado, implementado, verificado, apresentado e aprovado por consumidor/modo. Nao declarar sistema inteiro padronizado por alterar um CSS, nem certificar locais nao conferidos. O fiscal confronta esta cobertura com o diff real conforme `verificar`.
 
 Para o recorte e consumidores afetados:
-1. Renderizar no navegador; comparar com referencia aprovada no mesmo viewport, tema e dados controlados.
-2. Conferir hierarquia, densidade, fontes, botoes, dimensoes reais de icones, espacamentos, alinhamento, campos, tabelas, modais e estados aplicaveis.
+1. Renderizar no navegador; comparar com referencia aprovada identificada por fonte/revisao, no mesmo viewport, zoom, tema, fontes carregadas, dados e estados controlados. Conferir a instancia/rota efetiva; nao comparar duas imagens de origens desconhecidas.
+2. Confrontar matriz e medidas pertinentes: valor esperado/origem, computado/caixa real, delta e classificacao. Conferir tipografia, densidade, botoes/icones, espacamentos entre regioes e bordas, campos, tabelas, modais e estados. Pedido de largura confere explicitamente os invariantes preservados; diferenca por dado/rotulo longo nao vira mudanca de densidade por inferencia.
 3. Exercitar tarefa principal, teclado/foco, mobile e desktop, pouco/muito conteudo e rotulos longos; zoom e demais cenarios conforme efeito.
 4. Verificar console/rede e ligar falha a causa, sem registrar segredos. Distinguir erro introduzido de problema preexistente; ambos relevantes devem ser declarados.
 5. Usar testes visuais/funcionais ja disponiveis. Adicionar a menor verificacao repetivel pertinente; novo runner apenas se necessario e autorizado.
@@ -182,7 +212,7 @@ Esta secao e a fonte dona da fila e da confirmacao visual em PROTOTIPO e REAL. A
 
 ### Registrar e delimitar antes de construir
 
-Registrar cada pedido antes da escrita no andamento/fila existente. Perguntas abertas, respostas a construir e confirmacoes pendentes seguem exclusivamente a [pasta temp](../construir/SKILL.md#pasta-temp-de-perguntas-e-fila-temporarias), sem fallback para documento de tela/modulo versionado. O dono canonico recebe a decisao construida; o registro de trabalho aponta para ela sem duplicar a regra. Persistir transicoes e preservar o aberto; chat/memoria nao sao a unica copia. Reutilizar IDs/DNAs de tela/modal, sem criar painel, banco ou sistema de aprovacao paralelo.
+Registrar cada pedido antes da escrita no andamento/fila existente. Perguntas abertas, tarefas de construcao e confirmacoes pendentes seguem exclusivamente a [pasta temp](../construir/SKILL.md#pasta-temp-de-perguntas-e-fila-temporarias), sem fila em documento de tela/modulo versionado. Definicao visual expressa entra imediatamente no dono pelo [registro progressivo](#registro-progressivo-das-decisoes-visuais); a fila aponta para ID/revisao, sem duplicar a regra. Persistir transicoes e preservar o aberto; chat/memoria nao sao a unica copia. Reutilizar IDs/DNAs de tela/modal, sem criar painel, banco ou sistema de aprovacao paralelo.
 
 O pedido guarda finalidade/motivo, solicitacao, plano PROTOTIPO/REAL, local exato (rota/tela/aba/modal/elemento), revisao base, revisao em analise, dependencias, itens de impacto, status, referencia da evidencia e resposta de aprovacao com data/origem. Cada local/estado alterado e um item filho identificavel do mesmo pedido. Uma funcao em varias telas nao recebe aceite em bloco por aprovar so uma delas. O registro aponta para a regra no dono; nao a duplica.
 
@@ -220,7 +250,7 @@ A revisao aprovada substitui a especificacao anterior do trecho no mesmo dono/DN
 
 Adocao sobre trabalho existente: alteracao sem evidencia de aprovacao fica PENDENTE_DE_REVISAO, nao aprovada retroativamente; preservar codigo/trabalho alheio, mapear o recorte e apresentar. Apos conversao autorizada, retirar apenas o prototipo efetivamente substituido conforme `prototipo-real`; uma nova prototipacao parte do real atual, nunca de copias antigas.
 
-A aprovacao visual nao substitui teste nem autoriza publicacao, mudanca de permissao ou banco. Promocao a padrao global segue a decisao expressa e o alcance registrados na secao 1; aceite local sozinho nao basta. Registrar fatos tecnicos e propostas e permitido, mas nao marca-los como regras aprovadas antes deste aceite. Documentacao e evidencias usam os donos existentes; esta skill nao instala fila executavel, hook ou bloqueio mecanico no cliente.
+A aprovacao visual nao substitui teste nem autoriza publicacao, mudanca de permissao ou banco. Promocao a padrao global segue a decisao expressa e o alcance registrados na secao 1; aceite local sozinho nao basta. Registrar fatos tecnicos e propostas e permitido; so a escolha expressa aprova a definicao e so o aceite da revisao apresentada aprova o resultado visual. Uma regra de posicao ja escolhida nao aguarda a construcao para ser salva nem aprova a tela futura. Documentacao e evidencias usam os donos existentes; esta skill nao instala fila executavel, hook ou bloqueio mecanico no cliente.
 
 ## Conexoes funcionais no alcance autorizado
 

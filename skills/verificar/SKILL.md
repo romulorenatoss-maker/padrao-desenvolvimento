@@ -58,23 +58,29 @@ Ler o diff completo, arquivos novos/nao rastreados pertinentes e os donos/consum
 | Pastas e modulo | Raiz aprovada, responsabilidade, fronteiras/contratos publicos, reutilizacao e ausencia de copias/camadas vazias. |
 | Componentes e hooks | Dono local/comum, contrato, estado/efeitos, convencao e verificacoes da stack adotada; sem dependencias ou tecnologia introduzidas pelo exemplo. |
 | Documentacao | Documento dono atualizado junto do codigo, sumario/IDs/links corretos, origem da decisao, exemplos reais e nenhuma regra contraditoria/duplicada. |
-| Interface | Catalogo/revisao, tokens/implementacao compartilhados, estados/carregamento, desktop/mobile e efeitos indiretos em consumidores. |
-| Diferencas | Base/variante/configuracao/excecao/divergencia classificadas, propriedades e modos delimitados, origem verdadeira; sem aprovacao inventada. Excecao com os tres vinculos (`E##` no catalogo, `PADRAO_EXCECAO` abaixo do DNA, linha na tela); faltando um, reprova. |
+| Interface | Catalogo/revisao, matriz de composicao, medidas/condicoes, tokens/implementacao compartilhados, estados/carregamento, desktop/mobile e efeitos indiretos em consumidores. |
+| Diferencas | Base/variante/configuracao/excecao/divergencia classificadas, propriedades e modos delimitados, origem verdadeira; sem aprovacao inventada. Excecao aplicada com os tres vinculos (`E##` no catalogo, `PADRAO_EXCECAO` abaixo do DNA, linha na tela); faltando um, reprova a aplicacao. Definicao ainda nao implementada nao certifica conformidade. |
 | Paridade | A mesma peca nas telas tocadas e nas vizinhas tem a mesma forma; diferenca sem excecao/variante registrada reprova ou vira `D##`. ID de peca sem nome de modulo; um icone por significado. |
 | Plugins usados | Lista `plugin -> skill -> tela/arquivo -> resultado` do construtor conferida contra a evidencia real (chamada da skill, achados, correcoes): Ponytail com `ponytail-review` no codigo; frontend-design e UI Design Review (celular e desktop) em toda tela/aba/modal criado ou alterado, antes de mostrar. Falta de uso, uso sem evidencia ou achado importante ignorado sem motivo reprova e volta ao construtor; plugin ausente so passa com o limite declarado. Ver [plugins de design](../interface/SKILL.md#plugins-de-design-na-construcao-e-revisao). |
 | Cobertura e aceite | Alcance da migracao, consumidores realmente conferidos, evidencias de teste/apresentacao/aceite e pendencias preservadas. |
 
-Arvore do fiscal para cada diferenca visual:
+Decisao do fiscal para cada diferenca visual:
 
-```text
-diferenca encontrada
-+-- ha E## registrado com os tres vinculos? -> sim: PASSOU nesse ponto
-+-- ha variante aprovada para o modo? -> sim: PASSOU
-+-- nao: estado da peca no catalogo
-    +-- APROVADO -> FALHOU; volta ao construtor para seguir a peca
-    +-- OBSERVADO/A_DEFINIR -> registrar D## e perguntar ao responsavel, uma por vez
-    +-- PROPOSTO -> a forma reutilizada deve ser a mesma; outra forma FALHOU
-```
+| Evidencia encontrada | Resultado naquele ponto |
+|---|---|
+| Excecao `E##` aplicada com tres vinculos | Conferir vigencia, base/revisao, tela, modo, propriedades autorizadas e evidencia. PASSOU somente se o delta observado corresponde ao autorizado; o restante continua herdado. Marcador sozinho nao basta. |
+| Variante aprovada ou configuracao permitida | Conferir condicao de uso e propriedades previstas, alem do resultado. PASSOU somente dentro desse contrato. |
+| Desvio sem cobertura de peca APROVADA | FALHOU; corrigir no alcance autorizado. Nao mudar a referencia para aceitar o desvio. |
+| Peca OBSERVADO/A_DEFINIR ou origem incerta | Registrar `D##` e resolver somente a decisao dependente, uma pergunta por vez; nao presumir excecao ou padrao. |
+| Peca PROPOSTO sem promocao decidida | Nao certificar como padrao nem impor heranca; preservar base aprovada e aceite local que existirem, resolver a lacuna pertinente. Proposta recusada nao volta como padrao. |
+
+### Conferencia da composicao e das medidas
+
+Confrontar a [matriz e medidas verificaveis](../interface/SKILL.md#matriz-de-composicao-e-medidas-verificaveis) com a fonte/revisao aprovada, o diff e a implementacao renderizada. Conferir regioes, centro/ancoras, condicoes de presenca/quebra, distancias entre bordas, tipografia, densidade e estados pertinentes. Registrar esperado/origem, observado, condicoes, delta e classificacao; codigo com o mesmo token/classe nao basta se overrides ou fontes carregadas mudarem o resultado.
+
+Pedido restrito a largura exige preservar os outros invariantes e exercitar a quebra prevista. Listas equivalentes podem mudar dados/colunas, sem inventar outra densidade; conteudo longo segue a variante e nao prova desvio de altura por si. Screenshot sem fonte/escala nao certifica medidas CSS exatas; falta de renderizacao fica NAO_EXECUTADO/NAO_VERIFICADO. Comparacao controlada e medicao verificam fidelidade, nao aprovam a nova referencia.
+
+Conferir que escolhas explicitas foram persistidas pelo [registro progressivo](../interface/SKILL.md#registro-progressivo-das-decisoes-visuais), mesmo com aplicacao pendente. Nao reprovar uma definicao salva por ainda nao estar construida; reprovar a alegacao de implementacao, cobertura ou aceite sem evidencia. Contradicao com fila temporaria, duplicacao de valores entre donos ou segunda entrevista de escolhas resolvidas exige correcao documental.
 
 Fontes donas: [padrao tecnico local](../../references/ARQUITETURA.md#padrao-tecnico-local), [padroes locais preenchiveis](../../references/DOCUMENTACAO.md#padroes-locais-preenchiveis) e [catalogo de interface](../interface/SKILL.md#catalogo-local-e-promocao-de-uma-peca). Corrigir um arquivo tambem deve respeitar seu perfil; nao exigir reorganizar todo legado por um ajuste local. Desvio preexistente fora do alcance e declarado com local/evidencia e nao confundido com nova excecao aprovada.
 
@@ -123,7 +129,7 @@ Preservar guardas, hooks, CI e fiscal independente quando exigidos pelo contrato
 
 Conferir o [registro temporario e seu fechamento](../../references/DOCUMENTACAO.md#manutencao-e-limpeza-do-conhecimento-vigente) pelo diff real: caminhos/simbolos, DNAs, donos atualizados e consumidores atingidos, inclusive itens omitidos pelo executor. Encaminhar divergencias conforme a referencia e reconferir antes de fechar. Lote encerrado nao deixa temporario de mudancas; lote interrompido preserva o aberto. Conferir a [pasta temp](../construir/SKILL.md#pasta-temp-de-perguntas-e-fila-temporarias): sem pergunta entregue, decisao no dono e pasta excluida quando nada ficou aberto. Evidencia canonica/Git e manifestos/recibos exigidos seguem o ciclo local, sem apagamento para contornar guarda. Conferencia do lote nao certifica todo o repositorio.
 
-Fiscal independente confere, alem do codigo, o fechamento documental de tudo o que as skills exigem para o lote: decisao gravada no documento do modulo/tela dono; entrada no historico de entregas com QUEM, COMMITS, FEZ, CONFERIU, FALTA e DESFAZER; limpeza dos registros de trabalho (nenhuma pergunta aberta ou resposta a construir fora da [pasta temp](../construir/SKILL.md#pasta-temp-de-perguntas-e-fila-temporarias), pergunta entregue retirada dela, andamento/fila/pendencias/mapas/marcas de "falta publicar" sem o que foi entregue); inventario/identidades e vinculos reconciliados; migrations aplicadas e conferidas quando o codigo depende delas. Ausencia de qualquer um e lacuna, nao observacao. Em lote que publica tela/aba/modal prototipado, o fiscal confere tambem a comparacao prototipo x real (`prototipo-real`, fechamento da conversao): diferencas no andamento, documento da tela so com o real e prototipo apagado quando nada sobrou. Ausencia e lacuna. Candidato contem somente o lote autorizado; sem `--no-verify`, reset destrutivo, amend/force, perda de trabalho alheio ou permissao concedida por conveniencia. Commit, push confirmado, deploy e versao ativa sao distintos.
+Fiscal independente confere, alem do codigo, o fechamento documental de tudo o que as skills exigem para o lote: decisao gravada no documento do modulo/tela dono; entrada no historico de entregas com QUEM, COMMITS, FEZ, CONFERIU, FALTA e DESFAZER; limpeza dos registros de trabalho (perguntas abertas e tarefas/aceites pendentes somente na [pasta temp](../construir/SKILL.md#pasta-temp-de-perguntas-e-fila-temporarias), definicoes visuais escolhidas ja no dono com aplicacao separada, pergunta entregue retirada da fila, andamento/pendencias/mapas/marcas de "falta publicar" sem o que foi entregue); inventario/identidades e vinculos reconciliados; migrations aplicadas e conferidas quando o codigo depende delas. Ausencia de qualquer um e lacuna, nao observacao. Em lote que publica tela/aba/modal prototipado, o fiscal confere tambem a comparacao prototipo x real (`prototipo-real`, fechamento da conversao): diferencas no andamento, documento da tela so com o real e prototipo apagado quando nada sobrou. Ausencia e lacuna. Candidato contem somente o lote autorizado; sem `--no-verify`, reset destrutivo, amend/force, perda de trabalho alheio ou permissao concedida por conveniencia. Commit, push confirmado, deploy e versao ativa sao distintos.
 
 ## Cenarios de execucao imediata do metodo
 
@@ -155,12 +161,19 @@ Conferir os encaminhamentos de `especificar`, `interface` e `prototipo-real`, in
 | 22. Modulo financeiro em React autorizado | Seguir perfil local ou exemplo condicional, contratos, nomes e documentacao; fiscal confere arquivos realmente criados. |
 | 23. Catalogo/TRD existente | Completar equivalente e manter IDs; nao criar segunda fonte ou reabrir escolha aprovada. |
 | 24. Codigo funciona, mas nome/pasta/documentacao violam contrato | Fiscal reprova o desvio no alcance, devolve para correcao e reconfere; funcionamento sozinho nao fecha a entrega. |
-| 25. Mude o botao X nesta tela (peca APROVADA) | Listar consumidores e perguntar "troca em todas ou excecao so desta tela?"; nao alterar a peca comum sem a resposta. |
-| 26. Responsavel: "so aqui" | Proximo `E##`, marcador abaixo do DNA e linha na tela no mesmo lote; restante herda o padrao. |
-| 27. Responsavel: "em todas" | Nova revisao da peca e todos os consumidores no mesmo lote; sem perguntar de novo. |
+| 25. Mude o botao X (peca APROVADA), sem definir alcance | Listar consumidores e perguntar "troca em todas ou excecao so desta tela?" somente se a decisao ainda nao estiver expressa; nao alterar a peca comum sem esse alcance. |
+| 26. Responsavel: "so aqui" | Registrar definicao no proximo `E##`; no lote de aplicacao, completar marcador abaixo do DNA e linha na tela. Restante herda o padrao. |
+| 27. Responsavel: "em todas" | Nova revisao da peca e migracao dos equivalentes em lotes autorizados, com cobertura e aceite separados; sem perguntar de novo por tela. |
 | 28. Diferenca achada sem pedido | "Nao esta no padrao (`<id>` Rn)"; sem excecao: APROVADO corrige, OBSERVADO/A_DEFINIR vira `D##` com pergunta unica. |
-| 29. Peca nova aceita sem resposta a "Esta bom para gravar como padrao?" | Fica PROPOSTO; a proxima tela reutiliza a mesma forma e retoma a pergunta. |
+| 29. Peca nova aceita localmente sem resposta sobre promocao | Aceite local permanece; promocao pendente nao vira heranca obrigatoria. Resolver somente a escolha necessaria e nao reapresentar uma candidata recusada. |
 | 30. Mesma peca diferente em duas telas | Fiscal reprova ou registra `D##`; nunca aceita as duas formas sem excecao/variante. |
+| 31. Primeira interface sem padrao definido | Recuperar referencias, perguntar uma decisao ausente com opcoes e motivo; salvar cada escolha, completar apenas familias usadas. |
+| 32. Use a tela aprovada como matriz e amplie somente a largura | Reusar composicao/pecas; registrar o delta de largura e preservar tipografia, densidade e demais invariantes, com comparacao controlada. |
+| 33. Abas e posicao da acao ja foram escolhidas | Salvar ou recuperar essas regras; nao entrevistar de novo. Resolver apenas a condicao de quebra se ainda indispensavel e ausente. |
+| 34. Ha somente screenshot, sem fonte/renderizacao acessivel | Referencia visual identificada; medidas observadas/estimadas e lacunas explicitas, sem px CSS ou familia de fonte certificados. |
+| 35. Nova regra visual escolhida, codigo ainda nao alterado | Definicao salva imediatamente no dono; implementacao, apresentacao, aceite e cobertura continuam pendentes. |
+| 36. Excecao de largura mobile numa tela com tres vinculos | Conferir somente esse delta/condicao autorizados; mudanca adicional de cor, fonte ou desktop continua sendo desvio. |
+| 37. Nova lista com outras colunas ou mais registros | Configuracao do dominio muda; matriz, densidade e comportamento comuns permanecem, respeitando conteudo longo e variantes. |
 
 Sem execucao observada, marcar CENARIOS_DO_METODO/ACEITE_FUNCIONAL como NAO_EXECUTADO e distinguir da VALIDACAO_ESTRUTURAL. ACEITE_VISUAL e NAO_SE_APLICA em patch exclusivo do padrao; ensaio de consumidor continua pendente no seu proprio alcance autorizado.
 
