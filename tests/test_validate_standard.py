@@ -150,8 +150,19 @@ class DistributionTests(unittest.TestCase):
         self.assertTrue(validate(self.root))
 
     def test_unknown_skill_and_broken_links_fail(self):
+        relative = "skills/construir/SKILL.md"
+        path = self.root / relative
+        original = path.read_text(encoding="utf-8")
+        try:
+            # Remove both valid ways to reach the owner; another live link keeps the route valid.
+            self.edit(relative, "`interface`", "`fantasma`")
+            self.edit(relative, "../interface/SKILL.md", "../fantasma/SKILL.md")
+            errors = validate(self.root)
+            self.assertIn("roteamento: construir nao referencia interface", errors)
+            self.assertIn(f"{relative}: skill desconhecida: fantasma", errors)
+        finally:
+            path.write_text(original, encoding="utf-8")
         self.assert_mutations_fail([
-            ("skills/construir/SKILL.md", "`interface`", "`fantasma`"),
             ("README.md", "[INSTALL.md](INSTALL.md)", "[INSTALL.md](nao-existe.md)"),
             ("README.md", "[INSTALL.md](INSTALL.md)", "[INSTALL.md](../../outside.md)"),
         ])
@@ -290,6 +301,53 @@ class DistributionTests(unittest.TestCase):
         self.edit("templates/PADRAO_TECNICO.md",
                   "../references/ARQUITETURA.md#", "../references/NAO_EXISTE.md#")
         self.assertTrue(any("templates/PADRAO_TECNICO.md: link local invalido" in e for e in validate(self.root)))
+
+    def test_visual_contract_sections_report_the_missing_owner(self):
+        cases = (
+            ("skills/interface/SKILL.md", "### Setup visual por referencia"),
+            ("skills/interface/SKILL.md", "### Registro progressivo das decisoes visuais"),
+            ("skills/interface/SKILL.md", "### Matriz de composicao e medidas verificaveis"),
+            ("templates/PADRAO_VISUAL.md", "## Setup e decisoes vigentes"),
+            ("templates/PADRAO_VISUAL.md", "## Matriz de composicao"),
+            ("templates/PADRAO_VISUAL.md", "## Medidas e evidencia"),
+            ("templates/PADRAO_VISUAL.md", "### Densidade de listas e tabelas"),
+            ("skills/verificar/SKILL.md", "### Conferencia da composicao e das medidas"),
+        )
+        for relative, heading in cases:
+            with self.subTest(owner=relative, heading=heading):
+                path = self.root / relative
+                original = path.read_text(encoding="utf-8")
+                try:
+                    self.edit(relative, heading, "## Secao retirada")
+                    self.assertIn(f"{relative}: contrato local ausente: {heading.lstrip('# ')}",
+                                  validate(self.root))
+                finally:
+                    path.write_text(original, encoding="utf-8")
+        self.assertEqual(validate(self.root), [])
+
+    def test_visual_contract_routes_cannot_degrade_to_a_generic_skill_link(self):
+        cases = (
+            ("skills/iniciar-projeto/SKILL.md", "../interface/SKILL.md", "setup-visual-por-referencia"),
+            ("skills/construir/SKILL.md", "../interface/SKILL.md", "registro-progressivo-das-decisoes-visuais"),
+            ("skills/documentacao/SKILL.md", "../interface/SKILL.md", "registro-progressivo-das-decisoes-visuais"),
+            ("skills/verificar/SKILL.md", "../interface/SKILL.md", "matriz-de-composicao-e-medidas-verificaveis"),
+            ("skills/verificar/SKILL.md", "../interface/SKILL.md", "registro-progressivo-das-decisoes-visuais"),
+            ("references/DOCUMENTACAO.md", "../skills/interface/SKILL.md", "registro-progressivo-das-decisoes-visuais"),
+            ("references/DOCUMENTACAO.md", "../skills/interface/SKILL.md", "matriz-de-composicao-e-medidas-verificaveis"),
+            ("templates/PADRAO_VISUAL.md", "../skills/interface/SKILL.md", "setup-visual-por-referencia"),
+            ("templates/PADRAO_VISUAL.md", "../skills/interface/SKILL.md", "registro-progressivo-das-decisoes-visuais"),
+        )
+        for relative, owner, anchor in cases:
+            with self.subTest(consumer=relative, contract=anchor):
+                path = self.root / relative
+                original = path.read_text(encoding="utf-8")
+                try:
+                    self.edit(relative, f"]({owner}#{anchor})", f"]({owner})")
+                    self.assertIn(f"{relative}: ponte para contrato visual ausente: {anchor}",
+                                  validate(self.root))
+                finally:
+                    path.write_text(original, encoding="utf-8")
+        self.assertEqual(validate(self.root), [])
 
     def test_symlink_outside_root_fails(self):
         path = self.root / "skills/interface/SKILL.md"
